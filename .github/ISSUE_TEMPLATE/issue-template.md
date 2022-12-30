@@ -1,7 +1,7 @@
 ---
 name: issue template
 about: ex) 안의 내용은 지워서 사용해주세요
-title: ''
+title: "[] - issue name "
 labels: ''
 assignees: ''
 
