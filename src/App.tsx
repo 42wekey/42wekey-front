@@ -13,9 +13,8 @@ const App = (): JSX.Element => {
           <Login />
         </Route>
         <Route path='/'>
-          <Main/>
+          <Main />
         </Route>
-
       </Switch>
     </BrowserRouter>
   );
