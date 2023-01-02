@@ -1,0 +1,12 @@
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.background{
+    width:100%;
+    background-color: #B9D5FF;
+    height: 70px;
+}
