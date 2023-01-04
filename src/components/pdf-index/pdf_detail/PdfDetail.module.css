@@ -1,0 +1,50 @@
+.pdf {
+	/* width: 9rem; */
+}
+
+.content {
+	align-items: center;
+}
+
+.pdfHeader {
+	display: flex;
+	align-items: center;
+	width: 40rem;
+	margin: 5px;
+}
+
+.pdfInfo {
+	/* align-items: center; */
+	width: 42rem;
+	justify-self:center;
+	margin-top: 1rem;
+	background-color: #D9D9D9;
+}
+
+.pdfViewer {
+	width: 40rem;
+	margin: 5px;
+	background-color: #D9D9D9;
+}
+
+.pdfComment {
+	width: 40rem;
+	margin: 5px;
+	background-color: #D9D9D9;
+}
+
+.commentId {
+	display: flex;
+	margin-top: 5px;
+}
+
+.userComment {
+	display: flex;
+}
+
+.commentTime {
+display: flex;
+margin-left: auto;
+margin-right: 1rem;
+text-align: right;
+}
