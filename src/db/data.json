@@ -66,5 +66,31 @@
             "sbj_name": "대충 2서클 과제",
             "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
         }
+    ],
+    "comment":[
+        {
+            "id": 0,
+            "intraid": "him",
+            "comment": "완전 재미있어요!",
+            "time": "19분전"
+        },
+        {
+            "id": 1,
+            "intraid": "sooyang",
+            "comment": "완전 재미있어요!",
+            "time": "25분전"
+        },
+        {
+            "id": 2,
+            "intraid": "wonlim",
+            "comment": "완전 재미있어요!",
+            "time": "37분전"
+        },
+        {
+            "id": 3,
+            "intraid": "salee2",
+            "comment": "완전 재미있어요!",
+            "time": "52분전"
+        }
     ]
 }
