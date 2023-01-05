@@ -6,7 +6,6 @@ import PdfDetail from './pdf_detail/PdfDetail';
 export default function PdfIndex() {
     return (
         <ul className={styles.container}>
-            <PdfDetail/>
             {dummy.circles.map((circle) =>
                 <li key={circle.id}>
                     <PdfIndexBox circle={circle.circle} />
