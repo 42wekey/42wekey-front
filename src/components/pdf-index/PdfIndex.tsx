@@ -1,6 +1,7 @@
 import dummy from '../../db/data.json';
 import PdfIndexBox from './PdfIndexBox';
 import styles from './PdfIndex.module.css';
+import PdfDetail from './pdf_detail/PdfDetail';
 
 export default function PdfIndex() {
     return (
