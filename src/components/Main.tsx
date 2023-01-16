@@ -1,8 +1,8 @@
 import Menu from "./menu/Menu";
 import styles from "./Main.module.css";
-import PdfIndex from "./pdf-index/PdfIndex";
-import PdfDetail from "./pdf-index/pdf_detail/PdfDetail";
-import CommentInput from "./comment-input/CommentInput";
+import CommentInput from "./comment_input/CommentInput";
+import PdfDetail from "./subject_detail/SubjectDetail";
+import PdfIndex from "./subject_index/SubjectIndex";
 
 export default function Main() {
   return (

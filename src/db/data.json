@@ -74,10 +74,11 @@
       "sbj_name": "Libft",
       "content": "완전 누워서 떡먹기 ㅋㅋ",
       "rated": 4,
-      "time_taken": "week",
+      "time_taken": "a week",
       "difficulty": "easy",
       "bonus": "no",
-      "amount_study": "low"
+      "amount_study": "low",
+      "comment_time": "2시간 전"
     },
     {
       "intraid": "him",

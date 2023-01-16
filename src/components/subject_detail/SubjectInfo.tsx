@@ -1,5 +1,4 @@
-import styles from './PdfDetail.module.css'
-import dummy from '../../../db/data.json'
+import styles from './SubjectDetail.module.css'
 
 export default function PdfInfo() {
 	return (
