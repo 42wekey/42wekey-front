@@ -1,96 +1,144 @@
 {
-    "circles": [
-        {
-            "id": 0,
-            "circle": 0
-        },
-        {
-            "id": 1,
-            "circle": 1
-        },
-        {
-            "id": 2,
-            "circle": 2
-        },
-        {
-            "id": 3,
-            "circle": 3
-        },
-        {
-            "day": 4,
-            "circle": 4
-        },
-        {
-            "day": 5,
-            "circle": 5
-        },
-        {
-            "id": 6,
-            "circle": 6
-        }
-    ],
-    "subjects": [
-        {
-            "id": 0,
-            "circle": 0,
-            "sbj_name": "Libft",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        },
-        {
-            "id": 1,
-            "circle": 1,
-            "sbj_name": "gnl",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        },
-        {
-            "id": 2,
-            "circle": 1,
-            "sbj_name": "ft_printf",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        },
-        {
-            "id": 3,
-            "circle": 1,
-            "sbj_name": "born2beroot",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        },
-        {
-            "id": 4,
-            "circle": 2,
-            "sbj_name": "대충 과제 제목",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        },
-        {
-            "id": 5,
-            "circle": 2,
-            "sbj_name": "대충 2서클 과제",
-            "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
-        }
-    ],
-    "comment":[
-        {
-            "id": 0,
-            "intraid": "him",
-            "comment": "완전 재미있어요!",
-            "time": "19분전"
-        },
-        {
-            "id": 1,
-            "intraid": "sooyang",
-            "comment": "완전 재미있어요!",
-            "time": "25분전"
-        },
-        {
-            "id": 2,
-            "intraid": "wonlim",
-            "comment": "완전 재미있어요!",
-            "time": "37분전"
-        },
-        {
-            "id": 3,
-            "intraid": "salee2",
-            "comment": "완전 재미있어요!",
-            "time": "52분전"
-        }
-    ]
+  "circles": [
+    {
+      "id": 0,
+      "circle": 0
+    },
+    {
+      "id": 1,
+      "circle": 1
+    },
+    {
+      "id": 2,
+      "circle": 2
+    },
+    {
+      "id": 3,
+      "circle": 3
+    },
+    {
+      "day": 4,
+      "circle": 4
+    },
+    {
+      "day": 5,
+      "circle": 5
+    },
+    {
+      "id": 6,
+      "circle": 6
+    }
+  ],
+  "subjects": [
+    {
+      "id": 0,
+      "circle": 0,
+      "sbj_name": "Libft",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    },
+    {
+      "id": 1,
+      "circle": 1,
+      "sbj_name": "gnl",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    },
+    {
+      "id": 2,
+      "circle": 1,
+      "sbj_name": "ft_printf",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    },
+    {
+      "id": 3,
+      "circle": 1,
+      "sbj_name": "born2beroot",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    },
+    {
+      "id": 4,
+      "circle": 2,
+      "sbj_name": "대충 과제 제목",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    },
+    {
+      "id": 5,
+      "circle": 2,
+      "sbj_name": "대충 2서클 과제",
+      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+    }
+  ],
+  "comments": [
+    {
+      "id": 0,
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "content": "완전 누워서 떡먹기 ㅋㅋ",
+      "rated": 4,
+      "time_taken": "week",
+      "difficulty": "easy",
+      "bonus": "no",
+      "amount_study": "low"
+    },
+    {
+      "intraid": "him",
+      "id": 1
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 5,
+      "elapsed": "7",
+      "diffi": "easy",
+      "amountStudy": "low",
+      "bonus": "complete",
+      "id": 2
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 2,
+      "elapsed": "90",
+      "diffi": "hard",
+      "amountStudy": "more",
+      "bonus": "complete",
+      "id": 3
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 4,
+      "elapsed": "7",
+      "diffi": "hard",
+      "amountStudy": "middle",
+      "bonus": "yes",
+      "content": "안녕하세요",
+      "id": 4
+    }
+  ],
+  "comment": [
+    {
+      "id": 0,
+      "intraid": "him",
+      "comment": "완전 재미있어요!",
+      "time": "19분전"
+    },
+    {
+      "id": 1,
+      "intraid": "sooyang",
+      "comment": "완전 재미있어요!",
+      "time": "25분전"
+    },
+    {
+      "id": 2,
+      "intraid": "wonlim",
+      "comment": "완전 재미있어요!",
+      "time": "37분전"
+    },
+    {
+      "id": 3,
+      "intraid": "salee2",
+      "comment": "완전 재미있어요!",
+      "time": "52분전"
+    }
+  ]
 }

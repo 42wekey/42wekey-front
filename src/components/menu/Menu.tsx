@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.css";
-import Avatar from "@mui/material/Avatar";
 
 export default function Menu() {
   return (
