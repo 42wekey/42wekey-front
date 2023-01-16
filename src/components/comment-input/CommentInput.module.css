@@ -1,0 +1,18 @@
+.margin {
+  margin-bottom: 0.3rem;
+}
+.boxmargin {
+  margin-bottom: 1rem;
+}
+.inlinetext {
+  display: inline-block;
+  padding-top: 0.3rem;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.submit {
+  text-align: center;
+  margin-top: 1em;
+}
