@@ -1,5 +1,5 @@
-import PdfIndexBox from './PdfIndexBox';
-import styles from './PdfIndex.module.css';
+import PdfIndexBox from './SubjectIndexBox';
+import styles from './SubjectIndex.module.css';
 import { useEffect, useState } from 'react';
 
 export interface PdfIdx {

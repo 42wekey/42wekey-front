@@ -1,5 +1,5 @@
-import styles from './PdfDetail.module.css'
-import dummy from '../../../db/data.json'
+import styles from './SubjectDetail.module.css'
+import dummy from '../../db/data.json'
 
 export default function PdfHeader() {
 	return (

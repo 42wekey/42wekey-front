@@ -1,6 +1,5 @@
-import PdfIndexItem from "./PdfIndexItem";
-import styles from './PdfIndexBox.module.css'
-import dummy from '../../db/data.json';
+import PdfIndexItem from "./SubjectIndexItem";
+import styles from './SubjectIndexBox.module.css'
 
 export interface PdfIndexProps {
     circle: number;
