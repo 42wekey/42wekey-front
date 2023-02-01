@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import dummy from '../../db/data.json';
 import styles from './SubjectIndexItem.module.css';
 
@@ -14,8 +15,7 @@ export default function PdfIndexItem(props: PdfIndexItemProps) {
         <div>
             {data.map((data) =>
                 <div className={styles.sbj} key={data.id}>
-                    <h1>{data.sbj_name}</h1>
-                    <button className={styles.sbj_btn}>pdf</button>
+                    <Link to={`/${data.circle}_circle/${data.sbj_name}`}><h1>{data.sbj_name}</h1></Link>
                 </div>
             )}
         </div >

@@ -1,38 +1,29 @@
-.pdf {
+.subject {
   display: flex;
   flex-direction: column;
 }
 
-.content {
-}
-
-.pdfHeader {
+.subjectHeader {
   height: 2rem;
 }
 
-.pdfInfo {
+.subjectInfo {
   height: 8rem;
   margin-bottom: 5px;
   background-color: #d9d9d9;
 }
 
-.pdfViewer {
-  height: 44rem;
-  background-color: #d9d9d9;
-}
-
-.pdfComment {
-  height: 10rem;
+.subjectComment {
+  height: auto;
+  border: solid 1px;
   background-color: #d9d9d9;
 }
 
 .commentId {
   display: flex;
+  border: solid 1px;
+  flex-direction: column;
   margin-top: 5px;
-}
-
-.userComment {
-  display: flex;
 }
 
 .commentTime {
@@ -40,4 +31,57 @@
   margin-left: auto;
   margin-right: 1rem;
   text-align: right;
+}
+
+.scoreTitle {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  border-radius: 50%;
+  z-index: 11;
+  border: solid 3px greenyellow;
+}
+
+.scoreContent {
+  display: flex;
+  height: 2rem;
+  /* width: auto; */
+  justify-content:center;
+  align-items: center;
+  background-color: azure;
+  border-radius: 3rem;
+  margin-left: -1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  z-index: 10;
+  border: solid 3px white;
+  width: 8rem;
+  /* min- */
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.score2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment {
+  width: 100%;
+  border: solid 1px grey;
+}
+
+.commentHeader {
+  margin-top: 0.4rem;
+  display: flex;
 }
