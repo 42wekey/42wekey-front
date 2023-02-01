@@ -8,14 +8,14 @@ export default function Menu() {
         <Link to="/" className={styles.logo}>
           <h2>42ence</h2>
         </Link>
-        <div className={styles.menu}>
-          <Link to="/" className={styles.subject}>
+        {/* <div className={styles.menu}>
+          <Link to="/subjectList" className={styles.subject}>
             subject
           </Link>
           <Link to="/" className={styles.subject}>
             like42ence
           </Link>
-        </div>
+        </div> */}
         <div className={styles.flex_interface}>
           <form>
             <input

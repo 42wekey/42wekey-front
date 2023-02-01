@@ -1,27 +1,14 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
-import Login from "./components/login/Login";
-import Main from "./components/Main";
+import { Route, Routes } from 'react-router-dom';
+import Main from './components/Main';
+import SubjectDetail from './components/subject_detail/SubjectDetail';
 
-const App = (): JSX.Element => {
-  const [isLogin, setIsLogin] = useState(true);
+const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        {isLogin ? (
-          <>
-            <Route path="/">
-              <Main />
-            </Route>
-          </>
-        ) : (
-          <Route path="/">
-            <Login />
-          </Route>
-        )}
-      </Switch>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      {/* <Route path="subjectList" element={<Main />} /> */}
+      <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
+    </Routes>
   );
 };
 

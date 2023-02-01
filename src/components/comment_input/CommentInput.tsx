@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInput.module.css";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 export default function CommentInput() {
   const [rating, setRating] = useState<number | null>(null);
@@ -17,7 +17,7 @@ export default function CommentInput() {
   const [diffi, setDiffi] = useState("");
   const [bonus, setBonus] = useState("");
   const [content, setContent] = useState("");
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     console.log(content);
@@ -68,7 +68,7 @@ export default function CommentInput() {
     }).then((res) => {
       if (res.ok) {
         alert("후기가 작성되었습니다.");
-        history.push("/");
+        // history.push("/");
       }
     });
   };
