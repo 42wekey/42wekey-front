@@ -7,9 +7,9 @@ export interface PdfIdx {
     circle: number;
 };
 
+
 export default function PdfIndex() {
     const [circle, setCircle] = useState<PdfIdx[]>([]);
-
     useEffect(() => {
         fetch(`http://localhost:3001/circles`)
             .then(res => res.json())

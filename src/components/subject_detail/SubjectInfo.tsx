@@ -1,4 +1,4 @@
-import styles from './SubjectDetail.module.css'
+import styles from './SubjectInfo.module.css'
 
 export default function SubjectInfo() {
 	return (

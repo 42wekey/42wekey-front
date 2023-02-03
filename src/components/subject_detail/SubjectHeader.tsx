@@ -3,8 +3,6 @@ import dummy from '../../db/data.json'
 import { CircleRounded } from '@mui/icons-material'
 interface paramType{
 	info: {circle: string, sbj_name: string}
-	// circle: string
-	// sbj_name: string;
 }
 
 
