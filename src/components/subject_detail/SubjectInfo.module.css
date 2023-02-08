@@ -1,0 +1,7 @@
+.SubjectInfo {
+  display: flex;
+  min-height: 10rem;
+  min-width: 10rem;
+  border: solid 1px;
+  margin: 1rem 1rem;
+}

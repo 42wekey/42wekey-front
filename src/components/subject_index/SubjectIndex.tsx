@@ -7,9 +7,9 @@ export interface PdfIdx {
     circle: number;
 };
 
+
 export default function PdfIndex() {
     const [circle, setCircle] = useState<PdfIdx[]>([]);
-
     useEffect(() => {
         fetch(`http://localhost:3001/circles`)
             .then(res => res.json())
@@ -17,6 +17,7 @@ export default function PdfIndex() {
     }, []);
 
     return (
+        <div className={styles.test} >
         <ul className={styles.container}>
             {circle.map((circle) =>
                 <li key={circle.circle}>
@@ -24,5 +25,6 @@ export default function PdfIndex() {
                 </li>
             )}
         </ul>
+        </div>
     );
 }

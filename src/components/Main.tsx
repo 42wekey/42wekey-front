@@ -8,7 +8,6 @@ export default function Main() {
     <div className={styles.container}>
       <Menu />
       <div className={styles.width}>
-        {/* <CommentInput /> */}
         <SubjectIndex />
       </div>
     </div>

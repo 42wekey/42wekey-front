@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.5rem 2rem 0 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  align-items: center;
 }
 
 .flex_interface {
@@ -13,18 +15,14 @@
   flex-direction: row;
 }
 
-.margin {
-  padding-top: 0.8rem;
-}
-
 .background {
   width: 100%;
   background-color: #b9d5ff;
-  height: 70px;
+  height: 5rem;
   margin-bottom: 15px;
 }
 .logo {
-  transform: translateY(-20%);
+  transform: translateY(-13%);
   text-decoration: none;
   font-size: x-large;
   font-weight: 700;
@@ -49,10 +47,62 @@
 
 .form {
   width: 12rem;
-  height: 2rem;
-  padding: 0.5em;
-  transform: translateY(-10%);
+  height: 2.5rem;
+  transform: translateY(-25%);
   border: 1px solid rgb(65, 128, 255);
   border-radius: 5px;
   opacity: 90%;
+}
+
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.dropdown{
+  position : relative;
+  display : inline-block;
+  margin-left: 5px;
+}
+
+.dropbtn_icon{
+  font-family : 'Material Icons';
+}
+.dropbtn{
+  display: flex;
+  border : 0.5px solid rgb(37, 37, 37); /* 없앨 예정 */
+  border-radius: 0.3rem;
+  background-color: rgb(0,0,0,0);
+  height: 45px;
+  width :45px;
+  justify-content: center;
+  transform: translateY(-25%);
+  align-items: center;
+  cursor : pointer;
+  font-size : 12px;
+}
+.dropdown_content{
+  display : none;
+  position : absolute;
+  border: solid 1px;
+  z-index : 1; /*다른 요소들보다 앞에 배치*/
+  background-color: skyblue;
+  min-width : 100px;
+  right: 0;
+  text-align: center;
+}
+
+.dropdown_content a{
+  display : block;
+  
+  text-decoration : none;
+  color : rgb(37, 37, 37);
+  font-size: 20px;
+  padding : 12px 20px;
+}
+
+.dropdown_content a:hover{
+  background-color : #ececec
+}
+
+.dropdown:hover .dropdown_content {
+  display: block;
 }

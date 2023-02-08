@@ -19,9 +19,9 @@ export default function CommentInput() {
   const [content, setContent] = useState("");
   // const history = useHistory();
 
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
+    // useEffect(() => {
+    //   console.log(content);
+    // }, [content]);
 
   const handleChangeTime = (
     event: React.MouseEvent<HTMLElement>,

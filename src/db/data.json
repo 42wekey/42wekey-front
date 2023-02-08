@@ -33,38 +33,37 @@
     {
       "id": 0,
       "circle": 0,
-      "sbj_name": "Libft",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "Libft"
     },
     {
       "id": 1,
       "circle": 1,
-      "sbj_name": "gnl",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "gnl"
     },
     {
       "id": 2,
       "circle": 1,
-      "sbj_name": "ft_printf",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "ft_printf"
     },
     {
       "id": 3,
       "circle": 1,
-      "sbj_name": "born2beroot",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "born2beroot"
     },
     {
       "id": 4,
       "circle": 2,
-      "sbj_name": "대충 과제 제목",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "대충 과제 제목"
     },
     {
       "id": 5,
       "circle": 2,
-      "sbj_name": "대충 2서클 과제",
-      "pdf_link": "https://cdn.intra.42.fr/pdf/pdf/67966/en.subject.pdf"
+      "sbj_name": "대충 2서클 과제"
+    },
+    {
+      "id": 6,
+      "circle":3,
+      "sbj_name": "3서클"
     }
   ],
   "comments": [

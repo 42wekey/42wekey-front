@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.css";
+import DehazeIcon from "@mui/icons-material/Dehaze";
 
 export default function Menu() {
   return (
@@ -24,6 +25,18 @@ export default function Menu() {
               className={styles.form}
             />
           </form>
+          <div>
+            <div className={styles.dropdown}>
+              <button className={styles.dropbtn}>
+                <span className={styles.dropbtn_icon}></span>
+                <DehazeIcon />
+              </button>
+              <div className={styles.dropdown_content}>
+                <Link to="#">profile</Link>
+                <Link to="#">logout</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
