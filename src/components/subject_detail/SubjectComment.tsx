@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import dummy from "../../db/data.json";
-import styles from "./SubjectDetail.module.css";
+import styles from "./SubjectComment.module.css";
 
 export default function SubjectComment() {
   const data = dummy.comments;

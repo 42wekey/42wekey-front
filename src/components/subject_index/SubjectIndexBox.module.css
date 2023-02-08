@@ -1,8 +1,9 @@
 .itemBox{
-    width:390px;
-    height: 300px;
+    width: 20rem;
+    height: 20rem;
     border: 1px solid gray;
     border-radius: 10px;
     background-color: antiquewhite;
-    margin:0 10px 10px 0;
+    margin:0 0.7rem 0.7rem 0;
 }
+
