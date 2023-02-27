@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import SubjectWiki from "./SubjectWiki";
 import SubjectInfo from "./SubjectInfo";
+import Graph from "../graph/Graph";
 
 interface intraId{
   intraId:String;
@@ -36,6 +37,9 @@ export default function SubjectDetail({intraId}:intraId) {
       <CommentInput />
       <SubjectComment 
       intraId={intraId}/>
+      </div>
+      <div>
+        <Graph time_taken="a_week" difficulty="normal" amount_study="middle" /> 
       </div>
     </div>
   );
