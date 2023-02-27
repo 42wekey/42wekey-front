@@ -1,0 +1,66 @@
+/* .app,
+body,
+.wrapper,
+.quill,
+.app .ql-content,
+.app .ql-editor {
+  height: 100%;
+}
+
+html {
+  height: 80vh; 
+}
+
+body {
+  background: #f3f1f2;
+  font-family: sans-serif;
+}
+
+.app {
+  margin: 1rem 4rem;
+}
+
+.app .ql-container {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
+.app .ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.app .ql-bubble .ql-editor {
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+.app .ql-editor {
+  min-height: 18em;
+}
+
+.themeSwitcher {
+  margin-top: 0.5em;
+  font-size: small;
+} */
+
+/* .SubjectWiki {
+	max-height: 10em;
+} */
+
+/* .ql-editor {
+	height: 50px !important;
+}
+
+ql-editor {
+	max-height: 10em !important;
+	height: 10em !important;
+} */
+
+.submit {
+	text-align: center;
+	margin-top: 1em;
+  }

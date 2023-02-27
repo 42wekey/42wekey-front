@@ -6,7 +6,8 @@ import SubjectIndex from "./subject_index/SubjectIndex";
 export default function Main() {
   return (
     <div className={styles.container}>
-      <Menu />
+      <Menu 
+      intraId="him"/>
       <div className={styles.width}>
         <SubjectIndex />
       </div>

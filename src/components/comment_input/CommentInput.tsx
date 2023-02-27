@@ -88,11 +88,11 @@ export default function CommentInput() {
             onChange={handleChangeTime}
             aria-label="Platform"
           >
-            <ToggleButton value="7">일주일 이하</ToggleButton>
-            <ToggleButton value="14">1~2주 이내</ToggleButton>
-            <ToggleButton value="21">3~4주 이내</ToggleButton>
-            <ToggleButton value="30">한 달 이상</ToggleButton>
-            <ToggleButton value="90">세 달 이상</ToggleButton>
+            <ToggleButton value="a week">일주일 이하</ToggleButton>
+            <ToggleButton value="two week">1~2주 이내</ToggleButton>
+            <ToggleButton value="three week">3~4주 이내</ToggleButton>
+            <ToggleButton value="a month">한 달 이상</ToggleButton>
+            <ToggleButton value="three month">세 달 이상</ToggleButton>
           </ToggleButtonGroup>
           <div className={styles.margin}>과제의 난이도는 어땠나요?</div>
           <ToggleButtonGroup
@@ -104,7 +104,7 @@ export default function CommentInput() {
             aria-label="Platform"
           >
             <ToggleButton value="easy">쉬워요</ToggleButton>
-            <ToggleButton value="middle">보통이에요</ToggleButton>
+            <ToggleButton value="normal">보통이에요</ToggleButton>
             <ToggleButton value="hard">어려워요</ToggleButton>
           </ToggleButtonGroup>
           <div className={styles.margin}>
@@ -120,7 +120,7 @@ export default function CommentInput() {
           >
             <ToggleButton value="low">적은 편이에요</ToggleButton>
             <ToggleButton value="middle">보통이에요</ToggleButton>
-            <ToggleButton value="more">많아요</ToggleButton>
+            <ToggleButton value="high">많아요</ToggleButton>
           </ToggleButtonGroup>
           <div className={styles.margin}>이 과제의 보너스를 해결하셨나요?</div>
           <ToggleButtonGroup
@@ -132,7 +132,7 @@ export default function CommentInput() {
             aria-label="Platform"
           >
             <ToggleButton value="no">안 했어요</ToggleButton>
-            <ToggleButton value="yes">하긴 했어요</ToggleButton>
+            <ToggleButton value="little">하긴 했어요</ToggleButton>
             <ToggleButton value="complete">다 했어요</ToggleButton>
           </ToggleButtonGroup>
           <div className={styles.boxmargin}>

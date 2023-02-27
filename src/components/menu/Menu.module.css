@@ -66,24 +66,37 @@
 .dropbtn_icon{
   font-family : 'Material Icons';
 }
+
+@media (max-width: 500px) {
+  .dropbtn{
+    font-size: 18px;
+    width : 100px;
+  }
+}
+@media (min-width: 500px) {
+  .dropbtn{
+    font-size: 23px;
+    width : 125px;
+  }
+}
+
 .dropbtn{
   display: flex;
   border : 0.5px solid rgb(37, 37, 37); /* 없앨 예정 */
   border-radius: 0.3rem;
   background-color: rgb(0,0,0,0);
-  height: 45px;
-  width :45px;
-  justify-content: center;
+  height: 2.8rem;
+  text-decoration: underline;
+  justify-content:space-between;
   transform: translateY(-25%);
   align-items: center;
   cursor : pointer;
-  font-size : 12px;
 }
 .dropdown_content{
   display : none;
   position : absolute;
   border: solid 1px;
-  z-index : 1; /*다른 요소들보다 앞에 배치*/
+  z-index : 1; 
   background-color: skyblue;
   min-width : 100px;
   right: 0;

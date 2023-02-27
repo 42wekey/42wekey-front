@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import styles from "./Menu.module.css";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 
-export default function Menu() {
+interface intraId{
+  intraId:String;
+}
+
+export default function Menu({intraId}:intraId) {
   return (
     <div className={styles.background}>
       <div className={styles.flex_row}>
@@ -29,11 +33,12 @@ export default function Menu() {
             <div className={styles.dropdown}>
               <button className={styles.dropbtn}>
                 <span className={styles.dropbtn_icon}></span>
+                {intraId}
                 <DehazeIcon />
               </button>
               <div className={styles.dropdown_content}>
-                <Link to="#">profile</Link>
-                <Link to="#">logout</Link>
+                <Link to="/myCommant">내가 쓴 댓글</Link>
+                <Link to="#">로그아웃</Link>
               </div>
             </div>
           </div>
