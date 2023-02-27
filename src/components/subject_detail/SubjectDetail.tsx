@@ -68,9 +68,9 @@ export default function SubjectDetail({ intraId }: intraId) {
         </div>
         <div>
           <Graph
-            time_taken="a_week"
-            difficulty="normal"
-            amount_study="middle"
+            time_taken="two_week"
+            difficulty="hard"
+            amount_study="low"
           />
         </div>
       </div>

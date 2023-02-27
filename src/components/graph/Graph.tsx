@@ -46,8 +46,16 @@ export default function Graph({
         <div className={styles.graph_bar}>
           <div
             className={styles.progress}
-            style={{ width: searchTime(time_taken) }}
+            style={{ 
+              width: searchTime(time_taken),
+              borderRadius: time_taken==="three_month"?`5px 5px 5px 5px`:`5px 0 0 5px` }}
           ></div>
+          <div className={styles.split}>
+            <div className={styles.five_split_graph_one} />
+            <div className={styles.five_split_graph_two} />
+            <div className={styles.five_split_graph_three} />
+            <div className={styles.five_split_graph_four} />
+          </div>
         </div>
       </div>
       <div className={styles.graph}>
@@ -55,8 +63,16 @@ export default function Graph({
         <div className={styles.graph_bar}>
           <div
             className={styles.progress}
-            style={{ width: searchAmount(amount_study) }}
+            style={{ 
+              width: searchAmount(amount_study),
+              borderRadius: amount_study==="high"?`5px 5px 5px 5px`:`5px 0 0 5px` 
+            }}
           ></div>
+          <div className={styles.split}>
+            <div className={styles.three_split_graph_one} />
+            <div className={styles.three_split_graph_two} />
+            <div className={styles.three_split_graph_three} />
+          </div>
         </div>
       </div>
       <div className={styles.graph}>
@@ -64,8 +80,16 @@ export default function Graph({
         <div className={styles.graph_bar}>
           <div
             className={styles.progress}
-            style={{ width: searchDiff(difficulty) }}
+            style={{ 
+              width: searchDiff(difficulty),
+              borderRadius: difficulty==="hard"?`5px 5px 5px 5px`:`5px 0 0 5px`
+            }}
           ></div>
+          <div className={styles.split}>
+            <div className={styles.three_split_graph_one} />
+            <div className={styles.three_split_graph_two} />
+            <div className={styles.three_split_graph_three} />
+          </div>
         </div>
       </div>
     </div>
