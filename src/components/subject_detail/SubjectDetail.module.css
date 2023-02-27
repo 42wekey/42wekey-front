@@ -1,3 +1,8 @@
+.container{
+  width:800px;
+  margin:auto;
+}
+
 .subject {
   display: flex;
   flex-direction: column;
