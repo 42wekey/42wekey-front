@@ -4,42 +4,53 @@ import SubjectComment from "./SubjectComment";
 import Menu from "../menu/Menu";
 import CommentInput from "../comment_input/CommentInput";
 import { useParams } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SubjectWiki from "./SubjectWiki";
+import dummy from "../../db/data.json";
 import SubjectInfo from "./SubjectInfo";
 import Graph from "../graph/Graph";
+import { Button } from "@mui/material";
 
-interface intraId{
-  intraId:String;
+interface intraId {
+  intraId: String;
 }
 
-export default function SubjectDetail({intraId}:intraId) {
-  const params = useParams()as {circle: string, sbj_name: string}; //params  = {subject : sbj_name}
-  // const {circle, sbj_name} = params
-  useEffect(()=>{
-    console.log(params)
-  },[])
-  
+export default function SubjectDetail({ intraId }: intraId) {
+  const wiki = dummy.wiki;
+  const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
+  const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
+
   return (
     <div className={styles.pdf}>
-      <Menu 
-      intraId = {'him'}/>
+      <Menu intraId={"him"} />
       <SubjectHeader
-      info={{circle: params.circle, sbj_name: params.sbj_name}}
+        info={{ circle: params.circle, sbj_name: params.sbj_name }}
       />
       <div>
-      <SubjectInfo />
+        <SubjectInfo />
       </div>
       <div className={styles.SubjectWiki}>
-      <SubjectWiki />
+        {isWikiEdit ? (
+          <div>
+            <SubjectWiki setIsWikiEdit={setIsWikiEdit}
+            content={wiki.wikiContent}
+            version={wiki.version}/>
+          </div>
+        ) : (
+          <div>
+            {wiki.wikiContent}
+            <button
+              onClick={() => setIsWikiEdit(true)}
+            >
+              수정하기
+            </button>
+          </div>
+        )}
       </div>
       <div className={styles.content}>
-      <CommentInput />
-      <SubjectComment 
-      intraId={intraId}/>
-      </div>
-      <div>
-        <Graph time_taken="a_week" difficulty="normal" amount_study="middle" /> 
+        <Graph time_taken="a_week" difficulty="normal" amount_study="middle" />
+        <CommentInput />
+        <SubjectComment intraId={intraId} />
       </div>
     </div>
   );

@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "circle":3,
+      "circle": 3,
       "sbj_name": "3서클"
     }
   ],
@@ -140,5 +140,10 @@
       "comment": "완전 재미있어요!",
       "time": "52분전"
     }
-  ]
+  ],
+  "wiki": 
+    {
+      "wikiContent": "wikie 내용",
+      "version": 1
+    }
 }

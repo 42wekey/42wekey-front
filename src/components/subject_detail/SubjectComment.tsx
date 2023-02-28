@@ -13,10 +13,17 @@ export default function SubjectComment({ intraId }: intraId) {
   const data = dummy.comments;
   const id = `him`;
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
+  const [content, setContent] = useState<String>();
 
   const clickEditButton = (text?: string, comment_id?: number) => {
-    console.log(isCommentEdit);
+    console.log(comment_id);
     if (isCommentEdit) {
+      
+      fetch(`http://localhost:3001/subject/comment/edit/${comment_id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({text}),
+      });
       setIsCommentEdit(false);
     } else {
       setIsCommentEdit(true);
@@ -66,7 +73,7 @@ export default function SubjectComment({ intraId }: intraId) {
                         rows={4}
                         placeholder="과제에 대한 후기를 남겨주세요."
                         style={{ width: "100%", height: "120px" }}
-                        // onChange={(e) => setContent(e.target.value)}
+                        onChange={(e) => setContent(e.target.value)}
                       />
                       <button
                         onClick={() => clickEditButton(data.content, data.id)}

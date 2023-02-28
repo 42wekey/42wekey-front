@@ -125,6 +125,17 @@
       "bonus": "yes",
       "content": "ㅜㅇ옿롱ㄹㅇㄹ",
       "id": 5
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": null,
+      "elapsed": "",
+      "diffi": "",
+      "amountStudy": "",
+      "bonus": "",
+      "content": "",
+      "id": 6
     }
   ],
   "comment": [
@@ -152,5 +163,9 @@
       "comment": "완전 재미있어요!",
       "time": "52분전"
     }
-  ]
+  ],
+  "wiki": {
+    "wikiContent": "wikie 내용",
+    "version": 1
+  }
 }
