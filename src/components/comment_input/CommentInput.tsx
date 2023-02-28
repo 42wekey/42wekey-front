@@ -10,15 +10,14 @@ import styles from "./CommentInput.module.css";
 import { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 
-export default function CommentInput() {
+export default function CommentInput(subject:string) {
   const [rating, setRating] = useState<number | null>(null);
-  const [elapsed, setElapsed] = useState("");
-  const [amountStudy, setAmountStudy] = useState("");
-  const [diffi, setDiffi] = useState("");
+  const [time_taken, setElapsed] = useState("");
+  const [amount_study, setAmountStudy] = useState("");
+  const [difficulty, setDiffi] = useState("");
   const [bonus, setBonus] = useState("");
   const [content, setContent] = useState("");
   // const history = useHistory();
-
     // useEffect(() => {
     //   console.log(content);
     // }, [content]);
@@ -57,11 +56,11 @@ export default function CommentInput() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         intraid: "him",
-        sbj_name: "Libft",
+        sbj_name: subject,
         rating,
-        elapsed,
-        diffi,
-        amountStudy,
+        time_taken,
+        difficulty,
+        amount_study,
         bonus,
         content,
       }),
@@ -83,22 +82,22 @@ export default function CommentInput() {
           <ToggleButtonGroup
             className={styles.boxmargin}
             color="primary"
-            value={elapsed}
+            value={time_taken}
             exclusive
             onChange={handleChangeTime}
             aria-label="Platform"
           >
-            <ToggleButton value="a week">일주일 이하</ToggleButton>
-            <ToggleButton value="two week">1~2주 이내</ToggleButton>
-            <ToggleButton value="three week">3~4주 이내</ToggleButton>
-            <ToggleButton value="a month">한 달 이상</ToggleButton>
-            <ToggleButton value="three month">세 달 이상</ToggleButton>
+            <ToggleButton value="a_week">일주일 이하</ToggleButton>
+            <ToggleButton value="two_week">1~2주 이내</ToggleButton>
+            <ToggleButton value="three_week">3~4주 이내</ToggleButton>
+            <ToggleButton value="a_month">한 달 이상</ToggleButton>
+            <ToggleButton value="three_month">세 달 이상</ToggleButton>
           </ToggleButtonGroup>
           <div className={styles.margin}>과제의 난이도는 어땠나요?</div>
           <ToggleButtonGroup
             className={styles.boxmargin}
             color="primary"
-            value={diffi}
+            value={difficulty}
             exclusive
             onChange={handleChangeDiffi}
             aria-label="Platform"
@@ -113,7 +112,7 @@ export default function CommentInput() {
           <ToggleButtonGroup
             className={styles.boxmargin}
             color="primary"
-            value={amountStudy}
+            value={amount_study}
             exclusive
             onChange={handleChangeAmount}
             aria-label="Platform"
