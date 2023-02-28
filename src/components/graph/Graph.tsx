@@ -1,9 +1,9 @@
 import styles from "./Graph.module.css";
 
 interface graphInfo {
-  time_taken: string;
-  amount_study: string;
-  difficulty: string;
+  time_taken: string|undefined;
+  amount_study: string|undefined;
+  difficulty: string|undefined;
 }
 
 export default function Graph({

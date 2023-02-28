@@ -23,6 +23,7 @@ export default function SubjectDetail({ intraId }: intraId) {
   }
   const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
   // const {circle, sbj_name} = params
+  const sbj:string = params.sbj_name;
 
   function onScroll() {
     setScroll(Math.floor(window.scrollY));
@@ -63,15 +64,8 @@ export default function SubjectDetail({ intraId }: intraId) {
           <SubjectWiki />
         </div>
         <div className={styles.content}>
-          <CommentInput />
+          <CommentInput subject={sbj}/>
           <SubjectComment intraId={intraId} />
-        </div>
-        <div>
-          <Graph
-            time_taken="two_week"
-            difficulty="hard"
-            amount_study="low"
-          />
         </div>
       </div>
     </div>

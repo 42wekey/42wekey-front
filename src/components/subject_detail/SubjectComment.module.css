@@ -73,3 +73,11 @@
 	margin-top: 0.4rem;
 	display: flex;
   }
+
+  .graph{
+	margin: auto;
+	width:40rem;
+	background-color: white;
+	padding:20px;
+	border-radius: 10px;
+  }
