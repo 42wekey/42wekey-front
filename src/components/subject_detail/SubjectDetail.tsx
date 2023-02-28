@@ -5,7 +5,6 @@ import Menu from "../menu/Menu";
 import CommentInput from "../comment_input/CommentInput";
 import { useParams } from "react-router";
 import { useEffect, useState, useRef } from "react";
-import { useEffect, useState } from "react";
 import SubjectWiki from "./SubjectWiki";
 import dummy from "../../db/data.json";
 import SubjectInfo from "./SubjectInfo";
@@ -17,6 +16,9 @@ interface intraId {
 }
 
 export default function SubjectDetail({ intraId }: intraId) {
+  
+  const wiki = dummy.wiki;
+  const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
 
@@ -47,14 +49,16 @@ export default function SubjectDetail({ intraId }: intraId) {
     };
   }, [scroll]);
 
-export default function SubjectDetail({ intraId }: intraId) {
-  const wiki = dummy.wiki;
-  const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
-  const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
 
   return (
     <div className={styles.pdf}>
       <Menu intraId={"him"} />
+      <div className={styles.progress_bar}>
+      <div
+          className={styles.progerss_bar_fill}
+          style={{ width: `${100 * (scroll / maxScroll)}%` }}
+        ></div>
+              </div>
       <SubjectHeader
         info={{ circle: params.circle, sbj_name: params.sbj_name }}
       />
@@ -80,31 +84,9 @@ export default function SubjectDetail({ intraId }: intraId) {
         )}
       </div>
       <div className={styles.content}>
-        <Graph time_taken="a_week" difficulty="normal" amount_study="middle" />
-        <CommentInput />
-        <SubjectComment intraId={intraId} />
-      <Menu intraId={"him"} />
-      <div className={styles.progress_bar}>
-        <div
-          className={styles.progerss_bar_fill}
-          style={{ width: `${100 * (scroll / maxScroll)}%` }}
-        ></div>
-      </div>
-      <div className={styles.container}>
-        <SubjectHeader
-          info={{ circle: params.circle, sbj_name: params.sbj_name }}
-        />
-        <div>
-          <SubjectInfo />
-        </div>
-        <div className={styles.SubjectWiki}>
-          <SubjectWiki />
-        </div>
-        <div className={styles.content}>
           <CommentInput subject={sbj}/>
           <SubjectComment intraId={intraId} />
         </div>
       </div>
-    </div>
   );
 }
