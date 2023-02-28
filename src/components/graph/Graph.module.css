@@ -3,20 +3,98 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 16px;
 }
 
 .graph_bar{
+	position: relative;
 	width:100%;
 	height: 30px;
 	background-color: #dedede;
+	z-index: 0;
+	border-radius: 5px;
 }
 
 .progress{
-	width:10%;
 	height: 30px;
 	padding: 0;
-	background-color: #4F98FF;
+	background-color: #ff8888;
+	border-radius: 5px 0 0 5px;
+}
+
+.three_split_graph_one{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 67%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 4;
+}
+
+.three_split_graph_two{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 34%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 3;
+}
+
+.split{
+	opacity: 50%;
+	display: flex;
+	top: 0;
+	left:0;
+}
+
+.five_split_graph_one{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 80%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 100;
+}
+
+.five_split_graph_two{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 60%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 4;
+}
+
+.five_split_graph_three{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 40%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 3;
+}
+
+.five_split_graph_four{
+	position: absolute;
+	top:0;
+	left:0;
+	width:calc(100% - 20%);
+	height: 30px;
+	padding: 0;
+	border-right:1px dashed #5f5f5f;
+	z-index: 2;
 }
 
 .explanation{

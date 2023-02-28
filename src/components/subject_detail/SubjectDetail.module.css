@@ -1,3 +1,8 @@
+.container{
+  width:800px;
+  margin:auto;
+}
+
 .subject {
   display: flex;
   flex-direction: column;
@@ -15,4 +20,20 @@
 
 .SubjectWiki {
 	/* max-height: 10em !important; */
+}
+
+.progress_bar{
+  position: fixed;
+  width: 100%;
+  top:0;
+  left:0;
+  height: 5px;
+  background-color: #dedede;
+  z-index: 999;
+}
+
+.progerss_bar_fill{
+  position: fixed;
+  height: 5px;
+  background-color: #467bff;
 }
