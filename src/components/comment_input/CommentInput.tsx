@@ -9,8 +9,11 @@ import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInput.module.css";
 import { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
+interface subject {
+  subject: string;
+}
 
-export default function CommentInput(subject:string) {
+export default function CommentInput({subject}:subject) {
   const [rating, setRating] = useState<number | null>(null);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");

@@ -1,9 +1,9 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
 import styles from "./SubjectWiki.module.css";
 import "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
+import dummy from "../../db/data.json";
 
 const modules = {
   toolbar: {
@@ -62,17 +62,37 @@ const modules = {
   },
 };
 
-export default function SubjectWiki() {
+interface propType {
+  setIsWikiEdit: React.Dispatch<React.SetStateAction<Boolean>>;
+  content: string;
+  version: number;
+}
+
+export default function SubjectWiki(props: propType) {
+  const wiki = dummy.wiki;
+  const clickEditButton = (text?: string, version?: number) => {
+    console.log(document.documentElement.scrollHeight);
+      fetch(`http://localhost:3001/subject/comment/edit/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+      props.setIsWikiEdit(false);
+  };
   return (
     <div>
       <ReactQuill
         modules={modules}
         className={styles.SubjectWiki}
+        defaultValue={props.content}
         style={{ height: "30em", marginBottom: "6%" }}
       />{" "}
       <div className={styles.submit}>
         <Button variant="outlined">취소</Button>
-        <Button variant="contained" >
+        <Button
+          variant="contained"
+          onClick={() => clickEditButton(wiki.wikiContent, wiki.version)}
+        >
           제출
         </Button>
       </div>

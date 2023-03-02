@@ -37,7 +37,7 @@ export default function Menu({intraId}:intraId) {
                 <DehazeIcon />
               </button>
               <div className={styles.dropdown_content}>
-                <Link to="/myCommant">내가 쓴 댓글</Link>
+                <Link to={`/allComment/${intraId}`}>내가 쓴 댓글</Link>
                 <Link to="#">로그아웃</Link>
               </div>
             </div>

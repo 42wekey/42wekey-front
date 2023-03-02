@@ -6,14 +6,19 @@ import CommentInput from "../comment_input/CommentInput";
 import { useParams } from "react-router";
 import { useEffect, useState, useRef } from "react";
 import SubjectWiki from "./SubjectWiki";
+import dummy from "../../db/data.json";
 import SubjectInfo from "./SubjectInfo";
 import Graph from "../graph/Graph";
+import { Button } from "@mui/material";
 
 interface intraId {
   intraId: String;
 }
 
 export default function SubjectDetail({ intraId }: intraId) {
+  
+  const wiki = dummy.wiki;
+  const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
 
@@ -44,30 +49,44 @@ export default function SubjectDetail({ intraId }: intraId) {
     };
   }, [scroll]);
 
+
   return (
     <div className={styles.pdf}>
       <Menu intraId={"him"} />
       <div className={styles.progress_bar}>
-        <div
+      <div
           className={styles.progerss_bar_fill}
           style={{ width: `${100 * (scroll / maxScroll)}%` }}
         ></div>
+              </div>
+      <SubjectHeader
+        info={{ circle: params.circle, sbj_name: params.sbj_name }}
+      />
+      <div>
+        <SubjectInfo />
       </div>
-      <div className={styles.container}>
-        <SubjectHeader
-          info={{ circle: params.circle, sbj_name: params.sbj_name }}
-        />
-        <div>
-          <SubjectInfo />
-        </div>
-        <div className={styles.SubjectWiki}>
-          <SubjectWiki />
-        </div>
-        <div className={styles.content}>
+      <div className={styles.SubjectWiki}>
+        {isWikiEdit ? (
+          <div>
+            <SubjectWiki setIsWikiEdit={setIsWikiEdit}
+            content={wiki.wikiContent}
+            version={wiki.version}/>
+          </div>
+        ) : (
+          <div>
+            {wiki.wikiContent}
+            <button
+              onClick={() => setIsWikiEdit(true)}
+            >
+              수정하기
+            </button>
+          </div>
+        )}
+      </div>
+      <div className={styles.content}>
           <CommentInput subject={sbj}/>
           <SubjectComment intraId={intraId} />
         </div>
       </div>
-    </div>
   );
 }
