@@ -19,13 +19,7 @@ export default function SubjectComment({ intraId, sbj_name }: intraId) {
   const [content, setContent] = useState<String>();
   const [comment, setComment] = useState([]);
 
-  useEffect(()=>{
-    console.log(content)
-    }    , [content]);
-    
   const clickEditButton = (text?: string, comment_id?: number) => {
-    console.log(comment_id);
-    console.log(text);
     if (isCommentEdit) {
       fetch(`http://localhost:3001/comments/${comment_id}`, {
         method: "PATCH",

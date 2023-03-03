@@ -16,7 +16,6 @@ interface intraId {
 }
 
 export default function SubjectDetail({ intraId }: intraId) {
-  
   const wiki = dummy.wiki;
   const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
   const [scroll, setScroll] = useState(0);
@@ -28,20 +27,12 @@ export default function SubjectDetail({ intraId }: intraId) {
   }
   const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
   // const {circle, sbj_name} = params
-  const sbj:string = params.sbj_name;
+  const sbj: string = params.sbj_name;
 
   function onScroll() {
     setScroll(Math.floor(window.scrollY));
   }
-
-  useEffect(() => {
-    console.log("ScrollY is ", scroll); // ScrollY가 변화할때마다 값을 콘솔에 출력
-  }, [scroll]);
-
-  useEffect(() => {
-    console.log(params);
-  }, []);
-
+  
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -49,16 +40,15 @@ export default function SubjectDetail({ intraId }: intraId) {
     };
   }, [scroll]);
 
-
   return (
     <div className={styles.pdf}>
       <Menu intraId={"him"} />
       <div className={styles.progress_bar}>
-      <div
+        <div
           className={styles.progerss_bar_fill}
           style={{ width: `${100 * (scroll / maxScroll)}%` }}
-        ></div>
-              </div>
+        />
+      </div>
       <SubjectHeader
         info={{ circle: params.circle, sbj_name: params.sbj_name }}
       />
@@ -68,25 +58,23 @@ export default function SubjectDetail({ intraId }: intraId) {
       <div className={styles.SubjectWiki}>
         {isWikiEdit ? (
           <div>
-            <SubjectWiki setIsWikiEdit={setIsWikiEdit}
-            content={wiki.wikiContent}
-            version={wiki.version}/>
+            <SubjectWiki
+              setIsWikiEdit={setIsWikiEdit}
+              content={wiki.wikiContent}
+              version={wiki.version}
+            />
           </div>
         ) : (
           <div>
             {wiki.wikiContent}
-            <button
-              onClick={() => setIsWikiEdit(true)}
-            >
-              수정하기
-            </button>
+            <button onClick={() => setIsWikiEdit(true)}>수정하기</button>
           </div>
         )}
       </div>
       <div className={styles.content}>
-          <CommentInput subject={sbj}/>
-          <SubjectComment intraId={intraId} />
-        </div>
+        <CommentInput subject={sbj} />
+        <SubjectComment intraId={intraId} />
       </div>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export default function PdfIndex() {
         <div className={styles.test} >
         <ul className={styles.container}>
             {circle.map((circle) =>
-                <li key={circle.circle}>
+                <li className={styles.listTitle} key={circle.circle}>
                     <PdfIndexBox circle={circle.circle} />
                 </li>
             )}

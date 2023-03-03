@@ -8,7 +8,7 @@ export interface PdfIndexProps {
 export default function PdfIndexBox(props: PdfIndexProps) {
     return (
         <div className={styles.itemBox}>
-            <h2>{props.circle} circle</h2>
+            <h2 className={styles.boxTitle}>{props.circle} circle</h2>
             <PdfIndexItem circle={props.circle} />
         </div>
     );

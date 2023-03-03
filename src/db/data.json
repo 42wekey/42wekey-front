@@ -38,7 +38,7 @@
     {
       "id": 1,
       "circle": 1,
-      "sbj_name": "gnl"
+      "sbj_name": "get_next_line"
     },
     {
       "id": 2,
@@ -53,29 +53,69 @@
     {
       "id": 4,
       "circle": 2,
-      "sbj_name": "대충 과제 제목"
+      "sbj_name": "FdF"
     },
     {
       "id": 5,
       "circle": 2,
-      "sbj_name": "대충 2서클 과제"
+      "sbj_name": "so_long"
     },
     {
       "id": 6,
+      "circle": 2,
+      "sbj_name": "push_swap"
+    },
+    {
+      "id": 7,
+      "circle": 2,
+      "sbj_name": "fract_ol"
+    },
+    {
+      "id": 8,
+      "circle": 2,
+      "sbj_name": "pipex"
+    },
+    {
+      "id": 9,
+      "circle": 2,
+      "sbj_name": "minitalk"
+    },
+    {
+      "id": 10,
       "circle": 3,
-      "sbj_name": "3서클"
+      "sbj_name": "philosophers"
+    },
+    {
+      "id": 11,
+      "circle": 3,
+      "sbj_name": "minishell"
+    },
+    {
+      "id": 12,
+      "circle": 4,
+      "sbj_name": "NetPractice"
+    },
+    {
+      "id": 13,
+      "circle": 4,
+      "sbj_name": "miniRT"
+    },
+    {
+      "id": 14,
+      "circle": 4,
+      "sbj_name": "cub3d"
     }
   ],
   "comments": [
     {
-      "intraid": "sooyang",
+      "intraid": "him",
       "sbj_name": "Libft",
-      "rating": 4,
-      "elapsed": "7",
-      "diffi": "hard",
-      "amountStudy": "middle",
-      "bonus": "yes",
-      "content": "안녕하세요",
+      "star_rating": 2,
+      "time_taken": "three_week",
+      "difficulty": "easy",
+      "amount_study": "low",
+      "bonus": "little",
+      "content": "잘 수정된다!",
       "id": 4
     },
     {
