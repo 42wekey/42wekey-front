@@ -113,6 +113,17 @@
       "bonus": "yes",
       "content": "안녕하세요",
       "id": 4
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "star_rating": 5,
+      "time_taken": "a_week",
+      "difficulty": "easy",
+      "amount_study": "low",
+      "bonus": "no",
+      "content": "이 과제는 어쩌구저쩌구 ",
+      "id": 5
     }
   ],
   "comment": [
@@ -141,9 +152,8 @@
       "time": "52분전"
     }
   ],
-  "wiki": 
-    {
-      "wikiContent": "wikie 내용",
-      "version": 1
-    }
+  "wiki": {
+    "wikiContent": "wikie 내용",
+    "version": 1
+  }
 }
