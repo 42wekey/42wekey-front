@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Main from './components/Main';
-import MyComment from "./components/myComment/myComment";
+import MyComment from "./components/myComment/MyComment";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 
 const App = () => {

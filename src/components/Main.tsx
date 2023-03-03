@@ -1,13 +1,16 @@
 import Menu from "./menu/Menu";
 import styles from "./Main.module.css";
-import CommentInput from "./comment_input/CommentInput";
 import SubjectIndex from "./subject_index/SubjectIndex";
+import {profileState} from "../utils/recoil/user"
+import { useRecoilState } from "recoil";
+
 
 export default function Main() {
+  const [userState, setProfileState] = useRecoilState(profileState);
   return (
     <div className={styles.container}>
       <Menu 
-      intraId="him"/>
+      intraId={userState.intraId}/>
       <div className={styles.width}>
         <SubjectIndex />
       </div>

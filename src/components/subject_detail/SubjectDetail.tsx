@@ -10,14 +10,17 @@ import dummy from "../../db/data.json";
 import SubjectInfo from "./SubjectInfo";
 import Graph from "../graph/Graph";
 import { Button } from "@mui/material";
+import { useRecoilState } from "recoil";
+import {profileState} from "../../utils/recoil/user"
 
 interface intraId {
   intraId: String;
 }
 
-export default function SubjectDetail({ intraId }: intraId) {
+export default function SubjectDetail() {
   const wiki = dummy.wiki;
   const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
+  const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
 
@@ -41,14 +44,16 @@ export default function SubjectDetail({ intraId }: intraId) {
   }, [scroll]);
 
   return (
-    <div className={styles.pdf}>
+    <div >
       <Menu intraId={"him"} />
       <div className={styles.progress_bar}>
         <div
           className={styles.progerss_bar_fill}
           style={{ width: `${100 * (scroll / maxScroll)}%` }}
-        />
-      </div>
+        ></div>
+              </div>
+              <div className={styles.subject}>
+              <div className={styles.subjectDetail}>
       <SubjectHeader
         info={{ circle: params.circle, sbj_name: params.sbj_name }}
       />
@@ -72,9 +77,11 @@ export default function SubjectDetail({ intraId }: intraId) {
         )}
       </div>
       <div className={styles.content}>
-        <CommentInput subject={sbj} />
-        <SubjectComment intraId={intraId} />
+          <CommentInput subject={sbj}/>
+          <SubjectComment/>
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
   );
 }

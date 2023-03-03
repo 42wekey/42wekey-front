@@ -108,7 +108,49 @@
   ],
   "comments": [
     {
+      "id": 0,
       "intraid": "him",
+      "sbj_name": "Libft",
+      "content": "완전 누워서 떡먹기 ㅋㅋ",
+      "star_rating": 4,
+      "time_taken": "a week",
+      "difficulty": "easy",
+      "bonus": "no",
+      "amount_study": "low",
+      "comment_time": "2시간 전"
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "star_rating": 5,
+      "elapsed": "7",
+      "diffi": "easy",
+      "amount_study": "middle",
+      "bonus": "complete",
+      "id": 1
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "star_rating": 5,
+      "elapsed": "7",
+      "diffi": "easy",
+      "amount_study": "middle",
+      "bonus": "complete",
+      "id": 2
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "star_rating": 2,
+      "elapsed": "90",
+      "diffi": "hard",
+      "amountStudy": "more",
+      "bonus": "complete",
+      "id": 3
+    },
+    {
+      "intraid": "sooyang",
       "sbj_name": "Libft",
       "star_rating": 2,
       "time_taken": "three_week",
@@ -116,13 +158,16 @@
       "amount_study": "low",
       "bonus": "little",
       "content": "잘 수정된다!",
+      "elapsed": "7",
+      "diffi": "hard",
+      "amountStudy": "middle",
       "id": 4
     },
     {
       "intraid": "him",
       "sbj_name": "Libft",
-      "star_rating": 4,
-      "time_taken": "three_week",
+      "star_rating": 5,
+      "time_taken": "a_week",
       "difficulty": "easy",
       "amount_study": "low",
       "bonus": "little",
@@ -170,5 +215,49 @@
   "wiki": {
     "wikiContent": "wikie 내용",
     "version": 1
-  }
+  },
+  "myComment": [
+    {
+      "subjectName": "libft",
+      "userLevel": 2.32,
+      "circle": "0",
+      "intraId": "him",
+      "commentId": 0,
+      "comment_time": "3시간 전",
+      "content": "123",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy"
+    },
+    {
+      "subjectName": "get_next_line",
+      "intraId": "him",
+      "userLevel": 2.32,
+      "circle": 1,
+      "comment_time": "3시간 전",
+      "commentId": 2,
+      "content": "123456",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy"
+    },
+    {
+      "subjectName": "printf",
+      "userLevel": 2.32,
+      "intraId": "him",
+      "circle": 1,
+      "commentId": 2,
+      "content": "789",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "comment_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy"
+    }
+  ]
 }
