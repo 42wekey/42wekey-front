@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "circle":3,
+      "circle": 3,
       "sbj_name": "3서클"
     }
   ],
@@ -73,7 +73,7 @@
       "sbj_name": "Libft",
       "content": "완전 누워서 떡먹기 ㅋㅋ",
       "rated": 4,
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "difficulty": "easy",
       "bonus": "no",
       "amount_study": "low",
@@ -87,8 +87,8 @@
       "intraid": "him",
       "sbj_name": "Libft",
       "rating": 5,
-      "elapsed": "7",
-      "diffi": "easy",
+      "time_taken": "a_week",
+      "difficulty": "easy",
       "amountStudy": "low",
       "bonus": "complete",
       "id": 2
@@ -97,9 +97,9 @@
       "intraid": "him",
       "sbj_name": "Libft",
       "rating": 2,
-      "elapsed": "90",
-      "diffi": "hard",
-      "amountStudy": "more",
+      "time_taken": "90",
+      "difficulty": "hard",
+      "amount_study": "high",
       "bonus": "complete",
       "id": 3
     },
@@ -107,12 +107,136 @@
       "intraid": "sooyang",
       "sbj_name": "Libft",
       "rating": 4,
-      "elapsed": "7",
-      "diffi": "hard",
-      "amountStudy": "middle",
+      "time_taken": "a_month",
+      "difficulty": "hard",
+      "amount_study": "middle",
       "bonus": "yes",
       "content": "안녕하세요",
       "id": 4
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 5,
+      "elapsed": "three week",
+      "diffi": "normal",
+      "amountStudy": "high",
+      "bonus": "little",
+      "content": "ㅇㅇㄹㄴ",
+      "id": 5
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 5,
+      "elapsed": "two week",
+      "diffi": "hard",
+      "amountStudy": "high",
+      "bonus": "complete",
+      "content": "어려웠어요.",
+      "id": 6
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 5,
+      "time_taken": "three_month",
+      "difficulty": "hard",
+      "amount_study": "middle",
+      "bonus": "no",
+      "content": "음 굿!",
+      "id": 7
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 5,
+      "time_taken": "a_week",
+      "difficulty": "normal",
+      "amount_study": "middle",
+      "bonus": "no",
+      "content": "이 과제는 어쩌구 저쩌구 근데 각 컴포넌트에 대해 과제가 같은 것만 나와야 함",
+      "id": 8
+    },
+    {
+      "intraid": "him",
+      "sbj_name": {
+        "subject": {
+          "subject": "gnl"
+        }
+      },
+      "rating": 5,
+      "time_taken": "three_month",
+      "difficulty": "hard",
+      "amount_study": "high",
+      "bonus": "complete",
+      "content": "지엔엘떠랏",
+      "id": 9
+    },
+    {
+      "intraid": "him",
+      "sbj_name": {
+        "subject": {
+          "subject": "gnl"
+        }
+      },
+      "rating": 5,
+      "time_taken": "three_month",
+      "difficulty": "hard",
+      "amount_study": "high",
+      "bonus": "complete",
+      "content": "지엔엘떠랏222222",
+      "id": 10
+    },
+    {
+      "intraid": "him",
+      "sbj_name": {
+        "subject": "gnl"
+      },
+      "rating": 2,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "middle",
+      "bonus": "no",
+      "content": "wld=ffd",
+      "id": 11
+    },
+    {
+      "intraid": "him",
+      "sbj_name": {
+        "subject": "Libft"
+      },
+      "rating": 3,
+      "time_taken": "three_month",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "little",
+      "content": "과제 너무 어렵다...",
+      "id": 12
+    },
+    {
+      "intraid": "him",
+      "sbj_name": {
+        "subject": "gnl"
+      },
+      "rating": 3,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "little",
+      "content": "gdgdgdㅋㅋㅋ",
+      "id": 13
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "rating": 4,
+      "time_taken": "a_month",
+      "difficulty": "normal",
+      "amount_study": "low",
+      "bonus": "no",
+      "content": "하하 고쳐졌다.",
+      "id": 14
     }
   ],
   "comment": [

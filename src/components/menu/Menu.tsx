@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Menu.module.css";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 
@@ -7,6 +8,11 @@ interface intraId{
 }
 
 export default function Menu({intraId}:intraId) {
+  const [search, setSearch] = useState<string | undefined>();
+  const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  }
+
   return (
     <div className={styles.background}>
       <div className={styles.flex_row}>
@@ -26,6 +32,8 @@ export default function Menu({intraId}:intraId) {
             <input
               type="text"
               placeholder="과제 검색하기"
+              onChange={onChange}
+              value={search}
               className={styles.form}
             />
           </form>

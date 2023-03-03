@@ -8,10 +8,15 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInput.module.css";
 import { useState, useEffect } from "react";
+import { PanoramaSharp } from "@mui/icons-material";
 // import { useHistory } from "react-router-dom";
 
-export default function CommentInput(subject:string) {
-  const [rating, setRating] = useState<number | null>(null);
+interface subject {
+  subject: string;
+}
+
+export default function CommentInput({subject}:subject) {
+  const [star_rating, setRating] = useState<number | null>(null);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");
   const [difficulty, setDiffi] = useState("");
@@ -22,6 +27,7 @@ export default function CommentInput(subject:string) {
     //   console.log(content);
     // }, [content]);
 
+  console.log(subject);
   const handleChangeTime = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
@@ -57,7 +63,7 @@ export default function CommentInput(subject:string) {
       body: JSON.stringify({
         intraid: "him",
         sbj_name: subject,
-        rating,
+        star_rating,
         time_taken,
         difficulty,
         amount_study,
@@ -141,7 +147,7 @@ export default function CommentInput(subject:string) {
                 size="large"
                 className={styles.margin}
                 name="simple-controlled"
-                value={rating}
+                value={star_rating}
                 onChange={(event, newValue) => {
                   setRating(newValue);
                 }}
