@@ -97,7 +97,7 @@
   position : absolute;
   border: solid 1px;
   z-index : 1; 
-  background-color: skyblue;
+  background-color: #ececec;
   min-width : 100px;
   right: 0;
   text-align: center;
@@ -113,7 +113,8 @@
 }
 
 .dropdown_content a:hover{
-  background-color : #ececec
+  background-color : skyblue
+  
 }
 
 .dropdown:hover .dropdown_content {

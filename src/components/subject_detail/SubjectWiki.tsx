@@ -4,6 +4,7 @@ import styles from "./SubjectWiki.module.css";
 import "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
+import { useState } from "react";
 
 const modules = {
   toolbar: {
@@ -70,6 +71,7 @@ interface propType {
 
 export default function SubjectWiki(props: propType) {
   const wiki = dummy.wiki;
+  const [wikiContent, setWikiContent] = useState(props.content)
   const clickEditButton = (text?: string, version?: number) => {
     console.log(document.documentElement.scrollHeight);
       fetch(`http://localhost:3001/subject/comment/edit/`, {
@@ -85,13 +87,14 @@ export default function SubjectWiki(props: propType) {
         modules={modules}
         className={styles.SubjectWiki}
         defaultValue={props.content}
+        onChange={setWikiContent}
         style={{ height: "30em", marginBottom: "6%" }}
       />{" "}
       <div className={styles.submit}>
         <Button variant="outlined">취소</Button>
         <Button
           variant="contained"
-          onClick={() => clickEditButton(wiki.wikiContent, wiki.version)}
+          onClick={() => clickEditButton(wikiContent, wiki.version)}
         >
           제출
         </Button>
