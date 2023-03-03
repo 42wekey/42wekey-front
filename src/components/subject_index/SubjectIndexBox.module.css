@@ -1,8 +1,14 @@
 .itemBox{
     width: 20rem;
     height: 20rem;
-    border: 1px solid gray;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
     background-color: antiquewhite;
-    margin:0 0.7rem 0.7rem 0;
+    margin:0 0.5rem 0.5rem 0;
+}
+
+.boxTitle{
+    list-style: none;
+    size: 30px;
+    margin-left: 1rem;
 }

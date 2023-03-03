@@ -38,7 +38,7 @@
     {
       "id": 1,
       "circle": 1,
-      "sbj_name": "gnl"
+      "sbj_name": "get_next_line"
     },
     {
       "id": 2,
@@ -53,52 +53,70 @@
     {
       "id": 4,
       "circle": 2,
-      "sbj_name": "대충 과제 제목"
+      "sbj_name": "FdF"
     },
     {
       "id": 5,
       "circle": 2,
-      "sbj_name": "대충 2서클 과제"
+      "sbj_name": "so_long"
     },
     {
       "id": 6,
+      "circle": 2,
+      "sbj_name": "push_swap"
+    },
+    {
+      "id": 7,
+      "circle": 2,
+      "sbj_name": "fract_ol"
+    },
+    {
+      "id": 8,
+      "circle": 2,
+      "sbj_name": "pipex"
+    },
+    {
+      "id": 9,
+      "circle": 2,
+      "sbj_name": "minitalk"
+    },
+    {
+      "id": 10,
       "circle": 3,
-      "sbj_name": "3서클"
+      "sbj_name": "philosophers"
+    },
+    {
+      "id": 11,
+      "circle": 3,
+      "sbj_name": "minishell"
+    },
+    {
+      "id": 12,
+      "circle": 4,
+      "sbj_name": "NetPractice"
+    },
+    {
+      "id": 13,
+      "circle": 4,
+      "sbj_name": "miniRT"
+    },
+    {
+      "id": 14,
+      "circle": 4,
+      "sbj_name": "cub3d"
     }
   ],
   "comments": [
     {
-      "content": "안녀앟세요gdgdgdgd",
-      "id": 0
-    },
-    {
-      "content": "PUT사용해서 댓글 수정하기.",
-      "id": 1
-    },
-    {
       "intraid": "him",
-      "content": "안녕하세요",
-      "id": 2
-    },
-    {
-      "intraid": "him",
-      "content": "안녀앟세요gggΩzzzzsaaa",
-      "id": 3
-    },
-    {
-      "intraid": "sooyang",
       "sbj_name": "Libft",
-      "rating": 4,
-      "elapsed": "7",
-      "diffi": "hard",
-      "amountStudy": "middle",
-      "bonus": "yes",
-      "content": "안녕하세요",
+      "star_rating": 2,
+      "time_taken": "three_week",
+      "difficulty": "easy",
+      "amount_study": "low",
+      "bonus": "little",
+      "content": "잘 수정된다!",
       "id": 4
-    },
-    {
-      "content": "이 과제는 어쩌구저쩌구 뇓러ㅐㅇㄹ",
-      "id": 5
     },
     {
       "intraid": "him",
@@ -110,6 +128,17 @@
       "bonus": "little",
       "content": "잘 수정된다!",
       "id": 6
+    },
+    {
+      "intraid": "him",
+      "sbj_name": "Libft",
+      "star_rating": 5,
+      "time_taken": "a_month",
+      "difficulty": "hard",
+      "amount_study": "high",
+      "bonus": "no",
+      "content": "제발 돼라 제발 돼라 제발 ㄷ",
+      "id": 7
     }
   ],
   "comment": [
