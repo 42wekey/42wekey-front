@@ -17,7 +17,7 @@ export default function SubjectComment({ intraId, sbj_name }: intraId) {
   const id = `him`;
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState([]);
 
   useEffect(()=>{
     console.log(content)
@@ -48,7 +48,7 @@ export default function SubjectComment({ intraId, sbj_name }: intraId) {
 
   return (
     <div className={styles.subjectComment}>
-      {data.map((data, index) => (
+      {comment.map((data, index) => (
         <div className={styles.commentId} key={index}>
           <div className={styles.commentHeader}>
             <Rating name="read-only" value={data.star_rating} readOnly />
