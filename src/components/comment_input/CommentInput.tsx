@@ -14,7 +14,7 @@ interface subject {
 }
 
 export default function CommentInput({subject}:subject) {
-  const [rating, setRating] = useState<number | null>(null);
+  const [star_rating, setRating] = useState<number | null>(null);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");
   const [difficulty, setDiffi] = useState("");
@@ -60,7 +60,7 @@ export default function CommentInput({subject}:subject) {
       body: JSON.stringify({
         intraid: "him",
         sbj_name: subject,
-        rating,
+        star_rating,
         time_taken,
         difficulty,
         amount_study,
@@ -144,7 +144,7 @@ export default function CommentInput({subject}:subject) {
                 size="large"
                 className={styles.margin}
                 name="simple-controlled"
-                value={rating}
+                value={star_rating}
                 onChange={(event, newValue) => {
                   setRating(newValue);
                 }}
