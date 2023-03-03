@@ -1,41 +1,57 @@
 import { Rating, TextField } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { text } from "stream/consumers";
 import dummy from "../../db/data.json";
 import styles from "./SubjectComment.module.css";
 import CommentEdit from "./SubjectCommentEdit";
 import Graph from "../graph/Graph";
+import { HideImage } from "@mui/icons-material";
 
 interface intraId {
   intraId: String;
+  sbj_name: String;
 }
 
-export default function SubjectComment({ intraId }: intraId) {
+export default function SubjectComment({ intraId, sbj_name }: intraId) {
   const data = dummy.comments;
   const id = `him`;
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
+  const [comment, setComment] = useState();
 
+  useEffect(()=>{
+    console.log(content)
+    }    , [content]);
+    
   const clickEditButton = (text?: string, comment_id?: number) => {
     console.log(comment_id);
+    console.log(text);
     if (isCommentEdit) {
-      
-      fetch(`http://localhost:3001/subject/comment/edit/${comment_id}`, {
-        method: "POST",
+      fetch(`http://localhost:3001/comments/${comment_id}`, {
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({text}),
+        body: JSON.stringify({ 
+          "content": content }),
       });
       setIsCommentEdit(false);
     } else {
       setIsCommentEdit(true);
     }
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/comments`)
+      .then((res) => res.json())
+      .then((data) => setComment(data));
+  }, []);
+
+
   return (
     <div className={styles.subjectComment}>
       {data.map((data, index) => (
         <div className={styles.commentId} key={index}>
           <div className={styles.commentHeader}>
-            <Rating name="read-only" value={data.rated} readOnly />
+            <Rating name="read-only" value={data.star_rating} readOnly />
             <div className={styles.commentTime}>{data.comment_time}</div>
           </div>
           <div className={styles.score2}>

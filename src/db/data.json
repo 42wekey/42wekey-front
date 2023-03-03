@@ -68,39 +68,21 @@
   ],
   "comments": [
     {
-      "id": 0,
-      "intraid": "him",
-      "sbj_name": "Libft",
-      "content": "완전 누워서 떡먹기 ㅋㅋ",
-      "rated": 4,
-      "time_taken": "a week",
-      "difficulty": "easy",
-      "bonus": "no",
-      "amount_study": "low",
-      "comment_time": "2시간 전"
+      "content": "안녀앟세요gdgdgdgd",
+      "id": 0
     },
     {
-      "intraid": "him",
+      "content": "PUT사용해서 댓글 수정하기.",
       "id": 1
     },
     {
       "intraid": "him",
-      "sbj_name": "Libft",
-      "rating": 5,
-      "elapsed": "7",
-      "diffi": "easy",
-      "amountStudy": "low",
-      "bonus": "complete",
+      "content": "안녕하세요",
       "id": 2
     },
     {
       "intraid": "him",
-      "sbj_name": "Libft",
-      "rating": 2,
-      "elapsed": "90",
-      "diffi": "hard",
-      "amountStudy": "more",
-      "bonus": "complete",
+      "content": "안녀앟세요gggΩzzzzsaaa",
       "id": 3
     },
     {
@@ -115,15 +97,19 @@
       "id": 4
     },
     {
+      "content": "이 과제는 어쩌구저쩌구 뇓러ㅐㅇㄹ",
+      "id": 5
+    },
+    {
       "intraid": "him",
       "sbj_name": "Libft",
-      "star_rating": 5,
-      "time_taken": "a_week",
+      "star_rating": 4,
+      "time_taken": "three_week",
       "difficulty": "easy",
       "amount_study": "low",
-      "bonus": "no",
-      "content": "이 과제는 어쩌구저쩌구 ",
-      "id": 5
+      "bonus": "little",
+      "content": "잘 수정된다!",
+      "id": 6
     }
   ],
   "comment": [
