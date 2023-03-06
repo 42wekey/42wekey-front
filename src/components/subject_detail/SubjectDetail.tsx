@@ -54,12 +54,12 @@ export default function SubjectDetail() {
               </div>
               <div className={styles.subject}>
               <div className={styles.subjectDetail}>
-      <SubjectHeader
-        info={{ circle: params.circle, sbj_name: params.sbj_name }}
-      />
+      <div className={styles.subtitle}>{params.circle} {params.sbj_name}</div>
       <div>
+      <div className={styles.subtitle}>과제 세부사항</div>
         <SubjectInfo />
       </div>
+      <div className={styles.subtitle}>위키</div>
       <div className={styles.SubjectWiki}>
         {isWikiEdit ? (
           <div>
@@ -76,9 +76,10 @@ export default function SubjectDetail() {
           </div>
         )}
       </div>
+      <div className={styles.subtitle}>댓글</div>
       <div className={styles.content}>
-          <CommentInput subject={sbj}/>
           <SubjectComment/>
+          <CommentInput subject={sbj}/>
           </div>
         </div>
       </div>
