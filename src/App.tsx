@@ -6,12 +6,12 @@ import Login from "./components/login/Login";
 import MyComment from "./components/myComment/MyComment";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
+import Empty from "./components/Error/Empty";
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   return (
-
     <RecoilRoot>
     <Router>
     <Routes>
@@ -20,6 +20,7 @@ const App = () => {
       <Route path="login" element={<IsLogged/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
       <Route path="/allComment/:intraId" element={<MyComment/>} />
+      <Route path="/*" element={<Empty/>} />
     </Routes>
     </Router>
     </RecoilRoot>
