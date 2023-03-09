@@ -1,7 +1,7 @@
 import { Rating, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import styles from "./MyCommentList.module.css";
-import Graph from "../graph/Graph";
+import Graph from "../subject_detail/graph/Graph";
 import { profileState } from "../../utils/recoil/user";
 import { useRecoilState } from "recoil";
 import { Link } from "react-router-dom";

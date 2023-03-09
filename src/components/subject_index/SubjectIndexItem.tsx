@@ -19,7 +19,7 @@ export default function PdfIndexItem(props: PdfIndexItemProps) {
           <Link to={`/${data.circle}_circle/${data.sbj_name}`}>
             <div className={styles.title}>{data.sbj_name}</div>
           </Link>
-          <Rating name="half-rating-read" value={3.5}  precision={0.1} readOnly />
+          <Rating name="half-rating-read" value={3.5}  precision={0.1}  readOnly />
         </div>
       ))}
     </div>
