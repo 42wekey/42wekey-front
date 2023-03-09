@@ -6,9 +6,10 @@ import Login from "./components/login/Login";
 import MyComment from "./components/myComment/MyComment";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
+import Modal from "./components/modal/Modal";
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   return (
 
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/allComment/:intraId" element={<MyComment/>} />
     </Routes>
     </Router>
+    <Modal/>
     </RecoilRoot>
   );
 };

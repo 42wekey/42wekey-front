@@ -2,16 +2,17 @@ import styles from "./SubjectDetail.module.css";
 import SubjectHeader from "./SubjectHeader";
 import SubjectComment from "./SubjectComment";
 import Menu from "../menu/Menu";
-import CommentInput from "../comment_input/CommentInput";
+import CommentInput from "./comment_input/CommentInput";
 import { useParams } from "react-router";
 import { useEffect, useState, useRef } from "react";
 import SubjectWiki from "./SubjectWiki";
 import dummy from "../../db/data.json";
 import SubjectInfo from "./SubjectInfo";
-import Graph from "../graph/Graph";
-import { Button } from "@mui/material";
+import Graph from "./graph/Graph";
+import { Button, Modal } from "@mui/material";
 import { useRecoilState } from "recoil";
-import {profileState} from "../../utils/recoil/user"
+import { profileState } from "../../utils/recoil/user";
+import { modalState } from "../../utils/recoil/modal";
 
 interface intraId {
   intraId: String;
@@ -23,6 +24,7 @@ export default function SubjectDetail() {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
+  const [isModalState, setIsModalState] = useRecoilState(modalState)
 
   function getMaxScroll() {
     const { scrollHeight, offsetHeight } = document.documentElement;
@@ -35,7 +37,7 @@ export default function SubjectDetail() {
   function onScroll() {
     setScroll(Math.floor(window.scrollY));
   }
-  
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -44,7 +46,7 @@ export default function SubjectDetail() {
   }, [scroll]);
 
   return (
-    <div >
+    <div>
       <Menu intraId={"him"} />
       <div className={styles.progress_bar}>
         <div
@@ -79,10 +81,11 @@ export default function SubjectDetail() {
       <div className={styles.subtitle}>댓글</div>
       <div className={styles.content}>
           <SubjectComment/>
-          <CommentInput subject={sbj}/>
+          <button onClick={() => setIsModalState({ isModal: true })}> 후기 작성</button>
+          {/* <CommentInput subject={sbj}/> */}
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 }

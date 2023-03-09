@@ -82,7 +82,7 @@ export default function SubjectWiki(props: propType) {
       props.setIsWikiEdit(false);
   };
   return (
-    <div>
+    <div className={styles.wiki}>
       <ReactQuill
         modules={modules}
         className={styles.SubjectWiki}
