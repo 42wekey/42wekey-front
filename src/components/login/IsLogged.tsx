@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./IsLogged.module.css";
+import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function IsLogged() {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const url = new URL(window.location.href);
     const href = url.href;
     if (!href) return;
     const accessToken = href.split("code=")[1];
-    console.log(accessToken);
+    if (accessToken == undefined) return;
     fetch("http://localhost:3001/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,5 +27,14 @@ export default function IsLogged() {
     });
   }, []);
 
-  return <div></div>;
+  return (
+    <div className={styles.window}>
+      <LinearProgress />
+      <div className={styles.loading}>
+      <CircularProgress />
+      <div className={styles.text}>로딩 중</div>
+    </div>
+    </div>
+    
+  );
 }

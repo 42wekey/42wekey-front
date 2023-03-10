@@ -7,6 +7,7 @@ import MyComment from "./components/myComment/MyComment";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
 import Modal from "./components/modal/Modal";
+import Empty from "./components/Error/Empty";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(true);
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="login" element={<IsLogged/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
       <Route path="/allComment/:intraId" element={<MyComment/>} />
+      <Route path="/*" element={<Empty/>} />
     </Routes>
     </Router>
     <Modal/>
