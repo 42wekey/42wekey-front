@@ -65,22 +65,25 @@ const modules = {
 
 interface propType {
   setIsWikiEdit: React.Dispatch<React.SetStateAction<Boolean>>;
-  content: string;
-  version: number;
+  content?: string;
+  version?: number;
 }
 
 export default function SubjectWiki(props: propType) {
-  const wiki = dummy.wiki;
   const [wikiContent, setWikiContent] = useState(props.content)
   const clickEditButton = (text?: string, version?: number) => {
     console.log(document.documentElement.scrollHeight);
-      fetch(`http://localhost:3001/subject/comment/edit/`, {
+      fetch(`http://localhost:3001/wiki`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ wikiContent: text, version: version }),
       });
       props.setIsWikiEdit(false);
   };
+
+  const clickCancleButton = () => {
+    props.setIsWikiEdit(false);
+  }
   return (
     <div className={styles.wiki}>
       <ReactQuill
@@ -91,10 +94,10 @@ export default function SubjectWiki(props: propType) {
         style={{ height: "30em", marginBottom: "6%" }}
       />{" "}
       <div className={styles.submit}>
-        <Button variant="outlined">취소</Button>
+        <Button variant="outlined" onClick={() => clickCancleButton()}>취소</Button>
         <Button
           variant="contained"
-          onClick={() => clickEditButton(wikiContent, wiki.version)}
+          onClick={() => clickEditButton(wikiContent, props.version)}
         >
           제출
         </Button>

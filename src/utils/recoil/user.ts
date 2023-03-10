@@ -9,7 +9,7 @@ interface userProfile{
 export const profileState = atom<userProfile>({
   key: `profileState/`,
   default: {
-    intraId: 'him',
+    intraId: 'sooyang',
     lastReloadTime: 20220322,
     level: 0,
   },
