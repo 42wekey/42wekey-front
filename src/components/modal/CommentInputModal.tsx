@@ -30,6 +30,9 @@ export default function CommentInputModal({subject}:subject) {
     //   console.log(content);
     // }, [content]);
 
+  useEffect(()=>{
+    document.body.style.overflow = "hidden";
+  },[])
   const handleChangeTime = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
@@ -75,6 +78,7 @@ export default function CommentInputModal({subject}:subject) {
     }).then((res) => {
       if (res.ok) {
         alert("후기가 작성되었습니다.");
+        document.body.style.overflow = "unset";
         // history.push("/");
       }
     });
@@ -82,11 +86,13 @@ export default function CommentInputModal({subject}:subject) {
   };
 
   function onCancleButton() {
+    document.body.style.overflow = "unset";
     setIsCommentModal({ isModal: false });
   }
 
   return (
     <div className={styles.back}>
+
     <Card>
       <CardContent>
         <form>

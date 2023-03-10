@@ -45,9 +45,20 @@
 .SubjectWiki {
 	/* max-height: 10em !important; */
 }
+::-webkit-scrollbar-thumb {
+  background: #397e9f;
+  border-radius: 0.3rem;
+}
+::-webkit-scrollbar {
+  width: 0.4rem
+}
 
 .wikiContent {
   line-height: 0.3rem;
+  max-height: 30em;
+  
+  overflow: scroll;
+  
 }
 
 .progress_bar{

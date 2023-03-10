@@ -4,6 +4,7 @@ import { text } from "stream/consumers";
 import dummy from "../../db/data.json";
 import styles from "./SubjectComment.module.css";
 import Graph from "./graph/Graph";
+import IconCheckboxes from "./IconCheckboxes";
 
 interface intraId {
   intraId: String;
@@ -54,6 +55,7 @@ export default function SubjectComment() {
       {comment.map((data, index) => ( 
         <div className={styles.commentId} key={index}>
           <div className={styles.commentHeader}>
+            <IconCheckboxes/>
             <Rating name="read-only" value={data.star_rating} readOnly />
             <div className={styles.commentTime}>{data.comment_time}</div>
           </div>

@@ -34,7 +34,6 @@ export default function MyCommentList() {
   }, []);
 
   const clickEditButton = (text?: string, comment_id?: number) => {
-    console.log(comment_id);
     if (isCommentEdit) {
       fetch(`http://localhost:3001/subject/comment/edit/${comment_id}`, {
         method: "POST",
@@ -57,7 +56,7 @@ export default function MyCommentList() {
             <Rating name="read-only" value={data.star_rating} readOnly />
             <div className={styles.commentTime}>{data.comment_time}</div>
           </div>
-          <div className={styles.score2}>
+          {/* <div className={styles.score2}>
             <div className={styles.score}>
               <div className={styles.scoreTitle}>시간</div>
               <div className={styles.scoreContent}>{data.time_taken}</div>
@@ -73,8 +72,8 @@ export default function MyCommentList() {
             <div className={styles.score}>
               <div className={styles.scoreTitle}>보너스</div>
               <div className={styles.scoreContent}>{data.bonus}</div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
           <div className={styles.graph}>
             <Graph
               time_taken={data.time_taken}
