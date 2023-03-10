@@ -1,34 +1,45 @@
 import { Link } from "react-router-dom";
-import styles from "./Menu.module.css";
-import DehazeIcon from "@mui/icons-material/Dehaze";
 import { useEffect, useState } from "react";
+import styles from "./Menu.module.css";
+import { AsyncHook } from "async_hooks";
+import SearchBar from "./SearchBar";
+import DehazeIcon from "@mui/icons-material/Dehaze";
+import { dividerClasses } from "@mui/material";
 
-interface intraId {
-  intraId: String;
+interface intraId{
+  intraId:String;
 }
 
-interface subject {
-  id: number;
-  circle: number;
-  sbj_name: string;
+interface subject{
+  id: Number;
+  circle: Number;
+  sbj_name: String;
 }
 
-export default function Menu({ intraId }: intraId) {
-  const [search, setSearch] = useState("");
+export default function Menu({intraId}:intraId) {
+  const [search, setSearch] =useState<string>('');
   const [subject, setSubject] = useState<subject[]>([]);
-  useEffect(() => {
-    fetch(`http://localhost:3001/subjects`)
-      .then((res) => res.json())
-      .then((data) => setSubject(data));
-  }, []);
+  const [searchResult,setSearchResult] = useState<subject[]>([]);
+  const [focus, setFocus] = useState(false);
 
-  const filterTitle = subject.filter((p) => {
-    return p.sbj_name
-      .replace(" ", "")
-      .toLocaleLowerCase()
-      .includes(search.toLocaleLowerCase().replace(" ", ""));
-  });
-  console.log(filterTitle);
+  const onClickSearch = () => {
+    const tmp_sbj = subject.filter((sbj)=>
+    {
+      const tmp = sbj.sbj_name.replace('_','');
+      return tmp.toLowerCase().includes(search.toLowerCase())
+    });
+    setSearchResult(tmp_sbj);
+  };
+
+  const focusEvent = () => {
+
+  };
+
+  useEffect(()=>{
+    fetch(`http://localhost:3001/subjects`)
+    .then((res)=>res.json())
+    .then((data)=>setSubject(data));
+    },[]);
 
   return (
     <div className={styles.background}>
@@ -37,14 +48,27 @@ export default function Menu({ intraId }: intraId) {
           <h2>42ence</h2>
         </Link>
         <div className={styles.flex_interface}>
-          <form>
+          <form className={styles.dropdown}>
             <input
               type="text"
               placeholder="과제 검색하기"
-              onChange={(e) => setSearch(e.target.value)}
               className={styles.form}
+              onFocus={()=>setFocus(!focus)}
+              onBlur={()=>setFocus(!focus)}
+              onChange={(e) => {
+                setSearch(e.target.value.replaceAll(' ','').replaceAll('_',''));
+                onClickSearch();
+              }}
             />
+            {focus && search != '' && <div className={styles.dropdown_content}>
+              <ul>
+                {
+                  searchResult.map((data, idx)=><li key={idx}><div><Link to={`/${data.circle}/${data.sbj_name}`}>{data.sbj_name}</Link></div></li>)
+                }
+              </ul>
+            </div>}
           </form>
+
           <div>
             <div className={styles.dropdown}>
               <button className={styles.dropbtn}>
