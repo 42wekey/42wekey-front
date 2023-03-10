@@ -63,7 +63,7 @@ export default function CommentInputModal({subject}:subject) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        intraid: "him",
+        intraid: "sooyang",
         sbj_name: subject,
         star_rating,
         time_taken,

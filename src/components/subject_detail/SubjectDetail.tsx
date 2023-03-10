@@ -18,8 +18,13 @@ interface intraId {
   intraId: String;
 }
 
+interface wiki {
+  wikiContent?: string,
+  version?: number
+}
+
 export default function SubjectDetail() {
-  const wiki = dummy.wiki;
+  const [wiki, setWiki] = useState<wiki>();
   const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
   const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
@@ -37,6 +42,12 @@ export default function SubjectDetail() {
   function onScroll() {
     setScroll(Math.floor(window.scrollY));
   }
+  
+  useEffect(() => {
+    fetch(`http://localhost:3001/wiki`)
+    .then((res) => res.json())
+    .then((data) => setWiki(data));
+  }, [isWikiEdit])
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
@@ -67,13 +78,16 @@ export default function SubjectDetail() {
           <div>
             <SubjectWiki
               setIsWikiEdit={setIsWikiEdit}
-              content={wiki.wikiContent}
-              version={wiki.version}
+              content={wiki?.wikiContent}
+              version={wiki?.version}
             />
           </div>
         ) : (
           <div>
-            {wiki.wikiContent}
+            <div className={styles.wikiContent}>
+            {wiki?.wikiContent && <div dangerouslySetInnerHTML={{ __html :  wiki.wikiContent  }} />}
+            </div>
+            {/* {wiki?.wikiContent} */}
             <button onClick={() => setIsWikiEdit(true)}>수정하기</button>
           </div>
         )}

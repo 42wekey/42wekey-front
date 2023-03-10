@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { text } from "stream/consumers";
 import dummy from "../../db/data.json";
 import styles from "./SubjectComment.module.css";
-import CommentEdit from "./SubjectCommentEdit";
 import Graph from "./graph/Graph";
 
 interface intraId {
@@ -24,7 +23,6 @@ interface comment {
 }
 
 export default function SubjectComment() {
-  const data = dummy.comments;
   const id = `him`;
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();

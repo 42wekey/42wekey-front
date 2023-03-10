@@ -46,6 +46,10 @@
 	/* max-height: 10em !important; */
 }
 
+.wikiContent {
+  line-height: 0.3rem;
+}
+
 .progress_bar{
   position: fixed;
   width: 100%;
