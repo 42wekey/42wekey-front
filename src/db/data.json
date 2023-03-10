@@ -111,7 +111,7 @@
       "id": 0,
       "intraid": "him",
       "sbj_name": "Libft",
-      "content": "완전 누워서 떡먹기 ㅋㅋ",
+      "content": "ㅁㄴㅇㄹ",
       "star_rating": 4,
       "time_taken": "a week",
       "difficulty": "easy",
@@ -127,7 +127,8 @@
       "diffi": "easy",
       "amount_study": "middle",
       "bonus": "complete",
-      "id": 1
+      "id": 1,
+      "content": "ㅁㄴㄹㅇㄴㄹㄴㅇㅁㄹ"
     },
     {
       "intraid": "him",
@@ -150,40 +151,26 @@
       "id": 3
     },
     {
-      "intraid": "sooyang",
-      "sbj_name": "Libft",
-      "star_rating": 2,
-      "time_taken": "three_week",
-      "difficulty": "easy",
-      "amount_study": "low",
-      "bonus": "little",
-      "content": "잘 수정된다!",
-      "elapsed": "7",
-      "diffi": "hard",
-      "amountStudy": "middle",
+      "intraid": "him",
+      "sbj_name": "libft",
+      "star_rating": 3,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "complete",
+      "content": "asdasdxz",
       "id": 4
     },
     {
-      "intraid": "him",
-      "sbj_name": "Libft",
-      "star_rating": 5,
-      "time_taken": "a_week",
-      "difficulty": "easy",
-      "amount_study": "low",
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 4,
+      "time_taken": "three_week",
+      "difficulty": "normal",
+      "amount_study": "middle",
       "bonus": "little",
-      "content": "잘 수정된다!",
-      "id": 6
-    },
-    {
-      "intraid": "him",
-      "sbj_name": "Libft",
-      "star_rating": 5,
-      "time_taken": "a_month",
-      "difficulty": "hard",
-      "amount_study": "high",
-      "bonus": "no",
-      "content": "제발 돼라 제발 돼라 제발 ㄷ",
-      "id": 7
+      "content": "adsads",
+      "id": 5
     }
   ],
   "comment": [
@@ -213,7 +200,7 @@
     }
   ],
   "wiki": {
-    "wikiContent": "wikie 내용",
+    "wikiContent": "<h2>ㅁㄴㅇㅎㄴㅊㅍㄴㅇㅍㅇㅁㄹㅁㄴㄹㅇㄴㅁㄹㅇ 수양님 바보.</h2><p><br></p><p class=\"ql-align-center\">ㄴㄹㅇㅁㅇㄹ</p><p><br></p><p>ㅁㄴㅇ</p><p><strong>ㅁㄴㄹㅇㅁㄹㄴㅇ</strong></p><p><span style=\"background-color: rgb(230, 0, 0);\">ㅇㄴㄹ</span></p><p><br></p><p><br></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇㄹㅇㄴ</span></p>",
     "version": 1
   },
   "myComment": [

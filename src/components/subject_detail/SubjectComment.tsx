@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { text } from "stream/consumers";
 import dummy from "../../db/data.json";
 import styles from "./SubjectComment.module.css";
-import CommentEdit from "./SubjectCommentEdit";
-import Graph from "../graph/Graph";
+import Graph from "./graph/Graph";
 
 interface intraId {
   intraId: String;
@@ -24,7 +23,6 @@ interface comment {
 }
 
 export default function SubjectComment() {
-  const data = dummy.comments;
   const id = `him`;
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
@@ -59,7 +57,7 @@ export default function SubjectComment() {
             <Rating name="read-only" value={data.star_rating} readOnly />
             <div className={styles.commentTime}>{data.comment_time}</div>
           </div>
-          <div className={styles.score2}>
+          {/* <div className={styles.score2}>
             <div className={styles.score}>
               <div className={styles.scoreTitle}>시간</div>
               <div className={styles.scoreContent}>{data.time_taken}</div>
@@ -76,7 +74,7 @@ export default function SubjectComment() {
               <div className={styles.scoreTitle}>보너스</div>
               <div className={styles.scoreContent}>{data.bonus}</div>
             </div>
-          </div>
+          </div> */}
           <div className={styles.graph}>
             <Graph
               time_taken={data.time_taken}

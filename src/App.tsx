@@ -6,12 +6,14 @@ import Login from "./components/login/Login";
 import MyComment from "./components/myComment/MyComment";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
+import Modal from "./components/modal/Modal";
 import Empty from "./components/Error/Empty";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(true);
 
   return (
+
     <RecoilRoot>
     <Router>
     <Routes>
@@ -23,6 +25,7 @@ const App = () => {
       <Route path="/*" element={<Empty/>} />
     </Routes>
     </Router>
+    <Modal/>
     </RecoilRoot>
   );
 };
