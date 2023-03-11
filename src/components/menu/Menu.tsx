@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Menu.module.css";
-import { AsyncHook } from "async_hooks";
-import SearchBar from "./SearchBar";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-import { dividerClasses } from "@mui/material";
 
 interface intraId{
   intraId:String;
@@ -29,10 +26,6 @@ export default function Menu({intraId}:intraId) {
       return tmp.toLowerCase().includes(search.toLowerCase())
     });
     setSearchResult(tmp_sbj);
-  };
-
-  const focusEvent = () => {
-
   };
 
   useEffect(()=>{
@@ -61,17 +54,16 @@ export default function Menu({intraId}:intraId) {
               type="text"
               placeholder="과제 검색하기"
               className={styles.form}
-              onFocus={()=>setFocus(!focus)}
-              onBlur={()=>setFocus(!focus)}
+              onFocus={()=>setFocus(true)}
               onChange={(e) => {
                 setSearch(e.target.value.replaceAll(' ','').replaceAll('_',''));
                 onClickSearch();
               }}
             />
-            {focus && search != '' && <div className={styles.dropdown_content}>
+            {focus && search !== '' && <div className={styles.dropdown_content}>
               <ul>
                 {
-                  searchResult.map((data, idx)=><li key={idx}><div><Link to={`/${data.circle}/${data.sbj_name}`}>{data.sbj_name}</Link></div></li>)
+                  searchResult.map((data, idx)=><Link key={idx} onClick={()=>setFocus(false)} to={`/${data.circle}_circle/${data.sbj_name}`}>{data.sbj_name}</Link>)
                 }
               </ul>
             </div>}
