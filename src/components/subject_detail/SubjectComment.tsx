@@ -1,10 +1,9 @@
 import { Rating, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { text } from "stream/consumers";
-import dummy from "../../db/data.json";
 import styles from "./SubjectComment.module.css";
 import Graph from "./graph/Graph";
-import IconCheckboxes from "./IconCheckboxes";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import PrintComment from "./PrintComment";
 
 interface intraId {
   intraId: String;
@@ -12,12 +11,14 @@ interface intraId {
 
 interface comment {
   id: number,
+  like: number,
   intraid: string,
   sbj_name: string,
   content: string,
   star_rating: number,
   time_taken: string,
   difficulty: string,
+  isComment: Boolean;
   bonus: string,
   amount_study: string,
   comment_time: string
@@ -28,21 +29,8 @@ export default function SubjectComment() {
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
   const [comment, setComment] = useState<comment[]>([]);
+  const [isLike, setIsLike] = useState<Boolean>(false);
     
-  const clickEditButton = (text?: string, comment_id?: number) => {
-    
-    if (isCommentEdit) {
-      fetch(`http://localhost:3001/comments/${comment_id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          "content": content }),
-      });
-      setIsCommentEdit(false);
-    } else {
-      setIsCommentEdit(true);
-    }
-  };
 
   useEffect(() => {
     fetch(`http://localhost:3001/comments`)
@@ -54,29 +42,13 @@ export default function SubjectComment() {
     <div className={styles.subjectComment}>
       {comment.map((data, index) => ( 
         <div className={styles.commentId} key={index}>
-          <div className={styles.commentHeader}>
-            <IconCheckboxes/>
+          <PrintComment commentData={data}/>
+          {/* <div className={styles.commentHeader}>
+            <button className={isLike ? styles.redButton : styles.emptyButton} onClick={()=>setIsLike(!isLike)}><FavoriteIcon className={styles.heart}/></button>
+            {data.like}
             <Rating name="read-only" value={data.star_rating} readOnly />
             <div className={styles.commentTime}>{data.comment_time}</div>
           </div>
-          {/* <div className={styles.score2}>
-            <div className={styles.score}>
-              <div className={styles.scoreTitle}>시간</div>
-              <div className={styles.scoreContent}>{data.time_taken}</div>
-            </div>
-            <div className={styles.score}>
-              <div className={styles.scoreTitle}>학습량</div>
-              <div className={styles.scoreContent}>{data.amount_study}</div>
-            </div>
-            <div className={styles.score}>
-              <div className={styles.scoreTitle}>난이도</div>
-              <div className={styles.scoreContent}>{data.difficulty}</div>
-            </div>
-            <div className={styles.score}>
-              <div className={styles.scoreTitle}>보너스</div>
-              <div className={styles.scoreContent}>{data.bonus}</div>
-            </div>
-          </div> */}
           <div className={styles.graph}>
             <Graph
               time_taken={data.time_taken}
@@ -87,7 +59,7 @@ export default function SubjectComment() {
           <div className={styles.score2}>
             <div className={styles.comment}>
               <div>
-                {/* {data.intraid === id ? <button >수정</button> : 123} */}
+                {data.intraid === id ? <button >수정</button> : 123}
               </div>
               <div>
                 {data.intraid} :
@@ -114,7 +86,7 @@ export default function SubjectComment() {
                     <div>
                       {data.content}{" "}
                       <button
-                        onClick={() => clickEditButton(data.content, data.id)}
+                        // onClick={() => clickEditButton(data.content, data.id)}
                       >
                         수정
                       </button>
@@ -126,6 +98,7 @@ export default function SubjectComment() {
               </div>
             </div>
           </div>
+        </div> */}
         </div>
       ))}
     </div>

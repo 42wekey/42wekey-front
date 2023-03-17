@@ -109,7 +109,9 @@
   "comments": [
     {
       "id": 0,
+      "like": 15,
       "intraid": "him",
+      "isComment": false,
       "sbj_name": "Libft",
       "content": "ㅍㅋㅊㅍㅊㅋㅁㄴㅇㄹ",
       "star_rating": 4,
@@ -121,9 +123,11 @@
     },
     {
       "intraid": "him",
+      "like": 15,
       "sbj_name": "Libft",
       "star_rating": 5,
       "elapsed": "7",
+      "isComment": false,
       "diffi": "easy",
       "amount_study": "middle",
       "bonus": "complete",
@@ -134,6 +138,8 @@
       "intraid": "him",
       "sbj_name": "Libft",
       "star_rating": 5,
+      "isComment": false,
+      "like": 15,
       "elapsed": "7",
       "diffi": "easy",
       "amount_study": "middle",
@@ -143,7 +149,9 @@
     },
     {
       "intraid": "him",
+      "like": 15,
       "sbj_name": "Libft",
+      "isComment": false,
       "star_rating": 2,
       "elapsed": "90",
       "diffi": "hard",
@@ -153,6 +161,8 @@
     },
     {
       "intraid": "him",
+      "isComment": false,
+      "like": 15,
       "sbj_name": "libft",
       "star_rating": 3,
       "time_taken": "two_week",
@@ -164,21 +174,25 @@
     },
     {
       "intraid": "sooyang",
+      "isComment": false,
+      "like": 15,
       "sbj_name": "libft",
       "star_rating": 4,
       "time_taken": "three_week",
       "difficulty": "normal",
       "amount_study": "middle",
       "bonus": "little",
-      "content": "adsads",
+      "content": "adsadsasdadssaㅁㄴㅇㅁㄴㅋㅋㅇadsasdasdsfdsdfsfdasdfasf",
       "id": 5
     },
     {
       "intraid": "sooyang",
       "sbj_name": "libft",
       "star_rating": 4,
+      "isComment": false,
       "time_taken": "two_week",
       "difficulty": "normal",
+      "like": 15,
       "amount_study": "middle",
       "bonus": "complete",
       "content": "ㅁㄴㅇㄴㅁㅇㅁㄴㅇㅁ",
@@ -186,25 +200,53 @@
     },
     {
       "intraid": "sooyang",
+      "isComment": false,
       "sbj_name": "libft",
       "star_rating": 5,
+      "like": 15,
       "time_taken": "two_week",
       "difficulty": "normal",
       "amount_study": "middle",
       "bonus": "little",
-      "content": "바보",
+      "content": "바보ㄹ홍ㄹㅎ올호",
       "id": 7
     },
     {
       "intraid": "sooyang",
       "sbj_name": "libft",
+      "like": 15,
       "star_rating": 4,
       "time_taken": "three_week",
       "difficulty": "hard",
+      "isComment": false,
       "amount_study": "middle",
       "bonus": "complete",
       "content": "dsadsa",
       "id": 8
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 4,
+      "isComment": false,
+      "time_taken": "a_week",
+      "like": 15,
+      "difficulty": "normal",
+      "amount_study": "low",
+      "bonus": "no",
+      "content": "sadfasdfsadfsadf",
+      "id": 9
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 3,
+      "time_taken": "a_month",
+      "difficulty": "hard",
+      "amount_study": "middle",
+      "bonus": "little",
+      "content": "ㄴㅁㄹㅇ",
+      "id": 10
     }
   ],
   "comment": [
@@ -234,7 +276,7 @@
     }
   ],
   "wiki": {
-    "wikiContent": "<h2>ㅁㄴㅇㅎㄴㅊㅍㄴㅇㅍㅇㅁㄹㅁㄴㄹㅇㄴㅁㄹㅇ 수양님 바보.</h2><p><br></p><p class=\"ql-align-center\">ㄴㄹㅇㅁㅇㄹ</p><p><br></p><p>ㅁㄴㅇ</p><p><strong>ㅁㄴㄹㅇㅁㄹㄴㅇ</strong></p><p><span style=\"background-color: rgb(230, 0, 0);\">ㅇㄴㄹ</span></p><p><br></p><p><br></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇㄹㅇㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">!ㄴㅇㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">!ㄴㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㅇㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅁㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁ!</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁ!ㅇㅁㄹㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄹㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄹ\rㄴㅁㄹㅇ</span></p><p><br></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅇㅁ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅊㄹㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\"> ㅎㅌ</span></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㅁㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄴㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㅇㄹㅇㅁㄴㅇㄹㄹㅇㄹㅇㅇ</p><p>ㅇㅇㅇㅇ</p><p>ㅇㅇㅇㅇㅇ</p><p>ㅁㄴ</p><p>ㄴㅇㄹ</p><p>ㅁㄴㅇㄹ</p><p>ㄴㅇ</p><p>ㄹㅁㄴ</p><p>ㄴ</p><p>ㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄹㅇㄹㄹㅇㄹㄹ</p><p>ㅇㄹ</p><p>ㄴ</p><p>ㄹㄹㅇ</p><p>ㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p><p><br></p><p><br></p>",
+    "wikiContent": "<h2>ㅁㄴㅇㅎㄴㅊㅍㄴㅇㅍㅇㅁㄹㅁㄴㄹㅇㄴㅁㄹㅇ 수양님 바보.</h2><p><br></p><p class=\"ql-align-center\">ㄴㄹㅇㅁㅇㄹ</p><p>sdfasdfasf</p><p>ㅁㄴㅇ</p><p><strong>ㅁㄴㄹㅇㅁㄹㄴㅇ</strong></p><p><span style=\"background-color: rgb(230, 0, 0);\">ㅇㄴㄹ</span></p><p><br></p><p>sadf</p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇㄹㅇㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">sdf!ㄴㅇㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">!ㄴㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㅇㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅁㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁ!</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁ!ㅇㅁㄹㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄹㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄹ ㄴㅁㄹㅇ</span></p><p><br></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅇㅁ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅁㄴㅇ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\">ㅊㄹㄴ</span></p><p><span style=\"background-color: rgb(230, 0, 0); color: rgb(255, 255, 255);\"> ㅎㅌ</span></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㅁㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄴㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㅇㄹㅇㅁㄴㅇㄹㄹㅇㄹㅇㅇ</p><p>ㅇㅇㅇㅇ</p><p>ㅇㅇㅇㅇㅇ</p><p>ㅁㄴ</p><p>ㄴㅇㄹ</p><p>ㅁㄴㅇㄹ</p><p>ㄴㅇ</p><p>ㄹㅁㄴ</p><p>ㄴ</p><p>ㄹ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>ㄹㅇㄹㄹㅇㄹㄹ</p><p>ㅇㄹ</p><p>ㄴ</p><p>ㄹㄹㅇ</p><p>ㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p><p>ㅇㄹ</p>",
     "version": 1
   },
   "myComment": [
