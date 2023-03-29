@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 
-.container{
-  width:800px;
-  margin:auto;
+.container {
+  width: 800px;
+  margin: auto;
 }
 
 .subjectDetail {
@@ -26,7 +26,7 @@
   background-color: #d9d9d9;
 }
 
-.subtitle{
+.subtitle {
   width: 100%;
   height: 2rem;
   line-height: 2rem;
@@ -42,14 +42,14 @@
 }
 
 .SubjectWiki {
-	/* max-height: 10em !important; */
+  /* max-height: 10em !important; */
 }
 ::-webkit-scrollbar-thumb {
   background: #397e9f;
   border-radius: 0.3rem;
 }
 ::-webkit-scrollbar {
-  width: 0.4rem
+  width: 0.4rem;
 }
 
 .wikiContent {
@@ -58,18 +58,22 @@
   line-height: 1rem;
 }
 
-.progress_bar{
+.progress_bar {
   position: fixed;
   width: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   height: 5px;
   background-color: #dedede;
   z-index: 999;
 }
 
-.progerss_bar_fill{
+.progerss_bar_fill {
   position: fixed;
   height: 5px;
   background-color: #467bff;
+}
+.floting {
+  position: sticky;
+  bottom: 30px;
 }

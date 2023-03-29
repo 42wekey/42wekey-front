@@ -3,7 +3,7 @@ import styles from "./SubjectComment.module.css";
 import { Rating, TextField } from "@mui/material";
 import Graph from "./graph/Graph";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useRecoilState} from "recoil";
+import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 interface intraId {
   intraId: String;
@@ -44,7 +44,7 @@ const PrintComment = (props: CommentProps) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content }),
       });
-	  setContent(content);
+      setContent(content);
       setIsCommentEdit(false);
     } else {
       setIsCommentEdit(true);
@@ -52,13 +52,13 @@ const PrintComment = (props: CommentProps) => {
   };
 
   const clickLikeButton = (commentId?: Number, intraId?: String) => {
-      fetch(`http://localhost:3001/like.${commentId}/${intraId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-      });
-	  setIsLike(!isLike)
-	  console.log(commentId, intraId)
+    fetch(`http://localhost:3001/like.${commentId}/${intraId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    setIsLike(!isLike);
+    console.log(commentId, intraId);	
   };
 
   return (
