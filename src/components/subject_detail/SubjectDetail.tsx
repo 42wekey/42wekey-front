@@ -95,7 +95,9 @@ export default function SubjectDetail() {
       <div className={styles.subtitle}>댓글</div>
       <div className={styles.content}>
           <SubjectComment/>
-          <button onClick={() => setIsModalState({ isModal: true })}> 후기 작성</button>
+          <div className={styles.floting}>
+          <button onClick={() => setIsModalState({ isModal: true })} className={styles.floting}> 후기 작성</button>
+          </div>
           {/* <CommentInput subject={sbj}/> */}
           </div>
         </div>

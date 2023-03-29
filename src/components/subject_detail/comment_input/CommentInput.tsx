@@ -162,7 +162,7 @@ export default function CommentInput({subject}:subject) {
             <MyFormHelperText />
           </div>
           <div className={styles.submit}>
-            <Button variant="outlined">취소</Button>
+            <Button variant="outlined">취소22</Button>
             <Button variant="contained" onClick={onClickSubmit}>
               제출
             </Button>

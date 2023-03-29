@@ -11,11 +11,17 @@
     list-style: none;
 } */
 
-.listTitle{
+/* .listTitle{
     list-style: none;
-}
+} */
 .test {
     display: flex;
     align-items: center;
     justify-items: center;
+    flex-direction: column;
+    
+}
+
+.subject {
+    display: flex;
 }

@@ -2,16 +2,14 @@ import { atom } from 'recoil';
 
 interface userProfile{
   intraId: string;
-  lastReloadTime: number;
-  level: number;
+  user_level: number;
 }
 
 export const profileState = atom<userProfile>({
   key: `profileState/`,
   default: {
-    intraId: 'sooyang',
-    lastReloadTime: 20220322,
-    level: 0,
+    intraId: "null",
+    user_level: 0,
   },
 });
 
