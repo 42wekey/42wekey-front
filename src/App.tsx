@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RecoilRoot } from "recoil";
 import Main from './components/Main';
 import Login from "./components/login/Login";
-import MyComment from "./components/myComment/MyComment";
+import MyComment from "./components/myPage/MyPage";
 import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
 import Modal from "./components/modal/Modal";
