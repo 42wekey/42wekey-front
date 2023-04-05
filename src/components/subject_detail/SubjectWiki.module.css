@@ -67,6 +67,7 @@ ql-editor {
 
 
 
-  /* .wiki {
-    height: 5rem;
-  } */
+.wiki {
+  height: 5rem;
+  margin:20px;
+}
