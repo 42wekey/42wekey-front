@@ -43,7 +43,7 @@ export default function SubjectRank() {
       setRankIndex(rankIndex - 1);
       console.log(rankIndex);
     } else {
-      setRankIndex(SubjectRank.length - 1);
+      setRankIndex(subjectRank.length - 1);
       console.log(rankIndex);
     }
   }
@@ -73,7 +73,7 @@ export default function SubjectRank() {
               {subjectRank[rankIndex]?.subject_2.value}
             </>
           </div>
-		  <div>
+          <div>
             <>
               3. {subjectRank[rankIndex]?.subject_3.subject_name}
               {" - "}
