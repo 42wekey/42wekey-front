@@ -1,46 +1,91 @@
 {
-  "user_me": { "intraId": "him", "user_level": 5.21 },
+  "user_me": {
+    "intraId": "him",
+    "user_level": 5.21
+  },
   "user_status": {
     "my_comment_num": 12,
     "recommend_comment": 15
   },
   "subject_star_rating_rank": {
     "title": "별점 랭킹",
-    "subject_1": { "subject_name": "libft", "star_rating": 4.8 },
-    "subject_2": { "subject_name": "get_next_line", "star_rating": 4.7 },
-    "subject_3": { "subject_name": "push_swap", "star_rating": 4.5 }
+    "subject_1": {
+      "subject_name": "libft",
+      "star_rating": 4.8
+    },
+    "subject_2": {
+      "subject_name": "get_next_line",
+      "star_rating": 4.7
+    },
+    "subject_3": {
+      "subject_name": "push_swap",
+      "star_rating": 4.5
+    }
   },
   "subject_comment_num_rank": {
     "title": "후기가 많은 과제",
-    "subject_1": { "subject_name": "libft", "commnet_num": 50 },
-    "subject_2": { "subject_name": "get_next_line", "commnet_num": 47 },
-    "subject_3": { "subject_name": "push_swap", "commnet_num": 25 }
+    "subject_1": {
+      "subject_name": "libft",
+      "commnet_num": 50
+    },
+    "subject_2": {
+      "subject_name": "get_next_line",
+      "commnet_num": 47
+    },
+    "subject_3": {
+      "subject_name": "push_swap",
+      "commnet_num": 25
+    }
   },
   "subject_rank": [
     {
       "title": "별점 랭킹",
-      "subject_1": { "subject_name": "libft", "value": 4.8 },
-      "subject_2": { "subject_name": "get_next_line", "value": 4.7 },
-      "subject_3": { "subject_name": "push_swap", "value": 4.5 }
+      "subject_1": {
+        "subject_name": "libft",
+        "value": 4.8
+      },
+      "subject_2": {
+        "subject_name": "get_next_line",
+        "value": 4.7
+      },
+      "subject_3": {
+        "subject_name": "push_swap",
+        "value": 4.5
+      }
     },
     {
       "title": "후기가 많은 과제",
-      "subject_1": { "subject_name": "libft", "value": 58 },
-      "subject_2": { "subject_name": "get_next_line", "value": 47 },
-      "subject_3": { "subject_name": "push_swap", "value": 8 }
+      "subject_1": {
+        "subject_name": "libft",
+        "value": 58
+      },
+      "subject_2": {
+        "subject_name": "get_next_line",
+        "value": 47
+      },
+      "subject_3": {
+        "subject_name": "push_swap",
+        "value": 8
+      }
     }
   ],
   "subject_list": [
     {
       "circle": 0,
       "subject": [
-        { "subject_name": "libft", "subject_info": "라이브러리를 만들어보자!" }
+        {
+          "subject_name": "libft",
+          "subject_info": "라이브러리를 만들어보자!"
+        }
       ]
     },
     {
       "circle": 1,
       "subject": [
-        { "subject_name": "printf", "subject_info": "printf를 구현해 보자" },
+        {
+          "subject_name": "printf",
+          "subject_info": "printf를 구현해 보자"
+        },
         {
           "subject_name": "Born2beroot",
           "subject_info": "가상머신이란 무엇일까?"
@@ -54,7 +99,10 @@
     {
       "circle": 2,
       "subject": [
-        { "subject_name": "push_swap", "subject_info": "너희가 스택을 알아?" },
+        {
+          "subject_name": "push_swap",
+          "subject_info": "너희가 스택을 알아?"
+        },
         {
           "subject_name": "so_long",
           "subject_info": "가상머신이란 무엇일까?"
@@ -68,7 +116,10 @@
     {
       "circle": 3,
       "subject": [
-        { "subject_name": "minishell", "subject_info": "너희가 스택을 알아?" },
+        {
+          "subject_name": "minishell",
+          "subject_info": "너희가 스택을 알아?"
+        },
         {
           "subject_name": "philosopher",
           "subject_info": "가상머신이란 무엇일까?"
@@ -78,29 +129,44 @@
     {
       "circle": 4,
       "subject": [
-        { "subject_name": "cpp00-04", "subject_info": "너희가 스택을 알아?" },
+        {
+          "subject_name": "cpp00-04",
+          "subject_info": "너희가 스택을 알아?"
+        },
         {
           "subject_name": "cub3d",
           "subject_info": "가상머신이란 무엇일까?"
         },
-        { "subject_name": "", "subject_info": "readLine이 뭔지 알아?" }
+        {
+          "subject_name": "",
+          "subject_info": "readLine이 뭔지 알아?"
+        }
       ]
     },
     {
       "circle": 5,
       "subject": [
-        { "subject_name": "ft_irc", "subject_info": "너희가 스택을 알아?" },
+        {
+          "subject_name": "ft_irc",
+          "subject_info": "너희가 스택을 알아?"
+        },
         {
           "subject_name": "webserv",
           "subject_info": "가상머신이란 무엇일까?"
         },
-        { "subject_name": "cpp05-09", "subject_info": "readLine이 뭔지 알아?" }
+        {
+          "subject_name": "cpp05-09",
+          "subject_info": "readLine이 뭔지 알아?"
+        }
       ]
     },
     {
       "circle": 6,
       "subject": [
-        { "subject_name": "트센", "subject_info": "초월자가 되어보자" }
+        {
+          "subject_name": "트센",
+          "subject_info": "초월자가 되어보자"
+        }
       ]
     }
   ],
@@ -392,7 +458,7 @@
     }
   ],
   "wiki": {
-    "wikiContent": "<h2>dasdasdasasdasd sad asd asd as d</h2>",
+    "wikiContent": "<h2>dasdasd</h2><p>아앙너란ㅇ머랮머인ㄹ</p><p>ㅁㄴ이라ㅓㅁ인럼ㅈ</p><p>렌어라ㅣㅇ넘랮ㅂㅎㅈㅁㅇㄹ</p><p>ㄹㅎ멀ㄴㅇ매러ㅑㅈㄷㅁㄹㅁㄷㅈㄹㄴㅇㄹㅁㅎㅈㄷ</p><p>minilibx 의 원작자인 ‘Olivier CROUZET’ (@ol) 의 답변</p><p>* swift api 가 업데이트 되어 해당 문제가 발생하였고, 위의 방식으로 코드를 수정 해서 이용해도 문제가 없을 것 같다.</p><p>* 당분간 맥용 mlx 업데이트가 없을 것 같으니 위와 같은 수정사항이 필요하면 직접 수정해도 상관 없다.</p><p>* Minilibx는 bsd 라이선스를 따르고 있어서 누구든 마음대로 업데이트 하는게 가능하다.</p>",
     "version": 1
   },
   "myComment": [

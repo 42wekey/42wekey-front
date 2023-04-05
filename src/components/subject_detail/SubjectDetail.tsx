@@ -1,4 +1,5 @@
 import styles from "./SubjectDetail.module.css";
+
 import SubjectComment from "./SubjectComment";
 import Menu from "../menu/Menu";
 import { useParams } from "react-router";
@@ -50,30 +51,25 @@ export default function SubjectDetail() {
 
   return (
     <div>
-      <Menu intraId={"him"} />
-      <div className={styles.progress_bar}>
-        <div
-          className={styles.progerss_bar_fill}
-          style={{ width: `${100 * (scroll / maxScroll)}%` }}
-        ></div>
-      </div>
+      <Menu intraId={"him"} menuName={"과제리뷰"} />
       <div className={styles.subject}>
         <div className={styles.subjectDetail}>
           <div className={styles.subtitle}>
-            {params.circle} {params.sbj_name}
+            {params.sbj_name}
           </div>
           <div>
-            <div className={styles.subtitle}>과제 세부사항</div>
             <SubjectInfo />
           </div>
           <div>
-            <button onClick={() => setContentState("wiki")}>위키42</button>
-            <button onClick={() => setContentState("subject")}>
-              과제 후기
-            </button>
+            {contentState === "wiki" ? <div>
+            <div className={styles.tab}>
+              <div className={styles.tab_select_btn} onClick={() => setContentState("wiki")}>
+                  위키42
+              </div>
+              <div className={styles.tab_btn} onClick={() => setContentState("subject")}>
+                  과제 후기
+              </div>
           </div>
-          <div>
-            {contentState === "wiki" ? <div><div className={styles.subtitle}>위키</div>
             <div className={styles.SubjectWiki}>
               {isWikiEdit ? (
                 <div>
@@ -96,7 +92,15 @@ export default function SubjectDetail() {
                   <button onClick={() => setIsWikiEdit(true)}>수정하기</button>
                 </div>
               )}
-            </div></div> : <div><div className={styles.subtitle}>댓글</div>
+            </div></div> : <div>
+            <div className={styles.tab}>
+              <div className={styles.tab_btn} onClick={() => setContentState("wiki")}>
+                  위키42
+              </div>
+              <div className={styles.tab_select_btn} onClick={() => setContentState("subject")}>
+                  과제 후기
+              </div>
+          </div>
             <div className={styles.content}>
               <SubjectComment />
               <div className={styles.floting}>
@@ -108,7 +112,6 @@ export default function SubjectDetail() {
                   후기 작성
                 </button>
               </div>
-              {/* <CommentInput subject={sbj}/> */}
             </div></div>}
           </div>
         </div>
