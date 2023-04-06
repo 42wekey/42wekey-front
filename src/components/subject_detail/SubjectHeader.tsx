@@ -5,7 +5,6 @@ interface paramType{
 	info: {circle: string, sbj_name: string}
 }
 
-
 export default function SubjectHeader({info}: paramType) {
 	return (
 		<div className={styles.SubjectHeader}>

@@ -458,7 +458,7 @@
     }
   ],
   "wiki": {
-    "wikiContent": "<h2>dasdasd</h2><p>아앙너란ㅇ머랮머인ㄹ</p><p>ㅁㄴ이라ㅓㅁ인럼ㅈ</p><p>렌어라ㅣㅇ넘랮ㅂㅎㅈㅁㅇㄹ</p><p>ㄹㅎ멀ㄴㅇ매러ㅑㅈㄷㅁㄹㅁㄷㅈㄹㄴㅇㄹㅁㅎㅈㄷ</p><p>minilibx 의 원작자인 ‘Olivier CROUZET’ (@ol) 의 답변</p><p>* swift api 가 업데이트 되어 해당 문제가 발생하였고, 위의 방식으로 코드를 수정 해서 이용해도 문제가 없을 것 같다.</p><p>* 당분간 맥용 mlx 업데이트가 없을 것 같으니 위와 같은 수정사항이 필요하면 직접 수정해도 상관 없다.</p><p>* Minilibx는 bsd 라이선스를 따르고 있어서 누구든 마음대로 업데이트 하는게 가능하다.</p>",
+    "wikiContent": "<h2>dasdasd</h2><p>아앙너란ㅇ머랮머인ㄹ</p><p>ㅁㄴ이라ㅓㅁ인럼ㅈ</p><p>렌어라ㅣㅇ넘랮ㅂㅎㅈㅁㅇㄹ</p><p>ㄹㅎ멀ㄴㅇ매러ㅑㅈㄷㅁㄹㅁㄷㅈㄹㄴㅇㄹㅁㅎㅈㄷ</p><p>minilibx 의 원작자인 ‘Olivier CROUZET’ (@ol) 의 답변</p><p>* swift api 가 업데이트 되어 해당 문제가 발생하였고, 위의 방식으로 코드를 수정 해서 이용해도 문제가 없을 것 같다.</p><p>* 당분간 맥용 mlx 업데이트가 없을 것 같으니 위와 같은 수정사항이 필요하면 직접 수정해도 상관 없다.</p><p>* Minilibx는 bsd 라이선스를 따르고 있어서 누구든 마음대로 업데이트 하는게 가능하다.</p><p>d</p><p>d</p><p>d</p><p>dd</p><p>dd</p><p>d</p>",
     "version": 1
   },
   "myComment": [
@@ -504,5 +504,32 @@
       "bonus": "complete",
       "difficulty": "easy"
     }
-  ]
+  ],
+  "sbj_avg": {
+    "comment_num": 5,
+    "avg_star_rating": 5,
+    "total_star_rating": [
+      0,
+      0,
+      0,
+      0,
+      5
+    ],
+    "time_take": {
+      "title": "a_week",
+      "value": 57
+    },
+    "amount_study": {
+      "title": "low",
+      "value": 29
+    },
+    "bonus": {
+      "title": "complete",
+      "value": 29
+    },
+    "difficulty": {
+      "title": "middle",
+      "value": 33
+    }
+  }
 }
