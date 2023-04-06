@@ -1,91 +1,139 @@
+import styles from "./SubjectRank.module.css";
 import { useEffect, useState } from "react";
+import SubjectRankContent from "./SubjectRankContent";
 
-interface RankSubject {
+interface SubjectRankType {
   subject_name: String;
   value: Number | String;
+  circle: Number;
 }
 
-interface Rank {
+interface SubjectRank {
   title: String;
-  subject_1: RankSubject;
-  subject_2: RankSubject;
-  subject_3: RankSubject;
+  subject: SubjectRankType[];
 }
 
 export default function SubjectRank() {
-  const [subjectRank, setSubjectRank] = useState<Rank[]>([]);
+  const [subjectRankList, setSubjectRankList] = useState<SubjectRank[]>([]);
+  // const [selectRank, setSelectRank] = useState("star_rating_rank");
+  // const rankList = ["star_rating_rank", "comment_num_rank"];
   const [rankIndex, setRankIndex] = useState(0);
-
-  //   useEffect(() => {
-  //     if (selectRank === "subject_star_rating_rank") {
-  //       fetch(`http://localhost:3001/${selectRank}`)
-  //         .then((res) => res.json())
-  //         .then((data) => setSubjectStarRank(data));
-  //     }
-  // 	else if (selectRank === "subject_comment_num_rank"){
-  // 		fetch(`http://localhost:3001/${selectRank}`)
-  //         .then((res) => res.json())
-  //         .then((data) => setSubjectCommentRank(data));
-  // 	}
-  //   }, [selectRank]);
+  const [maxIndex, setMaxIndex] = useState(0);
 
   function rankIndexPlus() {
-    if (rankIndex < 1) {
-      setRankIndex(rankIndex + 1);
-      console.log(rankIndex);
-    } else {
+    if (rankIndex === maxIndex - 1) {
       setRankIndex(0);
-      console.log(rankIndex);
-    }
-  }
-  function rankIndexMinus() {
-    if (rankIndex > 0) {
-      setRankIndex(rankIndex - 1);
-      console.log(rankIndex);
     } else {
-      setRankIndex(subjectRank.length - 1);
-      console.log(rankIndex);
+      setRankIndex(rankIndex + 1);
     }
   }
+
+  function rankIndexMinus() {
+    if (rankIndex === 0) setRankIndex(maxIndex - 1);
+    else setRankIndex(rankIndex - 1);
+  }
+
+  useEffect(() => {
+    setMaxIndex(subjectRankList.length);
+  }, [subjectRankList]);
 
   useEffect(() => {
     fetch(`http://localhost:3001/subject_rank`)
       .then((res) => res.json())
-      .then((data) => setSubjectRank(data));
+      .then((data) => setSubjectRankList(data));
   }, []);
 
   return (
     <div>
-      <div>
-        <>
-          {subjectRank[rankIndex]?.title}
-          <div>
-            <>
-              1. {subjectRank[rankIndex]?.subject_1.subject_name}
-              {" - "}
-              {subjectRank[rankIndex]?.subject_1.value}
-            </>
+      <div className={styles.rankContainer}>
+        <div className={styles.rankTitle}>카뎃들의 과제랭킹</div>
+        <div className={styles.keyword}>
+        {subjectRankList?.map((value, index) => (
+          <div key={index} className={`${rankIndex === index ? styles.keywordContent : styles.selectKeyword}`}>
+          <a onClick={()=>setRankIndex(index)}>{value.title}</a>
           </div>
-          <div>
-            <>
-              2. {subjectRank[rankIndex]?.subject_2.subject_name}
-              {" - "}
-              {subjectRank[rankIndex]?.subject_2.value}
-            </>
-          </div>
-          <div>
-            <>
-              3. {subjectRank[rankIndex]?.subject_3.subject_name}
-              {" - "}
-              {subjectRank[rankIndex]?.subject_3.value}
-            </>
-          </div>
-        </>
+        ))}
+        </div>
+        <SubjectRankContent
+          title={subjectRankList[rankIndex]?.title}
+          subject={subjectRankList[rankIndex]?.subject}
+        />
       </div>
-      <div>
+      {/* <div>
+        {rankIndex === 0 ? (
+          <div>
+            <>
+              <div>{subjectStarRank?.title}</div>
+              <div>
+                <>
+                  1. {subjectStarRank?.subject_1.subject_name}
+                  {" - "}
+                  {subjectStarRank?.subject_1.star_rating}
+                </>
+              </div>
+              <div>
+                <>
+                  2. {subjectStarRank?.subject_2.subject_name}
+                  {" - "}
+                  {subjectStarRank?.subject_2.star_rating}
+                </>
+              </div>
+              <div>
+                <>
+                  3. {subjectStarRank?.subject_3.subject_name}
+                  {" - "}
+                  {subjectStarRank?.subject_3.star_rating}
+                </>
+              </div>
+            </>
+          </div>
+        ) : (
+          <div>
+            <>
+              <div>{subjectCommentRank?.title}</div>
+              <div>
+                <>
+                  1. {subjectCommentRank?.subject_1.subject_name}
+                  {" - "}
+                  {subjectCommentRank?.subject_1.commnet_num}
+                </>
+              </div>
+              <div>
+                <>
+                  2. {subjectCommentRank?.subject_2.subject_name}
+                  {" - "}
+                  {subjectCommentRank?.subject_2.commnet_num}
+                </>
+              </div>
+              <div>
+                <>
+                  3. {subjectCommentRank?.subject_3.subject_name}
+                  {" - "}
+                  {subjectCommentRank?.subject_3.commnet_num}
+                </>
+              </div>
+            </>
+          </div>
+        )}
+      </div> */}
+      {/* <div>
         <button onClick={rankIndexMinus}> {"<"}</button>
         <button onClick={rankIndexPlus}> {">"} </button>
-      </div>
+      </div> */}
     </div>
   );
 }
+
+//   useEffect(() => {
+//     if (selectRank === "subject_star_rating_rank") {
+//       fetch(`http://localhost:3001/${selectRank}`)
+//         .then((res) => res.json())
+//         .then((data) => setSubjectStarRank(data));
+//     }
+// 	else if (selectRank === "subject_comment_num_rank"){
+// 		fetch(`http://localhost:3001/${selectRank}`)
+//         .then((res) => res.json())
+//         .then((data) => setSubjectCommentRank(data));
+// 	}
+//   }, [selectRank]);
+

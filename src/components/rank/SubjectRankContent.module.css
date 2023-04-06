@@ -1,0 +1,72 @@
+.container {
+	/* display: flex; */
+	justify-content: space-between;
+	background-color: white;
+	border-radius: 10px;
+	padding: 1rem;
+	width: 100%;
+	height: auto;
+}
+
+.divisionLine {
+	border-top: 1.5px solid black;
+	margin-top: 0.7rem;
+	margin-bottom: 0.7rem;
+	margin-left: auto;
+	margin-right: auto;
+	width:95%;
+}
+.subjectCircle {
+	display: flex;
+	margin-right: auto;
+	align-items: center;
+}
+
+.subjectDivisionLine {
+	border-right: 0.7px solid black;
+	border-left: 0.7px solid black;
+	margin-top: auto;
+	margin-bottom: auto;
+	height: 0.7rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.subject {
+	font-size: 1.3rem;
+	font-weight: 430;
+}
+
+.circle {
+	font-size: 0.9rem;
+}
+
+.contentLine {
+	display: grid;
+	padding-left: 0.8rem;
+	padding-right: 0.8rem;
+}
+
+.rating {
+	margin-right: 2rem;
+	font-size: 1.3rem;
+}
+
+.rank {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.star {
+	margin-right: auto;
+}
+
+.rankContent {
+	display: flex;
+	justify-self: left;
+	width: 15%;
+	align-items: center;
+}
+.starRating{
+	margin-right: auto;
+}
