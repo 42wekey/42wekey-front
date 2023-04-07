@@ -1,0 +1,43 @@
+.flex{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 2rem;
+}
+
+.name{
+	width: 25%;
+}
+
+.font{
+	word-break: keep-all;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.chip{
+	position: relative;
+	width: auto;
+	height: 1.2rem;
+	padding: 0 0.5rem 0 0.5rem;
+	background-color: #F6F9FF;
+	border-radius: 5px;
+}
+
+.chipTitle{
+	position:relative;
+	top: -10%;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 14px;
+	white-space: normal;
+	color: #396FF9;
+}
+
+.baseline{
+	border-bottom: 1px dashed #CBCBCB;
+	width: 65%;
+	margin: auto 1rem auto 1rem;
+}

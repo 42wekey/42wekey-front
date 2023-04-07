@@ -1,5 +1,5 @@
 .container{
-	margin: 20px;
+	margin: 20px 30px 20px 30px;
 	padding: 0;
 }
 
@@ -19,6 +19,10 @@
 .flexItem{
 	width: 50%;
 	text-align: center;
+}
+
+.minusMargin{
+	margin-bottom: -0.3rem;
 }
 
 .graphMargin{
@@ -47,13 +51,14 @@
 	color: #B1B1B1;
 }
 
-.borderLeft{
-	border-left: 1px solid #EFF1F8;
+.borderRight{
+	border-right: 1px solid #EFF1F8;
 }
 
 .bar_chart {
+	position: relative;
 	display: inline-block;
-	width: calc(100% - 3rem);
+	width: calc(100% - 4.5rem);
 	height: 0.5rem;
 	background: #F6F9FF;
 	border-radius: 5px;
@@ -62,6 +67,9 @@
 }
   
 .bar {
+	position: absolute;
+	top:0;
+	left: 0;
 	height: 0.5rem;
 	background: #959DB0;
 	border-radius: 5px;

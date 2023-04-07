@@ -1,8 +1,8 @@
-import { Rating } from "@mui/material";
+import { Chip, Rating } from "@mui/material";
 import { useState, useEffect } from "react";
 import Graph from "./graph/Graph";
-import NewGraph from "./graph/NewGraph";
 import styles from "./SubjectAnalysis.module.css";
+import SubjectDetailAvg from "./SubjectDetailAvg";
 
 interface subject {
   sbjname: String;
@@ -29,42 +29,35 @@ export default function Analysis({ sbjname }: subject) {
       .then((data) => setSbjAvg(data));
   }, []);
 
-//  useEffect(() => {
-//	for(let i=4; i >= 0; i--){
-//		if (sbjAvg.total_star_rating[i] && sbjAvg.comment_num)
-//			total_avg[i] = sbjAvg.total_star_rating[i]/sbjAvg.comment_num*100;
-//	}
-//  }, [sbjAvg]);
-
-
-
   return (
     <div className={styles.container}>
       <div className={styles.review}>리뷰 ({sbjAvg?.comment_num})</div>
       <div className={styles.flex}>
-        <div className={styles.flexItem}>
-          <div className={styles.ratingStr}>{sbjAvg?.avg_star_rating}</div>
-          <Rating width="105px" value={sbjAvg?.avg_star_rating ?? 0} />
+        <div className={styles.flexItem }>
+          <div className={styles.borderRight}>
+            <div className={styles.ratingStr}>{`${sbjAvg?.avg_star_rating}`}</div>
+            <Rating color="FF620A" width="105px" value={sbjAvg?.avg_star_rating ?? 0} />
+          </div>
         </div>
         <div className={styles.flexItem}>
           {total.map((value) => (
-            <div className={styles.avgGraph}>
+            <div className={styles.avgGraph && styles.minusMargin}>
               <span className={styles.smallFont}>{value}점</span>
               <span className={styles.smallFont}>
-			  <div className={styles.bar_chart}>
-				<div className={styles.bar} style={{width: "70%"}} />
-			  </div>
+			        <div className={styles.bar_chart}>
+				        <div className={styles.bar} style={{ width: `${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%` }} />
+			        </div>
               </span>
-              <span className={styles.smallFont}>{sbjAvg?.total_star_rating[value - 1]}</span>
+              <span className={styles.smallFont}>{`${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%`}</span>
             </div>
           ))}
         </div>
       </div>
       <div>
-        <div>소요시간</div>
-        <div>난이도</div>
-        <div>학습량</div>
-        <div>보너스</div>
+        {sbjAvg !== undefined && <SubjectDetailAvg name="소요시간" detail_title={`${sbjAvg?.time_taken?.title}`} detail_value={`${sbjAvg?.time_taken?.value}`}/>}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="난이도" detail_title={`${sbjAvg?.difficulty?.title}`} detail_value={`${sbjAvg?.difficulty?.value}`}/>}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="학습량" detail_title={`${sbjAvg?.amount_study?.title}`} detail_value={`${sbjAvg?.amount_study?.value}`}/>}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="보너스" detail_title={`${sbjAvg?.bonus?.title}`} detail_value={`${sbjAvg?.bonus?.value}`}/>}
       </div>
     </div>
   );
