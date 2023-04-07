@@ -43,11 +43,9 @@ export default function Analysis({ sbjname }: subject) {
           {total.map((value) => (
             <div className={styles.avgGraph && styles.minusMargin}>
               <span className={styles.smallFont}>{value}점</span>
-              <span className={styles.smallFont}>
 			        <div className={styles.bar_chart}>
 				        <div className={styles.bar} style={{ width: `${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%` }} />
 			        </div>
-              </span>
               <span className={styles.smallFont}>{`${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%`}</span>
             </div>
           ))}
