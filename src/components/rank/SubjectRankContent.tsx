@@ -26,7 +26,7 @@ export default function SubjectRankContent(props: SubjectRank) {
                     <div className={styles.subject}>{value.subject_name}</div>
                     <div className={styles.subjectDivisionLine}></div>
                     <div className={styles.circle}>
-                      <>{value.circle}Circle</>
+                      <>{value.circle}_Circle</>
                     </div>
                   </div>
                   <div className={styles.rankContent}>
