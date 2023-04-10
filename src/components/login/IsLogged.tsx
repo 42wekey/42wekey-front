@@ -13,7 +13,7 @@ export default function IsLogged() {
     if (!href) return;
     const accessToken = href.split("code=")[1];
     if (accessToken == undefined) return;
-    fetch("http://localhost:3001/login", {
+    fetch("http://10.18.241.49:3001/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

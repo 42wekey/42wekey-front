@@ -1,84 +1,54 @@
 import { useEffect, useState } from "react";
+import SubjectRankContent from "./SubjectRankContent";
 
-interface SubjectStarRatingRank {
+interface SubjectRankType {
   subject_name: String;
-  star_rating: Number;
+  value1: Number | String;
+  value2: Number | String;
 }
 
-interface SubjectCommentNumRank {
-  subject_name: String;
-  commnet_num: Number;
-}
-
-interface SubjectStarRank {
+interface SubjectRank {
   title: String;
-  subject_1: SubjectStarRatingRank;
-  subject_2: SubjectStarRatingRank;
-  subject_3: SubjectStarRatingRank;
-}
-
-interface SubjectCommentRank {
-  title: String;
-  subject_1: SubjectCommentNumRank;
-  subject_2: SubjectCommentNumRank;
-  subject_3: SubjectCommentNumRank;
+  subject: SubjectRankType[];
 }
 
 export default function SubjectRank() {
-  const [subjectCommentRank, setSubjectCommentRank] =
-    useState<SubjectCommentRank>();
-  const [subjectStarRank, setSubjectStarRank] = useState<SubjectStarRank>();
-  const [selectRank, setSelectRank] = useState("star_rating_rank");
-  const rankList = ["star_rating_rank", "comment_num_rank"];
+  const [subjectRank, setSubjectRank] = useState<SubjectRank[]>([]);
+  // const [selectRank, setSelectRank] = useState("star_rating_rank");
+  // const rankList = ["star_rating_rank", "comment_num_rank"];
   const [rankIndex, setRankIndex] = useState(0);
-
-  //   useEffect(() => {
-  //     if (selectRank === "subject_star_rating_rank") {
-  //       fetch(`http://localhost:3001/${selectRank}`)
-  //         .then((res) => res.json())
-  //         .then((data) => setSubjectStarRank(data));
-  //     }
-  // 	else if (selectRank === "subject_comment_num_rank"){
-  // 		fetch(`http://localhost:3001/${selectRank}`)
-  //         .then((res) => res.json())
-  //         .then((data) => setSubjectCommentRank(data));
-  // 	}
-  //   }, [selectRank]);
+  const [maxIndex, setMaxIndex] = useState(0);
 
   function rankIndexPlus() {
-    if (rankIndex < 1) {
-      setRankIndex(rankIndex + 1);
-      console.log(rankIndex);
-    } else {
+    if (rankIndex === maxIndex - 1) {
       setRankIndex(0);
-      console.log(rankIndex);
+    } else {
+      setRankIndex(rankIndex + 1);
     }
   }
   function rankIndexMinus() {
-    if (rankIndex > 0) {
+    if (rankIndex == 0)
+      setRankIndex(maxIndex - 1);
+    else
       setRankIndex(rankIndex - 1);
-      console.log(rankIndex);
-    } else {
-      setRankIndex(1);
-      console.log(rankIndex);
-    }
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3001/subject_star_rating_rank`)
+    fetch(`http://10.18.241.49:3001/subject_rank`)
       .then((res) => res.json())
-      .then((data) => setSubjectStarRank(data));
-  }, []);
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/subject_comment_num_rank`)
-      .then((res) => res.json())
-      .then((data) => setSubjectCommentRank(data));
+      .then((data) => setSubjectRank(data));
+      setMaxIndex(subjectRank.length);
   }, []);
 
   return (
     <div>
       <div>
+        <SubjectRankContent
+          title={subjectRank[rankIndex]?.title}
+          subject={subjectRank[rankIndex]?.subject}
+        />
+      </div>
+      {/* <div>
         {rankIndex === 0 ? (
           <div>
             <>
@@ -134,7 +104,7 @@ export default function SubjectRank() {
             </>
           </div>
         )}
-      </div>
+      </div> */}
       <div>
         <button onClick={rankIndexMinus}> {"<"}</button>
         <button onClick={rankIndexPlus}> {">"} </button>
@@ -143,3 +113,15 @@ export default function SubjectRank() {
   );
 }
 
+//   useEffect(() => {
+//     if (selectRank === "subject_star_rating_rank") {
+//       fetch(`http://localhost:3001/${selectRank}`)
+//         .then((res) => res.json())
+//         .then((data) => setSubjectStarRank(data));
+//     }
+// 	else if (selectRank === "subject_comment_num_rank"){
+// 		fetch(`http://localhost:3001/${selectRank}`)
+//         .then((res) => res.json())
+//         .then((data) => setSubjectCommentRank(data));
+// 	}
+//   }, [selectRank]);

@@ -21,7 +21,7 @@ export default function MyCommentList() {
   const [myComment, setMyComment] = useState<comment[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/myComment`)
+    fetch(`http://10.18.241.49:3001/myComment`)
       .then((res) => res.json())
       .then((data) => setMyComment(data));
   }, []);

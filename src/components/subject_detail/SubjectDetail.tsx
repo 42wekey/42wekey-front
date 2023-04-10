@@ -38,7 +38,7 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3001/wiki`)
+    fetch(`http://10.18.241.49:3001/wiki`)
       .then((res) => res.json())
       .then((data) => setWiki(data));
   }, [isWikiEdit]);
