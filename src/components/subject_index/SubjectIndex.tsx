@@ -16,7 +16,7 @@ export default function PdfIndex() {
   const [subjectList, setSubjectList] = useState<SubjectList[]>([]);
   const [selectCircle, setSelectCircle] = useState(0);
   useEffect(() => {
-    fetch(`http://localhost:3001/subject_list`)
+    fetch(`http://10.18.241.49:3001/subject_list`)
       .then((res) => res.json())
       .then((data) => setSubjectList(data));
   }, []);

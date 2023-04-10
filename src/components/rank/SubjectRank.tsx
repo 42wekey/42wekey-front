@@ -20,25 +20,28 @@ export default function SubjectRank() {
   const [rankIndex, setRankIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
 
-  function rankIndexPlus() {
-    if (rankIndex === maxIndex - 1) {
-      setRankIndex(0);
-    } else {
-      setRankIndex(rankIndex => rankIndex + 1);
-    }
-  }
+  // function rankIndexPlus() {
+  //   if (rankIndex === maxIndex - 1) {
+  //     setRankIndex(0);
+  //   } else {
+  //     setRankIndex(rankIndex => rankIndex + 1);
+  //     console.log(rankIndex);
+  //     setRankIndex(rankIndex => rankIndex + 1);
+  //     console.log(rankIndex);
+  //   }
+  // }
 
-  function rankIndexMinus() {
-    if (rankIndex === 0) setRankIndex(maxIndex - 1);
-    else setRankIndex(rankIndex => rankIndex - 1);
-  }
+  // function rankIndexMinus() {
+  //   if (rankIndex === 0) setRankIndex(maxIndex - 1);
+  //   else setRankIndex(rankIndex => rankIndex - 1);
+  // }
 
   useEffect(() => {
     setMaxIndex(subjectRankList.length);
   }, [subjectRankList]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/subject_rank`)
+    fetch(`http://10.18.241.49:3001/subject_rank`)
       .then((res) => res.json())
       .then((data) => setSubjectRankList(data));
   }, []);

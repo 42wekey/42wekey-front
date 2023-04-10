@@ -13,7 +13,7 @@ export default function UserProfile() {
   const [userInfo, setUserInfo] = useRecoilState(profileState);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/user_status`)
+    fetch(`http://10.18.241.49:3001/user_status`)
       .then((res) => res.json())
       .then((data) => setUserStatus(data));
   }, []);

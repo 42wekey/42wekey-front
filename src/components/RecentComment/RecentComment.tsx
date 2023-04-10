@@ -14,7 +14,7 @@ export default function RecentComment() {
     []
   );
   useEffect(() => {
-    fetch(`http://localhost:3001/recent_comment`)
+    fetch(`http://10.18.241.49:3001/recent_comment`)
       .then((res) => res.json())
       .then((data) => setRecentCommentList(data));
   }, []);

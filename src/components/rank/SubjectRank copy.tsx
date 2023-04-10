@@ -34,7 +34,7 @@ export default function SubjectRank() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3001/subject_rank`)
+    fetch(`http://10.18.241.49:3001/subject_rank`)
       .then((res) => res.json())
       .then((data) => setSubjectRank(data));
       setMaxIndex(subjectRank.length);
