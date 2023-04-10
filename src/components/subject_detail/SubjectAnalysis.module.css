@@ -4,6 +4,7 @@
 }
 
 .review{
+	word-break: keep-all;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 19px;
@@ -73,4 +74,8 @@
 	height: 0.5rem;
 	background: #959DB0;
 	border-radius: 5px;
+  }
+
+  .avg_container{
+	margin-top: 2rem;
   }

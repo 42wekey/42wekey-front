@@ -12,16 +12,16 @@ interface sbjAvg {
   comment_num: Number;
   avg_star_rating: Number;
   total_star_rating: Number;
-  time_taken?: { title: String; value: Number };
-  amount_study?: { title: String; value: Number };
-  bonus?: { title: String; value: Number };
-  difficulty?: { title: String; value: Number };
+  time_taken?: { title: String; value: Number; detail: Number[]; };
+  amount_study?: { title: String; value: Number; detail: Number[]; };
+  bonus?: { title: String; value: Number; detail: Number[]; };
+  difficulty?: { title: String; value: Number; detail: Number[]; };
 }
 
 export default function Analysis({ sbjname }: subject) {
   const [sbjAvg, setSbjAvg] = useState<sbjAvg>();
   const total = [5, 4, 3, 2, 1];
-  const total_avg = (5);
+  const detail=[20,20,30,10,20];
 
   useEffect(() => {
     fetch(`http://localhost:3001/sbj_avg`)
@@ -40,8 +40,8 @@ export default function Analysis({ sbjname }: subject) {
           </div>
         </div>
         <div className={styles.flexItem}>
-          {total.map((value) => (
-            <div className={styles.avgGraph && styles.minusMargin}>
+          {total.map((value, i) => (
+            <div key={i} className={styles.avgGraph && styles.minusMargin}>
               <span className={styles.smallFont}>{value}점</span>
 			        <div className={styles.bar_chart}>
 				        <div className={styles.bar} style={{ width: `${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%` }} />
@@ -51,11 +51,11 @@ export default function Analysis({ sbjname }: subject) {
           ))}
         </div>
       </div>
-      <div>
-        {sbjAvg !== undefined && <SubjectDetailAvg name="소요시간" detail_title={`${sbjAvg?.time_taken?.title}`} detail_value={`${sbjAvg?.time_taken?.value}`}/>}
-        {sbjAvg !== undefined && <SubjectDetailAvg name="난이도" detail_title={`${sbjAvg?.difficulty?.title}`} detail_value={`${sbjAvg?.difficulty?.value}`}/>}
-        {sbjAvg !== undefined && <SubjectDetailAvg name="학습량" detail_title={`${sbjAvg?.amount_study?.title}`} detail_value={`${sbjAvg?.amount_study?.value}`}/>}
-        {sbjAvg !== undefined && <SubjectDetailAvg name="보너스" detail_title={`${sbjAvg?.bonus?.title}`} detail_value={`${sbjAvg?.bonus?.value}`}/>}
+      <div className={styles.avg_container}>
+        {sbjAvg !== undefined && <SubjectDetailAvg name="소요시간" detail_title={`${sbjAvg?.time_taken?.title}`} detail_value={`${sbjAvg?.time_taken?.value}`} detail={sbjAvg?.time_taken?.detail} />}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="난이도" detail_title={`${sbjAvg?.difficulty?.title}`} detail_value={`${sbjAvg?.difficulty?.value}`} detail={sbjAvg?.difficulty?.detail} />}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="학습량" detail_title={`${sbjAvg?.amount_study?.title}`} detail_value={`${sbjAvg?.amount_study?.value}`} detail={sbjAvg?.amount_study?.detail} />}
+        {sbjAvg !== undefined && <SubjectDetailAvg name="보너스" detail_title={`${sbjAvg?.bonus?.title}`} detail_value={`${sbjAvg?.bonus?.value}`} detail={sbjAvg?.bonus?.detail} />}
       </div>
     </div>
   );
