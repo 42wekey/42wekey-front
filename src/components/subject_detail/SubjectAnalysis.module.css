@@ -1,0 +1,81 @@
+.container{
+	margin: 20px 30px 20px 30px;
+	padding: 0;
+}
+
+.review{
+	word-break: keep-all;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.flexItem{
+	width: 50%;
+	text-align: center;
+}
+
+.minusMargin{
+	margin-bottom: -0.3rem;
+}
+
+.graphMargin{
+	margin: 0.1rem;
+}
+
+.ratingStr{
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 43px;
+	letter-spacing: -0.004em;
+}
+
+.avgGraph{
+	margin: 0;
+	padding: 0;
+}
+
+.smallFont{
+	margin: 0.2rem;
+	padding: 0;
+	font-weight: 600;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: -0.004em;
+	color: #B1B1B1;
+}
+
+.borderRight{
+	border-right: 1px solid #EFF1F8;
+}
+
+.bar_chart {
+	position: relative;
+	display: inline-block;
+	width: calc(100% - 4.5rem);
+	height: 0.5rem;
+	background: #F6F9FF;
+	border-radius: 5px;
+	margin:0;
+	padding:0;
+}
+  
+.bar {
+	position: absolute;
+	top:0;
+	left: 0;
+	height: 0.5rem;
+	background: #959DB0;
+	border-radius: 5px;
+  }
+
+  .avg_container{
+	margin-top: 2rem;
+  }

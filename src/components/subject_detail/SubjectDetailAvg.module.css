@@ -1,0 +1,72 @@
+.flex {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container {
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	padding: 0.6rem 0.7rem;
+	margin-bottom: 0.6rem;
+}
+
+.small_flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 2.8rem);
+}
+
+.name {
+  width: 25%;
+}
+
+.font {
+  word-break: keep-all;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.font_color_blue {
+  color: #396ff9;
+}
+
+.avg_name {
+  width: 2rem;
+  margin-right: 2rem;
+  color: #666666;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  word-break: keep-all;
+}
+
+.baseline {
+  border-bottom: 1px dashed #cbcbcb;
+  width: 100%;
+  margin: auto 1rem auto 1rem;
+}
+
+.arrow_container {
+  width: 10%;
+  margin-left: 0.5rem;
+  padding: 0 0.2rem;
+  border-radius: 12.5px;
+}
+
+.arrow_container:hover {
+  background-color: #f6f9ff;
+}
+
+.graph{
+	width: 100%;
+	background-color: white;
+	height: 2rem;
+}
+
+.graph_pull{
+	background-color: #c0d5ff;
+}

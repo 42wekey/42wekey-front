@@ -9,6 +9,7 @@ import SubjectInfo from "./SubjectInfo";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import { modalState } from "../../utils/recoil/modal";
+import Analysis from "./SubjectAnalysis";
 
 interface wiki {
   wikiContent?: string;
@@ -52,24 +53,29 @@ export default function SubjectDetail() {
   return (
     <div>
       <Menu intraId={"him"} menuName={"과제리뷰"} />
-      <div className={styles.subject}>
-        <div className={styles.subjectDetail}>
-          <div className={styles.subtitle}>
-            {params.sbj_name}
-          </div>
+      <div className={styles.subtitle}>{params.sbj_name}</div>
+      <SubjectInfo />
+      <div className={styles.headline}/>
+      <Analysis sbjname={sbj}/>
+      <div className={styles.headline}/>
+      <div>
+        {contentState === "wiki" ? (
           <div>
-            <SubjectInfo />
-          </div>
-          <div>
-            {contentState === "wiki" ? <div>
             <div className={styles.tab}>
-              <div className={styles.tab_select_btn} onClick={() => setContentState("wiki")}>
-                  위키42
+              <div
+                className={styles.tab_select_btn}
+                onClick={() => setContentState("wiki")}
+              >
+                위키42
               </div>
-              <div className={styles.tab_btn} onClick={() => setContentState("subject")}>
-                  과제 후기
+              <div
+                className={styles.tab_btn}
+                onClick={() => setContentState("subject")}
+              >
+                과제 후기
               </div>
-          </div>
+            </div>
+
             <div className={styles.SubjectWiki}>
               {isWikiEdit ? (
                 <div>
@@ -84,23 +90,33 @@ export default function SubjectDetail() {
                   <div className={styles.wikiContent}>
                     {wiki?.wikiContent && (
                       <div
+                        className={styles.wikiContent}
                         dangerouslySetInnerHTML={{ __html: wiki.wikiContent }}
                       />
                     )}
                   </div>
                   {/* {wiki?.wikiContent} */}
-                  <button onClick={() => setIsWikiEdit(true)}>수정하기</button>
+                  <button className={styles.btn} onClick={() => setIsWikiEdit(true)}>수정하기</button>
                 </div>
               )}
-            </div></div> : <div>
-            <div className={styles.tab}>
-              <div className={styles.tab_btn} onClick={() => setContentState("wiki")}>
-                  위키42
-              </div>
-              <div className={styles.tab_select_btn} onClick={() => setContentState("subject")}>
-                  과제 후기
-              </div>
+            </div>
           </div>
+        ) : (
+          <div>
+            <div className={styles.tab}>
+              <div
+                className={styles.tab_btn}
+                onClick={() => setContentState("wiki")}
+              >
+                위키42
+              </div>
+              <div
+                className={styles.tab_select_btn}
+                onClick={() => setContentState("subject")}
+              >
+                과제 후기
+              </div>
+            </div>
             <div className={styles.content}>
               <SubjectComment />
               <div className={styles.floting}>
@@ -112,9 +128,9 @@ export default function SubjectDetail() {
                   후기 작성
                 </button>
               </div>
-            </div></div>}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
