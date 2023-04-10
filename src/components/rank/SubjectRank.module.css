@@ -21,7 +21,13 @@
 	width: 100%;
 	justify-content: space-between;
 	overflow-x: auto;
-	padding-bottom: 4%;
+	padding-bottom: 1%;
+	-ms-overflow-style:none; /* IE and Edge */
+    scrollbar-width:none; /* Firefox */
+}
+
+.keyword::-webkit-scrollbar {
+	display:none; /* Chrome , Safari , Opera */
 }
 
 .keywordContent {
@@ -32,19 +38,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 0.6rem;
-	width: 25%;
+	height: 0.3rem;
+	width: 6rem;
+	font-size: 0.9rem;
+	font-weight: 600;
 	padding-top: 0.8rem;
 	padding-bottom: 0.8rem;
-	margin-left: 1rem;
+	margin-left: 0.6rem;
 	font-style: normal;
-	color: white;
-	background-color: #396FF9;
+	color: black;
+	background-color: white;
 	border: solid 0.15rem #EEEEEE;
 	border-radius: 100px;
 }
 
 .selectKeyword {
+	
 	
 	background-position: 50% 50%;
 	background-size: contain;
@@ -53,14 +62,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 0.6rem;
-	width: 25%;
+	height: 0.3rem;
+	width: 6rem;
+	font-size: 0.9rem;
+	font-weight: 600;
 	padding-top: 0.8rem;
 	padding-bottom: 0.8rem;
-	margin-left: 1rem;
+	margin-left: 0.6rem;
 	font-style: normal;
-	color: black;
-	background-color: white;
+	color: white;
+	background-color: #396FF9;
+	
 	border: solid 1px #EEEEEE;
 	border-radius: 100px;
 }

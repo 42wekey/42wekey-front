@@ -20,7 +20,13 @@
 	width: 100%;
 	justify-content: space-between;
 	overflow: auto;
-	padding-bottom: 4%;
+	padding-bottom: 1%;
+	-ms-overflow-style:none; /* IE and Edge */
+    scrollbar-width:none; /* Firefox */
+}
+
+.subject::-webkit-scrollbar {
+	display:none;
 }
 
 .listTitle {
@@ -39,6 +45,26 @@
 	font-style: normal;
 	color: black;
 	/* background-color: #396FF9; */
-	border-bottom: solid 1px black;
+	border-bottom: solid 2px #F4F4F4;
+	/* border-radius: 100px; */
+}
+
+.selectListTitle {
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	flex: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 0.6rem;
+	width: 25%;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+	/* margin-left: 1rem; */
+	font-style: normal;
+	color: black;
+	/* background-color: #396FF9; */
+	border-bottom: solid 2px #396FF9;
 	/* border-radius: 100px; */
 }

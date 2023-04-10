@@ -24,13 +24,13 @@ export default function SubjectRank() {
     if (rankIndex === maxIndex - 1) {
       setRankIndex(0);
     } else {
-      setRankIndex(rankIndex + 1);
+      setRankIndex(rankIndex => rankIndex + 1);
     }
   }
 
   function rankIndexMinus() {
     if (rankIndex === 0) setRankIndex(maxIndex - 1);
-    else setRankIndex(rankIndex - 1);
+    else setRankIndex(rankIndex => rankIndex - 1);
   }
 
   useEffect(() => {
@@ -49,8 +49,8 @@ export default function SubjectRank() {
         <div className={styles.rankTitle}>카뎃들의 과제랭킹</div>
         <div className={styles.keyword}>
         {subjectRankList?.map((value, index) => (
-          <div key={index} className={`${rankIndex === index ? styles.keywordContent : styles.selectKeyword}`}>
-          <a onClick={()=>setRankIndex(index)}>{value.title}</a>
+          <div key={index} className={`${rankIndex === index ? styles.selectKeyword : styles.keywordContent}`} onClick={()=>setRankIndex(index)}>
+          <a >{value.title}</a>
           </div>
         ))}
         </div>

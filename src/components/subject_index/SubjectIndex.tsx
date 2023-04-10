@@ -28,7 +28,7 @@ export default function PdfIndex() {
       </div>
       <div className={styles.subject}>
         {subjectList.map((data, index) => (
-          <div className={styles.listTitle} key={index}>
+          <div className={`${selectCircle === index ? styles.selectListTitle : styles.listTitle}`} key={index}>
             <a onClick={() => setSelectCircle(index)}>
               <>{data.circle}_circle</>
             </a>

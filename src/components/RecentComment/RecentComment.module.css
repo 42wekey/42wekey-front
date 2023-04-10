@@ -19,6 +19,8 @@
 	width: 100%;
 	justify-content: space-between;
 	overflow-x: auto;
+    -ms-overflow-style:none; /* IE and Edge */
+    scrollbar-width:none; /* Firefox */
 	/* padding-bottom: 4%; */
     /* padding: 1.3rem; */
     padding-bottom: 0.8rem;
@@ -66,3 +68,7 @@
 .dateTime {
     font-size: 0.8rem;
 }
+
+.commentBox::-webkit-scrollbar {
+	display:none; /* Chrome , Safari , Opera */
+}  
