@@ -28,7 +28,7 @@ export default function SubjectComment() {
   const [comment, setComment] = useState<comment[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/comments`)
+    fetch(`http://10.18.241.49:3001/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
   }, []);

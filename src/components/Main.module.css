@@ -9,5 +9,17 @@
     display: flex;
     justify-self: center;
     align-items: center;
-    width: 42rem;
+    width: 100%;
+}
+
+.userProfile {
+
+}
+
+.subjectRank {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 100%;
+    background-color: #F6F9FF;
 }*/

@@ -79,7 +79,7 @@ export default function CommentInputModal({ subject }: subject) {
 
   const onClickSubmit = () => {
     if (isSubmit) {
-      fetch("http://localhost:3001/comments/", {
+      fetch("http://10.18.241.49:3001/comments/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
