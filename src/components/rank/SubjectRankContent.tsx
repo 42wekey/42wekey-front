@@ -16,7 +16,6 @@ interface SubjectRank {
 export default function SubjectRankContent(props: SubjectRank) {
   return (
     <div className={styles.container}>
-      <div>
         <div>
           <div>
             {props.subject?.map((value, i) => (
@@ -50,7 +49,6 @@ export default function SubjectRankContent(props: SubjectRank) {
             ))}
           </div>
         </div>
-      </div>
     </div>
   );
 }

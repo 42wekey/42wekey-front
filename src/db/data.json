@@ -1,10 +1,13 @@
 {
-  "user_me": { "intraId": "him", "user_level": 5.21 },
+  "user_me": {
+    "intraId": "him",
+    "user_level": 5.21
+  },
   "user_status": {
     "my_comment_num": 12,
     "recommend_comment": 15
   },
-  "recent_comment":[
+  "recent_comment": [
     {
       "subject": "libft",
       "star_rating": "5",
@@ -46,41 +49,101 @@
     {
       "title": "#평점 높은",
       "subject": [
-        { "subject_name": "libft", "value": 4.2, "circle": 0},
-        { "subject_name": "get_next_line", "value": 4.1, "circle": 1},
-        { "subject_name": "push_swap", "value": 2.9, "circle": 1}
+        {
+          "subject_name": "libft",
+          "value": 4.2,
+          "circle": 0
+        },
+        {
+          "subject_name": "get_next_line",
+          "value": 4.1,
+          "circle": 1
+        },
+        {
+          "subject_name": "push_swap",
+          "value": 2.9,
+          "circle": 1
+        }
       ]
     },
     {
       "title": "#학습량 적은",
       "subject": [
-        { "subject_name": "libft", "value": 3.2, "circle": 0},
-        { "subject_name": "get_next_line", "value": 2.4, "circle": 1},
-        { "subject_name": "push_swap", "value": 1.9, "circle": 1}
+        {
+          "subject_name": "libft",
+          "value": 3.2,
+          "circle": 0
+        },
+        {
+          "subject_name": "get_next_line",
+          "value": 2.4,
+          "circle": 1
+        },
+        {
+          "subject_name": "push_swap",
+          "value": 1.9,
+          "circle": 1
+        }
       ]
     },
     {
       "title": "#리뷰 많은",
       "subject": [
-        { "subject_name": "libft", "value": 1, "circle": 0},
-        { "subject_name": "get_next_line", "value": 4, "circle": 1},
-        { "subject_name": "push_swap", "value": 6, "circle": 1}
+        {
+          "subject_name": "libft",
+          "value": 1,
+          "circle": 0
+        },
+        {
+          "subject_name": "get_next_line",
+          "value": 4,
+          "circle": 1
+        },
+        {
+          "subject_name": "push_swap",
+          "value": 6,
+          "circle": 1
+        }
       ]
     },
     {
       "title": "#리뷰 많은",
       "subject": [
-        { "subject_name": "libft", "value": 1, "circle": 0},
-        { "subject_name": "get_next_line", "value": 4, "circle": 1},
-        { "subject_name": "push_swap", "value": 6, "circle": 1}
+        {
+          "subject_name": "libft",
+          "value": 1,
+          "circle": 0
+        },
+        {
+          "subject_name": "get_next_line",
+          "value": 4,
+          "circle": 1
+        },
+        {
+          "subject_name": "push_swap",
+          "value": 6,
+          "circle": 1
+        }
       ]
     },
     {
       "title": "#리뷰 많은",
       "subject": [
-        { "subject_name": "libft", "value": 1, "circle": 0},
-        { "subject_name": "get_next_line", "value": 4, "circle": 1},
-        { "subject_name": "push_swap", "value": 6, "circle": 1}
+        {
+          "subject_name": "libft",
+          "value": 1,
+          "circle": 0
+        },
+        {
+          "subject_name": "get_next_line",
+          "value": 4,
+          "circle": 1
+        },
+        {
+          "subject_name": "push_swap",
+          "value": 6,
+          "circle": 1
+        }
       ]
     }
   ],
@@ -104,6 +167,26 @@
         {
           "subject_name": "Born2beroot",
           "subject_info": "가상머신이란 무엇일까?"
+        },
+        {
+          "subject_name": "get_next_line",
+          "subject_info": "readLine이 뭔지 알아?"
+        },
+        {
+          "subject_name": "get_next_line",
+          "subject_info": "readLine이 뭔지 알아?"
+        },
+        {
+          "subject_name": "get_next_line",
+          "subject_info": "readLine이 뭔지 알아?"
+        },
+        {
+          "subject_name": "get_next_line",
+          "subject_info": "readLine이 뭔지 알아?"
+        },
+        {
+          "subject_name": "get_next_line",
+          "subject_info": "readLine이 뭔지 알아?"
         },
         {
           "subject_name": "get_next_line",
@@ -192,7 +275,7 @@
       "intraid": "him",
       "isComment": false,
       "sbj_name": "Libft",
-      "content": "ㅍㅋㅊㅍㅊㅋㅁㄴㅇㄹ",
+      "content": "ㅍㅋㅊㅍㅊㅋㅁㄴㅇㄹㅋㅋㅋㅋ",
       "star_rating": 4,
       "time_taken": "a week",
       "difficulty": "easy",

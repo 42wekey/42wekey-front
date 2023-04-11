@@ -8,10 +8,11 @@
 	width: 100%;
 	border: solid 0.15rem #EEEEEE;
 	height: auto;
+	
 }
 
 .divisionLine {
-	border-top: 1.5px solid black;
+	border-top: 1.5px solid #EEEEEE;
 	margin-top: 0.7rem;
 	margin-bottom: 0.7rem;
 	margin-left: auto;
@@ -22,11 +23,14 @@
 	display: flex;
 	margin-right: auto;
 	align-items: center;
+	color: black;
+	
+	text-decoration: none;
 }
 
 .subjectDivisionLine {
-	border-right: 0.7px solid black;
-	border-left: 0.7px solid black;
+	border-right: 0.7px solid #EEEEEE;
+	border-left: 0.7px solid #EEEEEE;
 	margin-top: auto;
 	margin-bottom: auto;
 	height: 0.7rem;
@@ -36,11 +40,12 @@
 
 .subject {
 	font-size: 1.3rem;
-	font-weight: 430;
+	font-weight: 500;
 }
 
 .circle {
 	font-size: 0.9rem;
+	color: #a8a8a8;
 }
 
 .contentLine {
@@ -68,6 +73,7 @@
 	justify-self: left;
 	width: 15%;
 	align-items: center;
+	
 }
 .starRating{
 	margin-right: auto;
