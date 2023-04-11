@@ -10,7 +10,6 @@ import RecentComment from "./RecentComment/RecentComment";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
-
 export default function Main() {
   const [userInfo, setUserInfo] = useRecoilState(profileState)
 

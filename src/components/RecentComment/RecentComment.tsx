@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./RecentComment.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 interface recentComment {
   subject: String;
   star_rating: Number;
@@ -14,7 +16,7 @@ export default function RecentComment() {
     []
   );
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/recent_comment`)
+    fetch(`${baseUrl}/recent_comment`)
       .then((res) => res.json())
       .then((data) => setRecentCommentList(data));
   }, []);

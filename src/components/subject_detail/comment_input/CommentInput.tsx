@@ -9,6 +9,8 @@ import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInput.module.css";
 import { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
+
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface subject {
   subject: string;
 }
@@ -54,7 +56,7 @@ export default function CommentInput({subject}:subject) {
   };
 
   const onClickSubmit = () => {
-    fetch("http://10.18.241.49:3001/comments/", {
+    fetch(`${baseUrl}:3001/comments/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

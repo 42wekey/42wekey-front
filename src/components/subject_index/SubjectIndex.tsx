@@ -2,6 +2,8 @@ import styles from "./SubjectIndex.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 interface SubjectCircle {
   subject_name: String;
   subject_info: String;
@@ -16,7 +18,7 @@ export default function PdfIndex() {
   const [subjectList, setSubjectList] = useState<SubjectList[]>([]);
   const [selectCircle, setSelectCircle] = useState(0);
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/subject_list`)
+    fetch(`${baseUrl}/subject_list`)
       .then((res) => res.json())
       .then((data) => setSubjectList(data));
   }, []);

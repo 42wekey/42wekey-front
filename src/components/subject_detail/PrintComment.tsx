@@ -5,6 +5,8 @@ import Graph from "./graph/Graph";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
+
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
   intraId: String;
 }
@@ -39,7 +41,7 @@ const PrintComment = (props: CommentProps) => {
 
   const clickEditButton = (text?: string, comment_id?: number) => {
     if (isCommentEdit) {
-      fetch(`http://10.18.241.49:3001/comments/${comment_id}`, {
+      fetch(`${baseUrl}/comments/${comment_id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content }),
@@ -52,7 +54,7 @@ const PrintComment = (props: CommentProps) => {
   };
 
   const clickLikeButton = (commentId?: Number, intraId?: String) => {
-    fetch(`http://10.18.241.49:3001/like.${commentId}/${intraId}`, {
+    fetch(`${baseUrl}/like.${commentId}/${intraId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
