@@ -24,7 +24,7 @@ export default function Analysis({ sbjname }: subject) {
   const detail=[20,20,30,10,20];
 
   useEffect(() => {
-    fetch(`http://localhost:3001/sbj_avg`)
+    fetch(`http://10.18.241.49:3001/sbj_avg`)
       .then((res) => res.json())
       .then((data) => setSbjAvg(data));
   }, []);
