@@ -11,6 +11,7 @@ import { profileState } from "../../utils/recoil/user";
 import { modalState } from "../../utils/recoil/modal";
 import Analysis from "./SubjectAnalysis";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
   wikiContent?: string;
   version?: number;
@@ -38,7 +39,7 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3001/wiki`)
+    fetch(`${baseUrl}/wiki`)
       .then((res) => res.json())
       .then((data) => setWiki(data));
   }, [isWikiEdit]);

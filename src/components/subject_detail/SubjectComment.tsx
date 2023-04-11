@@ -5,6 +5,7 @@ import Graph from "./graph/Graph";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PrintComment from "./PrintComment";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
   intraId: String;
 }
@@ -28,7 +29,7 @@ export default function SubjectComment() {
   const [comment, setComment] = useState<comment[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/comments`)
+    fetch(`${baseUrl}/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
   }, []);

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./MyCommentList.module.css";
 import PrintComment from "../subject_detail/PrintComment";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 interface comment {
   id: number;
   like: number;
@@ -21,7 +23,7 @@ export default function MyCommentList() {
   const [myComment, setMyComment] = useState<comment[]>([]);
 
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/myComment`)
+    fetch(`${baseUrl}/myComment`)
       .then((res) => res.json())
       .then((data) => setMyComment(data));
   }, []);

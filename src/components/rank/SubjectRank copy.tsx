@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import SubjectRankContent from "./SubjectRankContent";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 interface SubjectRankType {
   subject_name: String;
-  value1: Number | String;
-  value2: Number | String;
+  value: Number | String;
+  circle: Number;
 }
 
 interface SubjectRank {
@@ -27,17 +29,15 @@ export default function SubjectRank() {
     }
   }
   function rankIndexMinus() {
-    if (rankIndex == 0)
-      setRankIndex(maxIndex - 1);
-    else
-      setRankIndex(rankIndex - 1);
+    if (rankIndex == 0) setRankIndex(maxIndex - 1);
+    else setRankIndex(rankIndex - 1);
   }
 
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/subject_rank`)
+    fetch(`${baseUrl}/subject_rank`)
       .then((res) => res.json())
       .then((data) => setSubjectRank(data));
-      setMaxIndex(subjectRank.length);
+    setMaxIndex(subjectRank.length);
   }, []);
 
   return (

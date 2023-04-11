@@ -8,12 +8,13 @@ import UserProfile from "./user/UserProfile";
 import { useEffect } from "react";
 import RecentComment from "./RecentComment/RecentComment";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
 export default function Main() {
   const [userInfo, setUserInfo] = useRecoilState(profileState)
 
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/user_me`)
+    fetch(`${baseUrl}/user_me`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, []);

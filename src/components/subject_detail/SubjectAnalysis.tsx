@@ -4,6 +4,7 @@ import Graph from "./graph/Graph";
 import styles from "./SubjectAnalysis.module.css";
 import SubjectDetailAvg from "./SubjectDetailAvg";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface subject {
   sbjname: String;
 }
@@ -24,7 +25,7 @@ export default function Analysis({ sbjname }: subject) {
   const detail=[20,20,30,10,20];
 
   useEffect(() => {
-    fetch(`http://localhost:3001/sbj_avg`)
+    fetch(`${baseUrl}/sbj_avg`)
       .then((res) => res.json())
       .then((data) => setSbjAvg(data));
   }, []);

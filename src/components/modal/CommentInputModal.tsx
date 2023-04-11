@@ -11,7 +11,8 @@ import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../../utils/recoil/modal";
 
-// import { useHistory } from "react-router-dom";
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 interface subject {
   subject: string;
 }
@@ -79,7 +80,7 @@ export default function CommentInputModal({ subject }: subject) {
 
   const onClickSubmit = () => {
     if (isSubmit) {
-      fetch("http://10.18.241.49:3001/comments/", {
+      fetch(`${baseUrl}/comments/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

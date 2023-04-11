@@ -6,6 +6,8 @@ import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
 import { useState } from "react";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 const modules = {
   toolbar: {
     container: [
@@ -73,7 +75,7 @@ export default function SubjectWiki(props: propType) {
   const [wikiContent, setWikiContent] = useState(props.content)
   const clickEditButton = (text?: string, version?: number) => {
     console.log(document.documentElement.scrollHeight);
-      fetch(`http://10.18.241.49:3001/wiki`, {
+      fetch(`${baseUrl}/wiki`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ wikiContent: text, version: version }),

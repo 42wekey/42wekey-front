@@ -4,18 +4,6 @@
     "my_comment_num": 12,
     "recommend_comment": 15
   },
-  "subject_star_rating_rank": {
-    "title": "별점 랭킹",
-    "subject_1": { "subject_name": "libft", "star_rating": 4.8 },
-    "subject_2": { "subject_name": "get_next_line", "star_rating": 4.7 },
-    "subject_3": { "subject_name": "push_swap", "star_rating": 4.5 }
-  },
-  "subject_comment_num_rank": {
-    "title": "후기가 많은 과제",
-    "subject_1": { "subject_name": "libft", "commnet_num": 50 },
-    "subject_2": { "subject_name": "get_next_line", "commnet_num": 47 },
-    "subject_3": { "subject_name": "push_swap", "commnet_num": 25 }
-  },
   "recent_comment":[
     {
       "subject": "libft",
@@ -197,113 +185,6 @@
       ]
     }
   ],
-  "circles": [
-    {
-      "id": 0,
-      "circle": 0
-    },
-    {
-      "id": 1,
-      "circle": 1
-    },
-    {
-      "id": 2,
-      "circle": 2
-    },
-    {
-      "id": 3,
-      "circle": 3
-    },
-    {
-      "day": 4,
-      "circle": 4
-    },
-    {
-      "day": 5,
-      "circle": 5
-    },
-    {
-      "id": 6,
-      "circle": 6
-    }
-  ],
-  "subjects": [
-    {
-      "id": 0,
-      "circle": 0,
-      "sbj_name": "Libft"
-    },
-    {
-      "id": 1,
-      "circle": 1,
-      "sbj_name": "get_next_line"
-    },
-    {
-      "id": 2,
-      "circle": 1,
-      "sbj_name": "ft_printf"
-    },
-    {
-      "id": 3,
-      "circle": 1,
-      "sbj_name": "born2beroot"
-    },
-    {
-      "id": 4,
-      "circle": 2,
-      "sbj_name": "FdF"
-    },
-    {
-      "id": 5,
-      "circle": 2,
-      "sbj_name": "so_long"
-    },
-    {
-      "id": 6,
-      "circle": 2,
-      "sbj_name": "push_swap"
-    },
-    {
-      "id": 7,
-      "circle": 2,
-      "sbj_name": "fract_ol"
-    },
-    {
-      "id": 8,
-      "circle": 2,
-      "sbj_name": "pipex"
-    },
-    {
-      "id": 9,
-      "circle": 2,
-      "sbj_name": "minitalk"
-    },
-    {
-      "id": 10,
-      "circle": 3,
-      "sbj_name": "philosophers"
-    },
-    {
-      "id": 11,
-      "circle": 3,
-      "sbj_name": "minishell"
-    },
-    {
-      "id": 12,
-      "circle": 4,
-      "sbj_name": "NetPractice"
-    },
-    {
-      "id": 13,
-      "circle": 4,
-      "sbj_name": "miniRT"
-    },
-    {
-      "id": 14,
-      "circle": 4,
-      "sbj_name": "cub3d"
-    }
-  ],
   "comments": [
     {
       "id": 0,
@@ -456,32 +337,6 @@
       "bonus": "complete",
       "content": "ㅂㅈㄷ",
       "id": 11
-    }
-  ],
-  "comment": [
-    {
-      "id": 0,
-      "intraid": "him",
-      "comment": "완전 재미있어요!",
-      "time": "19분전"
-    },
-    {
-      "id": 1,
-      "intraid": "sooyang",
-      "comment": "완전 재미있어요!",
-      "time": "25분전"
-    },
-    {
-      "id": 2,
-      "intraid": "wonlim",
-      "comment": "완전 재미있어요!",
-      "time": "37분전"
-    },
-    {
-      "id": 3,
-      "intraid": "salee2",
-      "comment": "완전 재미있어요!",
-      "time": "52분전"
     }
   ],
   "wiki": {

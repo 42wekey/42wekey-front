@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import styles from "./UserProfile.module.css";
 
+const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface UserStatus {
   my_comment_num: Number;
   recommend_comment: Number;
@@ -13,7 +14,7 @@ export default function UserProfile() {
   const [userInfo, setUserInfo] = useRecoilState(profileState);
 
   useEffect(() => {
-    fetch(`http://10.18.241.49:3001/user_status`)
+    fetch(`${baseUrl}/user_status`)
       .then((res) => res.json())
       .then((data) => setUserStatus(data));
   }, []);
