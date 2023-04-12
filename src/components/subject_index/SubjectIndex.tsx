@@ -17,6 +17,7 @@ export default function PdfIndex() {
   const [circle, setCircle] = useState<Number>(0);
   const [subjectList, setSubjectList] = useState<SubjectList[]>([]);
   const [selectCircle, setSelectCircle] = useState(0);
+
   useEffect(() => {
     fetch(`${baseUrl}/subject_list`)
       .then((res) => res.json())
@@ -25,28 +26,33 @@ export default function PdfIndex() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.subjectTitle}>
-      과제 전체보기
-      </div>
-      <div className={styles.subject}>
+      <div className={styles.subjectTitle}>과제 전체보기</div>
+      <div className={styles.subjectCircle}>
         {subjectList.map((data, index) => (
-          <div className={`${selectCircle === index ? styles.selectListTitle : styles.listTitle}`} key={index}>
-            <a onClick={() => setSelectCircle(index)}>
+          <div
+            className={`${
+              selectCircle === index ? styles.selectListTitle : styles.listTitle
+            }`}
+            key={index}
+            onClick={() => setSelectCircle(index)}
+          >
+            <a>
               <>{data.circle}_circle</>
             </a>
           </div>
         ))}
       </div>
-      {selectCircle}Circle
-      <div>
+      <div className={styles.subjectList}>
         {subjectList[selectCircle]?.subject.map((subject, i) => (
           <div key={i}>
-            <Link
-              to={`/${selectCircle}_circle/${subject.subject_name}`}
-              className={styles.subject}
-            >
-              {subject.subject_name} - {subject.subject_info}
-            </Link>
+            <div>
+            <div className={`${i !== 0 && styles.divisionLine}`}/>
+              <Link to={`/${selectCircle}_circle/${subject.subject_name}`} className={styles.subjectContent}>
+                <div className={styles.subjectName}>{subject.subject_name}</div>
+                <div className={styles.subjectInfo}>{subject.subject_info}</div>
+              </Link>
+              
+            </div>
           </div>
         ))}
       </div>

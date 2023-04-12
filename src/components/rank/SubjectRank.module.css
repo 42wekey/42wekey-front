@@ -3,7 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: solid 1px;
+	/* border: solid 1px; */
 	background-color: #f6f9ff;
 	/* width: 100%; */
 	padding: 1.3rem;
@@ -24,6 +24,7 @@
 	padding-bottom: 1%;
 	-ms-overflow-style:none; /* IE and Edge */
     scrollbar-width:none; /* Firefox */
+	/* cursor: pointer; */
 }
 
 .keyword::-webkit-scrollbar {
@@ -36,6 +37,7 @@
 	background-repeat: no-repeat;
 	flex: none;
 	display: flex;
+	cursor: pointer;
 	align-items: center;
 	justify-content: center;
 	height: 0.3rem;
@@ -54,7 +56,7 @@
 
 .selectKeyword {
 	
-	
+	cursor: pointer;
 	background-position: 50% 50%;
 	background-size: contain;
 	background-repeat: no-repeat;
