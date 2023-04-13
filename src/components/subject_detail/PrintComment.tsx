@@ -64,59 +64,55 @@ const PrintComment = ({ comment }: CommentProps) => {
   return (
     <div>
       <div>
-        <div>
-          {comment.intraid}
-          레벨 들어올 수 있나요?
-        </div>
-        <div>
-          <Rating name="read-only" value={comment.star_rating} readOnly />
-          <div className={styles.commentTime}>{comment.comment_time}</div>
-        </div>
-        <div>
-          <div>
-            {userState.intraId === comment.intraid ? (
-              isCommentEdit ? (
-                <div>
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="후기"
-                    multiline
-                    defaultValue={comment.content}
-                    rows={4}
-                    placeholder="과제에 대한 후기를 남겨주세요."
-                    style={{ width: "100%", height: "120px" }}
-                    onChange={(e) => setContent(e.target.value)}
-                  />
-                  <button
-                    onClick={() => clickEditButton(comment.content, comment.id)}
-                  >
-                    수정완료
-                  </button>
-                </div>
-              ) : (
-                <div>
-                  {comment.content}{" "}
-                  <button
-                    onClick={() => clickEditButton(comment.content, comment.id)}
-                  >
-                    수정
-                  </button>
-                </div>
-              )
-            ) : (
-              <div>{comment.content}</div>
-            )}
-          </div>
-          <div>
-            <button
-              className={isLike ? styles.redButton : styles.emptyButton}
-              onClick={() => clickLikeButton(comment.id, userState.intraId)}
-            >
-              <FavoriteIcon className={styles.heart} />
-            </button>
-            {comment.like}
-          </div>
-        </div>
+        {comment.intraid}
+        레벨 들어올 수 있나요?
+      </div>
+      <div>
+        <Rating name="read-only" value={comment.star_rating} readOnly />
+        <div className={styles.commentTime}>{comment.comment_time}</div>
+      </div>
+      <div>
+        {userState.intraId === comment.intraid ? (
+          isCommentEdit ? (
+            <div>
+              <TextField
+                id="outlined-multiline-static"
+                label="후기"
+                multiline
+                defaultValue={comment.content}
+                rows={4}
+                placeholder="과제에 대한 후기를 남겨주세요."
+                style={{ width: "100%", height: "120px" }}
+                onChange={(e) => setContent(e.target.value)}
+              />
+              <button
+                onClick={() => clickEditButton(comment.content, comment.id)}
+              >
+                수정완료
+              </button>
+            </div>
+          ) : (
+            <div>
+              {comment.content}{" "}
+              <button
+                onClick={() => clickEditButton(comment.content, comment.id)}
+              >
+                수정
+              </button>
+            </div>
+          )
+        ) : (
+          <div>{comment.content}</div>
+        )}
+      </div>
+      <div>
+        <button
+          className={isLike ? styles.redButton : styles.emptyButton}
+          onClick={() => clickLikeButton(comment.id, userState.intraId)}
+        >
+          <FavoriteIcon className={styles.heart} />
+        </button>
+        {comment.like}
       </div>
     </div>
   );
