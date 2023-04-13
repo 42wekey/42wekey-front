@@ -47,7 +47,7 @@ export default function SubjectComment({ comments }: commentList) {
             <option value="like">좋아요순</option>
             <option value="rating">별점순</option>
           </select>
-          <KeyboardArrowDownRoundedIcon />
+          <KeyboardArrowDownRoundedIcon className={styles.sortBtn}/>
         </div>
       </div>
       {sortedObjects.map((data, index) => (

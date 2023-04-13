@@ -420,6 +420,17 @@
       "bonus": "complete",
       "content": "ㅂㅈㄷ",
       "id": 11
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 5,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "complete",
+      "content": "잘 될까요...",
+      "id": 12
     }
   ],
   "wiki": {

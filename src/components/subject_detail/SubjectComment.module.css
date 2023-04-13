@@ -6,9 +6,10 @@
 }
 
 .commentListHeader {
-  margin: 2.2rem 1.2rem 0.5rem 1.2rem;
+  margin: 1rem 1.2rem 0.5rem 1.2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .comment {
@@ -31,6 +32,10 @@
   line-height: 22px;
   font-size: 16px;
   color: #353535;
-  padding: 8px 16px;
+  padding: 1rem 0 1rem 2rem;
   cursor: pointer;
+}
+
+.sortBtn{
+  margin: auto;
 }
