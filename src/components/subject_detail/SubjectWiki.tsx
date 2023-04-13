@@ -101,7 +101,7 @@ export default function SubjectWiki(props: propType) {
           variant="contained"
           onClick={() => clickEditButton(wikiContent, props.version)}
         >
-          제출
+          완료
         </Button>
       </div>
     </div>

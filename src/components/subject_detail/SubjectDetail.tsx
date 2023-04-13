@@ -9,6 +9,7 @@ import SubjectInfo from "./SubjectInfo";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import { modalState } from "../../utils/recoil/modal";
+import {  } from "./SubjectComment";
 import Analysis from "./SubjectAnalysis";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
@@ -25,6 +26,7 @@ export default function SubjectDetail() {
   const maxScroll = getMaxScroll();
   const [isModalState, setIsModalState] = useRecoilState(modalState);
   const [contentState, setContentState] = useState("wiki");
+  const [comment, setComment] = useState([]);
 
   function getMaxScroll() {
     const { scrollHeight, offsetHeight } = document.documentElement;
@@ -50,6 +52,12 @@ export default function SubjectDetail() {
       window.removeEventListener("scroll", onScroll);
     };
   }, [scroll]);
+
+  useEffect(() => {
+    fetch(`${baseUrl}/comments`)
+      .then((res) => res.json())
+      .then((data) => setComment(data));
+  }, [comment]);
 
   return (
     <div>
@@ -119,7 +127,7 @@ export default function SubjectDetail() {
               </div>
             </div>
             <div className={styles.content}>
-              <SubjectComment />
+              <SubjectComment comments={comment}/>
               <div className={styles.floting}>
                 <button
                   onClick={() => setIsModalState({ isModal: true })}
