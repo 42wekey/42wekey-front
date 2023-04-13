@@ -27,10 +27,10 @@ export interface Comment {
 }
 
 export interface CommentProps {
-  comment:Comment;
+  comment: Comment;
 }
 
-const PrintComment = ({comment}: CommentProps) => {
+const PrintComment = ({ comment }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
@@ -58,33 +58,22 @@ const PrintComment = ({comment}: CommentProps) => {
       body: JSON.stringify({}),
     });
     setIsLike(!isLike);
-    console.log(commentId, intraId);	
+    console.log(commentId, intraId);
   };
 
   return (
     <div>
-      <div className={styles.commentHeader}>
-        <button
-          className={isLike ? styles.redButton : styles.emptyButton}
-          onClick={() => clickLikeButton(comment.id, userState.intraId)}
-        >
-          <FavoriteIcon className={styles.heart} />
-        </button>
-        {comment.like}
-        <Rating name="read-only" value={comment.star_rating} readOnly />
-        <div className={styles.commentTime}>{comment.comment_time}</div>
-      </div>
-      <div className={styles.graph}>
-        <Graph
-          time_taken={comment.time_taken}
-          amount_study={comment.amount_study}
-          difficulty={comment.difficulty}
-        />
-      </div>
-      <div className={styles.score2}>
-        <div className={styles.comment}>
+      <div>
+        <div>
+          {comment.intraid}
+          레벨 들어올 수 있나요?
+        </div>
+        <div>
+          <Rating name="read-only" value={comment.star_rating} readOnly />
+          <div className={styles.commentTime}>{comment.comment_time}</div>
+        </div>
+        <div>
           <div>
-            {comment.intraid} :
             {userState.intraId === comment.intraid ? (
               isCommentEdit ? (
                 <div>
@@ -99,9 +88,7 @@ const PrintComment = ({comment}: CommentProps) => {
                     onChange={(e) => setContent(e.target.value)}
                   />
                   <button
-                    onClick={() =>
-                      clickEditButton(comment.content, comment.id)
-                    }
+                    onClick={() => clickEditButton(comment.content, comment.id)}
                   >
                     수정완료
                   </button>
@@ -110,17 +97,24 @@ const PrintComment = ({comment}: CommentProps) => {
                 <div>
                   {comment.content}{" "}
                   <button
-                    onClick={() =>
-                      clickEditButton(comment.content, comment.id)
-                    }
+                    onClick={() => clickEditButton(comment.content, comment.id)}
                   >
                     수정
                   </button>
                 </div>
               )
             ) : (
-              <div>{comment.content} </div>
+              <div>{comment.content}</div>
             )}
+          </div>
+          <div>
+            <button
+              className={isLike ? styles.redButton : styles.emptyButton}
+              onClick={() => clickLikeButton(comment.id, userState.intraId)}
+            >
+              <FavoriteIcon className={styles.heart} />
+            </button>
+            {comment.like}
           </div>
         </div>
       </div>

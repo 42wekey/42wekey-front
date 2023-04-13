@@ -18,12 +18,12 @@ export default function SubjectComment({comments}:commentList) {
 
   return (
     <div className={styles.subjectComment}>
-      <div className={styles.commentHeader}>
+      <div className={styles.commentListHeader}>
         <span>상세리뷰</span>
         <span>최신순 ▼</span>
       </div>
       {comments.map((data, index) => (
-        <div className={styles.commentId} key={index}>
+        <div className={styles.comment} key={index}>
           <PrintComment comment={data} />
         </div>
       ))}

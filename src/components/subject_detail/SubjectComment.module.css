@@ -2,16 +2,16 @@
   width: 100%;
   height: auto;
   display: flexbox;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.commentHeader{
-  margin: 2.2rem 1.2rem 0 1.2rem;
+.commentListHeader{
+  margin: 2.2rem 1.2rem 0.5rem 1.2rem;
   display: flex;
   justify-content: space-between;
 }
 
-.commentId {
+.comment {
   display: flex;
   border-bottom: solid 0.5rem #FAFAFC;
   flex-direction: column;

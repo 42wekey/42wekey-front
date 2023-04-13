@@ -128,10 +128,10 @@ export default function SubjectDetail() {
             </div>
             <div className={styles.content}>
               <SubjectComment comments={comment}/>
-              <div className={styles.floting}>
+              <div className={styles.editBtnContainer}>
                 <button
                   onClick={() => setIsModalState({ isModal: true })}
-                  className={styles.floting}
+                  className={styles.editBtn}
                 >
                   {" "}
                   후기 작성
