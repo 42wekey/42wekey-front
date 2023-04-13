@@ -28,6 +28,8 @@ export default function SubjectComment({ comments }: commentList) {
       return b.like - a.like;
     else if (sortOption === "recent")
       return new Date(b.comment_time).getTime() - new Date(a.comment_time).getTime();
+    else if (sortOption === "rating")
+      return b.star_rating - a.star_rating;
   });
 
   return (
@@ -37,6 +39,7 @@ export default function SubjectComment({ comments }: commentList) {
         <select value={sortOption} onChange={handleSortOptionChange}>
           <option value="recent">최신순</option>
           <option value="like">좋아요순</option>
+          <option value="rating">별점순</option>
         </select>
       </div>
       {sortedObjects.map((data, index) => (
