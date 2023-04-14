@@ -9,6 +9,7 @@ import SubjectInfo from "./SubjectInfo";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import { modalState } from "../../utils/recoil/modal";
+import {  } from "./SubjectComment";
 import Analysis from "./SubjectAnalysis";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
@@ -60,6 +61,12 @@ export default function SubjectDetail() {
       window.removeEventListener("scroll", onScroll);
     };
   }, [scroll]);
+
+  useEffect(() => {
+    fetch(`${baseUrl}/comments`)
+      .then((res) => res.json())
+      .then((data) => setComment(data));
+  }, [comment]);
 
   return (
     <div className={styles.container}>
@@ -134,11 +141,11 @@ export default function SubjectDetail() {
               </div>
             </div>
             <div className={styles.content}>
-              <SubjectComment comment={comment} />
-              <div className={styles.floting}>
+              <SubjectComment comments={comment}/>
+              <div className={styles.editBtnContainer}>
                 <button
                   onClick={() => setIsModalState({ isModal: true })}
-                  className={styles.floting}
+                  className={styles.editBtn}
                 >
                   {" "}
                   후기 작성
