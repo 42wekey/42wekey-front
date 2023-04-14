@@ -1,7 +1,7 @@
 import ReactQuill from "react-quill";
+import "./SubjectWiki.module.css";
 import "react-quill/dist/quill.snow.css";
 import styles from "./SubjectWiki.module.css";
-import "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
 import { useState } from "react";
@@ -72,38 +72,47 @@ interface propType {
 }
 
 export default function SubjectWiki(props: propType) {
-  const [wikiContent, setWikiContent] = useState(props.content)
+  const [wikiContent, setWikiContent] = useState(props.content);
   const clickEditButton = (text?: string, version?: number) => {
     console.log(document.documentElement.scrollHeight);
-      fetch(`${baseUrl}/wiki`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ wikiContent: text, version: version }),
-      });
-      props.setIsWikiEdit(false);
+    fetch(`${baseUrl}/wiki`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ wikiContent: text, version: version }),
+    });
+    props.setIsWikiEdit(false);
   };
 
   const clickCancleButton = () => {
     props.setIsWikiEdit(false);
-  }
+  };
   return (
-    <div className={styles.wiki}>
-      <ReactQuill
-        modules={modules}
-        className={styles.SubjectWiki}
-        defaultValue={props.content}
-        onChange={setWikiContent}
-        style={{ height: "30em", marginBottom: "6%" }}
-      />{" "}
-      <div className={styles.submit}>
-        <Button variant="outlined" onClick={() => clickCancleButton()}>취소</Button>
-        <Button
-          variant="contained"
-          onClick={() => clickEditButton(wikiContent, props.version)}
-        >
-          제출
-        </Button>
+    <>
+      <div className={styles.wiki}>
+        <div className={styles.wikiBox}>
+          <ReactQuill
+            modules={modules}
+            className={styles.SubjectWiki}
+            defaultValue={props.content}
+            onChange={setWikiContent}
+            theme="snow"
+          />
+        </div>
+        <div className={styles.submit}>
+          <button
+            onClick={() => clickCancleButton()}
+            className={styles.cancleBtn}
+          >
+            취소
+          </button>
+          <button
+            onClick={() => clickEditButton(wikiContent, props.version)}
+            className={styles.submitBtn}
+          >
+            제출
+          </button>
+        </div>{" "}
       </div>
-    </div>
+    </>
   );
 }

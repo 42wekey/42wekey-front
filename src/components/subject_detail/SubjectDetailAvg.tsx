@@ -53,9 +53,10 @@ export default function SubjectDetailAvg({
             <div key={i} className={styles.graph}>
               <div
                 className={styles.graph_pull}
-                style={{ width: `${value * 2 > 100 ? 100 : value * 2}%` }}
-              >
+                style={{ width: `${+value * 2 > 100 ? 100 : +value * 2}%` }}
+              ><>
                 {value}%
+                </>
               </div>
             </div>
           ))}

@@ -10,7 +10,7 @@ interface intraId {
   intraId: String;
 }
 
-interface comment {
+interface Comment {
   id: number,
   like: number,
   intraid: string,
@@ -25,14 +25,9 @@ interface comment {
   comment_time: string
 }
 
-export default function SubjectComment() {
-  const [comment, setComment] = useState<comment[]>([]);
-
-  useEffect(() => {
-    fetch(`${baseUrl}/comments`)
-      .then((res) => res.json())
-      .then((data) => setComment(data));
-  }, []);
+export default function SubjectComment({ comment }: {comment: Comment[]}) {
+  // const [comment, setComment] = useState<comment[]>([]);
+  
 
   return (
     <div className={styles.subjectComment}>

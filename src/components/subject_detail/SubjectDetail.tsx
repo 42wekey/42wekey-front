@@ -25,6 +25,7 @@ export default function SubjectDetail() {
   const maxScroll = getMaxScroll();
   const [isModalState, setIsModalState] = useRecoilState(modalState);
   const [contentState, setContentState] = useState("wiki");
+  const [comment, setComment] = useState([]);
 
   function getMaxScroll() {
     const { scrollHeight, offsetHeight } = document.documentElement;
@@ -39,10 +40,19 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    fetch(`${baseUrl}/wiki`)
-      .then((res) => res.json())
-      .then((data) => setWiki(data));
-  }, [isWikiEdit]);
+    if (contentState && contentState === "wiki") {
+      fetch(`${baseUrl}/wiki`)
+        .then((res) => res.json())
+        .then((data) => setWiki(data));
+    }
+  }, [isWikiEdit, contentState]);
+
+  useEffect(() => {
+    if (contentState && contentState !== "wiki")
+      fetch(`${baseUrl}/comments`)
+        .then((res) => res.json())
+        .then((data) => setComment(data));
+  }, [contentState]);
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
@@ -52,13 +62,13 @@ export default function SubjectDetail() {
   }, [scroll]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <Menu intraId={"him"} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
-      <div className={styles.headline}/>
-      <Analysis sbjname={sbj}/>
-      <div className={styles.headline}/>
+      <div className={styles.headline} />
+      <Analysis sbjname={sbj} />
+      <div className={styles.headline} />
       <div>
         {contentState === "wiki" ? (
           <div>
@@ -97,7 +107,12 @@ export default function SubjectDetail() {
                     )}
                   </div>
                   {/* {wiki?.wikiContent} */}
-                  <button className={styles.btn} onClick={() => setIsWikiEdit(true)}>수정하기</button>
+                  <button
+                    className={styles.btn}
+                    onClick={() => setIsWikiEdit(true)}
+                  >
+                    수정하기
+                  </button>
                 </div>
               )}
             </div>
@@ -119,7 +134,7 @@ export default function SubjectDetail() {
               </div>
             </div>
             <div className={styles.content}>
-              <SubjectComment />
+              <SubjectComment comment={comment} />
               <div className={styles.floting}>
                 <button
                   onClick={() => setIsModalState({ isModal: true })}

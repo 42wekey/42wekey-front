@@ -1,73 +1,44 @@
-/* .app,
-body,
-.wrapper,
-.quill,
-.app .ql-content,
-.app .ql-editor {
-  height: 100%;
+.SubjectWiki {
 }
 
-html {
-  height: 80vh; 
+.wikiBox {
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 80px; */
 }
-
-body {
-  background: #f3f1f2;
-  font-family: sans-serif;
-}
-
-.app {
-  margin: 1rem 4rem;
-}
-
-.app .ql-container {
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  background: #fefcfc;
-}
-
-.app .ql-snow.ql-toolbar {
-  display: block;
-  background: #eaecec;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-}
-
-.app .ql-bubble .ql-editor {
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
-}
-
-.app .ql-editor {
-  min-height: 18em;
-}
-
-.themeSwitcher {
-  margin-top: 0.5em;
-  font-size: small;
-} */
-
-/* .SubjectWiki {
-	max-height: 10em;
-} */
-
-/* .ql-editor {
-	height: 50px !important;
-}
-
-ql-editor {
-	max-height: 10em !important;
-	height: 10em !important;
-} */
 
 .submit {
-	text-align: center;
-	margin-top: 1em;
-  }
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+.cancleBtn {
+  width: 7rem;
+  height: 2.5rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #eeeeee;
+  color: black;
+}
 
-
+.submitBtn {
+  width: 7rem;
+  height: 2.5rem;
+  margin-left: 1rem;
+  margin-right: auto;
+  border-radius: 10px;
+  border: 1.5px solid #eeeeee;
+  background: #396ff9;
+  color: #ffffff;
+}
 
 .wiki {
   height: 5rem;
-  margin:20px;
+  margin: 20px;
 }
