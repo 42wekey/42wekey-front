@@ -1,98 +1,41 @@
 .subjectComment {
+  width: 100%;
   height: auto;
   display: flexbox;
-  border: solid 1px;
-  background-color: #d9d9d9;
+  margin-bottom: 0.5rem;
 }
 
-.commentId {
+.commentListHeader {
+  margin: 1rem 1.2rem 0.5rem 1.2rem;
   display: flex;
-  border: solid 1px;
-  flex-direction: column;
-  margin-top: 5px;
-}
-
-.heart:hover {
-  transform: scale(1.2);
-}
-
-.emptyButton {
-  background-color: #d9d9d9;
-  color: noen;
-  border: none;
-}
-
-
-.redButton {
-  background-color: #d9d9d9;
-  color: red;
-  border: none;
-}
-
-.commentTime {
-  display: flex;
-  margin-left: auto;
-  margin-right: 1rem;
-  text-align: right;
-}
-
-.scoreTitle {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: bisque;
-  border-radius: 50%;
-  border: solid 3px greenyellow;
-}
-
-.scoreContent {
-  display: flex;
-  height: 2rem;
-  /* width: auto; */
-  justify-content: center;
-  align-items: center;
-  background-color: azure;
-  border-radius: 3rem;
-  margin-left: -1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  /* z-index: 1000; */
-  border: solid 3px white;
-  width: 8rem;
-  /* min- */
-}
-
-.score {
-  display: flex;
-  /* width: auto; */
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.score2 {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .comment {
-  width: 100%;
-  border: solid 1px grey;
+  display: flex;
+  border-bottom: solid 0.5rem #fafafc;
+  flex-direction: column;
+  padding: 1rem 1.2rem 1.2rem 1.2rem;
 }
 
-.commentHeader {
-  margin-top: 0.4rem;
+.sortContainer{
   display: flex;
 }
 
-.graph {
+.commentSort {
+  all: unset;
+  display: inline-block;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  font-size: 16px;
+  color: #353535;
+  padding: 1rem 0 1rem 2rem;
+  cursor: pointer;
+}
+
+.sortBtn{
   margin: auto;
-  width: 40rem;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
 }

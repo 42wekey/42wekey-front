@@ -64,3 +64,26 @@
   margin-top: 1rem;
   background: #f7f7f7;
 }
+
+.editBtnContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom:2rem;
+}
+
+.editBtn{
+	all:unset;
+	width: 9rem;
+	height: 2rem;
+
+	text-align: center;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 30px;
+
+	color: white;
+	background-color: #396FF9;
+	border-radius: 50px;
+}
+

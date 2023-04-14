@@ -271,7 +271,7 @@
   "comments": [
     {
       "id": 0,
-      "like": 15,
+      "like": 7,
       "intraid": "him",
       "isComment": false,
       "sbj_name": "Libft",
@@ -285,7 +285,7 @@
     },
     {
       "intraid": "him",
-      "like": 15,
+      "like": 5,
       "sbj_name": "Libft",
       "star_rating": 5,
       "elapsed": "7",
@@ -301,7 +301,7 @@
       "sbj_name": "Libft",
       "star_rating": 5,
       "isComment": false,
-      "like": 15,
+      "like": 10,
       "elapsed": "7",
       "diffi": "easy",
       "amount_study": "middle",
@@ -311,7 +311,7 @@
     },
     {
       "intraid": "him",
-      "like": 15,
+      "like": 11,
       "sbj_name": "Libft",
       "isComment": false,
       "star_rating": 2,
@@ -420,6 +420,17 @@
       "bonus": "complete",
       "content": "ㅂㅈㄷ",
       "id": 11
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 5,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "complete",
+      "content": "잘 될까요...",
+      "id": 12
     }
   ],
   "wiki": {

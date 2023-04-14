@@ -9,6 +9,7 @@ import SubjectInfo from "./SubjectInfo";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import { modalState } from "../../utils/recoil/modal";
+import {  } from "./SubjectComment";
 import Analysis from "./SubjectAnalysis";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
@@ -40,19 +41,10 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    if (contentState && contentState === "wiki") {
-      fetch(`${baseUrl}/wiki`)
-        .then((res) => res.json())
-        .then((data) => setWiki(data));
-    }
-  }, [isWikiEdit, contentState]);
-
-  useEffect(() => {
-    if (contentState && contentState !== "wiki")
-      fetch(`${baseUrl}/comments`)
-        .then((res) => res.json())
-        .then((data) => setComment(data));
-  }, [contentState]);
+    fetch(`${baseUrl}/wiki`)
+      .then((res) => res.json())
+      .then((data) => setWiki(data));
+  }, [isWikiEdit]);
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
@@ -61,8 +53,14 @@ export default function SubjectDetail() {
     };
   }, [scroll]);
 
+  useEffect(() => {
+    fetch(`${baseUrl}/comments`)
+      .then((res) => res.json())
+      .then((data) => setComment(data));
+  }, [comment]);
+
   return (
-    <div className={styles.container}>
+    <div>
       <Menu intraId={"him"} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
@@ -134,11 +132,11 @@ export default function SubjectDetail() {
               </div>
             </div>
             <div className={styles.content}>
-              <SubjectComment comment={comment} />
-              <div className={styles.floting}>
+              <SubjectComment comments={comment}/>
+              <div className={styles.editBtnContainer}>
                 <button
                   onClick={() => setIsModalState({ isModal: true })}
-                  className={styles.floting}
+                  className={styles.editBtn}
                 >
                   {" "}
                   후기 작성
