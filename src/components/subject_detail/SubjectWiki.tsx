@@ -1,7 +1,7 @@
 import ReactQuill from "react-quill";
+import "./SubjectWiki.module.css";
 import "react-quill/dist/quill.snow.css";
 import styles from "./SubjectWiki.module.css";
-import "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
 import { useState } from "react";
@@ -72,20 +72,20 @@ interface propType {
 }
 
 export default function SubjectWiki(props: propType) {
-  const [wikiContent, setWikiContent] = useState(props.content)
+  const [wikiContent, setWikiContent] = useState(props.content);
   const clickEditButton = (text?: string, version?: number) => {
     console.log(document.documentElement.scrollHeight);
-      fetch(`${baseUrl}/wiki`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ wikiContent: text, version: version }),
-      });
-      props.setIsWikiEdit(false);
+    fetch(`${baseUrl}/wiki`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ wikiContent: text, version: version }),
+    });
+    props.setIsWikiEdit(false);
   };
 
   const clickCancleButton = () => {
     props.setIsWikiEdit(false);
-  }
+  };
   return (
     <div className={styles.wiki}>
       <ReactQuill
@@ -104,6 +104,6 @@ export default function SubjectWiki(props: propType) {
           완료
         </Button>
       </div>
-    </div>
+    </>
   );
 }

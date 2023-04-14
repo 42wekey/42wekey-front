@@ -28,6 +28,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.front{
+  width: 80%;
+}
 /* 
 export const ModalDimmer = styled.div`
   position: fixed;

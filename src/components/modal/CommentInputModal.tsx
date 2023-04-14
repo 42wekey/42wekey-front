@@ -113,7 +113,8 @@ export default function CommentInputModal({ subject }: subject) {
 
   return (
     <div className={styles.back}>
-      <Card>
+      <div className={styles.front}>
+      {/* <Card>
         <CardContent>
           <form>
             <div className={styles.margin}>
@@ -210,7 +211,12 @@ export default function CommentInputModal({ subject }: subject) {
             </div>
           </form>
         </CardContent>
-      </Card>
+      </Card> */}
+      안녕하세요
+      <input type="radio" className={styles.radio}></input>
+      <input type="radio" className={styles.radio}></input>
+      <input type="radio"></input>
+      </div>
     </div>
   );
 }
