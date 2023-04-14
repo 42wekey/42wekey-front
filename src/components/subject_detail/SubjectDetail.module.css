@@ -59,17 +59,10 @@
   letter-spacing: -0.005em;
 }
 
-<<<<<<< HEAD
 .headline {
   height: 10px;
   margin-top: 1rem;
   background: #f7f7f7;
-=======
-.headline{
-	height: 10px;
-	margin-top:1rem;
-	background: #F7F7F7;
->>>>>>> 686a8d51febec243b64c5f97b91adeb73202fcd9
 }
 
 .editBtnContainer{
