@@ -57,7 +57,7 @@ export default function SubjectDetail() {
     fetch(`${baseUrl}/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
-  }, [comment]);
+  }, []);
 
   return (
     <div>

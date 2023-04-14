@@ -87,33 +87,6 @@ export default function SubjectWiki(props: propType) {
     props.setIsWikiEdit(false);
   };
   return (
-<<<<<<< HEAD
-    <>
-      <div className={styles.wiki}>
-        <div className={styles.wikiBox}>
-          <ReactQuill
-            modules={modules}
-            className={styles.SubjectWiki}
-            defaultValue={props.content}
-            onChange={setWikiContent}
-            theme="snow"
-          />
-        </div>
-        <div className={styles.submit}>
-          <button
-            onClick={() => clickCancleButton()}
-            className={styles.cancleBtn}
-          >
-            취소
-          </button>
-          <button
-            onClick={() => clickEditButton(wikiContent, props.version)}
-            className={styles.submitBtn}
-          >
-            제출
-          </button>
-        </div>{" "}
-=======
     <div className={styles.wiki}>
       <ReactQuill
         modules={modules}
@@ -123,15 +96,16 @@ export default function SubjectWiki(props: propType) {
         style={{ height: "30em", marginBottom: "6%" }}
       />{" "}
       <div className={styles.submit}>
-        <Button variant="outlined" onClick={() => clickCancleButton()}>취소</Button>
+        <Button variant="outlined" onClick={() => clickCancleButton()}>
+          취소
+        </Button>
         <Button
           variant="contained"
           onClick={() => clickEditButton(wikiContent, props.version)}
         >
           완료
         </Button>
->>>>>>> 686a8d51febec243b64c5f97b91adeb73202fcd9
       </div>
-    </>
+    </div>
   );
 }
