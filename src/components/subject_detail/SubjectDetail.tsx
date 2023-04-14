@@ -41,19 +41,10 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    if (contentState && contentState === "wiki") {
-      fetch(`${baseUrl}/wiki`)
-        .then((res) => res.json())
-        .then((data) => setWiki(data));
-    }
-  }, [isWikiEdit, contentState]);
-
-  useEffect(() => {
-    if (contentState && contentState !== "wiki")
-      fetch(`${baseUrl}/comments`)
-        .then((res) => res.json())
-        .then((data) => setComment(data));
-  }, [contentState]);
+    fetch(`${baseUrl}/wiki`)
+      .then((res) => res.json())
+      .then((data) => setWiki(data));
+  }, [isWikiEdit]);
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
@@ -69,7 +60,7 @@ export default function SubjectDetail() {
   }, [comment]);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Menu intraId={"him"} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />

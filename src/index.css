@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ql-editor {
+  height: 30rem !important;
+}
+
+
 @media (max-width: 700px) {
   body {
     font-family: "Pretendard";
