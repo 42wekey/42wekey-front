@@ -62,15 +62,17 @@ export default function SubjectDetailAvg({
         </div>
       </div>
       {isVisible === true && (
-        <div>
+        <div className={styles.graphContainer}>
           {detail.map((value, i) => (
             <div key={i} className={styles.graph}>
               <div
                 className={styles.graph_pull}
-                style={{ width: `${+value * 2 > 100 ? 100 : +value * 2}%` }}
-              ><>
+                style={{ width: `${value}%` }}
+              >
                 {value}%
-                </>
+              </div>
+              <div className={styles.graphFont}>
+                {value}%
               </div>
             </div>
           ))}
