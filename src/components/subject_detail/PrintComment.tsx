@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styles from "./SubjectComment.module.css";
 import { Rating, TextField } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -80,13 +80,21 @@ export interface Comment {
 
 export interface CommentProps {
   comment: Comment;
+  showCommentEdit: boolean;
 }
 
-const PrintComment = ({ comment }: CommentProps) => {
+const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
+  const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
+
+  //const [, showCommentEdit] = useState<undefined | (() => void)>(undefined);
+
+  //useEffect(()=>{
+  //  useCallback(() => showCommentEdit(() => {}), []);
+  //},[]);
 
   //const clickEditButton = (text?: string, comment_id?: number) => {
   //  if (isCommentEdit) {
@@ -104,7 +112,7 @@ const PrintComment = ({ comment }: CommentProps) => {
     fetch(`${baseUrl}/like.${commentId}/${intraId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({name:`${userState.intraId}`}),
+      body: JSON.stringify({}),
     });
     setIsLike((isLike) => !isLike);
     console.log(commentId, intraId);
@@ -115,10 +123,8 @@ const PrintComment = ({ comment }: CommentProps) => {
       <div className={styles.commentUser}>
         {comment.intraid}
         <span className={styles.commentUserBadge}>레벨{comment.userLevel}</span>
-        {userState.intraId === comment.intraid ? (
+        {showCommentEdit && (
           <span className={styles.commentEdditBtn}>수정하기</span>
-        ) : (
-          <></>
         )}
       </div>
       <div>
