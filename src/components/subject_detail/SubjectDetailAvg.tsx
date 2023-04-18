@@ -2,12 +2,13 @@ import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import styles from "./SubjectDetailAvg.module.css";
+import { convertAmountStudy, convertBonus, convertDifficulty, convertTimeTaken} from "./PrintComment";
 
 interface chip {
-  name: String;
-  detail_title: String;
-  detail_value: Number;
-  detail: Number[];
+  name: string;
+  detail_title: string;
+  detail_value: number;
+  detail: number[];
 }
 
 export default function SubjectDetailAvg({
@@ -22,13 +23,26 @@ export default function SubjectDetailAvg({
     setIsVisible((isVisible) => !isVisible);
   };
 
+  function setDetail(name:string, title:string):string{
+    if (name === "소요시간")
+      return convertTimeTaken(title);
+    else if(name === "난이도")
+      return convertDifficulty(title);
+    else if(name === "보너스")
+      return convertBonus(title);
+    else if (name === "학습량")
+      return convertAmountStudy(title);
+    else
+      return "none";
+  }
+
   return (
     <div className={styles.container} onClick={onClick}>
       <div>
         <div className={styles.flex}>
           <div className={styles.avg_name}>{name}</div>
           <div className={styles.small_flex}>
-            <div className={styles.name && styles.font}>{detail_title}</div>
+            <div className={styles.font}>{setDetail(name, detail_title)}</div>
             <div className={styles.baseline} />
             <div
               className={styles.font && styles.font_color_blue}
@@ -48,15 +62,17 @@ export default function SubjectDetailAvg({
         </div>
       </div>
       {isVisible === true && (
-        <div>
+        <div className={styles.graphContainer}>
           {detail.map((value, i) => (
             <div key={i} className={styles.graph}>
               <div
                 className={styles.graph_pull}
-                style={{ width: `${+value * 2 > 100 ? 100 : +value * 2}%` }}
-              ><>
+                style={{ width: `${value}%` }}
+              >
                 {value}%
-                </>
+              </div>
+              <div className={styles.graphFont}>
+                {value}%
               </div>
             </div>
           ))}

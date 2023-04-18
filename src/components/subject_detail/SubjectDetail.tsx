@@ -64,9 +64,9 @@ export default function SubjectDetail() {
     setModal({modalName: "commentInput", commentInput:{subjectName: params.sbj_name, circle: parseInt(params.circle)}})
   }
 
-  return (  
+  return (
     <div>
-      <Menu intraId={"him"} menuName={"과제리뷰"} />
+      <Menu intraId={userState.intraId} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
       <div className={styles.headline} />

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
-import { RecoilRoot } from "recoil";
+import { useState, useEffect } from "react";
+import { RecoilRoot, useRecoilState } from "recoil";
+import {profileState} from "./utils/recoil/user"
 import Main from './components/Main';
 import Login from "./components/login/Login";
 import MyComment from "./components/myPage/MyPage";
@@ -10,11 +11,18 @@ import Modal from "./components/modal/Modal";
 import Empty from "./components/Error/Empty";
 
 const App = () => {
+  const baseUrl = `${process.env.REACT_APP_END_POINT}`;
   const [isLogged, setIsLogged] = useState(true);
+  const [userInfo, setUserInfo] = useRecoilState(profileState)
+
+  useEffect(() => {
+    fetch(`${baseUrl}/user_me`)
+      .then((res) => res.json())
+      .then((data) => setUserInfo(data));
+  }, []);
 
   return (
-
-    <RecoilRoot>
+  <>
     <Router>
     <Routes>
       <Route path="/" element={isLogged===false?<Login />:<Main />} />
@@ -26,7 +34,7 @@ const App = () => {
     </Routes>
     </Router>
     <Modal/>
-    </RecoilRoot>
+    </>
   );
 };
 
