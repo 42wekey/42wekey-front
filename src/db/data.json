@@ -273,6 +273,7 @@
       "id": 0,
       "like": 7,
       "intraid": "him",
+      "userLevel": 2.32,
       "isComment": false,
       "sbj_name": "Libft",
       "content": "ㅍㅋㅊㅍㅊㅋㅁㄴㅇㄹㅋㅋㅋㅋ",
@@ -285,6 +286,7 @@
     },
     {
       "intraid": "him",
+      "userLevel": 2.32,
       "like": 5,
       "sbj_name": "Libft",
       "star_rating": 5,
@@ -298,6 +300,7 @@
     },
     {
       "intraid": "him",
+      "userLevel": 2.32,
       "sbj_name": "Libft",
       "star_rating": 5,
       "isComment": false,
@@ -311,6 +314,7 @@
     },
     {
       "intraid": "him",
+      "userLevel": 2.32,
       "like": 11,
       "sbj_name": "Libft",
       "isComment": false,
@@ -323,6 +327,7 @@
     },
     {
       "intraid": "him",
+      "userLevel": 2.32,
       "isComment": false,
       "like": 15,
       "sbj_name": "libft",
@@ -336,6 +341,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "isComment": false,
       "like": 15,
       "sbj_name": "libft",
@@ -349,6 +355,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "sbj_name": "libft",
       "star_rating": 4,
       "isComment": false,
@@ -362,6 +369,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "isComment": false,
       "sbj_name": "libft",
       "star_rating": 5,
@@ -375,6 +383,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "sbj_name": "libft",
       "like": 15,
       "star_rating": 4,
@@ -388,6 +397,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "sbj_name": "libft",
       "star_rating": 4,
       "isComment": false,
@@ -401,6 +411,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "sbj_name": "libft",
       "star_rating": 3,
       "time_taken": "a_month",
@@ -412,6 +423,7 @@
     },
     {
       "intraid": "sooyang",
+      "userLevel": 2.32,
       "sbj_name": "libft",
       "star_rating": 3,
       "time_taken": "three_week",
@@ -423,6 +435,7 @@
     },
     {
       "intraid": "sooyang",
+       "userLevel": 2.32,
       "sbj_name": "libft",
       "star_rating": 5,
       "time_taken": "two_week",
@@ -431,10 +444,32 @@
       "bonus": "complete",
       "content": "잘 될까요...",
       "id": 12
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 4,
+      "time_taken": "a_month",
+      "difficulty": "normal",
+      "amount_study": "high",
+      "bonus": "no",
+      "content": "후기후기후기",
+      "id": 13
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 5,
+      "time_taken": "a_week",
+      "difficulty": "easy",
+      "amount_study": "low",
+      "bonus": "little",
+      "content": "되남",
+      "id": 14
     }
   ],
   "wiki": {
-    "wikiContent": "<h1>miniRT</h1><h2>개요</h2><p>miniRT는 C언어로 작성된 간단한 레이 트레이싱 엔진입니다. 레이 트레이싱은 광선 추적 알고리즘을 이용하여 실제 빛이 어떻게 행동하는지 모사하는 그래픽 기술입니다. miniRT는 구현이 쉽고 빠르게 결과물을 확인할 수 있는 특징이 있어, 레이 트레이싱을 처음 공부하는 학습자들에게 추천됩니다.</p><p>```java</p><p>dfeksofpjslagvjdxlfjdslfjdslafkdsl fjadlifjiajfdlksamfklajndojawe iojfilajfildjfilsadjfilsdafd</p><p>```</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>기능</h2><p>miniRT는 다음과 같은 기능을 제공합니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><ul><li>지원하는 입력 파일 형식: <code style=\"color: var(--tw-prose-code);\">.rt</code> (miniRT 포맷)</li><li>지원하는 도형: 구, 원기둥, 삼각형, 사각형</li><li>지원하는 머티리얼: 플랫, 반사, 반사와 광투과, 투명도</li><li>광원 지원: AMBIENT, POINT, DIRECTIONAL</li><li>파싱 에러 핸들링</li></ul><h2>설치 및 실행</h2><p>miniRT는 MacOS 및 Linux 환경에서 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>설치</h3><p>miniRT를 다운로드하고 설치하는 방법은 다음과 같습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>실행</h3><p>miniRT는 다음과 같은 방법으로 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">bash\n\nCopy code\n./miniRT [input file] \n</pre><p><code style=\"color: var(--tw-prose-code);\">[input file]</code>은 실행할 입력 파일의 경로와 이름을 나타냅니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>사용 방법</h2><p>miniRT는 입력 파일을 통해 레이 아웃, 머티리얼 및 광원 정보를 가져옵니다. 예를 들어, 아래와 같이 입력 파일을 작성할 수 있습니다.</p>",
+    "wikiContent": "<h1>miniRT</h1><h2>개요</h2><p>miniRT는 C언어로 작성된 간단한 레이 트레이싱 엔진입니다. 레이 트레이싱은 광선 추적 알고리즘을 이용하여 실제 빛이 어떻게 행동하는지 모사하는 그래픽 기술입니다. miniRT는 구현이 쉽고 빠르게 결과물을 확인할 수 있는 특징이 있어, 레이 트레이싱을 처음 공부하는 학습자들에게 추천됩니다.</p><p>```java</p><p>dfeksofpjslagvjdxlfjdslfjdslafkdsl fjadlifjiajfdlksamfklajndojawe iojfilajfildjfilsadjfilsdafd</p><p>```ㅇㅇㅇㅇㅇㅇㅇ</p><p><br></p><p><br></p><p><br></p><p>ㅝㅓㅓ</p><p><br></p><p><br></p><p><br></p><p>ㅗㅓㅠㅗㅠ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>기능</h2><p>miniRT는 다음과 같은 기능을 제공합니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><ul><li>지원하는 입력 파일 형식: <code style=\"color: var(--tw-prose-code);\">.rt</code> (miniRT 포맷)</li><li>지원하는 도형: 구, 원기둥, 삼각형, 사각형</li><li>지원하는 머티리얼: 플랫, 반사, 반사와 광투과, 투명도</li><li>광원 지원: AMBIENT, POINT, DIRECTIONAL</li><li>파싱 에러 핸들링</li></ul><h2>설치 및 실행</h2><p>miniRT는 MacOS 및 Linux 환경에서 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>설치</h3><p>miniRT를 다운로드하고 설치하는 방법은 다음과 같습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>실행</h3><p>miniRT는 다음과 같은 방법으로 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">bash\n\nCopy code\n./miniRT [input file] \n</pre><p><code style=\"color: var(--tw-prose-code);\">[input file]</code>은 실행할 입력 파일의 경로와 이름을 나타냅니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>사용 방법</h2><p>miniRT는 입력 파일을 통해 레이 아웃, 머티리얼 및 광원 정보를 가져옵니다. 예를 들어, 아래와 같이 입력 파일을 작성할 수 있습니다.</p>",
     "version": 1
   },
   "myComment": [
@@ -521,7 +556,7 @@
       ]
     },
     "difficulty": {
-      "title": "middle",
+      "title": "normal",
       "value": 33,
       "detail": [
         30,

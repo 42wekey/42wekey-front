@@ -57,11 +57,11 @@ export default function SubjectDetail() {
     fetch(`${baseUrl}/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
-  }, [comment]);
+  }, [isModalState]);
 
   return (
     <div>
-      <Menu intraId={"him"} menuName={"과제리뷰"} />
+      <Menu intraId={userState.intraId} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
       <div className={styles.headline} />

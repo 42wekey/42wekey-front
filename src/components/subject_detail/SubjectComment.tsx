@@ -24,7 +24,7 @@ export default function SubjectComment({ comments }: commentList) {
     setSortOption(event.target.value);
   };
 
-  const sortedObjects = comments.slice().sort((a, b) => {
+  const sortedObjects = comments.slice().sort((a ,b) => {
     if (sortOption === "like") return b.like - a.like;
     else if (sortOption === "recent")
       return (
