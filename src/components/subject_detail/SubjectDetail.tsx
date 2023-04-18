@@ -6,10 +6,10 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import SubjectWiki from "./SubjectWiki";
 import SubjectInfo from "./SubjectInfo";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
-import { modalState } from "../../utils/recoil/modal";
-import {  } from "./SubjectComment";
+import { modal, modalState } from "../../utils/recoil/modal";
+import {} from "./SubjectComment";
 import Analysis from "./SubjectAnalysis";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
@@ -24,7 +24,8 @@ export default function SubjectDetail() {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
-  const [isModalState, setIsModalState] = useRecoilState(modalState);
+  const [{isModal, title}, setIsModalState] = useRecoilState(modalState);
+  const setModal = useSetRecoilState(modal);
   const [contentState, setContentState] = useState("wiki");
   const [comment, setComment] = useState([]);
 
@@ -57,9 +58,13 @@ export default function SubjectDetail() {
     fetch(`${baseUrl}/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
-  }, [comment]);
+  }, [isModal]);
 
-  return (
+  function modalHandler () {
+    setModal({modalName: "commentInput", commentInput:{subjectName: params.sbj_name, circle: parseInt(params.circle)}})
+  }
+
+  return (  
     <div>
       <Menu intraId={"him"} menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
@@ -132,13 +137,12 @@ export default function SubjectDetail() {
               </div>
             </div>
             <div className={styles.content}>
-              <SubjectComment comments={comment}/>
+              <SubjectComment comments={comment} />
               <div className={styles.editBtnContainer}>
                 <button
-                  onClick={() => setIsModalState({ isModal: true })}
+                  onClick={() => setModal({modalName: "commentInput", commentInput:{subjectName:params.sbj_name, circle:parseInt(params.circle) } })}
                   className={styles.editBtn}
                 >
-                  {" "}
                   후기 작성
                 </button>
               </div>

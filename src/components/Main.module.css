@@ -23,3 +23,14 @@
     width: 100%;
     background-color: #F6F9FF;
 }*/
+.body {
+    font-family: "Pretendard";
+}
+
+
+.logo {
+    margin-top: 1.25rem;
+    margin-left: 1.25rem;
+    width: 10rem;
+    height: 3rem;
+}

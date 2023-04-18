@@ -72,7 +72,7 @@ const PrintComment = ({ comment }: CommentProps) => {
         <div className={styles.commentTime}>{comment.comment_time}</div>
       </div>
       <div>
-        {userState.intraId === comment.intraid ? (
+        {userState?.intraId === comment?.intraid ? (
           isCommentEdit ? (
             <div>
               <TextField

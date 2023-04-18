@@ -37,7 +37,7 @@ export default function PdfIndex() {
             onClick={() => setSelectCircle(index)}
           >
             <a>
-              <>{data.circle}_circle</>
+              <>{data.circle}circle</>
             </a>
           </div>
         ))}

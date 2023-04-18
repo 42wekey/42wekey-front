@@ -9,7 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInputModal.module.css";
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { modalState } from "../../utils/recoil/modal";
+import { modal, modalState } from "../../utils/recoil/modal";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -17,7 +17,7 @@ interface subject {
   subject: string;
 }
 
-export default function CommentInputModal({ subject }: subject) {
+export default function CommentInputModal() {
   const [star_rating, setRating] = useState<number | null>(null);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");
@@ -25,7 +25,36 @@ export default function CommentInputModal({ subject }: subject) {
   const [bonus, setBonus] = useState("");
   const [content, setContent] = useState("");
   const [isSubmit, setIsSubmit] = useState<Boolean>(false);
-  const [isCommentModal, setIsCommentModal] = useRecoilState(modalState);
+  const [isCommentModal, setIsCommentModal] = useRecoilState(modal);
+  const time_taken_data = [
+    { id: 0, content: "일주일 이하", value: "a_week" },
+    { id: 1, content: "1~2주 이내", value: "tow_week" },
+    { id: 2, content: "3~4주 이내", value: "three_week" },
+    { id: 3, content: "1개월 이상", value: "a_month" },
+    { id: 4, content: "3개월 이상", value: "three_month" },
+  ];
+
+  const difficulty_data = [
+    { id: 0, content: "쉬워요", value: "easy" },
+    { id: 1, content: "보통이에요", value: "normal" },
+    { id: 2, content: "어려워요", value: "hard" },
+  ];
+
+  const amount_study_data = [
+    { id: 0, content: "적은 편이에요", value: "low" },
+    { id: 1, content: "보통이에요", value: "middle" },
+    { id: 2, content: "많은 편이에요", value: "high" },
+  ];
+  // >
+  //   <ToggleButton value="no">안 했어요</ToggleButton>
+  //   <ToggleButton value="little">하긴 했어요</ToggleButton>
+  //   <ToggleButton value="complete">다 했어요</ToggleButton>
+
+  const bonus_data = [
+    { id: 0, content: "안 했어요", value: "no" },
+    { id: 1, content: "하긴 했어요", value: "little" },
+    { id: 2, content: "다 했어요", value: "complete" },
+  ];
 
   // const history = useHistory();
   // useEffect(() => {
@@ -48,35 +77,21 @@ export default function CommentInputModal({ subject }: subject) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
-  const handleChangeTime = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setElapsed(newAlignment);
-  };
+  function handleChangeTakeTime(i: number) {
+    setElapsed(time_taken_data[i].value);
+  }
 
-  const handleChangeAmount = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setAmountStudy(newAlignment);
-  };
+  function handleChangeAmountStudy(i: number) {
+    setAmountStudy(amount_study_data[i].value);
+  }
 
-  const handleChangeDiffi = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setDiffi(newAlignment);
-  };
+  function handleChangeDifficulty(i: number) {
+    setDiffi(difficulty_data[i].value);
+  }
 
-  const handleChangeBonus = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setBonus(newAlignment);
-  };
-
-  const CheckInput = () => {};
+  function handleChangeBonus(i: number) {
+    setBonus(bonus_data[i].value);
+  }
 
   const onClickSubmit = () => {
     if (isSubmit) {
@@ -85,7 +100,7 @@ export default function CommentInputModal({ subject }: subject) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           intraid: "sooyang",
-          sbj_name: subject,
+          sbj_name: isCommentModal.commentInput?.subjectName,
           star_rating,
           time_taken,
           difficulty,
@@ -100,7 +115,7 @@ export default function CommentInputModal({ subject }: subject) {
           // history.push("/");
         }
       });
-      setIsCommentModal({ isModal: false });
+      setIsCommentModal({ modalName:null});
     } else {
       alert("내용을 확인해주세요");
     }
@@ -108,114 +123,98 @@ export default function CommentInputModal({ subject }: subject) {
 
   function onCancleButton() {
     document.body.style.overflow = "unset";
-    setIsCommentModal({ isModal: false });
+    setIsCommentModal({modalName:null});
   }
 
   return (
     <div className={styles.back}>
       <div className={styles.front}>
-      {/* <Card>
-        <CardContent>
-          <form>
-            <div className={styles.margin}>
-              과제를 해결하는데 얼마나 걸리셨나요?
-            </div>
-            <ToggleButtonGroup
-              className={styles.boxmargin}
-              color="primary"
-              value={time_taken}
-              exclusive
-              onChange={handleChangeTime}
-              aria-label="Platform"
-            >
-              <ToggleButton value="a_week">일주일 이하</ToggleButton>
-              <ToggleButton value="two_week">1~2주 이내</ToggleButton>
-              <ToggleButton value="three_week">3~4주 이내</ToggleButton>
-              <ToggleButton value="a_month">한 달 이상</ToggleButton>
-              <ToggleButton value="three_month">세 달 이상</ToggleButton>
-            </ToggleButtonGroup>
-            <div className={styles.margin}>과제의 난이도는 어땠나요?</div>
-            <ToggleButtonGroup
-              className={styles.boxmargin}
-              color="primary"
-              value={difficulty}
-              exclusive
-              onChange={handleChangeDiffi}
-              aria-label="Platform"
-            >
-              <ToggleButton value="easy">쉬워요</ToggleButton>
-              <ToggleButton value="normal">보통이에요</ToggleButton>
-              <ToggleButton value="hard">어려워요</ToggleButton>
-            </ToggleButtonGroup>
-            <div className={styles.margin}>
-              과제를 해결하기 위해 공부한 양은 얼마나 되나요?
-            </div>
-            <ToggleButtonGroup
-              className={styles.boxmargin}
-              color="primary"
-              value={amount_study}
-              exclusive
-              onChange={handleChangeAmount}
-              aria-label="Platform"
-            >
-              <ToggleButton value="low">적은 편이에요</ToggleButton>
-              <ToggleButton value="middle">보통이에요</ToggleButton>
-              <ToggleButton value="high">많아요</ToggleButton>
-            </ToggleButtonGroup>
-            <div className={styles.margin}>
-              이 과제의 보너스를 해결하셨나요?
-            </div>
-            <ToggleButtonGroup
-              className={styles.boxmargin}
-              color="primary"
-              value={bonus}
-              exclusive
-              onChange={handleChangeBonus}
-              aria-label="Platform"
-            >
-              <ToggleButton value="no">안 했어요</ToggleButton>
-              <ToggleButton value="little">하긴 했어요</ToggleButton>
-              <ToggleButton value="complete">다 했어요</ToggleButton>
-            </ToggleButtonGroup>
-            <div className={styles.boxmargin}>
-              <div className={`${styles.margin && styles.flex}`}>
-                <span className={styles.inlinetext}>총 평점</span>
-                <Rating
-                  size="large"
-                  className={styles.margin}
-                  name="simple-controlled"
-                  value={star_rating}
-                  onChange={(event, newValue) => {
-                    setRating(newValue);
-                  }}
-                />
-              </div>
-              <TextField
-                id="outlined-multiline-static"
-                label="후기"
-                multiline
-                rows={4}
-                placeholder="과제에 대한 후기를 남겨주세요."
-                style={{ width: "100%", height: "120px" }}
-                onChange={(e) => setContent(e.target.value)}
-              />
-              <MyFormHelperText />
-            </div>
-            <div className={styles.submit}>
-              <Button variant="outlined" onClick={onCancleButton}>
-                취소
-              </Button>
-              <Button variant="contained" onClick={onClickSubmit}>
-                제출
-              </Button>
-            </div>
-          </form>
-        </CardContent>
-      </Card> */}
-      안녕하세요
-      <input type="radio" className={styles.radio}></input>
-      <input type="radio" className={styles.radio}></input>
-      <input type="radio"></input>
+        <div>
+          리뷰 작성<a>X</a>
+        </div>
+        1Circls minitalk
+        <div className={styles.contentBox}>
+          <div className={styles.margin}>
+            과제를 해결하는데 얼마나 걸리셨나요?
+          </div>
+          <div className={styles.answerBox}>
+            {time_taken_data.map((data, i) => (
+              <button
+                className={
+                  data.value === time_taken
+                    ? styles.selectAnswer
+                    : styles.answer
+                }
+                onClick={() => handleChangeTakeTime(i)}
+                key={i}
+              >
+                {data.content}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.contentBox}>
+          <div className={styles.margin}>난이도는 어땠나요?</div>
+          <div className={styles.answerBox}>
+            {difficulty_data.map((data, i) => (
+              <button
+                className={
+                  data.value === difficulty
+                    ? styles.selectAnswer
+                    : styles.answer
+                }
+                onClick={() => handleChangeDifficulty(i)}
+                key={i}
+              >
+                {data.content}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.contentBox}>
+          <div className={styles.margin}>
+            과제 해결을 위해 공부한 양은 얼마나 되나요?
+          </div>
+          <div className={styles.answerBox}>
+            {amount_study_data.map((data, i) => (
+              <button
+                className={
+                  data.value === amount_study
+                    ? styles.selectAnswer
+                    : styles.answer
+                }
+                onClick={() => handleChangeAmountStudy(i)}
+                key={i}
+              >
+                {data.content}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.contentBox}>
+          <div className={styles.margin}>보너스를 해결하셨나요?</div>
+          <div className={styles.answerBox}>
+            {bonus_data.map((data, i) => (
+              <button
+                className={
+                  data.value === bonus ? styles.selectAnswer : styles.answer
+                }
+                onClick={() => handleChangeBonus(i)}
+                key={i}
+              >
+                {data.content}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.submit}>
+          <Button variant="outlined" onClick={onCancleButton}>
+            취소
+          </Button>
+          <Button variant="contained" onClick={onClickSubmit}>
+            제출
+          </Button>
+        </div>
       </div>
     </div>
   );

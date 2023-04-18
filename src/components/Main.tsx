@@ -7,6 +7,7 @@ import SubjectRank from "./rank/SubjectRank";
 import UserProfile from "./user/UserProfile";
 import { useEffect } from "react";
 import RecentComment from "./RecentComment/RecentComment";
+import { ReactComponent as Wekey42 } from "./42wekey.svg";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -21,6 +22,9 @@ export default function Main() {
 
   return (
     <div className={styles.container}>
+      <div >
+        <Wekey42 className={styles.logo}/>
+      </div>
       {/* <Menu 
       intraId={userInfo.intraId}/> */}
       <div className={styles.userProfile}>

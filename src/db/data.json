@@ -1,6 +1,6 @@
 {
   "user_me": {
-    "intraId": "him",
+    "intraId": "sooyang",
     "user_level": 5.21
   },
   "user_status": {
@@ -431,6 +431,17 @@
       "bonus": "complete",
       "content": "잘 될까요...",
       "id": 12
+    },
+    {
+      "intraid": "sooyang",
+      "sbj_name": "libft",
+      "star_rating": 5,
+      "time_taken": "two_week",
+      "difficulty": "normal",
+      "amount_study": "middle",
+      "bonus": "little",
+      "content": "ㅁㄴㅇㅁㄴㅇ",
+      "id": 13
     }
   ],
   "wiki": {
