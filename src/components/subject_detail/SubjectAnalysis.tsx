@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Graph from "./graph/Graph";
 import styles from "./SubjectAnalysis.module.css";
 import SubjectDetailAvg from "./SubjectDetailAvg";
+import StarIcon from "../../../images/StarIcon.svg";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface subject {
@@ -22,7 +23,6 @@ interface sbjAvg {
 export default function Analysis({ sbjname }: subject) {
   const [sbjAvg, setSbjAvg] = useState<sbjAvg>();
   const total = [5, 4, 3, 2, 1];
-  const detail=[20,20,30,10,20];
 
   useEffect(() => {
     fetch(`${baseUrl}/sbj_avg`)
@@ -37,7 +37,7 @@ export default function Analysis({ sbjname }: subject) {
         <div className={styles.flexItem }>
           <div className={styles.borderRight}>
             <div className={styles.ratingStr}>{`${sbjAvg?.avg_star_rating}`}</div>
-            <Rating color="FF620A" width="105px" value={sbjAvg?.avg_star_rating ?? 0} />
+            <Rating color="FF620A" width="105px" value={sbjAvg?.avg_star_rating??0}/>
           </div>
         </div>
         <div className={styles.flexItem}>
@@ -45,7 +45,7 @@ export default function Analysis({ sbjname }: subject) {
             <div key={i} className={styles.avgGraph && styles.minusMargin}>
               <span className={styles.smallFont}>{value}점</span>
 			        <div className={styles.bar_chart}>
-				        <div className={styles.bar} style={{ width: `${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%` }} />
+				        <div className={styles.bar} style={{ width: `${(sbjAvg?.total_star_rating[value - 1] / sbjAvg?.comment_num)*100}%`}} />
 			        </div>
               <span className={styles.smallFont}>{`${(sbjAvg?.total_star_rating[value - 1]/sbjAvg?.comment_num)*100}%`}</span>
             </div>

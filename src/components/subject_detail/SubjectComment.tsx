@@ -5,6 +5,8 @@ import Graph from "./graph/Graph";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import PrintComment, { CommentProps, Comment } from "./PrintComment";
+import { useRecoilState } from "recoil";
+import { profileState } from "../../utils/recoil/user";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
@@ -17,6 +19,15 @@ interface commentList {
 
 export default function SubjectComment({ comments }: commentList) {
   const [sortOption, setSortOption] = useState("recent");
+  const [userState, setUserState] = useRecoilState(profileState);
+  document.cookie = "key=value; expires=expiration_time; path=/";
+
+  function checkCommentEdit(comment:Comment){
+    if (userState.intraId === comment.intraid)
+      return true;
+    else
+      return false;
+  }
 
   const handleSortOptionChange = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -24,7 +35,7 @@ export default function SubjectComment({ comments }: commentList) {
     setSortOption(event.target.value);
   };
 
-  const sortedObjects = comments.slice().sort((a, b) => {
+  const sortedObjects = comments.slice().sort((a ,b) => {
     if (sortOption === "like") return b.like - a.like;
     else if (sortOption === "recent")
       return (
@@ -52,7 +63,7 @@ export default function SubjectComment({ comments }: commentList) {
       </div>
       {sortedObjects.map((data, index) => (
         <div className={styles.comment} key={index}>
-          <PrintComment comment={data} />
+          <PrintComment comment={data} showCommentEdit={checkCommentEdit(data)}/>
         </div>
       ))}
     </div>
