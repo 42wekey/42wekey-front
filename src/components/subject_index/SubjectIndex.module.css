@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  font-family: "Pretendard";
   align-items: center;
   justify-items: center;
   flex-direction: column;
@@ -40,8 +41,8 @@
 	align-items: center;
 	justify-content: center;
 	height: 0.6rem;
-	width: 25%;
-	padding-top: 0.8rem;
+	width: 22%;
+	padding-top: 1.5rem;
 	padding-bottom: 0.8rem;
 	/* margin-left: 1rem; */
 	font-style: normal;
@@ -62,8 +63,8 @@
 	align-items: center;
 	justify-content: center;
 	height: 0.6rem;
-	width: 25%;
-	padding-top: 0.8rem;
+	width: 22%;
+	padding-top: 1.5rem;
 	padding-bottom: 0.8rem;
 	/* margin-left: 1rem; */
 	font-style: normal;
