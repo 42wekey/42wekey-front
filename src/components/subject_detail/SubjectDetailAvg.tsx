@@ -18,6 +18,7 @@ export default function SubjectDetailAvg({
   detail,
 }: chip) {
   const [isVisible, setIsVisible] = useState(false);
+  const maxValue = Math.max(...detail);
 
   const onClick = () => {
     setIsVisible((isVisible) => !isVisible);
@@ -66,12 +67,12 @@ export default function SubjectDetailAvg({
           {detail.map((value, i) => (
             <div key={i} className={styles.graph}>
               <div
-                className={styles.graph_pull}
+                className={maxValue===value?styles.graph_pull_max:styles.graph_pull}
                 style={{ width: `${value}%` }}
               >
                 {value}%
               </div>
-              <div className={styles.graphFont}>
+              <div className={maxValue===value?styles.graphFontMax:styles.graphFont}>
                 {value}%
               </div>
             </div>
