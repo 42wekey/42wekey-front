@@ -1,6 +1,21 @@
 .margin {
   margin-bottom: 0.3rem;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
 }
+
+.Q {
+  font-family: 'Reem Kufi Ink';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 27px;
+color: #396FF9;
+}
+
 .boxmargin {
   margin-bottom: 1rem;
 }
@@ -15,6 +30,28 @@
 .submit {
   text-align: center;
   margin-top: 1em;
+}
+
+.subjectTitle {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-bottom: 45px;
+}
+.circle {
+  color: #a7a7a7;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+}
+.subjectName {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
 }
 
 .contentBox {
@@ -63,7 +100,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
-  color: #396FF9;
+  color: #396ff9;
   display: flex;
   cursor: pointer;
   align-items: center;

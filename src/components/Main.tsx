@@ -9,16 +9,10 @@ import { useEffect } from "react";
 import RecentComment from "./RecentComment/RecentComment";
 import { ReactComponent as Wekey42 } from "./42wekey.svg";
 
-const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
 
 export default function Main() {
-  const [userInfo, setUserInfo] = useRecoilState(profileState)
 
-  useEffect(() => {
-    fetch(`${baseUrl}/user_me`)
-      .then((res) => res.json())
-      .then((data) => setUserInfo(data));
-  }, []);
 
   return (
     <div className={styles.container}>

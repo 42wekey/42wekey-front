@@ -74,7 +74,6 @@ interface propType {
 export default function SubjectWiki(props: propType) {
   const [wikiContent, setWikiContent] = useState(props.content);
   const clickEditButton = (text?: string, version?: number) => {
-    console.log(document.documentElement.scrollHeight);
     fetch(`${baseUrl}/wiki`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

@@ -5,23 +5,18 @@ import CommentInput from "../subject_detail/comment_input/CommentInput";
 import CommentInputModal from "./CommentInputModal";
 
 export default function Modal() {
-  const [{modalName, commentInput, commentEdit}, setModal] = useRecoilState(modal)
+  const [{ modalName, commentInput, commentEdit }, setModal] =
+    useRecoilState(modal);
   const content: { [key: string]: JSX.Element | null } = {
-    'commentInput':<CommentInputModal/>,
-  }
-  const [isCommentModal, setIsCommnetModal] = useRecoilState(modalState);
-  //   useEffect(() => {
-  //     if (isCommentModal.isModal) document.body.style.overflow = "hidden";
-  //     else if (!isCommentModal.isModal) document.body.style.overflow = "unset";
-  //   }, [isCommentModal.isModal]);
+    commentInput: <CommentInputModal />,
+  };
 
-  useEffect(()=> {
-    console.log(modalName);
-  },[modalName])
-
-  return (modalName ? (<div>{content[modalName]}</div>) : <></>);
+  return modalName ? <div>{content[modalName]}</div> : <></>;
 }
-
+//   useEffect(() => {
+//     if (isCommentModal.isModal) document.body.style.overflow = "hidden";
+//     else if (!isCommentModal.isModal) document.body.style.overflow = "unset";
+//   }, [isCommentModal.isModal]);
 
 // export default function ModalProvider() {
 //   const [

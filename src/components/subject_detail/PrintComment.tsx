@@ -115,7 +115,6 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
       body: JSON.stringify({}),
     });
     setIsLike((isLike) => !isLike);
-    console.log(commentId, intraId);
   };
 
   return (

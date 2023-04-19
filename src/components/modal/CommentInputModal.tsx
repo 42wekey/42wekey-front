@@ -115,7 +115,7 @@ export default function CommentInputModal() {
           // history.push("/");
         }
       });
-      setIsCommentModal({ modalName:null});
+      setIsCommentModal({ modalName: null });
     } else {
       alert("내용을 확인해주세요");
     }
@@ -123,7 +123,7 @@ export default function CommentInputModal() {
 
   function onCancleButton() {
     document.body.style.overflow = "unset";
-    setIsCommentModal({modalName:null});
+    setIsCommentModal({ modalName: null });
   }
 
   return (
@@ -132,10 +132,13 @@ export default function CommentInputModal() {
         <div>
           리뷰 작성<a>X</a>
         </div>
-        1Circls minitalk
+        <div className={styles.subjectTitle}>
+          <span className={styles.circle}>{isCommentModal.commentInput?.circle}Circle</span>
+          <span className={styles.subjectName}> {isCommentModal.commentInput?.subjectName}</span>
+        </div>
         <div className={styles.contentBox}>
           <div className={styles.margin}>
-            과제를 해결하는데 얼마나 걸리셨나요?
+            <span className={styles.Q}>Q. </span>과제를 해결하는데 얼마나 걸리셨나요?
           </div>
           <div className={styles.answerBox}>
             {time_taken_data.map((data, i) => (
@@ -154,7 +157,7 @@ export default function CommentInputModal() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <div className={styles.margin}>난이도는 어땠나요?</div>
+          <div className={styles.margin}><span className={styles.Q}>Q. </span>난이도는 어땠나요?</div>
           <div className={styles.answerBox}>
             {difficulty_data.map((data, i) => (
               <button
@@ -173,7 +176,7 @@ export default function CommentInputModal() {
         </div>
         <div className={styles.contentBox}>
           <div className={styles.margin}>
-            과제 해결을 위해 공부한 양은 얼마나 되나요?
+          <span className={styles.Q}>Q. </span>과제 해결을 위해 공부한 양은 얼마나 되나요?
           </div>
           <div className={styles.answerBox}>
             {amount_study_data.map((data, i) => (
@@ -192,7 +195,7 @@ export default function CommentInputModal() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <div className={styles.margin}>보너스를 해결하셨나요?</div>
+          <div className={styles.margin}><span className={styles.Q}>Q. </span>보너스를 해결하셨나요?</div>
           <div className={styles.answerBox}>
             {bonus_data.map((data, i) => (
               <button
@@ -205,6 +208,12 @@ export default function CommentInputModal() {
                 {data.content}
               </button>
             ))}
+          </div>
+        </div>
+        <div className={styles.contentBox}>
+          <div className={styles.margin}><span className={styles.Q}>Q. </span>평점과 자세한 후기를 남겨주실래요?</div>
+          <div className={styles.answerBox}>
+                <input type="text"></input>
           </div>
         </div>
         <div className={styles.submit}>
