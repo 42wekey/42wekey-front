@@ -9,6 +9,7 @@ export default function Modal() {
     useRecoilState(modal);
   const content: { [key: string]: JSX.Element | null } = {
     commentInput: <CommentInputModal />,
+    // commentEdit: <CommentEdit/>
   };
 
   return modalName ? <div>{content[modalName]}</div> : <></>;
