@@ -4,6 +4,7 @@
     "user_level": 5.21
   },
   "user_status": {
+    "user_level": 3.14,
     "my_comment_num": 12,
     "recommend_comment": 15
   },
@@ -608,5 +609,102 @@
         40
       ]
     }
+  },
+  "myComment":[
+    {
+      "subject_name": "printf",
+      "circle": 1,
+      "comment_id": 2,
+      "content": "789",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num":5
+    },
+    {
+      "subject_name": "libft",
+      "circle": 0,
+      "comment_id": 1,
+      "content": "789djasfiodndpdndpd",
+      "star_rating": "5",
+      "time_taken": "a week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num":7
+    }
+  ],
+  "likeComment":[
+    {
+      "intra_id": "him",
+      "subject_name": "printf",
+      "user_level": 2.32,
+      "circle": 1,
+      "comment_id": 2,
+      "content": "789",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num":5
+    },
+    {
+      "intra_id": "him",
+      "subject_name": "libft",
+      "user_level": 2.32,
+      "circle": 0,
+      "comment_id": 1,
+      "content": "789djasfiodndpdndpd",
+      "star_rating": "5",
+      "time_taken": "a week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num":7
+    },
+    {
+      "intra_id": "sooyang",
+      "subject_name": "printf",
+      "user_level": 3.14,
+      "circle": 1,
+      "comment_id": 2,
+      "content": "789",
+      "star_rating": "4",
+      "time_taken": "a week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num":3
+    }
+  ],
+  "successComment":{
+    "reviewed":[
+      {
+        "sbj_name":"libft",
+        "circle":0
+      },
+      {
+        "sbj_name":"ft_printf",
+        "circle":1
+      }
+    ],
+    "unreviewed":[
+      {
+        "sbj_name":"get_next_line",
+        "circle":1
+      },
+      {
+        "sbj_name":"Born2beroot",
+        "circle":1
+      }
+    ]
   }
 }
