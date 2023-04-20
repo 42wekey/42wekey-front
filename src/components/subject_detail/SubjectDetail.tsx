@@ -66,7 +66,7 @@ export default function SubjectDetail() {
 
   return (
     <div>
-      <Menu intraId={userState.intraId} menuName={"과제리뷰"} />
+      <Menu menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
       <div className={styles.headline} />

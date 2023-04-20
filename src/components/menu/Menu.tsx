@@ -5,17 +5,17 @@ import DehazeIcon from "@mui/icons-material/Dehaze";
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 
 interface intraId{
-  intraId:String;
-  menuName:String;
+  intraId:string;
+  menuName:string;
 }
 
 interface subject{
-  id: Number;
-  circle: Number;
-  sbj_name: String;
+  id: number;
+  circle: number;
+  sbj_name: string;
 }
 
-export default function Menu({intraId, menuName}:intraId) {
+export default function Menu({menuName}:intraId) {
   return (
     <div className={styles.background}>
       <div className={styles.flex_row}>
