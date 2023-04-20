@@ -33,7 +33,10 @@
 }
 
 .font_color_blue {
-  color: #396ff9;
+  color: #353535;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: right;
 }
 
 .avg_name {
@@ -83,13 +86,23 @@
 }
 
 .graph_pull {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   border-radius: 5px;
   padding: 5px 4px;
   font-weight: 600;
   font-size: 13px;
   line-height: 16px;
-  color:  #959DB0;
+  color: #959db0;
+}
+
+.graph_pull_max {
+  background-color: #f1f6ff;
+  border-radius: 5px;
+  padding: 5px 4px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #396ff9;
 }
 
 .graphFont {
@@ -99,4 +112,13 @@
   line-height: 14px;
   text-align: right;
   color: #959db0;
+}
+
+.graphFontMax {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #396ff9;
 }
