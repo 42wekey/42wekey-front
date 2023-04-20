@@ -14,7 +14,7 @@
 
 .comment {
   display: flex;
-  border-bottom: solid 0.5rem #fafafc;
+  border-bottom: solid 1px #F4F4F4;
   flex-direction: column;
   padding: 1rem 1.2rem 1.2rem 1.2rem;
 }

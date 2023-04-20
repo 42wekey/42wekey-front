@@ -23,7 +23,7 @@ export default function SubjectComment({ comments }: commentList) {
   document.cookie = "key=value; expires=expiration_time; path=/";
 
   function checkCommentEdit(comment:Comment){
-    if (userState.intraId === comment.intraid)
+    if (userState.intraId === comment.intra_id)
       return true;
     else
       return false;
@@ -36,10 +36,10 @@ export default function SubjectComment({ comments }: commentList) {
   };
 
   const sortedObjects = comments.slice().sort((a ,b) => {
-    if (sortOption === "like") return b.like - a.like;
+    if (sortOption === "like") return b.like_num - a.like_num;
     else if (sortOption === "recent")
       return (
-        new Date(b.comment_time).getTime() - new Date(a.comment_time).getTime()
+        new Date(b.update_time).getTime() - new Date(a.update_time).getTime()
       );
     else if (sortOption === "rating") return b.star_rating - a.star_rating;
   });

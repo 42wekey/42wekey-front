@@ -7,6 +7,7 @@ import styles from "./MyPage.module.css";
 import { useState, useEffect } from "react";
 import LikeCommentList from "./LikeCommentList";
 import { useParams } from "react-router";
+import SubjectComment from "../subject_detail/SubjectComment";
 
 interface Profile {
   user_level: number;
@@ -18,8 +19,8 @@ export default function MyComment() {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [contentState, setContentState] = useState("writeableComment");
   const [profileUser, setProfileUser] = useState<any>({});
-  const [myComment, setMyComment] = useState([]);
-  const [likeComment, setLikeComment] = useState([]);
+  const [myComments, setMyComments] = useState([]);
+  const [likeComments, setLikeComments] = useState([]);
   const [successSbj, setSuccessSbj] = useState<any>({});
   const { intraId } = useParams();
 
@@ -36,17 +37,17 @@ export default function MyComment() {
   useEffect(() => {
     fetch(`${baseUrl}/myComment`)
       .then((res) => res.json())
-      .then((data) => setMyComment(data));
+      .then((data) => setMyComments(data));
   }, []);
 
   useEffect(() => {
     fetch(`${baseUrl}/likeComment`)
       .then((res) => res.json())
-      .then((data) => setLikeComment(data));
+      .then((data) => setLikeComments(data));
   }, []);
 
   useEffect(() => {
-    fetch(`${baseUrl}/successSbj`)
+    fetch(`${baseUrl}/successComment`)
       .then((res) => res.json())
       .then((data) => setSuccessSbj(data));
   }, []);
@@ -76,8 +77,11 @@ export default function MyComment() {
         {contentState === "writeableComment" && <div>작성 가능한 리뷰</div>}
         {contentState === "myComment" && <div>내가 작성한 리뷰</div>}
         {contentState === "likeComment" && menuName === "마이페이지" && (
-          <div>좋아요한 리뷰</div>
+          <LikeCommentList comments={likeComments} />
         )}
+      </div>
+      <div>
+        로그아웃
       </div>
     </div>
   );

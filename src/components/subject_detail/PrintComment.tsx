@@ -64,9 +64,9 @@ export function convertBonus(input: string): string {
 
 export interface Comment {
   id: number;
-  like: number;
-  intraid: string;
-  userLevel: number;
+  like_num: number;
+  intra_id: string;
+  user_level: number;
   sbj_name: string;
   content: string;
   star_rating: number;
@@ -75,7 +75,7 @@ export interface Comment {
   difficulty: string;
   bonus: string;
   amount_study: string;
-  comment_time: string;
+  update_time: string;
 }
 
 export interface CommentProps {
@@ -120,15 +120,15 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   return (
     <div>
       <div className={styles.commentUser}>
-        {comment.intraid}
-        <span className={styles.commentUserBadge}>레벨{comment.userLevel}</span>
+        {comment.intra_id}
+        <span className={styles.commentUserBadge}>레벨{comment.user_level}</span>
         {showCommentEdit && (
           <span className={styles.commentEdditBtn}>수정하기</span>
         )}
       </div>
       <div>
         <Rating name="read-only" value={comment.star_rating} readOnly />|
-        <span className={styles.commentTime}>{comment.comment_time}</span>
+        <span className={styles.commentTime}>{comment.update_time}</span>
       </div>
       {/*<div>
         {userState.intraId === comment.intraid ? (
@@ -198,7 +198,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
         >
           <FavoriteIcon className={styles.heart} />
         </button>
-        {comment.like}
+        {comment.like_num}
       </div>
     </div>
   );
