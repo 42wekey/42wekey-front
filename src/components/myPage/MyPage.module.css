@@ -1,9 +1,86 @@
-.container{
-	width: 100%;
-	box-sizing: border-box;
+.container {
+  width: 100%;
+  border-bottom: 8px solid #fafafc;
 }
 
-.line{
-	margin: 15px 0 22px 0;
-	border-bottom: 1px solid #F4F4F4;
+.userState {
+  height: 35px;
+  margin: 0 20px 8px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.userId {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #353535;
+}
+
+.userLevel {
+  position: relative;
+  top: -3px;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+  color: #8cacfb;
+  border: 1px solid #769dff;
+  border-radius: 9px;
+  padding: 2px 7px;
+  margin-left: 5px;
+}
+
+.userUpdate {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 24px;
+  color: #b5b5b5;
+}
+
+.avg_container {
+  height: 96px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.avg_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  height: 49px;
+  border-bottom: 1px solid #f4f4f4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 20px;
+}
+
+.tabBtn {
+  all: unset;
+  width: auto;
+  padding: 10px 5px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #353535;
+  border-bottom: 1px solid #396ff9;
+}
+
+.tabBtnNo {
+  all: unset;
+  width: auto;
+  padding: 10px 5px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #b9b9b9;
 }
