@@ -312,7 +312,7 @@
       "bonus": "complete",
       "id": 2,
       "content": "ㄴㅁㅇㄹㄴㅇㄹㅁㄴㅇㄹ",
-      "update_time":"하루 전"
+      "update_time": "하루 전"
     },
     {
       "intra_id": "him",
@@ -449,65 +449,41 @@
   "sbj_avg": {
     "comment_num": 5,
     "avg_star_rating": 5,
-    "total_star_rating": [
-      0,
-      0,
-      0,
-      1,
-      4
-    ],
+    "total_star_rating": [0, 0, 0, 1, 4],
     "time_taken": {
       "title": "a_week",
       "value": 57,
-      "detail": [
-        10,
-        10,
-        20,
-        35,
-        25
-      ]
+      "detail": [10, 10, 20, 35, 25]
     },
     "amount_study": {
       "title": "low",
       "value": 29,
-      "detail": [
-        90,
-        5,
-        5
-      ]
+      "detail": [90, 5, 5]
     },
     "bonus": {
       "title": "complete",
       "value": 29,
-      "detail": [
-        30,
-        30,
-        40
-      ]
+      "detail": [30, 30, 40]
     },
     "difficulty": {
       "title": "normal",
       "value": 33,
-      "detail": [
-        30,
-        30,
-        40
-      ]
+      "detail": [30, 30, 40]
     }
   },
-  "myComment":[
+  "myComment": [
     {
       "subject_name": "printf",
       "circle": 1,
       "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":5
+      "like_num": 5
     },
     {
       "subject_name": "libft",
@@ -515,15 +491,15 @@
       "comment_id": 1,
       "content": "789djasfiodndpdndpd",
       "star_rating": "5",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":7
+      "like_num": 7
     }
   ],
-  "likeComment":[
+  "likeComment": [
     {
       "intra_id": "him",
       "subject_name": "printf",
@@ -532,12 +508,12 @@
       "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":5
+      "like_num": 5
     },
     {
       "intra_id": "him",
@@ -547,12 +523,12 @@
       "comment_id": 1,
       "content": "789djasfiodndpdndpd",
       "star_rating": "5",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":7
+      "like_num": 7
     },
     {
       "intra_id": "sooyang",
@@ -562,34 +538,32 @@
       "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
+      "time_taken": "two_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":3
+      "like_num": 3
     }
   ],
-  "successComment":{
-    "reviewed":[
-      {
-        "sbj_name":"libft",
-        "circle":0
-      },
-      {
-        "sbj_name":"ft_printf",
-        "circle":1
-      }
-    ],
-    "unreviewed":[
-      {
-        "sbj_name":"get_next_line",
-        "circle":1
-      },
-      {
-        "sbj_name":"Born2beroot",
-        "circle":1
-      }
-    ]
-  }
+  "reviewd": [
+    {
+      "subject_name": "libft",
+      "circle": 0
+    },
+    {
+      "subject_name": "ft_printf",
+      "circle": 1
+    }
+  ],
+  "unreviewed": [
+    {
+      "subject_name": "get_next_line",
+      "circle": 1
+    },
+    {
+      "subject_name": "Born2beroot",
+      "circle": 1
+    }
+  ]
 }

@@ -1,0 +1,34 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 84px;
+  margin: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.sbj {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #353535;
+}
+
+.badge {
+  text-decoration: none;
+  margin-left: 6px;
+  padding: 5px 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #396ff9;
+  border: 1px solid #396ff9;
+  border-radius: 100px;
+}
+
+.badge:hover {
+  background-color: #F1F6FF;
+}
+
