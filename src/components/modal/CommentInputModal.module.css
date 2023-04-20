@@ -1,3 +1,23 @@
+.title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 20px;
+  width: 100%;
+  color: #222222;
+  display: flex;
+  justify-content: right;
+}
+.titleName {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closeBtn {
+}
+
 .margin {
   margin-bottom: 0.3rem;
   font-family: "Pretendard";
@@ -6,14 +26,22 @@
   font-size: 15px;
   line-height: 18px;
 }
+.divisionLine {
+  border-bottom: 1.5px solid #eeeeee;
+  /* margin-top: 0.7rem; */
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
 
 .Q {
-  font-family: 'Reem Kufi Ink';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 27px;
-color: #396FF9;
+  font-family: "Reem Kufi Ink";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: #396ff9;
 }
 
 .boxmargin {
@@ -29,6 +57,7 @@ color: #396FF9;
 }
 .submit {
   text-align: center;
+  width: 100%;
   margin-top: 1em;
 }
 
@@ -36,7 +65,8 @@ color: #396FF9;
   display: flex;
   flex-direction: column;
   margin-right: auto;
-  margin-bottom: 45px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 .circle {
   color: #a7a7a7;
@@ -76,9 +106,10 @@ color: #396FF9;
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .answerBox {
@@ -86,7 +117,7 @@ color: #396FF9;
   grid-template-columns: repeat(auto-fill, minmax(30%, auto));
   justify-items: stretch;
   align-content: space-between;
-  gap: 5%;
+  gap: 3%;
   width: 100%;
   margin-bottom: 53px;
 }
@@ -126,7 +157,102 @@ color: #396FF9;
   height: 2.5rem;
   border: none;
 }
+.submitBtn {
+  all: unset;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
 
+  color: #ffffff;
+  background: #396ff9;
+  border-radius: 10px;
+}
+
+.inputString {
+  width: 98%;
+  height: 6rem;
+  text-align: inherit;
+}
+.star {
+  margin-right: 0.25rem;
+}
+
+/* .myform fieldset{
+  display: inline-block; 하위 별점 이미지들이 있는 영역만 자리를 차지함.
+  direction: rtl; 이모지 순서 반전
+  border: 0; 필드셋 테두리 제거
+} */
+
+/* .myform :hover {
+  fill: red;
+} */
+
+.starRate input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
+.starRate fieldset {
+  border: 0;
+}
+
+.starRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.limitWord {
+  width: 96%;
+  height: 2rem;
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -1.6rem;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #C6C6C6;
+}
+
+
+.announce{
+  font-family: 'Pretendard';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+color: #ADADAD;
+margin-right: auto;
+margin-bottom: 30px;
+}
+/* .myform input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 #a00; 마우스 클릭 체크
+} */
+
+/* .myform label{
+  font-size: 3em; 이모지 크기
+  color: transparent; 기존 이모지 컬러 제거
+  text-shadow: 0 0 0 #f0f0f0; 새 이모지 색상 부여
+} */
+/* .myform :hover{
+  text-shadow: 0 0 0 #a00; 마우스 호버
+} */
+/* .myform label:hover ~ label{
+  fill: #a7a7a7;
+  text-shadow: 0 0 0 #a00; 마우스 호버 뒤에오는 이모지들
+} */
+
+/* .myform fieldset legend{
+  text-align: left;
+} */
 /* 
 export const ModalDimmer = styled.div`
   position: fixed;

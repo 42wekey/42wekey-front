@@ -24,8 +24,8 @@ export default function SubjectDetail() {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
-  const [{isModal, title}, setIsModalState] = useRecoilState(modalState);
-  const setModal = useSetRecoilState(modal);
+  const [{modalName}, setModal] = useRecoilState(modal);
+  // const setModal = useSetRecoilState(modal);
   const [contentState, setContentState] = useState("wiki");
   const [comment, setComment] = useState([]);
 
@@ -58,7 +58,7 @@ export default function SubjectDetail() {
     fetch(`${baseUrl}/comments`)
       .then((res) => res.json())
       .then((data) => setComment(data));
-  }, [isModal]);
+  }, [modalName]);
 
   function modalHandler () {
     setModal({modalName: "commentInput", commentInput:{subjectName: params.sbj_name, circle: parseInt(params.circle)}})

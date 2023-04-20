@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import {Comment} from "../../components/subject_detail/PrintComment"
 
 type ModalName = null | `CommentInput` | "CommentEdit";
 
@@ -20,7 +21,7 @@ interface CommentInput {
 interface CommentEdit {
   subjectName: string;
   circle: number;
-  commentId: number;
+  comment: Comment;
 }
 
 interface Modal {

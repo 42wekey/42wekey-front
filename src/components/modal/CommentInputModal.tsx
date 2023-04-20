@@ -1,15 +1,9 @@
-import Button from "@mui/material/Button";
-import Rating from "@mui/material/Rating";
-import TextField from "@mui/material/TextField";
-import MyFormHelperText from "@mui/material/FormHelperText";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import styles from "./CommentInputModal.module.css";
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
+import ClearIcon from "@mui/icons-material/Clear";
 import { modal, modalState } from "../../utils/recoil/modal";
+import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -18,7 +12,7 @@ interface subject {
 }
 
 export default function CommentInputModal() {
-  const [star_rating, setRating] = useState<number | null>(null);
+  const [star_rating, setRating] = useState<number>(0);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");
   const [difficulty, setDiffi] = useState("");
@@ -26,6 +20,8 @@ export default function CommentInputModal() {
   const [content, setContent] = useState("");
   const [isSubmit, setIsSubmit] = useState<Boolean>(false);
   const [isCommentModal, setIsCommentModal] = useRecoilState(modal);
+  const [rate, setRate] = useState<number>(0);
+
   const time_taken_data = [
     { id: 0, content: "일주일 이하", value: "a_week" },
     { id: 1, content: "1~2주 이내", value: "tow_week" },
@@ -69,7 +65,7 @@ export default function CommentInputModal() {
       amount_study &&
       difficulty &&
       bonus &&
-      content &&
+      content.length >= 10 &&
       star_rating &&
       setIsSubmit(true);
   }, [time_taken, amount_study, difficulty, bonus, content, star_rating]);
@@ -126,19 +122,125 @@ export default function CommentInputModal() {
     setIsCommentModal({ modalName: null });
   }
 
+  const StarRating = () => {
+    const [hovered, setHovered] = useState(false);
+    return (
+      <div className={styles.starRating}>
+        <form id="starRate" className={styles.starRate}>
+          <fieldset>
+            <label
+              htmlFor="rate1"
+              onClick={() => setRating(1)}
+            >
+              <EmptyStar
+                fill={star_rating > 0 ? "#FEDB22" : "#F9F9F9"}
+                stroke={star_rating > 0 ? "#FEDB22" : "#E8E8E8"}
+                className={styles.star}
+              />
+            </label>
+            <input
+              type="radio"
+              name="rating"
+              value="1"
+              id="rate1"
+              tabIndex={-1}
+            />
+            <label
+              htmlFor="rate2"
+              onClick={() => setRating(2)}
+            >
+              <EmptyStar
+                fill={star_rating > 1 ? "#FEDB22" : "#F9F9F9"}
+                stroke={star_rating > 1 ? "#FEDB22" : "#E8E8E8"}
+                className={styles.star}
+              />
+            </label>
+            <input
+              type="radio"
+              name="rating"
+              value="2"
+              id="rate2"
+              tabIndex={-1}
+            />
+            <label
+              htmlFor="rate3"
+              onClick={() => setRating(3)}
+            >
+              <EmptyStar
+                fill={star_rating > 2 ? "#FEDB22" : "#F9F9F9"}
+                stroke={star_rating > 2 ? "#FEDB22" : "#E8E8E8"}
+                className={styles.star}
+              />
+            </label>
+            <input
+              type="radio"
+              name="rating"
+              value="3"
+              id="rate3"
+              tabIndex={-1}
+            />
+            <label
+              htmlFor="rate4"
+              onClick={() => setRating(4)}
+            >
+              <EmptyStar
+                fill={star_rating > 3 ? "#FEDB22" : "#F9F9F9"}
+                stroke={star_rating > 3 ? "#FEDB22" : "#E8E8E8"}
+                className={styles.star}
+              />
+            </label>
+            <input
+              type="radio"
+              name="rating"
+              value="4"
+              id="rate4"
+              tabIndex={-1}
+            />
+            <label
+              htmlFor="rate5"
+              onClick={() => setRating(5)}
+            >
+              <EmptyStar
+                fill={star_rating > 4 ? "#FEDB22" : "#F9F9F9"}
+                stroke={star_rating > 4 ? "#FEDB22" : "#E8E8E8"}
+              />
+            </label>
+            <input
+              type="radio"
+              name="rating"
+              value="5"
+              id="rate5"
+              tabIndex={-1}
+            />
+          </fieldset>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.back}>
       <div className={styles.front}>
-        <div>
-          리뷰 작성<a>X</a>
+        <div className={styles.title}>
+          <div className={styles.titleName}>리뷰 작성</div>
+          <div className={styles.closeBtn} onClick={onCancleButton}>
+            <ClearIcon />
+          </div>
         </div>
         <div className={styles.subjectTitle}>
-          <span className={styles.circle}>{isCommentModal.commentInput?.circle}Circle</span>
-          <span className={styles.subjectName}> {isCommentModal.commentInput?.subjectName}</span>
+          <span className={styles.circle}>
+            {isCommentModal.commentInput?.circle}Circle
+          </span>
+          <span className={styles.subjectName}>
+            {" "}
+            {isCommentModal.commentInput?.subjectName}
+          </span>
         </div>
+        <div className={styles.divisionLine}></div>
         <div className={styles.contentBox}>
           <div className={styles.margin}>
-            <span className={styles.Q}>Q. </span>과제를 해결하는데 얼마나 걸리셨나요?
+            <span className={styles.Q}>Q. </span>과제를 해결하는데 얼마나
+            걸리셨나요?
           </div>
           <div className={styles.answerBox}>
             {time_taken_data.map((data, i) => (
@@ -157,7 +259,9 @@ export default function CommentInputModal() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <div className={styles.margin}><span className={styles.Q}>Q. </span>난이도는 어땠나요?</div>
+          <div className={styles.margin}>
+            <span className={styles.Q}>Q. </span>난이도는 어땠나요?
+          </div>
           <div className={styles.answerBox}>
             {difficulty_data.map((data, i) => (
               <button
@@ -176,7 +280,8 @@ export default function CommentInputModal() {
         </div>
         <div className={styles.contentBox}>
           <div className={styles.margin}>
-          <span className={styles.Q}>Q. </span>과제 해결을 위해 공부한 양은 얼마나 되나요?
+            <span className={styles.Q}>Q. </span>과제 해결을 위해 공부한 양은
+            얼마나 되나요?
           </div>
           <div className={styles.answerBox}>
             {amount_study_data.map((data, i) => (
@@ -195,7 +300,9 @@ export default function CommentInputModal() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <div className={styles.margin}><span className={styles.Q}>Q. </span>보너스를 해결하셨나요?</div>
+          <div className={styles.margin}>
+            <span className={styles.Q}>Q. </span>보너스를 해결하셨나요?
+          </div>
           <div className={styles.answerBox}>
             {bonus_data.map((data, i) => (
               <button
@@ -211,19 +318,28 @@ export default function CommentInputModal() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <div className={styles.margin}><span className={styles.Q}>Q. </span>평점과 자세한 후기를 남겨주실래요?</div>
-          <div className={styles.answerBox}>
-                <input type="text"></input>
+          <div className={styles.margin}>
+            <span className={styles.Q}>Q. </span>평점과 자세한 후기를
+            남겨주실래요?
           </div>
+          <span className={styles.starRating}>
+            <StarRating />
+          </span>
+          <textarea
+            className={styles.inputString}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="최소 10자 이상 작성해주세요."
+            maxLength={1000}
+          ></textarea>
+          <div className={styles.limitWord}>{content.length} / 1000자</div>
         </div>
+        <span className={styles.announce}>• 등록한 리뷰는 수정할 수 있어요.</span>
         <div className={styles.submit}>
-          <Button variant="outlined" onClick={onCancleButton}>
-            취소
-          </Button>
-          <Button variant="contained" onClick={onClickSubmit}>
-            제출
-          </Button>
+          <button onClick={onClickSubmit} className={styles.submitBtn}>
+            완료
+          </button>
         </div>
+        <></>
       </div>
     </div>
   );
