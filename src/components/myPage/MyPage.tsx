@@ -2,12 +2,10 @@ import Menu from "../menu/Menu";
 import { profileState } from "../../utils/recoil/user";
 import { useRecoilState } from "recoil";
 import MyPageAvg from "./MyPageAvg";
-import MyCommentList from "./MyCommentList";
 import styles from "./MyPage.module.css";
 import { useState, useEffect } from "react";
-import LikeCommentList from "./LikeCommentList";
+import CommentList from "./CommentList";
 import { useParams } from "react-router";
-import SubjectComment from "../subject_detail/SubjectComment";
 
 interface Profile {
   user_level: number;
@@ -68,16 +66,16 @@ export default function MyComment() {
         작성 가능한 리뷰
       </button>
       <button onClick={() => setContentState("myComment")}>
-        내가 작성한 리뷰
+        {menuName === "마이페이지" ? "내가 작성한 리뷰" : (`작성한 리뷰 ${profileUser.my_comment_num}`) }
       </button>
-      <button onClick={() => setContentState("likeComment")}>
+      {menuName === "마이페이지" && <button onClick={() => setContentState("likeComment")}>
         좋아요한 리뷰
-      </button>
+      </button>}
       <div>
         {contentState === "writeableComment" && <div>작성 가능한 리뷰</div>}
-        {contentState === "myComment" && <div>내가 작성한 리뷰</div>}
+        {contentState === "myComment" && <CommentList comments={myComments} />}
         {contentState === "likeComment" && menuName === "마이페이지" && (
-          <LikeCommentList comments={likeComments} />
+          <CommentList comments={likeComments} />
         )}
       </div>
       <div>

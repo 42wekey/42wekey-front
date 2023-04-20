@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../subject_detail/SubjectComment.module.css";
-import LikeComments from "./LikeComments";
-import { Comment, CommentProps } from "../subject_detail/PrintComment";
+import LikeComments, { CommentProps } from "./LikeComments";
+import { Comment } from "../subject_detail/PrintComment";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 
@@ -14,7 +14,7 @@ interface commentList {
   comments: Comment[];
 }
 
-export default function LikeCommentList({ comments }: commentList) {
+export default function CommentList({ comments }: commentList) {
   const [sortOption, setSortOption] = useState("recent");
   const [userState, setUserState] = useRecoilState(profileState);
 
@@ -22,7 +22,7 @@ export default function LikeCommentList({ comments }: commentList) {
     <div className={styles.subjectComment}>
       {comments.map((data, index) => (
         <div className={styles.comment} key={index}>
-          <LikeComments comment={data} />
+          <LikeComments comment={data} isLikeComment={true} />
         </div>
       ))}
     </div>

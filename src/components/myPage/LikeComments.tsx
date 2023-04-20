@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles_star from "./LikeComments.module.css";
 import styles from "../subject_detail/SubjectComment.module.css";
 import {
   convertTimeTaken,
@@ -6,19 +7,23 @@ import {
   convertAmountStudy,
   convertBonus,
   Comment,
-  CommentProps,
 } from "../subject_detail/PrintComment";
 import { Rating } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
+import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
+
+export interface CommentProps {
+  comment: Comment;
+  isLikeComment: boolean;
+}
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
   intraId: String;
 }
 
-const LikeComments = ({ comment }: CommentProps) => {
+const LikeComments = ({ comment, isLikeComment }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
 
@@ -33,15 +38,40 @@ const LikeComments = ({ comment }: CommentProps) => {
 
   return (
     <div>
-      <div className={styles.commentUser}>
-        {comment.intra_id}
-        <span className={styles.commentUserBadge}>
-          레벨{comment.user_level}
-        </span>
-      </div>
-      <div>
-        <Rating name="read-only" value={comment.star_rating} readOnly />|
-        <span className={styles.commentTime}>{comment.update_time}</span>
+      <div className={styles.commentUser}>{comment.subject_name}</div>
+      <div className={styles_star.star_container}>
+        <EmptyStar
+          fill={comment.star_rating > 0 ? "#FEDB22" : "#F9F9F9"}
+          stroke={comment.star_rating > 0 ? "#FEDB22" : "#E8E8E8"}
+          className={styles_star.star}
+        />
+        <EmptyStar
+          fill={comment.star_rating > 1 ? "#FEDB22" : "#F9F9F9"}
+          stroke={comment.star_rating > 1 ? "#FEDB22" : "#E8E8E8"}
+          className={styles_star.star}
+        />
+        <EmptyStar
+          fill={comment.star_rating > 2 ? "#FEDB22" : "#F9F9F9"}
+          stroke={comment.star_rating > 2 ? "#FEDB22" : "#E8E8E8"}
+          className={styles_star.star}
+        />
+        <EmptyStar
+          fill={comment.star_rating > 3 ? "#FEDB22" : "#F9F9F9"}
+          stroke={comment.star_rating > 3 ? "#FEDB22" : "#E8E8E8"}
+          className={styles_star.star}
+        />
+        <EmptyStar
+          fill={comment.star_rating > 4 ? "#FEDB22" : "#F9F9F9"}
+          stroke={comment.star_rating > 4 ? "#FEDB22" : "#E8E8E8"}
+          className={styles_star.star}
+        />
+        <div className={styles_star.star_font}>
+          <span className={styles_star.star_rating}>{comment.star_rating}</span>
+          <span className={styles_star.divide}>|</span>
+          {isLikeComment && <span className={styles_star.star_rating}>{comment.intra_id}</span>}
+          {isLikeComment && <span className={styles_star.divide}>|</span>}
+          <span className={styles.commentTime}>{comment.update_time}</span>
+        </div>
       </div>
       <div className={styles.detailContainer}>
         <div className={styles.detailValue}>
