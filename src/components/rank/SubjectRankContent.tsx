@@ -1,6 +1,7 @@
 import styles from "./SubjectRankContent.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { Link } from "react-router-dom";
+import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
 
 interface SubjectRankType {
   subject_name: String;
@@ -32,8 +33,9 @@ export default function SubjectRankContent(props: SubjectRank) {
                   {/* </div> */}
                   </Link>
                   <div className={styles.rankContent}>
-                    <div className={styles.star}>
-                      <StarRateIcon color="primary" />
+                    <div className={styles.starLayout}>
+                      <EmptyStar fill={"#FEDB22"} className={styles.star}/>
+                      {/* <StarRateIcon color="primary" /> */}
                     </div>
                     <div className={styles.starRating}>{`${value.value}`}</div>
                   </div>

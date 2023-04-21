@@ -27,10 +27,25 @@
     font-family: "Pretendard";
 }
 
+.container {
+    width: 100%;
+}
+
+.headLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 23px;
+}
+.myProfile {
+    all: unset;
+    margin-top: 2px;
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+}
 
 .logo {
-    margin-top: 1.25rem;
-    margin-left: 1.25rem;
-    width: 10rem;
-    height: 3rem;
+    width: 99px;
+    height: 24px;
 }

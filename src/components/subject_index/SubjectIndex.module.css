@@ -8,8 +8,12 @@
 }
 .subjectTitle {
   margin-right: auto;
-  font-size: 1.3rem;
+  font-family: 'Pretendard';
+  font-style: normal;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #353535;
 }
 
 .subjectCircle {
@@ -43,14 +47,15 @@
 	height: 0.6rem;
 	width: 22%;
 	padding-top: 1.5rem;
-	padding-bottom: 0.8rem;
-	/* margin-left: 1rem; */
+	padding-bottom: 0.5rem;
 	font-style: normal;
-	color: black;
-	/* background-color: #396FF9; */
+	color: #B9B9B9;
 	border-bottom: solid 2px #f4f4f4;
 	cursor: pointer;
-	/* border-radius: 100px; */
+	font-family: 'SF Pro Display';
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 18px;
   }
   
   .selectListTitle {
@@ -65,23 +70,23 @@
 	height: 0.6rem;
 	width: 22%;
 	padding-top: 1.5rem;
-	padding-bottom: 0.8rem;
+	padding-bottom: 0.5rem;
 	/* margin-left: 1rem; */
 	font-style: normal;
 	color: black;
 	/* background-color: #396FF9; */
 	border-bottom: solid 2px #396ff9;
 	/* border-radius: 100px; */
+	font-family: 'SF Pro Display';
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 18px;
   }
   
 
 .subjectList {
-  /* display: flex; */
-  border: solid 0.15rem #EEEEEE;
   border-radius: 10px;
   width: 100%;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
   padding-bottom: 1%;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -94,7 +99,8 @@
 .subjectContent {
 	display: flex;
 	justify-content: space-between;
-	padding: 0.5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	text-decoration: none;
 }
 
@@ -112,15 +118,22 @@
 }
 
 .subjectName {
-	font-size: 1.1rem;
-	font-weight: 600;
+	font-family: 'SF Pro Display';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 100%;
 	margin-left: 1rem;
-	color: black;
+	color: #353535;
 }
 
 .subjectInfo {
-	font-size: 0.8rem;
-	color: #a8a8a8;
+	font-family: 'Pretendard';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 100%;
 	margin-right: 1rem;
+	color: #85868C;
 	text-decoration: none;
 }
