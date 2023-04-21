@@ -29,7 +29,7 @@ const App = () => {
       {/* <Route path="subjectList" element={<Main />} /> */}
       <Route path="login" element={<IsLogged/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
-      <Route path="/allComment/:intraId" element={<MyComment/>} />
+      <Route path="/profile/:intraId" element={<MyComment/>} />
       <Route path="/*" element={<Empty/>} />
     </Routes>
     </Router>

@@ -272,66 +272,72 @@
   "comments": [
     {
       "id": 0,
-      "like": 7,
-      "intraid": "him",
-      "userLevel": 2.32,
+      "like_num": 7,
+      "intra_id": "him",
+      "user_level": 2.32,
       "isComment": false,
-      "sbj_name": "Libft",
+      "sbj_name": "libft",
+      "circle": 0,
       "content": "ㅍㅋㅊㅍㅊㅋㅁㄴㅇㄹㅋㅋㅋㅋ",
       "star_rating": 4,
       "time_taken": "a week",
       "difficulty": "easy",
       "bonus": "no",
       "amount_study": "low",
-      "comment_time": "2시간 전"
+      "update_time": "2시간 전"
     },
     {
-      "intraid": "him",
-      "userLevel": 2.32,
-      "like": 5,
-      "sbj_name": "Libft",
+      "intra_id": "him",
+      "user_level": 2.32,
+      "like_num": 5,
+      "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 5,
-      "elapsed": "7",
+      "time_taken": "a week",
       "isComment": false,
-      "diffi": "easy",
+      "difficulty": "easy",
       "amount_study": "middle",
       "bonus": "complete",
       "id": 1,
       "content": "ㅁㄴㄹㅇㄴㄹㄴㅇㅁㄹ"
     },
     {
-      "intraid": "him",
-      "userLevel": 2.32,
-      "sbj_name": "Libft",
+      "intra_id": "him",
+      "user_level": 2.32,
+      "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 5,
       "isComment": false,
-      "like": 10,
-      "elapsed": "7",
-      "diffi": "easy",
+      "like_num": 10,
+      "time_taken": "7",
+      "difficulty": "easy",
       "amount_study": "middle",
       "bonus": "complete",
       "id": 2,
-      "content": "ㄴㅁㅇㄹㄴㅇㄹㅁㄴㅇㄹ"
+      "content": "ㄴㅁㅇㄹㄴㅇㄹㅁㄴㅇㄹ",
+      "update_time": "하루 전"
     },
     {
-      "intraid": "him",
-      "userLevel": 2.32,
-      "like": 11,
+      "intra_id": "him",
+      "user_level": 2.32,
+      "like_num": 11,
       "sbj_name": "Libft",
+      "circle": 0,
       "isComment": false,
       "star_rating": 2,
-      "elapsed": "90",
-      "diffi": "hard",
-      "amountStudy": "more",
+      "time_taken": "90",
+      "difficulty": "hard",
+      "amount_study": "more",
       "bonus": "complete",
       "id": 3
     },
     {
-      "intraid": "him",
-      "userLevel": 2.32,
+      "intra_id": "him",
+      "user_level": 2.32,
       "isComment": false,
-      "like": 15,
+      "like_num": 15,
       "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 3,
       "time_taken": "two_week",
       "difficulty": "normal",
@@ -341,11 +347,12 @@
       "id": 4
     },
     {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
+      "intra_id": "sooyang",
+      "user_level": 2.32,
       "isComment": false,
-      "like": 15,
+      "like_num": 15,
       "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 4,
       "time_taken": "three_week",
       "difficulty": "normal",
@@ -355,26 +362,28 @@
       "id": 5
     },
     {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
+      "intra_id": "sooyang",
+      "user_level": 2.32,
       "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 4,
       "isComment": false,
       "time_taken": "two_week",
       "difficulty": "normal",
-      "like": 15,
+      "like_num": 15,
       "amount_study": "middle",
       "bonus": "complete",
       "content": "ㅁㄴㅇㄴㅁㅇㅁㄴㅇㅁ",
       "id": 6
     },
     {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
+      "intra_id": "sooyang",
+      "user_level": 2.32,
       "isComment": false,
       "sbj_name": "libft",
+      "circle": 0,
       "star_rating": 5,
-      "like": 15,
+      "like_num": 15,
       "time_taken": "two_week",
       "difficulty": "normal",
       "amount_study": "middle",
@@ -383,10 +392,11 @@
       "id": 7
     },
     {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
+      "intra_id": "sooyang",
+      "user_level": 2.32,
       "sbj_name": "libft",
-      "like": 15,
+      "circle": 0,
+      "like_num": 15,
       "star_rating": 4,
       "time_taken": "three_week",
       "difficulty": "hard",
@@ -397,168 +407,58 @@
       "id": 8
     },
     {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
+      "intra_id": "sooyang",
       "sbj_name": "libft",
-      "star_rating": 4,
-      "isComment": false,
-      "time_taken": "a_week",
-      "like": 15,
+      "star_rating": 1,
+      "time_taken": "three_month",
       "difficulty": "normal",
-      "amount_study": "low",
-      "bonus": "no",
-      "content": "sadfasdfsadfsadf",
+      "amount_study": "middle",
+      "bonus": "complete",
+      "content": "조은 후기!:(,ㅎ",
       "id": 9
     },
     {
       "intraid": "sooyang",
-      "userLevel": 2.32,
-      "sbj_name": "libft",
+      "sbj_name": "minishell",
       "star_rating": 3,
-      "time_taken": "a_month",
-      "difficulty": "hard",
-      "amount_study": "middle",
-      "bonus": "little",
-      "content": "ㄴㅁㄹㅇasdasd",
-      "id": 10
-    },
-    {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
-      "sbj_name": "libft",
-      "star_rating": 3,
-      "time_taken": "three_week",
-      "difficulty": "normal",
-      "amount_study": "middle",
-      "bonus": "complete",
-      "content": "ㅂㅈㄷ",
-      "id": 11
-    },
-    {
-      "intraid": "sooyang",
-      "userLevel": 2.32,
-      "sbj_name": "libft",
-      "star_rating": 5,
-      "time_taken": "two_week",
-      "difficulty": "normal",
-      "amount_study": "high",
-      "bonus": "complete",
-      "content": "잘 될까요...",
-      "id": 12
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 4,
       "time_taken": "a_month",
       "difficulty": "normal",
       "amount_study": "high",
       "bonus": "no",
-      "content": "후기후기후기",
-      "id": 13
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 5,
-      "time_taken": "a_week",
-      "difficulty": "easy",
-      "amount_study": "low",
-      "bonus": "little",
-      "content": "되남",
-      "id": 14
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 4,
-      "time_taken": "tow_week",
-      "difficulty": "normal",
-      "amount_study": "middle",
-      "bonus": "little",
-      "content": "ㅁㄴㅇㅁㄴㅇ",
-      "id": 15
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 5,
-      "time_taken": "three_week",
-      "difficulty": "normal",
-      "amount_study": "low",
-      "bonus": "complete",
-      "content": "가나다라",
-      "id": 16
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 5,
-      "time_taken": "a_month",
-      "difficulty": "easy",
-      "amount_study": "middle",
-      "bonus": "little",
-      "content": "asd",
-      "id": 17
-    },
-    {
-      "intraid": "sooyang",
-      "sbj_name": "libft",
-      "star_rating": 4,
-      "time_taken": "tow_week",
-      "difficulty": "normal",
-      "amount_study": "middle",
-      "bonus": "little",
-      "content": "asdasdasdd",
-      "id": 18
+      "content": "필로소퍼는 언제하징",
+      "id": 10
     }
   ],
   "wiki": {
-    "wikiContent": "<h1>miniRT</h1><h2>개요</h2><p>miniRT는 C언어로 작성된 간단한 레이 트레이싱 엔진입니다. 레이 트레이싱은 광선 추적 알고리즘을 이용하여 실제 빛이 어떻게 행동하는지 모사하는 그래픽 기술입니다. miniRT는 구현이 쉽고 빠르게 결과물을 확인할 수 있는 특징이 있어, 레이 트레이싱을 처음 공부하는 학습자들에게 추천됩니다.</p><p>```java</p><p>dfeksofpjslagvjdxlfjdslfjdslafkdsl fjadlifjiajfdlksamfklajndojawe iojfilajfildjfilsadjfilsdafd</p><p>```ㅇㅇㅇㅇㅇㅇㅇ</p><p><br></p><p><br></p><p><br></p><p>ㅝㅓㅓ</p><p><br></p><p><br></p><p><br></p><p>ㅗㅓㅠㅗㅠ</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>기능</h2><p>miniRT는 다음과 같은 기능을 제공합니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><ul><li>지원하는 입력 파일 형식: <code style=\"color: var(--tw-prose-code);\">.rt</code> (miniRT 포맷)</li><li>지원하는 도형: 구, 원기둥, 삼각형, 사각형</li><li>지원하는 머티리얼: 플랫, 반사, 반사와 광투과, 투명도</li><li>광원 지원: AMBIENT, POINT, DIRECTIONAL</li><li>파싱 에러 핸들링</li></ul><h2>설치 및 실행</h2><p>miniRT는 MacOS 및 Linux 환경에서 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>설치</h3><p>miniRT를 다운로드하고 설치하는 방법은 다음과 같습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h3>실행</h3><p>miniRT는 다음과 같은 방법으로 실행할 수 있습니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">bash\n\nCopy code\n./miniRT [input file] \n</pre><p><code style=\"color: var(--tw-prose-code);\">[input file]</code>은 실행할 입력 파일의 경로와 이름을 나타냅니다.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2>사용 방법</h2><p>miniRT는 입력 파일을 통해 레이 아웃, 머티리얼 및 광원 정보를 가져옵니다. 예를 들어, 아래와 같이 입력 파일을 작성할 수 있습니다.</p>",
+    "wikiContent": "<h1>miniRT</h1><h2>개요</h2><p>miniRT는 C언어로 작성된 간단한 레이 트레이싱 엔진입니다. 레이 트레이싱은 광선 추적 알고리즘을 이용하여 실제 빛이 어떻게 행동하는지 모사하는 그래픽 기술입니다. miniRT는 구현이 쉽고 빠르게 결과물을 확인할 수 있는 특징이 있어, 레이 트레이싱을 처음 공부하는 학습자들에게 추천됩니다.</p><p>```java</p><p>dfeksofpjslagvjdxlfjdslfjdslafkdsl fjadlifjiajfdlksamfklajndojawe iojfilajfildjfilsadjfilsdafd</p><p>```ㅇㅇㅇㅇㅇㅇㅇ</p><p><br></p><p><br></p><p><br></p><p><br></p><h2>기능</h2><p>miniRT는 다음과</p><p><br></p><p><br></p><p><br></p><ul><li>지원하는 입력 파일 형식: <code style=\"color: var(--tw-prose-code);\">.rt</code> (miniRT 포맷)</li><li>지원하는 도형: 구, 원기둥, 삼각형, 사각형</li><li>지원하는 머티리얼: 플랫, 반사, 반사와 광투과, 투명도</li><li>광원 지원: AMBIENT, POINT, DIRECTIONAL</li><li>파싱 에러 핸들링</li></ul><h2>설치 및 실행</h2><p>miniRT는 MacOS 및 Linux 환경에서</p><p><br></p><p><br></p><p><br></p><h3>설치</h3><p>miniRT를 다운로드하고</p><p><br></p><p><br></p><h3>실행</h3><p>miniRT는 다음과 같은 방법으로 실행할</p><p><br></p><p><br></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">bash\n\nCopy code\n./miniRT [input file] \n</pre><p><code style=\"color: var(--tw-prose-code);\">[input file]</code>은 실행할 입력</p><p><br></p><p><br></p><p><br></p><h2>사용 방법</h2><p>miniRT는 입력 파일을 통해 레이 아웃, 머티리얼 및 광원 정보를 가져옵니다. 예를 들어, 아래와 같이 입력 파일을 작성할 수 있습니다.</p>",
     "version": 1
   },
   "myComment": [
     {
-      "subjectName": "libft",
-      "userLevel": 2.32,
-      "circle": "0",
-      "intraId": "him",
-      "commentId": 0,
-      "comment_time": "3시간 전",
-      "content": "123",
-      "star_rating": "4",
-      "time_taken": "a week",
-      "amount_study": "low",
-      "bonus": "complete",
-      "difficulty": "easy"
-    },
-    {
-      "subjectName": "get_next_line",
-      "intraId": "him",
-      "userLevel": 2.32,
+      "subject_name": "printf",
       "circle": 1,
-      "comment_time": "3시간 전",
-      "commentId": 2,
-      "content": "123456",
-      "star_rating": "4",
-      "time_taken": "a week",
-      "amount_study": "low",
-      "bonus": "complete",
-      "difficulty": "easy"
-    },
-    {
-      "subjectName": "printf",
-      "userLevel": 2.32,
-      "intraId": "him",
-      "circle": 1,
-      "commentId": 2,
+      "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
-      "comment_time": "3시간 전",
+      "time_taken": "a_week",
+      "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "like_num": 5
+    },
+    {
+      "subject_name": "libft",
+      "circle": 0,
+      "comment_id": 1,
+      "content": "789djasfiodndpdndpd",
+      "star_rating": "5",
+      "time_taken": "a_week",
+      "update_time": "3시간 전",
+      "amount_study": "low",
+      "bonus": "complete",
+      "difficulty": "easy",
+      "like_num": 7
     }
   ],
   "sbj_avg": {
@@ -610,35 +510,7 @@
       ]
     }
   },
-  "myComment":[
-    {
-      "subject_name": "printf",
-      "circle": 1,
-      "comment_id": 2,
-      "content": "789",
-      "star_rating": "4",
-      "time_taken": "a week",
-      "update_time": "3시간 전",
-      "amount_study": "low",
-      "bonus": "complete",
-      "difficulty": "easy",
-      "like_num":5
-    },
-    {
-      "subject_name": "libft",
-      "circle": 0,
-      "comment_id": 1,
-      "content": "789djasfiodndpdndpd",
-      "star_rating": "5",
-      "time_taken": "a week",
-      "update_time": "3시간 전",
-      "amount_study": "low",
-      "bonus": "complete",
-      "difficulty": "easy",
-      "like_num":7
-    }
-  ],
-  "likeComment":[
+  "likeComment": [
     {
       "intra_id": "him",
       "subject_name": "printf",
@@ -647,12 +519,12 @@
       "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":5
+      "like_num": 5
     },
     {
       "intra_id": "him",
@@ -662,12 +534,12 @@
       "comment_id": 1,
       "content": "789djasfiodndpdndpd",
       "star_rating": "5",
-      "time_taken": "a week",
+      "time_taken": "a_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":7
+      "like_num": 7
     },
     {
       "intra_id": "sooyang",
@@ -677,34 +549,32 @@
       "comment_id": 2,
       "content": "789",
       "star_rating": "4",
-      "time_taken": "a week",
+      "time_taken": "two_week",
       "update_time": "3시간 전",
       "amount_study": "low",
       "bonus": "complete",
       "difficulty": "easy",
-      "like_num":3
+      "like_num": 3
     }
   ],
-  "successComment":{
-    "reviewed":[
-      {
-        "sbj_name":"libft",
-        "circle":0
-      },
-      {
-        "sbj_name":"ft_printf",
-        "circle":1
-      }
-    ],
-    "unreviewed":[
-      {
-        "sbj_name":"get_next_line",
-        "circle":1
-      },
-      {
-        "sbj_name":"Born2beroot",
-        "circle":1
-      }
-    ]
-  }
+  "reviewd": [
+    {
+      "subject_name": "libft",
+      "circle": 0
+    },
+    {
+      "subject_name": "ft_printf",
+      "circle": 1
+    }
+  ],
+  "unreviewed": [
+    {
+      "subject_name": "get_next_line",
+      "circle": 1
+    },
+    {
+      "subject_name": "Born2beroot",
+      "circle": 1
+    }
+  ]
 }
