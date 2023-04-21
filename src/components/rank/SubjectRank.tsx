@@ -51,7 +51,7 @@ export default function SubjectRank() {
   return (
     <div>
       <div className={styles.rankContainer}>
-        <div className={styles.rankTitle}>카뎃들의 과제랭킹</div>
+        <div className={styles.rankTitle}>카뎃들의 과제 랭킹 👀️</div>
         <div className={styles.keyword}>
         {subjectRankList?.map((value, index) => (
           <div key={index} className={`${rankIndex === index ? styles.selectKeyword : styles.keywordContent}`} onClick={()=>setRankIndex(index)}>

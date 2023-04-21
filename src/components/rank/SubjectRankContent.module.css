@@ -1,80 +1,100 @@
 .container {
-	/* display: flex; */
-	justify-content: space-between;
-	background-color: white;
-	border-radius: 10px;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	width: 100%;
-	border: solid 0.15rem #EEEEEE;
-	height: auto;
-	
+  /* display: flex; */
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  border: solid 1px #eeeeee;
+  height: auto;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.07);
 }
 
 .divisionLine {
-	border-top: 1.5px solid #EEEEEE;
-	margin-top: 0.7rem;
-	margin-bottom: 0.7rem;
-	margin-left: auto;
-	margin-right: auto;
-	width:95%;
+  border-top: 1.5px solid #eeeeee;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
 }
 .subjectCircle {
-	display: flex;
-	margin-right: auto;
-	align-items: center;
-	color: black;
-	
-	text-decoration: none;
+  display: flex;
+  margin-right: auto;
+  align-items: center;
+  color: black;
+
+  text-decoration: none;
 }
 
 .subjectDivisionLine {
-	border-right: 0.7px solid #EEEEEE;
-	border-left: 0.7px solid #EEEEEE;
-	margin-top: auto;
-	margin-bottom: auto;
-	height: 0.7rem;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
+  border-right: 1px solid #E8E7E7;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .subject {
-	font-size: 1.3rem;
-	font-weight: 500;
+	font-family: 'SF Pro Display';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 15px;
+	/* line-height: 303.84%; */
 }
 
 .circle {
-	font-size: 0.9rem;
-	color: #a8a8a8;
+	font-family: 'SF Pro Display';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 16px;
+	color: #C9C9C9;
 }
 
 .contentLine {
-	display: grid;
-	padding-left: 0.8rem;
-	padding-right: 0.8rem;
+  display: grid;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 .rating {
-	margin-right: 1.3rem;
-	font-size: 1.3rem;
+  margin-right: 1.3rem;
+  font-family: 'Pretendard';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 18px;
+color: #396FF9;
 }
 
 .rank {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.starLayout {
+  margin-right: auto;
 }
 .star {
-	margin-right: auto;
+  width: 15px;
+  height: 15px;
 }
 
 .rankContent {
-	display: flex;
-	justify-self: left;
-	width: 15%;
-	align-items: center;
-	
+  display: flex;
+  justify-self: left;
+  width: 15%;
+  align-items: center;
 }
-.starRating{
-	margin-right: auto;
+.starRating {
+  margin-right: auto;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #686868;
 }
