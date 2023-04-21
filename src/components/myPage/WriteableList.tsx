@@ -16,7 +16,7 @@ export default function WriteableList({ subject }: SubjectList) {
       {subject.map((data, index) => (
         <div key={index} className={styles.container}>
           <div className={styles.sbj}>{data.subject_name}</div>
-		  <Link to={`/${data.circle}_circle/${data.subject_name}`} className={styles.badge}>리뷰쓰기</Link>
+          <Link to={`/${data.circle}_circle/${data.subject_name}`} className={styles.badge}>리뷰쓰기</Link>
         </div>
       ))}
     </div>

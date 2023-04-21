@@ -66,6 +66,7 @@ export interface Comment {
   id: number;
   like_num: number;
   intra_id: string;
+  circle: number;
   user_level: number;
   subject_name: string;
   content: string;

@@ -1,3 +1,7 @@
+.containerMain{
+  min-height: 100vh;
+}
+
 .container {
   width: 100%;
   border-bottom: 8px solid #fafafc;
@@ -55,6 +59,20 @@
   align-items: center;
 }
 
+.avg_number {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  color: #353535;
+}
+
+.avg_title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #222222;
+}
+
 .tab {
   height: 49px;
   border-bottom: 1px solid #f4f4f4;
@@ -83,4 +101,18 @@
   font-size: 15px;
   line-height: 18px;
   color: #b9b9b9;
+}
+
+.contentBox{
+  min-height: 100vh;
+}
+
+.logout {
+  width: auto;
+  margin: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #828282;
 }

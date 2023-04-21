@@ -20,6 +20,10 @@
   margin: 1rem 1.2rem 0 1.2rem;
 }
 
+.commentBox{
+  all:unset;
+}
+
 .sortContainer {
   display: flex;
 }

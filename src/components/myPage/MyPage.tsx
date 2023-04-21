@@ -47,6 +47,10 @@ export default function MyComment() {
     setUnreviewedNumber(number);
   }, [unreviewed]);
 
+  const onClick = () => {
+    console.log("로그아웃");
+  }
+
   const UserState = () => (
     <div className={styles.userState}>
       <div>
@@ -62,22 +66,22 @@ export default function MyComment() {
   const MyPageAvg = () => (
     <div className={styles.avg_container}>
       <div className={styles.avg_box}>
-        <div>{unreviewedNumber}</div>
-        <div>작성 가능한 리뷰</div>
+        <div className={styles.avg_number}>{unreviewedNumber}</div>
+        <div className={styles.avg_title}>작성 가능한 리뷰</div>
       </div>
       <div className={styles.avg_box}>
-        <div>{profileUser.my_comment_num}</div>
-        <div>내 리뷰</div>
+        <div className={styles.avg_number}>{profileUser.my_comment_num}</div>
+        <div className={styles.avg_title}>내 리뷰</div>
       </div>
       <div className={styles.avg_box}>
-        <div>{profileUser.recommend_comment}</div>
-        <div>좋아요한 리뷰</div>
+        <div className={styles.avg_number}>{profileUser.recommend_comment}</div>
+        <div className={styles.avg_title}>좋아요한 리뷰</div>
       </div>
     </div>
   );
 
   return (
-    <>
+    <div className={styles.containerMain}>
       <Menu menuName={menuName} />
       <div className={styles.container}>
         <UserState />
@@ -115,16 +119,18 @@ export default function MyComment() {
           </button>
         )}
       </div>
-      {contentState === "writeableComment" && (
-        <WriteableList subject={unreviewed} />
-      )}
-      {contentState === "myComment" && (
-        <CommentList comments={myComments} isLikeComment={false} />
-      )}
-      {contentState === "likeComment" && menuName === "마이페이지" && (
-        <CommentList comments={likeComments} isLikeComment={true} />
-      )}
-      <div>로그아웃</div>
-    </>
+      <div className={styles.contentBox}>
+        {contentState === "writeableComment" && (
+          <WriteableList subject={unreviewed} />
+        )}
+        {contentState === "myComment" && (
+          <CommentList comments={myComments} isLikeComment={false} />
+        )}
+        {contentState === "likeComment" && menuName === "마이페이지" && (
+          <CommentList comments={likeComments} isLikeComment={true} />
+        )}
+      </div>
+      <div className={styles.logout} onClick={onClick}>로그아웃</div>
+    </div>
   );
 }
