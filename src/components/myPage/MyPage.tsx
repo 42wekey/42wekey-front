@@ -96,7 +96,7 @@ export default function MyComment() {
               : styles.tabBtnNo
           }
         >
-          작성 가능한 리뷰
+          {userState.intraId === intraId?"작성 가능한 리뷰":"완료한 과제"}
         </button>
         <button
           onClick={() => setContentState("myComment")}
@@ -121,7 +121,7 @@ export default function MyComment() {
       </div>
       <div className={styles.contentBox}>
         {contentState === "writeableComment" && (
-          <WriteableList subject={unreviewed} />
+          <WriteableList subject={unreviewed} intra_id={intraId}/>
         )}
         {contentState === "myComment" && (
           <CommentList comments={myComments} isLikeComment={false} />
