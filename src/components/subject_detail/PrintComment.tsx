@@ -1,9 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import styles from "./SubjectComment.module.css";
 import { Rating, TextField } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
+import { StarRating } from "../../hooks/StarRating";
+import { ReactComponent as Like } from "../../like.svg";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
@@ -84,12 +87,23 @@ export interface CommentProps {
   showCommentEdit: boolean;
 }
 
+interface TextTrunc {
+  text: string;
+  max_length: number;
+}
+
 const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
   const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
+
+  const text_truncate: React.FC<TextTrunc> = ({ text, max_length }) => {
+    const len = text.length;
+    const content = len > max_length ? text.slice(0, max_length) + "..." : text;
+    return <>{content}</>;
+  };
 
   //const [, showCommentEdit] = useState<undefined | (() => void)>(undefined);
 
@@ -121,15 +135,24 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   return (
     <div>
       <div className={styles.commentUser}>
-        {comment.intra_id}
-        <span className={styles.commentUserBadge}>레벨{comment.user_level}</span>
+        <div>
+          <Link to={`/profile/${comment.intra_id}`} style={{all:"unset"}}>
+            <span>{comment.intra_id}</span>
+          </Link>
+          <span className={styles.commentUserBadge}>
+            레벨{comment.user_level}
+          </span>
+        </div>
         {showCommentEdit && (
           <span className={styles.commentEdditBtn}>수정하기</span>
         )}
       </div>
-      <div>
-        <Rating name="read-only" value={comment.star_rating} readOnly />|
-        <span className={styles.commentTime}>{comment.update_time}</span>
+      <div className={styles.star_container}>
+        <StarRating star_rating={comment.star_rating} />
+        <div>
+          <span className={styles.divide}>|</span>
+          <span className={styles.commentTime}>{comment.update_time}</span>
+        </div>
       </div>
       {/*<div>
         {userState.intraId === comment.intraid ? (
@@ -191,15 +214,19 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
           </span>
         </div>
       </div>
-      <div className={styles.commentContent}>{comment.content}</div>
-      <div>
+      <div className={styles.commentContent}>
+        {comment.content !== undefined && comment.content.length > 300
+          ? comment.content.slice(0, 300) + "..."
+          : comment.content}
+      </div>
+      <div className={styles.likeContainer}>
         <button
           className={isLike ? styles.redButton : styles.emptyButton}
           onClick={() => clickLikeButton(comment.id, userState.intraId)}
         >
-          <FavoriteIcon className={styles.heart} />
+          <Like className={styles.heart} />
         </button>
-        {comment.like_num}
+        <span className={styles.heartNum}>{comment.like_num}</span>
       </div>
     </div>
   );

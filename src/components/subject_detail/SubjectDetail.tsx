@@ -24,7 +24,7 @@ export default function SubjectDetail() {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
-  const [{modalName}, setModal] = useRecoilState(modal);
+  const [{ modalName }, setModal] = useRecoilState(modal);
   // const setModal = useSetRecoilState(modal);
   const [contentState, setContentState] = useState("wiki");
   const [comment, setComment] = useState([]);
@@ -60,8 +60,14 @@ export default function SubjectDetail() {
       .then((data) => setComment(data));
   }, [modalName]);
 
-  function modalHandler () {
-    setModal({modalName: "commentInput", commentInput:{subjectName: params.sbj_name, circle: parseInt(params.circle)}})
+  function modalHandler() {
+    setModal({
+      modalName: "commentInput",
+      commentInput: {
+        subjectName: params.sbj_name,
+        circle: parseInt(params.circle),
+      },
+    });
   }
 
   return (
@@ -69,8 +75,6 @@ export default function SubjectDetail() {
       <Menu menuName={"과제리뷰"} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <SubjectInfo />
-      <div className={styles.headline} />
-      <Analysis sbjname={sbj} />
       <div className={styles.headline} />
       <div>
         {contentState === "wiki" ? (
@@ -136,11 +140,21 @@ export default function SubjectDetail() {
                 과제 후기
               </div>
             </div>
+            <Analysis sbjname={sbj} />
+            <div className={styles.headline} />
             <div className={styles.content}>
               <SubjectComment comments={comment} />
               <div className={styles.editBtnContainer}>
                 <button
-                  onClick={() => setModal({modalName: "commentInput", commentInput:{subjectName:params.sbj_name, circle:parseInt(params.circle) } })}
+                  onClick={() =>
+                    setModal({
+                      modalName: "commentInput",
+                      commentInput: {
+                        subjectName: params.sbj_name,
+                        circle: parseInt(params.circle),
+                      },
+                    })
+                  }
                   className={styles.editBtn}
                 >
                   후기 작성
