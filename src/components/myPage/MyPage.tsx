@@ -49,7 +49,7 @@ export default function MyComment() {
 
   const onClick = () => {
     console.log("로그아웃");
-  }
+  };
 
   const UserState = () => (
     <div className={styles.userState}>
@@ -96,7 +96,7 @@ export default function MyComment() {
               : styles.tabBtnNo
           }
         >
-          {userState.intraId === intraId?"작성 가능한 리뷰":"완료한 과제"}
+          {userState.intraId === intraId ? "작성 가능한 리뷰" : "완료한 과제"}
         </button>
         <button
           onClick={() => setContentState("myComment")}
@@ -121,7 +121,7 @@ export default function MyComment() {
       </div>
       <div className={styles.contentBox}>
         {contentState === "writeableComment" && (
-          <WriteableList subject={unreviewed} intra_id={intraId}/>
+          <WriteableList subject={unreviewed} intra_id={intraId} />
         )}
         {contentState === "myComment" && (
           <CommentList comments={myComments} isLikeComment={false} />
@@ -130,7 +130,9 @@ export default function MyComment() {
           <CommentList comments={likeComments} isLikeComment={true} />
         )}
       </div>
-      <div className={styles.logout} onClick={onClick}>로그아웃</div>
+      <div className={styles.logout} onClick={onClick}>
+        로그아웃
+      </div>
     </div>
   );
 }
