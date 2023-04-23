@@ -44,9 +44,8 @@ export default function RecentComment() {
               </div>
               <div className={styles.comment}>{data.comment}</div>
               <div className={styles.dateTime}>
-                <>
                 {getTime(data.time)}
-                {data.time}</></div>
+                </div>
             </div>
           ))}
         </div>
