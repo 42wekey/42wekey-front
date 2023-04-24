@@ -23,7 +23,7 @@ export default function MyComment() {
   const [unreviewedNumber, setUnreviewedNumber] = useState(0);
   const { intraId } = useParams();
 
-  const menuName = userState.intraId === intraId ? "마이페이지" : "프로필";
+  const menuName = userState.intra_id === intraId ? "마이페이지" : "프로필";
 
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -82,7 +82,7 @@ export default function MyComment() {
 
   return (
     <div className={styles.containerMain}>
-      <Menu menuName={menuName} />
+      <Menu menuName={menuName}  />
       <div className={styles.container}>
         <UserState />
         {menuName === "마이페이지" && <MyPageAvg />}
@@ -96,7 +96,7 @@ export default function MyComment() {
               : styles.tabBtnNo
           }
         >
-          {userState.intraId === intraId ? "작성 가능한 리뷰" : "완료한 과제"}
+          {userState.intra_id === intraId ? "작성 가능한 리뷰" : "완료한 과제"}
         </button>
         <button
           onClick={() => setContentState("myComment")}

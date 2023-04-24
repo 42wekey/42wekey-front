@@ -59,6 +59,7 @@
 }
 
 .subjectName {
+  all:unset;
   font-family: "SF Pro Display";
   font-style: normal;
   font-weight: 600;

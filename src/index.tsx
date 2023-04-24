@@ -6,14 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import Modal from "./components/modal/Modal";
 import { RecoilRoot } from "recoil";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
-  <React.StrictMode>
-    <RecoilRoot>
+  // <React.StrictMode>
+  <RecoilRoot>
     <App />
     <Modal />
-    </RecoilRoot>
-  </React.StrictMode>
+  </RecoilRoot>
+  // </React.StrictMode>
 );
 
 reportWebVitals();

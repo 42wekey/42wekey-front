@@ -5,14 +5,14 @@ import SubjectRankContent from "./SubjectRankContent";
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
 interface SubjectRankType {
-  subject_name: String;
-  value: Number | String;
+  subject_name: string;
   circle: Number;
+  star_rating: Number;
 }
 
 interface SubjectRank {
-  title: String;
-  subject: SubjectRankType[];
+  title: string;
+  rank: SubjectRankType[];
 }
 
 export default function SubjectRank() {
@@ -43,7 +43,11 @@ export default function SubjectRank() {
   }, [subjectRankList]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subject_rank`)
+    fetch(`${baseUrl}/subject/rank`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setSubjectRankList(data));
   }, []);
@@ -61,7 +65,7 @@ export default function SubjectRank() {
         </div>
         <SubjectRankContent
           title={subjectRankList[rankIndex]?.title}
-          subject={subjectRankList[rankIndex]?.subject}
+          rank={subjectRankList[rankIndex]?.rank}
         />
       </div>
       {/* <div>

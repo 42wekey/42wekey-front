@@ -11,10 +11,12 @@ export default function IsLogged() {
 
   useEffect(() => {
     const url = new URL(window.location.href);
+    console.log(url);
     const href = url.href;
     if (!href) return;
-    const accessToken = href.split("code=")[1];
+    const accessToken = href.split("token=")[1];
     if (accessToken == undefined) return;
+
     fetch(`${baseUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
