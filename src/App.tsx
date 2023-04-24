@@ -17,9 +17,9 @@ import LoginCheck from "./components/login/LoginCheck";
 
 const App = () => {
   // const navigate = useNavigate();
-  // const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+  const baseUrl = `${process.env.REACT_APP_END_POINT}`;
   // const [isLogged, setIsLogged] = useState(false);
-  // const [userInfo, setUserInfo] = useRecoilState(profileState);
+  const [userInfo, setUserInfo] = useRecoilState(profileState);
   // const url = new URL(window.location.href);
   // const href = url.href;
   // const accessToken = href.split("token=")[1];
@@ -70,6 +70,18 @@ const App = () => {
   // const url = new URL(window.location.href);
   // const href = url.href;
   // const accessToken = href.split("token=")[1];
+  useEffect(()=>{
+        fetch(`${baseUrl}/user/me`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+        }
+      })
+        .then((res) => res.json())
+        .then((data) => setUserInfo(data));
+        console.log(userInfo.level)
+    }
+  ,[])
+
 
   return (
     <>
