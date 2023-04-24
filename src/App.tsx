@@ -44,9 +44,9 @@ const App = () => {
   <>
     <Router>
     <Routes>
-      <Route path="/" element={isLogged===false?<Login />:<Main />} />
-      {/* <Route path="subjectList" element={<Main />} /> */}
-      <Route path="login" element={<IsLogged/>} />
+      <Route path="/" element={<LoginCheck/>} />
+      <Route path="/main" element={<Main />} />
+      <Route path="/login" element={<IsLogged/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
       <Route path="/profile/:intraId" element={<MyComment/>} />
       <Route path="/admin" element={<Admin/>} />
