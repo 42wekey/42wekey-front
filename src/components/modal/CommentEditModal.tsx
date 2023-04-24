@@ -11,7 +11,7 @@ interface subject {
   subject: string;
 }
 
-export default function CommentInputModal() {
+export default function CommentEditModal() {
   const [star_rating, setRating] = useState<number>(0);
   const [time_taken, setElapsed] = useState("");
   const [amount_study, setAmountStudy] = useState("");
@@ -20,7 +20,12 @@ export default function CommentInputModal() {
   const [content, setContent] = useState("");
   const [isSubmit, setIsSubmit] = useState<Boolean>(false);
   const [isCommentModal, setIsCommentModal] = useRecoilState(modal);
-  const [rate, setRate] = useState<number>(0);
+  const comment =
+    isCommentModal &&
+    isCommentModal.commentEdit &&
+    isCommentModal.commentEdit.comment
+      ? isCommentModal.commentEdit.comment
+      : null;
 
   const time_taken_data = [
     { id: 0, content: "일주일 이하", value: "a_week" },
@@ -41,10 +46,6 @@ export default function CommentInputModal() {
     { id: 1, content: "보통이에요", value: "middle" },
     { id: 2, content: "많은 편이에요", value: "high" },
   ];
-  // >
-  //   <ToggleButton value="no">안 했어요</ToggleButton>
-  //   <ToggleButton value="little">하긴 했어요</ToggleButton>
-  //   <ToggleButton value="complete">다 했어요</ToggleButton>
 
   const bonus_data = [
     { id: 0, content: "안 했어요", value: "no" },
@@ -52,10 +53,16 @@ export default function CommentInputModal() {
     { id: 2, content: "다 했어요", value: "complete" },
   ];
 
-  // const history = useHistory();
-  // useEffect(() => {
-  //   console.log(content);
-  // }, [content]);
+  useEffect(() => {
+    if (comment) {
+      setRating(comment.star_rating);
+      setElapsed(comment.time_taken);
+      setAmountStudy(comment.amount_study);
+      setDiffi(comment.difficulty);
+      setBonus(comment.bonus);
+      setContent(comment.content);
+    }
+  }, []);
 
   useEffect(() => {
     if (isSubmit) {
@@ -91,22 +98,20 @@ export default function CommentInputModal() {
 
   const onClickSubmit = () => {
     if (isSubmit) {
-      fetch(`${baseUrl}/comments/`, {
-        method: "POST",
+      fetch(`${baseUrl}/comments/${comment?.id}`, {
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          intraid: "sooyang",
-          sbj_name: isCommentModal.commentInput?.subjectName,
-          star_rating,
-          time_taken,
-          difficulty,
-          amount_study,
-          bonus,
-          content,
+          "star_rating":star_rating,
+         "time_taken": time_taken,
+          "difficulty": difficulty,
+          "amount_study": amount_study,
+          "bonus": bonus,
+          "content": content,
         }),
       }).then((res) => {
         if (res.ok) {
-          alert("후기가 작성되었습니다.");
+          alert("수정되었습니다.");
           document.body.style.overflow = "unset";
           // history.push("/");
         }
@@ -128,10 +133,7 @@ export default function CommentInputModal() {
       <div className={styles.starRating}>
         <form id="starRate" className={styles.starRate}>
           <fieldset>
-            <label
-              htmlFor="rate1"
-              onClick={() => setRating(1)}
-            >
+            <label htmlFor="rate1" onClick={() => setRating(1)}>
               <EmptyStar
                 fill={star_rating > 0 ? "#FEDB22" : "#F9F9F9"}
                 stroke={star_rating > 0 ? "#FEDB22" : "#E8E8E8"}
@@ -145,10 +147,7 @@ export default function CommentInputModal() {
               id="rate1"
               tabIndex={-1}
             />
-            <label
-              htmlFor="rate2"
-              onClick={() => setRating(2)}
-            >
+            <label htmlFor="rate2" onClick={() => setRating(2)}>
               <EmptyStar
                 fill={star_rating > 1 ? "#FEDB22" : "#F9F9F9"}
                 stroke={star_rating > 1 ? "#FEDB22" : "#E8E8E8"}
@@ -162,10 +161,7 @@ export default function CommentInputModal() {
               id="rate2"
               tabIndex={-1}
             />
-            <label
-              htmlFor="rate3"
-              onClick={() => setRating(3)}
-            >
+            <label htmlFor="rate3" onClick={() => setRating(3)}>
               <EmptyStar
                 fill={star_rating > 2 ? "#FEDB22" : "#F9F9F9"}
                 stroke={star_rating > 2 ? "#FEDB22" : "#E8E8E8"}
@@ -179,10 +175,7 @@ export default function CommentInputModal() {
               id="rate3"
               tabIndex={-1}
             />
-            <label
-              htmlFor="rate4"
-              onClick={() => setRating(4)}
-            >
+            <label htmlFor="rate4" onClick={() => setRating(4)}>
               <EmptyStar
                 fill={star_rating > 3 ? "#FEDB22" : "#F9F9F9"}
                 stroke={star_rating > 3 ? "#FEDB22" : "#E8E8E8"}
@@ -196,10 +189,7 @@ export default function CommentInputModal() {
               id="rate4"
               tabIndex={-1}
             />
-            <label
-              htmlFor="rate5"
-              onClick={() => setRating(5)}
-            >
+            <label htmlFor="rate5" onClick={() => setRating(5)}>
               <EmptyStar
                 fill={star_rating > 4 ? "#FEDB22" : "#F9F9F9"}
                 stroke={star_rating > 4 ? "#FEDB22" : "#E8E8E8"}
@@ -327,13 +317,16 @@ export default function CommentInputModal() {
           </span>
           <textarea
             className={styles.inputString}
+            value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="최소 10자 이상 작성해주세요."
             maxLength={1000}
           ></textarea>
           <div className={styles.limitWord}>{content.length} / 1000자</div>
         </div>
-        <span className={styles.announce}>• 등록한 리뷰는 수정할 수 있어요.</span>
+        <span className={styles.announce}>
+          • 등록한 리뷰는 수정할 수 있어요.
+        </span>
         <div className={styles.submit}>
           <button onClick={onClickSubmit} className={styles.submitBtn}>
             완료

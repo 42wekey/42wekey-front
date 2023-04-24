@@ -9,6 +9,9 @@ import SubjectDetail from "./components/subject_detail/SubjectDetail";
 import IsLogged from "./components/login/IsLogged";
 import Modal from "./components/modal/Modal";
 import Empty from "./components/Error/Empty";
+import Admin from "./components/admin/Admin";
+import AdminCreate from "./components/admin/AdminCreate";
+import AdminEdit from "./components/admin/AdminEdit";
 import { redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import LoginCheck from "./components/login/LoginCheck";
@@ -16,57 +19,11 @@ import LoginCheck from "./components/login/LoginCheck";
 
 
 const App = () => {
-  // const navigate = useNavigate();
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
-  // const [isLogged, setIsLogged] = useState(false);
-  const [userInfo, setUserInfo] = useRecoilState(profileState);
-  // const url = new URL(window.location.href);
-  // const href = url.href;
-  // const accessToken = href.split("token=")[1];
-  // useEffect(() => { 
-  //   if (accessToken) {
-  //     localStorage.setItem("42ence-token", accessToken);
-  //     setUserInfo({isLogin:true});
-  //     console.log(userInfo.isLogin)
-  //     navigate('/');
-  //     // redirect(`${baseUrl}`);
-  //   }
-  //   else if (localStorage.getItem("42ence-token")) {
-  //     setUserInfo({isLogin:true});
-  //     console.log(userInfo.isLogin)
-  //     navigate('/');
-  //     redirect(`${baseUrl}`);
-  //   }
-  //   else if (isLogged) {
-  //     fetch(`${baseUrl}/user/me`, {
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => setUserInfo(data));
-  //       console.log(userInfo.intraId);
-  //   }
-  //   else {
-  //     setUserInfo({isLogin:false});
-      
-  //   }
-  //   navigate('/login');
-  //   redirect(`/login`);
-  // }, [userInfo.isLogin]);
-  // useEffect(()=> {
-  //   if (localStorage.getItem("42ence-token"))
-  //   {fetch(`${baseUrl}/user/me`, {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setUserInfo(data));
-  //     console.log(userInfo.intraId);
-  // }},[userInfo.isLogin])
+  const [isLogged, setIsLogged] = useState(true);
+  const [userInfo, setUserInfo] = useRecoilState(profileState)
 
-  // userInfo.isLogin === false ? <Login /> : 
+  // userInfo.isLogin === false ? <Login /> :
   // const url = new URL(window.location.href);
   // const href = url.href;
   // const accessToken = href.split("token=")[1];
@@ -84,19 +41,21 @@ const App = () => {
 
 
   return (
-    <>
-      <Router>
-        <Routes>
-        <Route path="/" element={<LoginCheck />} />
-          <Route path="/main" element={<Main />} />
-          {/* <Route path="subjectList" element={<Main />} /> */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/:circle/:sbj_name" element={<SubjectDetail />} />
-          <Route path="/profile/:intraId" element={<MyComment />} />
-          <Route path="/*" element={<Empty />} />
-        </Routes>
-      </Router>
-      <Modal />
+  <>
+    <Router>
+    <Routes>
+      <Route path="/" element={isLogged===false?<Login />:<Main />} />
+      {/* <Route path="subjectList" element={<Main />} /> */}
+      <Route path="login" element={<IsLogged/>} />
+      <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
+      <Route path="/profile/:intraId" element={<MyComment/>} />
+      <Route path="/admin" element={<Admin/>} />
+      <Route path="/admin/:sbj_name" element={<AdminEdit />}></Route>
+      <Route path="/admin/create" element={<AdminCreate/>} />
+      <Route path="/*" element={<Empty/>} />
+    </Routes>
+    </Router>
+    <Modal/>
     </>
   );
 };
