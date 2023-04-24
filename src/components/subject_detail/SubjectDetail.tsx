@@ -72,7 +72,7 @@ export default function SubjectDetail() {
 
   return (
     <div>
-      <Menu menuName={"과제리뷰"} />
+      {/* <Menu menuName={"과제리뷰"} /> */}
       <div className={styles.subtitle}>{params.sbj_name}</div>
       <div className={styles.SubjectInfo}>
         해당 과제는 매일 수십억 명의 온라인 사용자를 안전하게 지키고 사용하기

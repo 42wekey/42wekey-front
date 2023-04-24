@@ -5,7 +5,7 @@ import DehazeIcon from "@mui/icons-material/Dehaze";
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 
 interface intraId{
-  intraId:string;
+  intra_id?:string;
   menuName:string;
 }
 

@@ -2,27 +2,33 @@ import moment from "moment";
 import { useEffect } from "react";
 
 interface Time {
-	title: string;
-	time: string;
+  title: string;
+  time: string;
 }
 
 export function ConvertTime(isoTime: Time) {
   const now = moment();
   const time = moment(isoTime.time);
-  const diffMinutes = now.diff(time, "minutes");
+  let diffMinutes = now.diff(time, "minutes");
 
-//   useEffect(()=>{
-// 	if (diffMinutes)
-// 		console.log(diffMinutes);
-//   },[diffMinutes])
-  console.log(diffMinutes, isoTime.time);
-
-    if (diffMinutes < 1) {
-    return '방금 전';
-  } else if (diffMinutes < 10) {
+  //   useEffect(()=>{
+  // 	if (diffMinutes)
+  // 		console.log(diffMinutes);
+  //   },[diffMinutes])
+  if (isoTime.title === "myPage") {
+    return time.format("YYYY. MM. DD.");
+  } else if (diffMinutes < 3) {
+    return "방금 전";
+  } else if (diffMinutes < 60) {
     return `${diffMinutes}분 전`;
+  } else if (diffMinutes < 1440) {
+    diffMinutes = now.diff(time, "hour");
+    return `${diffMinutes}시간 전`;
+  } else if (diffMinutes < 10080) {
+    diffMinutes = now.diff(time, "day");
+    return `${diffMinutes}일 전`;
   } else {
-    return time.format('YYYY년 MM월 DD일 HH:mm:ss');
+    return time.format("YYYY. MM. DD.");
   }
 }
 

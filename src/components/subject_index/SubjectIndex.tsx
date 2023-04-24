@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
 interface SubjectCircle {
+  info: String;
   subject_name: String;
-  subject_info: String;
 }
 interface SubjectList {
   circle: Number;
-  subject: SubjectCircle[];
+  subject_info: SubjectCircle[];
 }
 
 export default function PdfIndex() {
@@ -19,7 +19,11 @@ export default function PdfIndex() {
   const [selectCircle, setSelectCircle] = useState(0);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subject_list`)
+    fetch(`${baseUrl}/subject/list`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setSubjectList(data));
   }, []);
@@ -43,13 +47,13 @@ export default function PdfIndex() {
         ))}
       </div>
       <div className={styles.subjectList}>
-        {subjectList[selectCircle]?.subject.map((subject, i) => (
+        {subjectList[selectCircle]?.subject_info.map((subject, i) => (
           <div key={i}>
             <div>
             <div className={`${i !== 0 && styles.divisionLine}`}/>
               <Link to={`/${selectCircle}_circle/${subject.subject_name}`} className={styles.subjectContent}>
                 <div className={styles.subjectName}>{subject.subject_name}</div>
-                <div className={styles.subjectInfo}>{subject.subject_info}</div>
+                <div className={styles.subjectInfo}>{subject.info}</div>
               </Link>
               
             </div>

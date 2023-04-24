@@ -3,15 +3,17 @@ import styles from "./RecentComment.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
 import {ConvertTime} from "../../hooks/ConvertTime";
+import { Link } from "react-router-dom";
 
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
 interface recentComment {
-  subject: string;
+  subject_name: string;
+  circle:number;
   star_rating: number;
-  comment: string;
-  time: string;
+  content: string;
+  create_time: string;
 }
 
 export default function RecentComment() {
@@ -19,7 +21,11 @@ export default function RecentComment() {
     []
   );
   useEffect(() => {
-    fetch(`${baseUrl}/recent_comment`)
+    fetch(`${baseUrl}/comment/recent`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setRecentCommentList(data));
   }, []);
@@ -36,17 +42,16 @@ export default function RecentComment() {
           {recentCommentList.map((data, index) => (
             <div key={index} className={styles.recentComment}>
               <div className={styles.subjectStarRating}>
-                <div className={styles.subjectName}>{data.subject}</div>
+                <Link className={styles.subjectName} to={`"/${data.circle}/${data.subject_name}"`}>{data.subject_name}</Link>
                 <div >
                   <EmptyStar fill={"#FEDB22"} className={styles.star}/>
                 </div>
                 <div className={styles.starRating}>{`${data.star_rating}`}</div>
               </div>
-              <div className={styles.comment}>{data.comment}</div>
+              <div className={styles.comment}>{data.content}</div>
               <div className={styles.dateTime}>
-                <>
-                {getTime(data.time)}
-                {data.time}</></div>
+                {getTime(data.create_time)}
+                </div>
             </div>
           ))}
         </div>

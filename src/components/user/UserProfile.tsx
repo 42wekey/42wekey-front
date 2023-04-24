@@ -14,7 +14,7 @@ export default function UserProfile() {
   const [userInfo, setUserInfo] = useRecoilState(profileState);
 
   useEffect(() => {
-    fetch(`${baseUrl}/user_status`)
+    fetch(`${baseUrl}/user/status`)
       .then((res) => res.json())
       .then((data) => setUserStatus(data));
   }, []);
@@ -28,8 +28,8 @@ export default function UserProfile() {
   return (
     <div className={styles.profile}>
       <div className={styles.intraStatus}>
-        <div className={styles.intraId}>{`${userInfo?.intraId}님`} </div>
-        <div className={styles.level}>{`레벨 ${userInfo.user_level}`}</div>
+        <div className={styles.intraId}>{`${userInfo?.intra_id}님`} </div>
+        <div className={styles.level}>{`레벨 ${userInfo.level}`}</div>
         {/* <button>로그아웃</button> */}
       </div>
       <div className={styles.myComment}>

@@ -1,0 +1,307 @@
+.title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 20px;
+  width: 100%;
+  color: #222222;
+  display: flex;
+  justify-content: right;
+}
+.titleName {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closeBtn {
+}
+
+.margin {
+  margin-bottom: 0.3rem;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+}
+.divisionLine {
+  border-bottom: 1.5px solid #eeeeee;
+  /* margin-top: 0.7rem; */
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
+.Q {
+  font-family: "Reem Kufi Ink";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: #396ff9;
+}
+
+.boxmargin {
+  margin-bottom: 1rem;
+}
+.inlinetext {
+  display: inline-block;
+  padding-top: 0.3rem;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.submit {
+  text-align: center;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.subjectTitle {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.circle {
+  color: #a7a7a7;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+}
+.subjectName {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.contentBox {
+  width: 100%;
+}
+
+.back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.answerBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, auto));
+  justify-items: stretch;
+  align-content: space-between;
+  gap: 3%;
+  width: 100%;
+  margin-bottom: 53px;
+}
+
+.selectAnswer {
+  background: #f6f9ff;
+  border: 1px solid #396ff9;
+  border-radius: 5px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: #396ff9;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  height: 2.5rem;
+}
+
+.answer {
+  background: #f9f9f9;
+  border-radius: 5px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 2%;
+  color: #686868;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  border: none;
+}
+.submitBtn {
+  all: unset;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #ffffff;
+  background: #396ff9;
+  border-radius: 10px;
+}
+
+.inputString {
+  width: 98%;
+  height: 6rem;
+  text-align: inherit;
+}
+.star {
+  margin-right: 0.25rem;
+}
+
+/* .myform fieldset{
+  display: inline-block; 하위 별점 이미지들이 있는 영역만 자리를 차지함.
+  direction: rtl; 이모지 순서 반전
+  border: 0; 필드셋 테두리 제거
+} */
+
+/* .myform :hover {
+  fill: red;
+} */
+
+.starRate input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
+.starRate fieldset {
+  border: 0;
+}
+
+.starRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.limitWord {
+  width: 96%;
+  height: 2rem;
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -1.6rem;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #C6C6C6;
+}
+
+
+.announce{
+  font-family: 'Pretendard';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+color: #ADADAD;
+margin-right: auto;
+margin-bottom: 30px;
+}
+/* .myform input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 #a00; 마우스 클릭 체크
+} */
+
+/* .myform label{
+  font-size: 3em; 이모지 크기
+  color: transparent; 기존 이모지 컬러 제거
+  text-shadow: 0 0 0 #f0f0f0; 새 이모지 색상 부여
+} */
+/* .myform :hover{
+  text-shadow: 0 0 0 #a00; 마우스 호버
+} */
+/* .myform label:hover ~ label{
+  fill: #a7a7a7;
+  text-shadow: 0 0 0 #a00; 마우스 호버 뒤에오는 이모지들
+} */
+
+/* .myform fieldset legend{
+  text-align: left;
+} */
+/* 
+export const ModalDimmer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const ModalBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: 600px;
+  min-width: 300px;
+  min-height: 100px;
+  background-color: #ffffff;
+  border: 1px solid #cbcbcb;
+  border-radius: 10px;
+`;
+export const ModalTitle = styled.div`
+  padding: 1rem;
+  font-weight: bold;
+  font-size: large;
+  border-bottom: 1px solid #cbcbcb;
+`;
+export const ModalContents = styled.div`
+  padding: 1rem;
+  border-bottom: 1px solid #cbcbcb;
+`;
+export const ModalFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const ModalButton = styled.button`
+  background: none;
+  border: none;
+  width: 100%;
+  height: 52px;
+  font-weight: bold;
+  :hover {
+    opacity: 50%;
+    transition: 0.5s;
+  }
+`;
+
+export const ModalButtonWithBorder = styled(ModalButton)`
+  border-right: 1px solid #cbcbcb;
+`; */

@@ -1,8 +1,24 @@
 import { atom } from "recoil";
-import {Comment} from "../../components/subject_detail/PrintComment"
+
 
 type ModalName = null | `CommentInput` | "CommentEdit";
 
+export interface Comment {
+  id: number;
+  like_num: number;
+  intra_id: string;
+  circle: number;
+  user_level: number;
+  subject_name: string;
+  content: string;
+  star_rating: number;
+  time_taken: string;
+  isComment: boolean;
+  difficulty: string;
+  bonus: string;
+  amount_study: string;
+  update_time: string;
+}
 export interface ModalType {
   isModal: Boolean;
   title?: ModalName;
