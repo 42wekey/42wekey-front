@@ -9,6 +9,9 @@ import SubjectDetail from './components/subject_detail/SubjectDetail';
 import IsLogged from "./components/login/IsLogged";
 import Modal from "./components/modal/Modal";
 import Empty from "./components/Error/Empty";
+import Admin from "./components/admin/Admin";
+import AdminCreate from "./components/admin/AdminCreate";
+import AdminEdit from "./components/admin/AdminEdit";
 
 const App = () => {
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
@@ -30,6 +33,9 @@ const App = () => {
       <Route path="login" element={<IsLogged/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
       <Route path="/profile/:intraId" element={<MyComment/>} />
+      <Route path="/admin" element={<Admin/>} />
+      <Route path="/admin/:sbj_name" element={<AdminEdit />}></Route>
+      <Route path="/admin/create" element={<AdminCreate/>} />
       <Route path="/*" element={<Empty/>} />
     </Routes>
     </Router>

@@ -1,0 +1,42 @@
+.container {
+  text-decoration: none;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.btn {
+  all: unset;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(76, 76, 76);
+  padding: 5px;
+  border: 1px solid rgb(28, 28, 28);
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: rgb(24, 24, 24);
+}
+
+.btnWarning {
+  all: unset;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(255, 0, 0);
+  padding: 5px;
+  border: 1px solid rgb(28, 28, 28);
+  border-radius: 5px;
+}
+
+.btnWarning:hover {
+  all: unset;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(119, 0, 0);
+  padding: 5px;
+  border: 1px solid rgb(28, 28, 28);
+  border-radius: 5px;
+}

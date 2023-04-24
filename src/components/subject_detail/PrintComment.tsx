@@ -95,6 +95,7 @@ interface TextTrunc {
 const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
+  const [longComment, setLongComment] = useState(false);
   const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
