@@ -5,6 +5,7 @@ import { Rating, TextField } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
+import { modal } from "../../utils/recoil/modal";
 import { StarRating } from "../../hooks/StarRating";
 import { ReactComponent as Like } from "../../like.svg";
 
@@ -95,6 +96,8 @@ interface TextTrunc {
 const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
+  const [{ modalName, commentEdit }, setModal] = useRecoilState(modal);
+  const [longComment, setLongComment] = useState(false);
   const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
@@ -136,7 +139,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
     <div>
       <div className={styles.commentUser}>
         <div>
-          <Link to={`/profile/${comment.intra_id}`} style={{all:"unset"}}>
+          <Link to={`/profile/${comment.intra_id}`} style={{ all: "unset" }}>
             <span>{comment.intra_id}</span>
           </Link>
           <span className={styles.commentUserBadge}>
@@ -144,7 +147,21 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
           </span>
         </div>
         {showCommentEdit && (
-          <span className={styles.commentEdditBtn}>수정하기</span>
+          <span
+            className={styles.commentEdditBtn}
+            onClick={() => {
+              setModal({
+                modalName: "commentEdit",
+                commentEdit: {
+                  subjectName: comment.subject_name,
+                  circle: comment.circle,
+                  comment: comment,
+                },
+              });
+            }}
+          >
+            수정하기
+          </span>
         )}
       </div>
       <div className={styles.star_container}>

@@ -3,13 +3,14 @@ import { useRecoilState } from "recoil";
 import { modal, modalState } from "../../utils/recoil/modal";
 import CommentInput from "../subject_detail/comment_input/CommentInput";
 import CommentInputModal from "./CommentInputModal";
+import CommentEditModal from "./CommentEditModal";
 
 export default function Modal() {
   const [{ modalName, commentInput, commentEdit }, setModal] =
     useRecoilState(modal);
   const content: { [key: string]: JSX.Element | null } = {
     commentInput: <CommentInputModal />,
-    // commentEdit: <CommentEdit/>
+    commentEdit: <CommentEditModal />
   };
 
   return modalName ? <div>{content[modalName]}</div> : <></>;

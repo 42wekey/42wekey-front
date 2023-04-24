@@ -11,6 +11,8 @@ import {
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";
 import { StarRating } from "../../hooks/StarRating";
+import Modal from "../modal/Modal";
+import { modal } from "../../utils/recoil/modal";
 
 export interface CommentProps {
   comment: Comment;
@@ -25,6 +27,7 @@ interface intraId {
 const Comments = ({ comment, isLikeComment }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
+  const [{ modalName }, setModal] = useRecoilState(modal);
 
   const clickLikeButton = (commentId?: Number, intraId?: String) => {
     fetch(`${baseUrl}/like.${commentId}/${intraId}`, {
@@ -48,6 +51,22 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
           )}
           {isLikeComment && <span className={styles_star.divide}>|</span>}
           <span className={styles.commentTime}>{comment.update_time}</span>
+          {comment.intra_id === userState.intraId || isLikeComment === false ? (
+            <button
+              onClick={() => {
+                setModal({
+                  modalName: "commentEdit",
+                  commentEdit: {
+                    subjectName: comment.subject_name,
+                    circle: comment.circle,
+                    comment: comment
+                  },
+                });
+              }}
+            >
+              수정하기
+            </button>
+          ) : null}
         </div>
       </div>
       <div className={styles.detailContainer}>
