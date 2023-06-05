@@ -43,7 +43,7 @@ export default function SubjectRank() {
   }, [subjectRankList]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subject/rank`, {
+    fetch(`${baseUrl}/subjects/rank`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },

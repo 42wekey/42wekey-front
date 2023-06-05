@@ -26,7 +26,11 @@ export default function Analysis({ sbjname }: subject) {
   const total = [5, 4, 3, 2, 1];
 
   useEffect(() => {
-    fetch(`${baseUrl}/sbj_avg`)
+    fetch(`${baseUrl}/subjects/${sbjname}/rating`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setSbjAvg(data));
   }, []);

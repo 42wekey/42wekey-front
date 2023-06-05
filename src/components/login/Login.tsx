@@ -26,7 +26,6 @@ export default function Login() {
         <Wekey42 className={styles.logo} />
         <a href={loginUrl} className={styles.loginBtn}>
           로그인
-          
         </a>
     </div>
   );

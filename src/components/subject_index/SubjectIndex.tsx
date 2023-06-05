@@ -19,7 +19,7 @@ export default function PdfIndex() {
   const [selectCircle, setSelectCircle] = useState(0);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subject/list`, {
+    fetch(`${baseUrl}/subjects/list`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },
