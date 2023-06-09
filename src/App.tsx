@@ -28,7 +28,7 @@ const App = () => {
   // const href = url.href;
   // const accessToken = href.split("token=")[1];
   useEffect(()=>{
-        fetch(`${baseUrl}/user/me`, {
+        fetch(`${baseUrl}/users/me`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
         }
@@ -46,7 +46,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<LoginCheck/>} />
       <Route path="/main" element={<Main />} />
-      <Route path="/login" element={<IsLogged/>} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/:circle/:sbj_name" element={<SubjectDetail/>} />
       <Route path="/profile/:intraId" element={<MyComment/>} />
       <Route path="/admin" element={<Admin/>} />

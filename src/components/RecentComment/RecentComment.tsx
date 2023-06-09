@@ -21,7 +21,7 @@ export default function RecentComment() {
     []
   );
   useEffect(() => {
-    fetch(`${baseUrl}/comment/recent`, {
+    fetch(`${baseUrl}/comments/recent`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },
@@ -42,7 +42,7 @@ export default function RecentComment() {
           {recentCommentList.map((data, index) => (
             <div key={index} className={styles.recentComment}>
               <div className={styles.subjectStarRating}>
-                <Link className={styles.subjectName} to={`"/${data.circle}/${data.subject_name}"`}>{data.subject_name}</Link>
+                <Link className={styles.subjectName} to={`"/${data.circle}/${data.subject_name}"`}/>{data.subject_name}
                 <div >
                   <EmptyStar fill={"#FEDB22"} className={styles.star}/>
                 </div>

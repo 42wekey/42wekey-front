@@ -14,8 +14,8 @@ import Analysis from "./SubjectAnalysis";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
-  wikiContent?: string;
-  version?: number;
+  id?: number;
+  content?: string;
 }
 
 export default function SubjectDetail() {
@@ -33,8 +33,7 @@ export default function SubjectDetail() {
     const { scrollHeight, offsetHeight } = document.documentElement;
     return Math.max(scrollHeight, offsetHeight) - window.innerHeight;
   }
-  const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
-  // const {circle, sbj_name} = params
+  const params = useParams() as { circle: string; sbj_name: string };
   const sbj: string = params.sbj_name;
 
   function onScroll() {
@@ -42,9 +41,16 @@ export default function SubjectDetail() {
   }
 
   useEffect(() => {
-    fetch(`${baseUrl}/wiki`)
+    fetch(`${baseUrl}/subjects/${sbj}/wiki`,{
+      headers: {
+      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+    },
+    })
       .then((res) => res.json())
-      .then((data) => setWiki(data));
+      .then((data) => setWiki(data))
+      .catch(()=>{
+        console.log("error");
+      })
   }, [isWikiEdit]);
 
   useEffect(() => {
@@ -55,7 +61,11 @@ export default function SubjectDetail() {
   }, [scroll]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/comments`)
+    fetch(`${baseUrl}/comments/${sbj}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setComment(data));
   }, [modalName]);
@@ -102,17 +112,17 @@ export default function SubjectDetail() {
                 <div>
                   <SubjectWiki
                     setIsWikiEdit={setIsWikiEdit}
-                    content={wiki?.wikiContent}
-                    version={wiki?.version}
+                    content={wiki?.content}
+                    id={wiki?.id}
                   />
                 </div>
               ) : (
                 <div>
                   <div className={styles.wikiContent}>
-                    {wiki?.wikiContent && (
+                    {wiki?.content && (
                       <div
                         className={styles.wikiContent}
-                        dangerouslySetInnerHTML={{ __html: wiki.wikiContent }}
+                        dangerouslySetInnerHTML={{ __html: wiki.content }}
                       />
                     )}
                   </div>

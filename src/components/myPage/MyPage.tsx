@@ -21,23 +21,47 @@ export default function MyComment() {
   const [likeComments, setLikeComments] = useState([]);
   const [unreviewed, setUnreviewed] = useState<any>([]);
   const [unreviewedNumber, setUnreviewedNumber] = useState(0);
-  const { intraId } = useParams();
+  const params = useParams() as { profile: string; intraId: string };
+  const intraId = params.intraId;
 
   const menuName = userState.intra_id === intraId ? "마이페이지" : "프로필";
 
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
   useEffect(() => {
-    fetch(`${baseUrl}/user_status`)
+    fetch(`${baseUrl}/users/${intraId}/info`,{
+      headers: {
+      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+    },
+    })
       .then((res) => res.json())
       .then((data) => setProfileUser(data));
-    fetch(`${baseUrl}/myComment`)
+      fetch(`${baseUrl}/users/${intraId}/comments`,{
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+      },
+      })
       .then((res) => res.json())
       .then((data) => setMyComments(data));
-    fetch(`${baseUrl}/likeComment`)
+      fetch(`${baseUrl}/users/me/like`,{
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+      },
+      })
       .then((res) => res.json())
       .then((data) => setLikeComments(data));
-    fetch(`${baseUrl}/unreviewed`)
+      fetch(`${baseUrl}/users/${intraId}/unreviewed`,{
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+      },
+      })
+      .then((res) => res.json())
+      .then((data) => setUnreviewed(data));
+      fetch(`${baseUrl}/users/me/reviewed`,{
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+      },
+      })
       .then((res) => res.json())
       .then((data) => setUnreviewed(data));
   }, []);

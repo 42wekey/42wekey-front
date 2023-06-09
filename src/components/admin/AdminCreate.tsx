@@ -9,14 +9,16 @@ export default function AdminCreate() {
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    fetch(`${baseUrl}/subjects/`, {
+    fetch(`${baseUrl}/admin/subject/create`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("42ence-token")}` },
       body: JSON.stringify({
-        subject_name: name,
-        circle: Number(circle),
-        subject_info: info,
-        description: des,
+        "name": name,
+        "circle": Number(circle),
+        "subject_info": info,
+        "description": des,
       }),
     }).then((res) => {
       if (res.ok) {

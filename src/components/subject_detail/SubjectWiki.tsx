@@ -4,7 +4,8 @@ import "react-quill/dist/quill.snow.css";
 import styles from "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -68,16 +69,28 @@ const modules = {
 interface propType {
   setIsWikiEdit: React.Dispatch<React.SetStateAction<Boolean>>;
   content?: string;
-  version?: number;
+  id?: number;
 }
 
+interface wiki {
+  id?: number;
+  content?: string;
+}
+
+
 export default function SubjectWiki(props: propType) {
+  const [wiki, setWiki] = useState<wiki>();
+  const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
+  const sbj: string = params.sbj_name;
   const [wikiContent, setWikiContent] = useState(props.content);
   const clickEditButton = (text?: string, version?: number) => {
-    fetch(`${baseUrl}/wiki`, {
+    fetch(`${baseUrl}/subjects/${sbj}/wiki`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ wikiContent: text, version: version }),
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ "content": text, "id": version }),
     });
     props.setIsWikiEdit(false);
   };
@@ -85,6 +98,16 @@ export default function SubjectWiki(props: propType) {
   const clickCancleButton = () => {
     props.setIsWikiEdit(false);
   };
+
+  useEffect(() => {
+    fetch(`${baseUrl}/subjects/${sbj}/wiki`,{
+      headers: {
+      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
+    },
+    })
+      .then((res) => res.json())
+      .then((data) => setWiki(data));
+  }, []);
   return (
     <div>
       <div className={styles.wiki}>
@@ -105,7 +128,7 @@ export default function SubjectWiki(props: propType) {
             취소
           </button>
           <button
-            onClick={() => clickEditButton(wikiContent, props.version)}
+            onClick={() => clickEditButton(wikiContent, wiki?.id)}
             className={styles.submitBtn}
           >
             제출
