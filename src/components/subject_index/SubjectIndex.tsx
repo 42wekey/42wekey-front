@@ -1,6 +1,7 @@
 import styles from "./SubjectIndex.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { instance } from "../../utils/axios";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -19,14 +20,29 @@ export default function PdfIndex() {
   const [selectCircle, setSelectCircle] = useState(0);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/list`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setSubjectList(data));
+    getSubjectList();
+    // const res = await instance.get(`/subjects/list`)
+    // fetch(`${baseUrl}/subjects/list`, {
+    //   headers: {
+    //     Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+    //   },
+    // })
+      // setSubjectList(res?.data)
   }, []);
+
+  const getSubjectList = async () => {
+    try {
+      console.log("1234");
+      console.log((await instance.get(`/subjects/list`)).data);
+      const res = await instance.get(`/subjects/list`)
+      // console.log("123");
+      setSubjectList(res.data)
+      console.log(res.data);
+    }
+    catch(e) {
+      console.log("error")
+    }
+  }
 
   return (
     <div className={styles.container}>

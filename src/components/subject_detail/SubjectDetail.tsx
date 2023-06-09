@@ -33,8 +33,7 @@ export default function SubjectDetail() {
     const { scrollHeight, offsetHeight } = document.documentElement;
     return Math.max(scrollHeight, offsetHeight) - window.innerHeight;
   }
-  const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
-  // const {circle, sbj_name} = params
+  const params = useParams() as { circle: string; sbj_name: string };
   const sbj: string = params.sbj_name;
 
   function onScroll() {
@@ -48,7 +47,10 @@ export default function SubjectDetail() {
     },
     })
       .then((res) => res.json())
-      .then((data) => setWiki(data));
+      .then((data) => setWiki(data))
+      .catch(()=>{
+        console.log("error");
+      })
   }, [isWikiEdit]);
 
   useEffect(() => {

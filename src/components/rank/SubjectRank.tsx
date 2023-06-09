@@ -48,8 +48,16 @@ export default function SubjectRank() {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => setSubjectRankList(data));
+    .then((response) => {
+      if (response.status === 401)
+        throw new Error("401 error");
+      else 
+        response.json();
+    })
+      .then((data) => setSubjectRankList(data))
+      .catch(()=>{
+        console.log("error");
+      })
   }, []);
 
   return (

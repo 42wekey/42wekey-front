@@ -19,6 +19,9 @@ export default function Login() {
       navigate('/main');
     }
   },[])
+  useEffect(()=>{
+    console.log(123);
+  },[])
 
   return (
     <div className={styles.container}>

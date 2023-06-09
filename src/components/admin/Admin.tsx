@@ -13,7 +13,7 @@ export default function Admin() {
       <Link to={`/admin/create`}>
         <button className={styles.container && styles.btn}>과제 추가하기</button>
       </Link>
-      <AdminList />
+      {/* <AdminList /> */}
     </div>
   );
 }

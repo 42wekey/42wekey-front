@@ -43,7 +43,7 @@ export default function LoginCheck () {
   }, []);
   useEffect(()=> {
     if (localStorage.getItem("42ence-token"))
-    {fetch(`${baseUrl}/user/me`, {
+    {fetch(`${baseUrl}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },

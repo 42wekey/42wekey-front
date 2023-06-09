@@ -12,7 +12,7 @@ interface subject {
 
 export default function AdminEdit() {
   const baseUrl = `${process.env.REACT_APP_END_POINT}`;
-  const [name, setName] = useState("");
+  const [name, setName] = useState("123");
   const [circle, setCircle] = useState("");
   const [info, setInfo] = useState("");
   const [des, setDes] = useState("");
@@ -33,7 +33,10 @@ export default function AdminEdit() {
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     fetch(`${baseUrl}/subjects/${id}/`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         subject_name: name,
         circle: Number(circle),

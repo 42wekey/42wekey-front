@@ -16,6 +16,7 @@ import { Navigate } from 'react-router-dom'
 export default function Main() {
   const [userInfo, setUserInfo] = useRecoilState(profileState)
     const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
   // const [isLogged, setIsLogged] = useState(false);
   // const [userInfo, setUserInfo] = useRecoilState(profileState)
 
@@ -54,7 +55,6 @@ export default function Main() {
       <div className={styles.headLine}>
         <Wekey42 className={styles.logo}/>
         <Link to={`/profile/${userInfo.intra_id}`} className={styles.myProfile}><PermIdentityIcon className={styles.myProfile}/></Link>
-        
       </div>
       {/* <Menu 
       intraId={userInfo.intraId}/> */}
@@ -62,13 +62,13 @@ export default function Main() {
         <UserProfile/>
       </div> */}
       <div className={styles.subjectRank}>
-        <SubjectRank/>
+        {/* <SubjectRank/> */}
         </div>
       <div className={styles.width}>
         <SubjectIndex />
       </div>
       <div className={styles.width}>
-        <RecentComment/>
+        {/* <RecentComment/> */}
       </div>
     </div>
   );
