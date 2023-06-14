@@ -151,7 +151,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
     <div>
       <div className={styles.commentUser}>
         <div>
-          <Link to={`/profile/${comment.intra_id}`} style={{ all: "unset" }}>
+          <Link to={`/profile/${comment.intra_id}`} style={{ all: "unset", cursor: "pointer" }}>
             <span>{comment.intra_id}</span>
           </Link>
           <span className={styles.commentUserBadge}>
@@ -160,7 +160,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
         </div>
         {showCommentEdit && (
           <span
-            className={styles.commentEdditBtn}
+            className={styles.commentEditBtn}
             onClick={() => {
               setModal({
                 modalName: "commentEdit",

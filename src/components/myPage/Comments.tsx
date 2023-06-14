@@ -60,7 +60,7 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
           {comment.intra_id === userState.intra_id || isLikeComment === false ? (
             <button
               style={{"all":"unset"}}
-              className={styles.commentEdditBtn}
+              className={styles.commentEditBtn}
               onClick={() => {
                 setModal({
                   modalName: "commentEdit",

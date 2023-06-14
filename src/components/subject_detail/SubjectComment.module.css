@@ -32,7 +32,6 @@
   all: unset;
   display: inline-block;
   padding: 1rem 0 1rem 2rem;
-
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
@@ -81,10 +80,11 @@
   border-radius: 10px;
 }
 
-.commentEdditBtn {
+.commentEditBtn {
   font-weight: 500;
   font-size: 12px;
   line-height: 21px;
+  cursor: pointer;
   letter-spacing: -0.005em;
   color: #c9c9c9;
 }
@@ -109,6 +109,7 @@
 
 .likeContainer{
   display: flex;
+  cursor: pointer;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;

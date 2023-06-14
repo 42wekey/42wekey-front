@@ -91,9 +91,8 @@ export default function CommentInputModal() {
     setBonus(bonus_data[i].value);
   }
   const onClickSubmit = async () => {
-    
-    try{
-      if (isSubmit) {
+    if (isSubmit) {
+      try{
       await instance.post(`/comments/create?subject-name=${subject_name}`,{
         star_rating: star_rating,
         time_taken: time_taken,
@@ -110,10 +109,14 @@ export default function CommentInputModal() {
           }
       })
       setIsCommentModal({ modalName: null });
-    }}
+    }
     catch {
       console.log ("error");
     }
+  }
+  else {
+        alert("내용을 확인해주세요");
+      }
   };
 
   // const onClickSubmit = () => {
