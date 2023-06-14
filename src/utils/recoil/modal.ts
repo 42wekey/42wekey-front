@@ -4,7 +4,7 @@ import { atom } from "recoil";
 type ModalName = null | `CommentInput` | "CommentEdit";
 
 export interface Comment {
-  id: number;
+  comment_id: number;
   like_num: number;
   intra_id: string;
   circle: number;
