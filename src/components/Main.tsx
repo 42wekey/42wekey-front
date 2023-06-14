@@ -68,7 +68,7 @@ export default function Main() {
         <SubjectIndex />
       </div>
       <div className={styles.width}>
-        {/* <RecentComment/> */}
+        <RecentComment/>
       </div>
     </div>
   );
