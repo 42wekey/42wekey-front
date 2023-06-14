@@ -91,8 +91,8 @@ export default function SubjectWiki(props: propType) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ "content": text, "id": version }),
-    });
-    props.setIsWikiEdit(false);
+    })
+    .then((res)=>props.setIsWikiEdit(false));
   };
 
   const clickCancleButton = () => {

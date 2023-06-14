@@ -1,16 +1,19 @@
-import styles from "./SubjectDetail.module.css";
+import styles from './SubjectDetail.module.css';
 
-import SubjectComment from "./SubjectComment";
-import Menu from "../menu/Menu";
-import { useParams } from "react-router";
-import { useEffect, useState } from "react";
-import SubjectWiki from "./SubjectWiki";
-import SubjectInfo from "./SubjectInfo";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { profileState } from "../../utils/recoil/user";
-import { modal, modalState } from "../../utils/recoil/modal";
-import {} from "./SubjectComment";
-import Analysis from "./SubjectAnalysis";
+import SubjectComment from './SubjectComment';
+import Menu from '../menu/Menu';
+import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
+import SubjectWiki from './SubjectWiki';
+import SubjectInfo from './SubjectInfo';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { profileState } from '../../utils/recoil/user';
+import { modal, modalState } from '../../utils/recoil/modal';
+import {} from './SubjectComment';
+import Analysis from './SubjectAnalysis';
+import { instance } from '../../utils/axios';
+import { errorState } from '../../utils/recoil/error';
+import { redirect, useNavigate } from "react-router";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
@@ -21,13 +24,13 @@ interface wiki {
 export default function SubjectDetail() {
   const [wiki, setWiki] = useState<wiki>();
   const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
-  const [userState, setProfileState] = useRecoilState(profileState);
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
   const [{ modalName }, setModal] = useRecoilState(modal);
-  // const setModal = useSetRecoilState(modal);
-  const [contentState, setContentState] = useState("wiki");
+  const [contentState, setContentState] = useState('wiki');
   const [comment, setComment] = useState([]);
+  const [error, setError] = useRecoilState(errorState);
+  const navigate = useNavigate();
 
   function getMaxScroll() {
     const { scrollHeight, offsetHeight } = document.documentElement;
@@ -40,45 +43,42 @@ export default function SubjectDetail() {
     setScroll(Math.floor(window.scrollY));
   }
 
+  const getWikiContent = async () => {
+    try {
+      const res = await instance.get(`/subjects/${sbj}/wiki`);
+      setWiki(res.data);
+    } catch (e) {
+      setError('123');
+      navigate("/error");
+      console.log('wiki');
+    }
+  };
+
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/${sbj}/wiki`,{
-      headers: {
-      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-    },
-    })
-      .then((res) => res.json())
-      .then((data) => setWiki(data))
-      .catch(()=>{
-        console.log("error");
-      })
+    getWikiContent();
   }, [isWikiEdit]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, [scroll]);
+  const getCommentContent = async () => {
+    try {
+      const res = await instance.get(`/comments/${sbj}`);
+      setComment(res.data);
+    } catch (e) {
+      setError('123');
+      navigate("/error");
+      console.log('comment');
+    }
+  };
 
   useEffect(() => {
-    fetch(`${baseUrl}/comments/${sbj}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setComment(data));
+    getCommentContent();
   }, [modalName]);
 
-  function modalHandler() {
-    setModal({
-      modalName: "commentInput",
-      commentInput: {
-        subjectName: params.sbj_name,
-        circle: parseInt(params.circle),
-      },
-    });
-  }
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [scroll]);
 
   return (
     <div>
@@ -90,23 +90,22 @@ export default function SubjectDetail() {
       </div>
       <div className={styles.headline} />
       <div>
-        {contentState === "wiki" ? (
+        {contentState === 'wiki' ? (
           <div>
             <div className={styles.tab}>
               <div
                 className={styles.tab_select_btn}
-                onClick={() => setContentState("wiki")}
+                onClick={() => setContentState('wiki')}
               >
                 위키42
               </div>
               <div
                 className={styles.tab_btn}
-                onClick={() => setContentState("subject")}
+                onClick={() => setContentState('subject')}
               >
                 과제 후기
               </div>
             </div>
-
             <div className={styles.SubjectWiki}>
               {isWikiEdit ? (
                 <div>
@@ -142,18 +141,18 @@ export default function SubjectDetail() {
             <div className={styles.tab}>
               <div
                 className={styles.tab_btn}
-                onClick={() => setContentState("wiki")}
+                onClick={() => setContentState('wiki')}
               >
                 위키42
               </div>
               <div
                 className={styles.tab_select_btn}
-                onClick={() => setContentState("subject")}
+                onClick={() => setContentState('subject')}
               >
                 과제 후기
               </div>
             </div>
-            <Analysis sbjname={sbj} />
+            {/* <Analysis sbjname={sbj} /> */}
             <div className={styles.headline} />
             <div className={styles.content}>
               <SubjectComment comments={comment} />
@@ -161,7 +160,7 @@ export default function SubjectDetail() {
                 <button
                   onClick={() =>
                     setModal({
-                      modalName: "commentInput",
+                      modalName: 'commentInput',
                       commentInput: {
                         subjectName: params.sbj_name,
                         circle: parseInt(params.circle),

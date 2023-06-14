@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "../subject_detail/SubjectComment.module.css";
-import Comments, { CommentProps } from "./Comments";
+import Comments from "./Comments";
 import { Comment } from "../subject_detail/PrintComment";
 import { useRecoilState } from "recoil";
 import { profileState } from "../../utils/recoil/user";

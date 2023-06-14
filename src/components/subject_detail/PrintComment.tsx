@@ -127,7 +127,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   //};
 
   const clickLikeButton = (commentId?: Number, intraId?: String) => {
-    fetch(`${baseUrl}/like.${commentId}/${intraId}`, {
+    fetch(`${baseUrl}/comments/${commentId}/like`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -239,7 +239,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
       <div className={styles.likeContainer}>
         <button
           className={isLike ? styles.redButton : styles.emptyButton}
-          onClick={() => clickLikeButton(comment.id, userState.intraId)}
+          onClick={() => clickLikeButton(comment.id, userState.intra_id)}
         >
           <Like className={styles.heart} />
         </button>

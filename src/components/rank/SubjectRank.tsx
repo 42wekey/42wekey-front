@@ -1,6 +1,10 @@
 import styles from "./SubjectRank.module.css";
 import { useEffect, useState } from "react";
 import SubjectRankContent from "./SubjectRankContent";
+import { instance } from "../../utils/axios";
+import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router";
+import { errorState } from "../../utils/recoil/error";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -21,6 +25,8 @@ export default function SubjectRank() {
   // const rankList = ["star_rating_rank", "comment_num_rank"];
   const [rankIndex, setRankIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
+  const [error, setError] = useRecoilState(errorState);
+  const navigate = useNavigate();
 
   // function rankIndexPlus() {
   //   if (rankIndex === maxIndex - 1) {
@@ -43,22 +49,28 @@ export default function SubjectRank() {
   }, [subjectRankList]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/rank`, {
+    fetch(`${baseUrl}/subject/rank`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },
     })
-    .then((response) => {
-      if (response.status === 401)
-        throw new Error("401 error");
-      else 
-        response.json();
-    })
-      .then((data) => setSubjectRankList(data))
-      .catch(()=>{
-        console.log("error");
-      })
+      .then((res) => res.json())
+      .then((data) => setSubjectRankList(data));
   }, []);
+
+  const getSubjectRank = async () => {
+    try {
+      const res = await instance.get(`/subject/rank`);
+      setSubjectRankList(res.data);
+    } catch (e) {
+      setError('SubjectRank');
+      navigate("/error");
+    }
+  };
+
+  useEffect(() => {
+    getSubjectRank();
+  }, [error]);
 
   return (
     <div>
