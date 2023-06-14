@@ -15,6 +15,7 @@ import AdminEdit from "./components/admin/AdminEdit";
 import { redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import LoginCheck from "./components/login/LoginCheck";
+import ScrollToTop from "./utils/ScrollToTop";
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
   return (
   <>
     <Router>
+    <ScrollToTop/>
     <Routes>
       <Route path="/" element={<LoginCheck/>} />
       <Route path="/main" element={<Main />} />

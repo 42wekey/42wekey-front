@@ -8,7 +8,8 @@ import { profileState } from "../../utils/recoil/user";
 import { modal } from "../../utils/recoil/modal";
 import { StarRating } from "../../hooks/StarRating";
 import { ReactComponent as Like } from "../../like.svg";
-import { ConvertTime } from "../../hooks/ConvertTime";
+import { instance } from '../../utils/axios';
+import { redirect, useNavigate } from "react-router";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
@@ -93,10 +94,6 @@ interface TextTrunc {
   text: string;
   max_length: number;
 }
-function getTime(targetTime:string) {
-  const time = ConvertTime({title:"", time:targetTime});
-  return time;
-}
 
 const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
@@ -106,6 +103,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
+  const navigate = useNavigate();
   const str = comment.content.replace(/(?:\r\n|\r|\n)/g, '\n');
 
   const text_truncate: React.FC<TextTrunc> = ({ text, max_length }) => {
@@ -132,8 +130,16 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   //  }
   //};
 
-  const clickLikeButton = (commentId?: Number, intraId?: String) => {
-    fetch(`${baseUrl}/comments/${commentId}/like`, {
+  const clickLikeButton = (comment_id?: Number, intraId?: String) => {
+
+    //const getLike = async () => {
+    //  try{
+    //    const res = await instance.get(`/comments/${comment_id}/like`)
+    //  }catch(e){
+    //    navigate("/error");
+    //  }
+    //}
+    fetch(`${baseUrl}/comments/${comment_id}/like`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -174,7 +180,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
         <StarRating star_rating={comment.star_rating} />
         <div>
           <span className={styles.divide}>|</span>
-          <span className={styles.commentTime}>{getTime(comment.update_time)}</span>
+          <span className={styles.commentTime}>{comment.update_time}</span>
         </div>
       </div>
       {/*<div>

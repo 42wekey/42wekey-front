@@ -169,7 +169,7 @@ export default function SubjectDetail() {
                 과제 후기
               </div>
             </div>
-            {/* <Analysis sbjname={sbj} /> */}
+            <Analysis sbjname={sbj} />
             <div className={styles.headline} />
             <div className={styles.content}>
               <SubjectComment comments={comment} />
