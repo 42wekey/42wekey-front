@@ -101,6 +101,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
   const [showEdit, setShowEdit] = useState<Boolean>(false);
   const [isCommentEdit, setIsCommentEdit] = useState<Boolean>(false);
   const [content, setContent] = useState<String>();
+  const str = comment.content.replace(/(?:\r\n|\r|\n)/g, '\n');
 
   const text_truncate: React.FC<TextTrunc> = ({ text, max_length }) => {
     const len = text.length;
@@ -232,9 +233,9 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
         </div>
       </div>
       <div className={styles.commentContent}>
-        {comment.content !== undefined && comment.content.length > 300
-          ? comment.content.slice(0, 300) + "..."
-          : comment.content}
+        {str !== undefined && str.length > 300
+          ? str.slice(0, 300) + "..."
+          : str}
       </div>
       <div className={styles.likeContainer}>
         <button

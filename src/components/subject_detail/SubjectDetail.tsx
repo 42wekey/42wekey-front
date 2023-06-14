@@ -13,7 +13,7 @@ import {} from './SubjectComment';
 import Analysis from './SubjectAnalysis';
 import { instance } from '../../utils/axios';
 import { errorState } from '../../utils/recoil/error';
-import { redirect, useNavigate } from "react-router";
+import { redirect, useNavigate } from 'react-router';
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
@@ -21,9 +21,14 @@ interface wiki {
   content?: string;
 }
 
+interface description {
+  subject_description: string;
+}
+
 export default function SubjectDetail() {
   const [wiki, setWiki] = useState<wiki>();
   const [isWikiEdit, setIsWikiEdit] = useState<Boolean>(false);
+  const [subjectDescription, setSubjectDescription] = useState<description>();
   const [scroll, setScroll] = useState(0);
   const maxScroll = getMaxScroll();
   const [{ modalName }, setModal] = useRecoilState(modal);
@@ -49,7 +54,7 @@ export default function SubjectDetail() {
       setWiki(res.data);
     } catch (e) {
       setError('123');
-      navigate("/error");
+      navigate('/error');
       console.log('wiki');
     }
   };
@@ -64,10 +69,25 @@ export default function SubjectDetail() {
       setComment(res.data);
     } catch (e) {
       setError('123');
-      navigate("/error");
+      navigate('/error');
       console.log('comment');
     }
   };
+
+  const getSubjectDescription = async () => {
+    try {
+      const res = await instance.get(`/subjects/${sbj}/description`);
+      setSubjectDescription(res.data);
+      console.log(subjectDescription);
+    } catch (e) {
+      setError('description error');
+      navigate('/error');
+    }
+  };
+
+  useEffect (() => {
+    getSubjectDescription();
+  }, []);
 
   useEffect(() => {
     getCommentContent();
@@ -82,12 +102,9 @@ export default function SubjectDetail() {
 
   return (
     <div>
-      {/* <Menu menuName={"과제리뷰"} /> */}
+      <Menu menuName={'과제리뷰'} />
       <div className={styles.subtitle}>{params.sbj_name}</div>
-      <div className={styles.SubjectInfo}>
-        해당 과제는 매일 수십억 명의 온라인 사용자를 안전하게 지키고 사용하기
-        쉬운 개인정보 보호 설정을 통해 사용자를 보호하는 과제입니다.
-      </div>
+      <div className={styles.SubjectInfo}>{subjectDescription?.subject_description}</div>
       <div className={styles.headline} />
       <div>
         {contentState === 'wiki' ? (

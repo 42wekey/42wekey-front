@@ -53,6 +53,8 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
           <span className={styles.commentTime}>{comment.update_time}</span>
           {comment.intra_id === userState.intraId || isLikeComment === false ? (
             <button
+              style={{"all":"unset"}}
+              className={styles.commentEdditBtn}
               onClick={() => {
                 setModal({
                   modalName: "commentEdit",

@@ -96,6 +96,7 @@
   line-height: 20px;
   color: #353535;
   word-break:break-all;
+  white-space:pre-line;
 }
 
 .commentTime {
