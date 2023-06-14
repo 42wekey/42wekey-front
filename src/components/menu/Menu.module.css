@@ -12,6 +12,7 @@
 
 .prev_btn{
   position: absolute;
+  cursor:pointer;
   left:15px;
   font-size:18px;
 }

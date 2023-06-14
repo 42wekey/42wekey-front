@@ -21,6 +21,7 @@
 
 .btn {
   position: fixed;
+  cursor: pointer;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -37,6 +38,7 @@
   width: 50%;
   height: 2rem;
   padding-top: 1rem;
+  cursor: pointer;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 600;
@@ -50,6 +52,7 @@
 
 .tab_select_btn {
   width: 50%;
+  cursor: pointer;
   height: 2rem;
   padding-top: 1rem;
   font-family: "Pretendard";

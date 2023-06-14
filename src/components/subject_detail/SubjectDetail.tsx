@@ -55,7 +55,6 @@ export default function SubjectDetail() {
     } catch (e) {
       setError('123');
       navigate('/error');
-      console.log('wiki');
     }
   };
 
@@ -70,7 +69,6 @@ export default function SubjectDetail() {
     } catch (e) {
       setError('123');
       navigate('/error');
-      console.log('comment');
     }
   };
 

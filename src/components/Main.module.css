@@ -41,6 +41,7 @@
     all: unset;
     margin-top: 2px;
     margin-left: auto;
+    cursor: pointer;
     width: 28px;
     height: 28px;
 }
