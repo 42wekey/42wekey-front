@@ -2,6 +2,8 @@ import styles from "./SubjectIndex.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { instance } from "../../utils/axios";
+import { useRecoilState } from "recoil";
+import { errorState } from "../../utils/recoil/error";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -18,6 +20,7 @@ export default function PdfIndex() {
   const [circle, setCircle] = useState<Number>(0);
   const [subjectList, setSubjectList] = useState<SubjectList[]>([]);
   const [selectCircle, setSelectCircle] = useState(0);
+  const [error, setError] = useRecoilState(errorState);
 
   useEffect(() => {
     getSubjectList();
@@ -31,16 +34,14 @@ export default function PdfIndex() {
   }, []);
 
   const getSubjectList = async () => {
-    try {
-      console.log("1234");
-      console.log((await instance.get(`/subjects/list`)).data);
+    try
+    {
       const res = await instance.get(`/subjects/list`)
-      // console.log("123");
       setSubjectList(res.data)
-      console.log(res.data);
     }
     catch(e) {
-      console.log("error")
+      setError('error');
+      console.log("error");
     }
   }
 

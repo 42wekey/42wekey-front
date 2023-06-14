@@ -35,7 +35,6 @@ const App = () => {
       })
         .then((res) => res.json())
         .then((data) => setUserInfo(data));
-        console.log(userInfo.level)
     }
   ,[])
 
@@ -53,6 +52,7 @@ const App = () => {
       <Route path="/admin/:sbj_name" element={<AdminEdit />}></Route>
       <Route path="/admin/create" element={<AdminCreate/>} />
       <Route path="/*" element={<Empty/>} />
+      <Route path="/error" element={<Empty/>} />
     </Routes>
     </Router>
     <Modal/>

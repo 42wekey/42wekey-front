@@ -23,7 +23,7 @@ export default function SubjectComment({ comments }: commentList) {
   document.cookie = "key=value; expires=expiration_time; path=/";
 
   function checkCommentEdit(comment:Comment){
-    if (userState.intraId === comment.intra_id)
+    if (userState.intra_id === comment.intra_id)
       return true;
     else
       return false;

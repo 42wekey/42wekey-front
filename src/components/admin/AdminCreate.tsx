@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { instance } from "../../utils/axios";
 import styles from "./Admin.module.css";
 
 export default function AdminCreate() {
@@ -6,26 +7,26 @@ export default function AdminCreate() {
   const [circle, setCircle] = useState("");
   const [info, setInfo] = useState("");
   const [des, setDes] = useState("");
-  const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
-  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    fetch(`${baseUrl}/admin/subject/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("42ence-token")}` },
-      body: JSON.stringify({
-        "name": name,
+  const onClick = async () => {
+    try{
+      await instance.post(`/admin/subject/create`,{
+        "subject_name": name,
         "circle": Number(circle),
         "subject_info": info,
         "description": des,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        alert("추가되었습니다.");
-        document.body.style.overflow = "unset";
-      }
-    });
+      })
+      .then(function(response){
+        if (response.status)
+          {
+            alert("추가되었습니다.");
+            document.body.style.overflow = "unset";
+          }
+      })
+    }
+    catch {
+      console.log ("error");
+    }
   };
 
   return (
