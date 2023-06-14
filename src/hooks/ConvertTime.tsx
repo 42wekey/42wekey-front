@@ -1,13 +1,11 @@
-import moment from "moment";
-import { useEffect } from "react";
-
+import moment from "moment-timezone";
 interface Time {
   title: string;
   time: string;
 }
 
 export function ConvertTime(isoTime: Time) {
-  const now = moment();
+  const now = moment().subtract(9,"h");
   const time = moment(isoTime.time);
   let diffMinutes = now.diff(time, "minutes");
 
