@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { useRecoilState } from "recoil";
-import { profileState } from "../../utils/recoil/user";
-import styles from "./MyPage.module.css";
-import Menu from "../menu/Menu";
-import WriteableList from "./WriteableList";
-import CommentList from "./CommentList";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { useRecoilState } from 'recoil';
+import { profileState } from '../../utils/recoil/user';
+import styles from './MyPage.module.css';
+import Menu from '../menu/Menu';
+import WriteableList from './WriteableList';
+import CommentList from './CommentList';
+import { instance } from '../../utils/axios';
+import { redirect, useNavigate } from "react-router";
 
 interface Profile {
   user_level: number;
@@ -15,7 +17,7 @@ interface Profile {
 
 export default function MyComment() {
   const [userState, setProfileState] = useRecoilState(profileState);
-  const [contentState, setContentState] = useState<string>("writeableComment");
+  const [contentState, setContentState] = useState<string>('writeableComment');
   const [profileUser, setProfileUser] = useState<any>({});
   const [myComments, setMyComments] = useState([]);
   const [likeComments, setLikeComments] = useState([]);
@@ -23,47 +25,34 @@ export default function MyComment() {
   const [unreviewedNumber, setUnreviewedNumber] = useState(0);
   const params = useParams() as { profile: string; intraId: string };
   const intraId = params.intraId;
+  const navigate = useNavigate();
 
-  const menuName = userState.intra_id === intraId ? "마이페이지" : "프로필";
+  const menuName = userState.intra_id === intraId ? '마이페이지' : '프로필';
 
-  const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+  //const baseUrl = `${process.env.REACT_APP_END_POINT}`;
+
+  const getAll = async () => {
+    try {
+      let res = await instance.get(`/users/${intraId}/info`);
+      setProfileUser(res.data);
+      console.log(profileUser);
+      res = await instance.get(`/users/${intraId}/comments`);
+      setMyComments(res.data);
+      console.log(myComments);
+      res = await instance.get(`/users/me/likes`);
+      setLikeComments(res.data);
+      console.log(likeComments);
+      res = await instance.get(`/users/${intraId}/unreviewed`);
+      setUnreviewed(res.data);
+      console.log(unreviewed);
+    } catch (e) {
+      //navigate("/error");
+      console.log('error');
+    }
+  };
 
   useEffect(() => {
-    fetch(`${baseUrl}/users/${intraId}/info`,{
-      headers: {
-      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-    },
-    })
-      .then((res) => res.json())
-      .then((data) => setProfileUser(data));
-      fetch(`${baseUrl}/users/${intraId}/comments`,{
-        headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-      },
-      })
-      .then((res) => res.json())
-      .then((data) => setMyComments(data));
-      fetch(`${baseUrl}/users/me/like`,{
-        headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-      },
-      })
-      .then((res) => res.json())
-      .then((data) => setLikeComments(data));
-      fetch(`${baseUrl}/users/${intraId}/unreviewed`,{
-        headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-      },
-      })
-      .then((res) => res.json())
-      .then((data) => setUnreviewed(data));
-      fetch(`${baseUrl}/users/me/reviewed`,{
-        headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-      },
-      })
-      .then((res) => res.json())
-      .then((data) => setUnreviewed(data));
+    getAll();
   }, []);
 
   useEffect(() => {
@@ -72,7 +61,7 @@ export default function MyComment() {
   }, [unreviewed]);
 
   const onClick = () => {
-    console.log("로그아웃");
+    console.log('로그아웃');
   };
 
   const UserState = () => (
@@ -94,11 +83,19 @@ export default function MyComment() {
         <div className={styles.avg_title}>작성 가능한 리뷰</div>
       </div>
       <div className={styles.avg_box}>
-        <div className={styles.avg_number}>{profileUser.my_comment_num}</div>
+        <div className={styles.avg_number}>
+          {profileUser.cnt_comment
+            ? profileUser.cnt_comment
+            : 0}
+        </div>
         <div className={styles.avg_title}>내 리뷰</div>
       </div>
       <div className={styles.avg_box}>
-        <div className={styles.avg_number}>{profileUser.recommend_comment}</div>
+        <div className={styles.avg_number}>
+          {profileUser.cnt_likes
+            ? profileUser.cnt_likes
+            : 0}
+        </div>
         <div className={styles.avg_title}>좋아요한 리뷰</div>
       </div>
     </div>
@@ -106,37 +103,41 @@ export default function MyComment() {
 
   return (
     <div className={styles.containerMain}>
-      <Menu menuName={menuName}  />
+      <Menu menuName={menuName} />
       <div className={styles.container}>
         <UserState />
-        {menuName === "마이페이지" && <MyPageAvg />}
+        {menuName === '마이페이지' && <MyPageAvg />}
       </div>
       <div className={styles.tab}>
         <button
-          onClick={() => setContentState("writeableComment")}
+          onClick={() => setContentState('writeableComment')}
           className={
-            contentState === "writeableComment"
+            contentState === 'writeableComment'
               ? styles.tabBtn
               : styles.tabBtnNo
           }
         >
-          {userState.intra_id === intraId ? "작성 가능한 리뷰" : "완료한 과제"}
+          {userState.intra_id === intraId ? '작성 가능한 리뷰' : '완료한 과제'}
         </button>
         <button
-          onClick={() => setContentState("myComment")}
+          onClick={() => setContentState('myComment')}
           className={
-            contentState === "myComment" ? styles.tabBtn : styles.tabBtnNo
+            contentState === 'myComment' ? styles.tabBtn : styles.tabBtnNo
           }
         >
-          {menuName === "마이페이지"
-            ? "내가 작성한 리뷰"
-            : `작성한 리뷰 ${profileUser.my_comment_num}`}
+          {menuName === '마이페이지'
+            ? '내가 작성한 리뷰'
+            : `작성한 리뷰 ${
+                profileUser.cnt_comment
+                  ? profileUser.cnt_comment
+                  : 0
+              }`}
         </button>
-        {menuName === "마이페이지" && (
+        {menuName === '마이페이지' && (
           <button
-            onClick={() => setContentState("likeComment")}
+            onClick={() => setContentState('likeComment')}
             className={
-              contentState === "likeComment" ? styles.tabBtn : styles.tabBtnNo
+              contentState === 'likeComment' ? styles.tabBtn : styles.tabBtnNo
             }
           >
             좋아요한 리뷰
@@ -144,13 +145,13 @@ export default function MyComment() {
         )}
       </div>
       <div className={styles.contentBox}>
-        {contentState === "writeableComment" && (
+        {contentState === 'writeableComment' && (
           <WriteableList subject={unreviewed} intra_id={intraId} />
         )}
-        {contentState === "myComment" && (
+        {contentState === 'myComment' && (
           <CommentList comments={myComments} isLikeComment={false} />
         )}
-        {contentState === "likeComment" && menuName === "마이페이지" && (
+        {contentState === 'likeComment' && menuName === '마이페이지' && (
           <CommentList comments={likeComments} isLikeComment={true} />
         )}
       </div>

@@ -21,7 +21,7 @@ export default function WriteableList({ subject, intra_id }: SubjectList) {
       {subject.map((data, index) => (
         <div key={index} className={styles.container}>
           <div className={styles.sbj}>{data.subject_name}</div>
-          {userState.intraId === intra_id &&
+          {userState.intra_id === intra_id &&
             <Link
               to={`/${data.circle}_circle/${data.subject_name}`}
               className={styles.badge}
