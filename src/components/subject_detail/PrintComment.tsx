@@ -8,6 +8,7 @@ import { profileState } from "../../utils/recoil/user";
 import { modal } from "../../utils/recoil/modal";
 import { StarRating } from "../../hooks/StarRating";
 import { ReactComponent as Like } from "../../like.svg";
+import { ConvertTime } from "../../hooks/ConvertTime";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface intraId {
@@ -67,7 +68,7 @@ export function convertBonus(input: string): string {
 }
 
 export interface Comment {
-  id: number;
+  comment_id: number;
   like_num: number;
   intra_id: string;
   circle: number;
@@ -91,6 +92,10 @@ export interface CommentProps {
 interface TextTrunc {
   text: string;
   max_length: number;
+}
+function getTime(targetTime:string) {
+  const time = ConvertTime({title:"", time:targetTime});
+  return time;
 }
 
 const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
@@ -169,7 +174,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
         <StarRating star_rating={comment.star_rating} />
         <div>
           <span className={styles.divide}>|</span>
-          <span className={styles.commentTime}>{comment.update_time}</span>
+          <span className={styles.commentTime}>{getTime(comment.update_time)}</span>
         </div>
       </div>
       {/*<div>
@@ -240,7 +245,7 @@ const PrintComment = ({ comment, showCommentEdit }: CommentProps) => {
       <div className={styles.likeContainer}>
         <button
           className={isLike ? styles.redButton : styles.emptyButton}
-          onClick={() => clickLikeButton(comment.id, userState.intra_id)}
+          onClick={() => clickLikeButton(comment.comment_id, userState.intra_id)}
         >
           <Like className={styles.heart} />
         </button>
