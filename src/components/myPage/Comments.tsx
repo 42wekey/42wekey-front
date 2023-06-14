@@ -13,6 +13,7 @@ import { profileState } from "../../utils/recoil/user";
 import { StarRating } from "../../hooks/StarRating";
 import Modal from "../modal/Modal";
 import { modal } from "../../utils/recoil/modal";
+import { ConvertTime } from "../../hooks/ConvertTime";
 
 export interface CommentProps {
   comment: Comment;
@@ -38,6 +39,11 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
     setIsLike((isLike) => !isLike);
   };
 
+  function getTime(targetTime:string) {
+    const time = ConvertTime({title:"", time:targetTime});
+    return time;
+  }
+
   return (
     <div>
       <div className={styles.commentUser}>{comment.subject_name}</div>
@@ -50,8 +56,8 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
             <span className={styles_star.star_rating}>{comment.intra_id}</span>
           )}
           {isLikeComment && <span className={styles_star.divide}>|</span>}
-          <span className={styles.commentTime}>{comment.update_time}</span>
-          {comment.intra_id === userState.intraId || isLikeComment === false ? (
+          <span className={styles.commentTime}>{getTime(comment.update_time)}</span>
+          {comment.intra_id === userState.intra_id || isLikeComment === false ? (
             <button
               style={{"all":"unset"}}
               className={styles.commentEdditBtn}
