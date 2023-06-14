@@ -15,7 +15,7 @@ export default function AdminList() {
   const [sbj, setSbj] = useState<sbj[]>([]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/`)
+    fetch(`${baseUrl}/admin/subject`)
       .then((res) => res.json())
       .then((data) => setSbj(data));
   }, [sbj]);
