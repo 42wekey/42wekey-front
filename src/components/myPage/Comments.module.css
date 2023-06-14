@@ -29,3 +29,23 @@
   line-height: 13px;
   color: #666666;
 }
+
+.commentEditBtn {
+	all:unset;
+	width: 9rem;
+	height: 2rem;
+
+	text-align: center;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 30px;
+
+	color: white;
+	background-color: #396FF9;
+	border-radius: 50px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 21px;
+	letter-spacing: -0.005em;
+	color: #c9c9c9;
+  }
