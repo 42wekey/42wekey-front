@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import ClearIcon from "@mui/icons-material/Clear";
 import { modal, modalState } from "../../utils/recoil/modal";
 import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
+import { instance } from "../../utils/axios";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -21,6 +22,7 @@ export default function CommentInputModal() {
   const [isSubmit, setIsSubmit] = useState<Boolean>(false);
   const [isCommentModal, setIsCommentModal] = useRecoilState(modal);
   const [rate, setRate] = useState<number>(0);
+  const subject_name = isCommentModal.commentInput?.subjectName
 
   const time_taken_data = [
     { id: 0, content: "일주일 이하", value: "a_week" },
@@ -88,34 +90,59 @@ export default function CommentInputModal() {
   function handleChangeBonus(i: number) {
     setBonus(bonus_data[i].value);
   }
-
-  const onClickSubmit = () => {
-    if (isSubmit) {
-      fetch(`${baseUrl}/comments/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          intraid: "sooyang",
-          sbj_name: isCommentModal.commentInput?.subjectName,
-          star_rating,
-          time_taken,
-          difficulty,
-          amount_study,
-          bonus,
-          content,
-        }),
-      }).then((res) => {
-        if (res.ok) {
-          alert("후기가 작성되었습니다.");
-          document.body.style.overflow = "unset";
-          // history.push("/");
-        }
-      });
+  const onClickSubmit = async () => {
+    
+    try{
+      if (isSubmit) {
+      await instance.post(`/comments/create?subject-name=${subject_name}`,{
+        star_rating: star_rating,
+        time_taken: time_taken,
+        difficulty: difficulty,
+        amount_study: amount_study,
+        bonus: bonus,
+        content: content,
+      },)
+      .then(function(response){
+        if (response.status)
+          {
+            alert("후기가 작성되었습니다.");
+            document.body.style.overflow = "unset";
+          }
+      })
       setIsCommentModal({ modalName: null });
-    } else {
-      alert("내용을 확인해주세요");
+    }}
+    catch {
+      console.log ("error");
     }
   };
+
+  // const onClickSubmit = () => {
+  //   if (isSubmit) {
+  //     fetch(`${baseUrl}/comments/`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({
+  //         intraid: "sooyang",
+  //         sbj_name: isCommentModal.commentInput?.subjectName,
+  //         star_rating,
+  //         time_taken,
+  //         difficulty,
+  //         amount_study,
+  //         bonus,
+  //         content,
+  //       }),
+  //     }).then((res) => {
+  //       if (res.ok) {
+  //         alert("후기가 작성되었습니다.");
+  //         document.body.style.overflow = "unset";
+  //         // history.push("/");
+  //       }
+  //     });
+  //     setIsCommentModal({ modalName: null });
+  //   } else {
+  //     alert("내용을 확인해주세요");
+  //   }
+  // };
 
   function onCancleButton() {
     document.body.style.overflow = "unset";
