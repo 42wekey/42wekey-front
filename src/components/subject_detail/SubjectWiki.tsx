@@ -5,7 +5,10 @@ import styles from "./SubjectWiki.module.css";
 import { Button } from "@mui/material";
 import dummy from "../../db/data.json";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { instance } from "../../utils/axios";
+import { useRecoilState } from "recoil";
+import { errorState } from "../../utils/recoil/error";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -68,7 +71,7 @@ const modules = {
 
 interface propType {
   setIsWikiEdit: React.Dispatch<React.SetStateAction<Boolean>>;
-  content?: string;
+  content: string;
   id?: number;
 }
 
@@ -83,6 +86,8 @@ export default function SubjectWiki(props: propType) {
   const params = useParams() as { circle: string; sbj_name: string }; //params  = {subject : sbj_name}
   const sbj: string = params.sbj_name;
   const [wikiContent, setWikiContent] = useState(props.content);
+  const [error, setError] = useRecoilState(errorState);
+  const navigate = useNavigate();
   const clickEditButton = (text?: string, version?: number) => {
     fetch(`${baseUrl}/subjects/${sbj}/wiki`, {
       method: "POST",
@@ -99,15 +104,26 @@ export default function SubjectWiki(props: propType) {
     props.setIsWikiEdit(false);
   };
 
+  const getWikiContent = async () => {
+    try {
+      const res = await instance.get(`/subjects/${sbj}/wiki`);
+      setWiki(res.data);
+    } catch (e) {
+      setError('123');
+      navigate('/error');
+    }
+  };
+
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/${sbj}/wiki`,{
-      headers: {
-      Authorization: `Bearer ${localStorage.getItem("42ence-token")}`
-    },
-    })
-      .then((res) => res.json())
-      .then((data) => setWiki(data));
+    getWikiContent();
   }, []);
+
+  useEffect(() => {
+    if (wiki?.content) {
+      setWikiContent(wiki.content);
+    }
+  }, [wiki]);
+
   return (
     <div>
       <div className={styles.wiki}>
@@ -115,7 +131,8 @@ export default function SubjectWiki(props: propType) {
           <ReactQuill
             modules={modules}
             className={styles.SubjectWiki}
-            defaultValue={props.content}
+            value={wikiContent}
+            defaultValue={wikiContent}
             onChange={setWikiContent}
             theme="snow"
           />
