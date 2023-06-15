@@ -1,17 +1,32 @@
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { modal, modalState } from "../../utils/recoil/modal";
-import CommentInput from "../subject_detail/comment_input/CommentInput";
-import CommentInputModal from "./CommentInputModal";
-import CommentEditModal from "./CommentEditModal";
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { modal, modalState } from '../../utils/recoil/modal';
+import CommentInput from '../subject_detail/comment_input/CommentInput';
+import CommentInputModal from './CommentInputModal';
+import CommentEditModal from './CommentEditModal';
 
 export default function Modal() {
   const [{ modalName, commentInput, commentEdit }, setModal] =
     useRecoilState(modal);
   const content: { [key: string]: JSX.Element | null } = {
     commentInput: <CommentInputModal />,
-    commentEdit: <CommentEditModal />
+    commentEdit: <CommentEditModal />,
   };
+
+  useEffect(() => {
+    const handleBackButton = () => {
+      if (modalName !== '') {
+        setModal({ modalName: '' });
+        document.body.style.overflow = 'unset';
+      }
+    };
+
+    window.addEventListener('popstate', handleBackButton);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
 
   return modalName ? <div>{content[modalName]}</div> : <></>;
 }

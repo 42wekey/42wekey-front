@@ -1,10 +1,14 @@
-import { Chip, Rating } from "@mui/material";
-import { useState, useEffect } from "react";
-import Graph from "./graph/Graph";
-import styles from "./SubjectAnalysis.module.css";
-import SubjectDetailAvg from "./SubjectDetailAvg";
-import StarIcon from "../../../images/StarIcon.svg";
-import { StarRating } from "../../hooks/StarRating";
+import { Chip, Rating } from '@mui/material';
+import { useState, useEffect } from 'react';
+import Graph from './graph/Graph';
+import styles from './SubjectAnalysis.module.css';
+import SubjectDetailAvg from './SubjectDetailAvg';
+import StarIcon from '../../../images/StarIcon.svg';
+import { StarRating } from '../../hooks/StarRating';
+import { instance } from '../../utils/axios';
+import { useRecoilState } from 'recoil';
+import { errorState } from '../../utils/recoil/error';
+import { useNavigate } from 'react-router';
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface subject {
@@ -12,7 +16,7 @@ interface subject {
 }
 
 interface sbjAvg {
-  comment_num: number;
+  comment_cnt: number;
   avg_star_rating: number;
   total_star_rating: number[];
   time_taken?: { title: string; value: number; detail: number[] };
@@ -21,24 +25,39 @@ interface sbjAvg {
   difficulty?: { title: string; value: number; detail: number[] };
 }
 
+// total_star_rating":[0,0,2,0,2]
 export default function Analysis({ sbjname }: subject) {
   const [sbjAvg, setSbjAvg] = useState<sbjAvg>();
   const total = [5, 4, 3, 2, 1];
+  const [error, setError] = useRecoilState(errorState);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${baseUrl}/subjects/${sbjname}/rating`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setSbjAvg(data));
+    getSbjAvg();
   }, []);
+
+  const getSbjAvg = async () => {
+    try {
+      const res = await instance.get(`/subjects/${sbjname}/rating`);
+      setSbjAvg(res.data);
+    } catch (e) {
+      setError('123');
+      navigate('/error');
+    }
+  };
+
+  function getPercentage(num1: number, num2: number) {
+    const ret: Number = (num1 / num2) * 100;
+    if (num2 === 0)
+      return (0);
+    console.log(num1, num2);
+    return ret;
+  }
 
   return (
     sbjAvg && (
       <div className={styles.container}>
-        <div className={styles.review}>리뷰 ({sbjAvg?.comment_num})</div>
+        <div className={styles.review}>리뷰 ({sbjAvg?.comment_cnt})</div>
         <div className={styles.flex}>
           <div className={styles.flexItem}>
             <div className={styles.borderRight}>
@@ -58,16 +77,25 @@ export default function Analysis({ sbjname }: subject) {
                     style={{
                       width: `${
                         (sbjAvg.total_star_rating[value - 1] /
-                          sbjAvg.comment_num) *
+                          sbjAvg.comment_cnt) *
                         100
                       }%`,
                     }}
                   />
                 </div>
-                <span className={styles.smallFont}>{`${
-                  (sbjAvg?.total_star_rating[value - 1] / sbjAvg?.comment_num) *
-                  100
-                }%`}</span>
+                <span className={styles.smallFont}>
+                  <>
+                    {
+                      getPercentage(
+                        sbjAvg.total_star_rating[value - 1],
+                        sbjAvg.comment_cnt
+                      )
+                      // (sbjAvg.total_star_rating[value - 1] / sbjAvg.comment_cnt) *
+                      // 100
+                    }
+                    %
+                  </>
+                </span>
               </div>
             ))}
           </div>
@@ -75,7 +103,7 @@ export default function Analysis({ sbjname }: subject) {
         <div className={styles.avg_container}>
           {sbjAvg.time_taken !== undefined && (
             <SubjectDetailAvg
-              name="소요시간"
+              name='소요시간'
               detail_title={`${sbjAvg?.time_taken?.title}`}
               detail_value={parseInt(`${sbjAvg?.time_taken?.value}`)}
               detail={sbjAvg?.time_taken?.detail}
@@ -83,7 +111,7 @@ export default function Analysis({ sbjname }: subject) {
           )}
           {sbjAvg.difficulty !== undefined && (
             <SubjectDetailAvg
-              name="난이도"
+              name='난이도'
               detail_title={`${sbjAvg?.difficulty?.title}`}
               detail_value={parseInt(`${sbjAvg?.difficulty?.value}`)}
               detail={sbjAvg.difficulty.detail}
@@ -91,7 +119,7 @@ export default function Analysis({ sbjname }: subject) {
           )}
           {sbjAvg.amount_study !== undefined && (
             <SubjectDetailAvg
-              name="학습량"
+              name='학습량'
               detail_title={`${sbjAvg?.amount_study?.title}`}
               detail_value={parseInt(`${sbjAvg?.amount_study?.value}`)}
               detail={sbjAvg?.amount_study?.detail}
@@ -99,7 +127,7 @@ export default function Analysis({ sbjname }: subject) {
           )}
           {sbjAvg.bonus !== undefined && (
             <SubjectDetailAvg
-              name="보너스"
+              name='보너스'
               detail_title={`${sbjAvg.bonus.title}`}
               detail_value={parseInt(`${sbjAvg.bonus.value}`)}
               detail={sbjAvg.bonus.detail}
