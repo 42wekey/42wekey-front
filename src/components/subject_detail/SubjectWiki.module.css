@@ -49,3 +49,17 @@ body {
   height: 5rem;
   margin: 20px;
 }
+
+.limitWord {
+  width: 96%;
+  height: 2rem;
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -1.6rem;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #C6C6C6;
+}

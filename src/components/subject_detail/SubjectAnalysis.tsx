@@ -50,7 +50,6 @@ export default function Analysis({ sbjname }: subject) {
     const ret: Number = (num1 / num2) * 100;
     if (num2 === 0)
       return (0);
-    console.log(num1, num2);
     return ret;
   }
 
@@ -63,7 +62,7 @@ export default function Analysis({ sbjname }: subject) {
             <div className={styles.borderRight}>
               <div
                 className={styles.ratingStr}
-              >{`${sbjAvg?.avg_star_rating}`}</div>
+              >{`${sbjAvg?.avg_star_rating.toFixed(2)}`}</div>
               <StarRating star_rating={sbjAvg.avg_star_rating} />
             </div>
           </div>

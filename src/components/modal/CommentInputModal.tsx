@@ -118,6 +118,7 @@ export default function CommentInputModal() {
         alert("내용을 확인해주세요");
       }
   };
+  
 
   // const onClickSubmit = () => {
   //   if (isSubmit) {
