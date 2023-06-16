@@ -55,7 +55,7 @@ export default function Analysis({ sbjname }: subject) {
   }
 
   return (
-    sbjAvg && (
+    sbjAvg ? (
       <div className={styles.container}>
         <div className={styles.review}>리뷰 ({sbjAvg?.comment_cnt})</div>
         <div className={styles.flex}>
@@ -135,6 +135,6 @@ export default function Analysis({ sbjname }: subject) {
           )}
         </div>
       </div>
-    )
+    ) : <div></div>
   );
 }
