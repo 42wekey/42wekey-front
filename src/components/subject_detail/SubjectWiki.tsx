@@ -71,7 +71,7 @@ const modules = {
 
 interface propType {
   setIsWikiEdit: React.Dispatch<React.SetStateAction<Boolean>>;
-  content: string;
+  content?: string;
   id?: number;
 }
 
@@ -88,17 +88,37 @@ export default function SubjectWiki(props: propType) {
   const [wikiContent, setWikiContent] = useState(props.content);
   const [error, setError] = useRecoilState(errorState);
   const navigate = useNavigate();
-  const clickEditButton = (text?: string, version?: number) => {
-    fetch(`${baseUrl}/subjects/${sbj}/wiki`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ "content": text, "id": version }),
-    })
-    .then((res)=>props.setIsWikiEdit(false));
+
+  const clickEditButton = async (text?: string, version?: number) => {
+    try{
+      await instance.post(`/subjects/${sbj}/wiki`,{
+        content: text,
+        id: version
+      },)
+      .then(function(response){
+        if (response.status)
+          {
+            alert("수정이 완료되었습니다.");
+            props.setIsWikiEdit(false);
+          }
+      })
+    }
+    catch {
+      alert("수정에 실패하였습니다.\n수정 내용을 복사하시고 새로 고침 후 다시 시도 해주세요.");
+    }
   };
+
+  // const clickEditButton = (text?: string, version?: number) => {
+  //   fetch(`${baseUrl}/subjects/${sbj}/wiki`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ "content": text, "id": version }),
+  //   })
+  //   .then((res)=>props.setIsWikiEdit(false));
+  // };
 
   const clickCancleButton = () => {
     props.setIsWikiEdit(false);

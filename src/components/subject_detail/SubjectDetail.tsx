@@ -18,7 +18,7 @@ import { redirect, useNavigate } from 'react-router';
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
   id?: number;
-  content?: string;
+  content: string;
 }
 
 interface description {
@@ -116,7 +116,7 @@ export default function SubjectDetail() {
               </div>
               <div
                 className={styles.tab_btn}
-                onClick={() => setContentState('subject')}
+                onClick={() => {setContentState('subject'); setIsWikiEdit(false);}}
               >
                 과제 후기
               </div>

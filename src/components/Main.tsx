@@ -48,6 +48,7 @@ export default function Main() {
 //   }, []);
 
 
+
   return (
     // Link to={`/${value.circle}_circle/${value.subject_name}`} className={styles.subjectCircle}>
     <div className={styles.container}>
