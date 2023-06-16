@@ -70,10 +70,10 @@ export default function SubjectDetailAvg({
                 className={maxValue===value?styles.graph_pull_max:styles.graph_pull}
                 style={{ width: `${value}%` }}
               >
-                {value}%
+                {value.toFixed(1)}%
               </div>
               <div className={maxValue===value?styles.graphFontMax:styles.graphFont}>
-                {value}%
+                {value.toFixed(1)}%
               </div>
             </div>
           ))}
