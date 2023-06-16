@@ -1,0 +1,26 @@
+.container{
+	width: 100%;
+	height: 4rem;
+	display: flex;
+	flex-direction: row;
+	align-items:flex-end;
+	justify-content: center;
+	opacity: 30%;
+}
+
+.img{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.text{
+	display: inline-block;
+	text-decoration: none;
+	font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #353535;
+    word-wrap: break-word;
+}

@@ -11,6 +11,7 @@ import { ReactComponent as Wekey42 } from "./42wekey.svg";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { Link } from "react-router-dom";
 import { Navigate } from 'react-router-dom'
+import Footer from "./menu/Footer";
 
 
 export default function Main() {
@@ -71,6 +72,7 @@ export default function Main() {
       <div className={styles.width}>
         <RecentComment/>
       </div>
+      <Footer/>
     </div>
   );
 }
