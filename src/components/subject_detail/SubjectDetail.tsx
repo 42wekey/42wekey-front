@@ -14,6 +14,7 @@ import Analysis from './SubjectAnalysis';
 import { instance } from '../../utils/axios';
 import { errorState } from '../../utils/recoil/error';
 import { redirect, useNavigate } from 'react-router';
+import { Comment } from './PrintComment';
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 interface wiki {
@@ -33,7 +34,7 @@ export default function SubjectDetail() {
   const maxScroll = getMaxScroll();
   const [{ modalName }, setModal] = useRecoilState(modal);
   const [contentState, setContentState] = useState('wiki');
-  const [comment, setComment] = useState([]);
+  const [comment, setComment] = useState<Comment[]>([]);
   const [error, setError] = useRecoilState(errorState);
   const navigate = useNavigate();
 
