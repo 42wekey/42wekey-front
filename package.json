@@ -25,11 +25,14 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.6",
-    "web-vitals": "^2.1.4"
+    "vi": "^1.0.0",
+    "vim": "^0.1.0",
+    "web-vitals": "^2.1.4",
+    "xsel": "^1.0.0"
   },
   "scripts": {
-    "start": "env-cmd -f .env.development react-scripts start",
-    "build": "env-cmd -f .env.production react-scripts build",
+    "start": "export PORT=8080 && env-cmd -f .env.development react-scripts start",
+    "build": "export PORT=8080 && env-cmd -f .env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
