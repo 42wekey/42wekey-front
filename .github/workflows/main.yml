@@ -24,5 +24,7 @@ jobs:
           username: ${{ secrets.USER }}
           script: |
             cd git/42ence-front
+            git reset --hard
+            git fetch
             git pull
             pm2 restart npm
