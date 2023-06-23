@@ -64,7 +64,7 @@ export default function Main() {
         <UserProfile/>
       </div> */}
       <div className={styles.subjectRank}>
-        {/* <SubjectRank/> */}
+        <SubjectRank/>
         </div>
       <div className={styles.width}>
         <SubjectIndex />

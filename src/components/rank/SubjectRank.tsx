@@ -49,7 +49,7 @@ export default function SubjectRank() {
   }, [subjectRankList]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/subject/rank`, {
+    fetch(`${baseUrl}/subjects/rank`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
       },
@@ -60,7 +60,7 @@ export default function SubjectRank() {
 
   const getSubjectRank = async () => {
     try {
-      const res = await instance.get(`/subject/rank`);
+      const res = await instance.get(`/subjects/rank`);
       setSubjectRankList(res.data);
     } catch (e) {
       setError('SubjectRank');
