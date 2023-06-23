@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { instance } from "../../utils/axios";
+import { Navigate, useNavigate } from "react-router";
 import styles from "./Admin.module.css";
 
 export default function AdminCreate() {
@@ -7,10 +8,12 @@ export default function AdminCreate() {
   const [circle, setCircle] = useState("");
   const [info, setInfo] = useState("");
   const [des, setDes] = useState("");
+  const navigate = useNavigate();
+
 
   const onClick = async () => {
     try{
-      await instance.post(`/admin/subject/create`,{
+      await instance.post(`/admin/subjects/create`,{
         "subject_name": name,
         "circle": Number(circle),
         "subject_info": info,
@@ -21,6 +24,7 @@ export default function AdminCreate() {
           {
             alert("추가되었습니다.");
             document.body.style.overflow = "unset";
+            navigate("/admin");
           }
       })
     }
