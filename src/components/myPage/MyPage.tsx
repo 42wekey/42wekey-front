@@ -71,7 +71,7 @@ export default function MyComment() {
         <span className={styles.userLevel}>레벨{profileUser.user_level}</span>
       </div>
       <div>
-        <span className={styles.userUpdate}>회원정보 업데이트</span>
+      {userState.intra_id === intraId ?(<span className={styles.userUpdate}>회원정보 업데이트</span>):(null)}
       </div>
     </div>
   );
@@ -155,9 +155,10 @@ export default function MyComment() {
           <CommentList comments={likeComments} isLikeComment={true} />
         )}
       </div>
-      <div className={styles.logout} onClick={onClick}>
-        로그아웃
-      </div>
+      {userState.intra_id === intraId ? (<div className={styles.logout} onClick={onClick}>
+          로그아웃
+      </div>):(null)
+      }
     </div>
   );
 }

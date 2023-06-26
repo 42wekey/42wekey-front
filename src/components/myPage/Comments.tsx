@@ -14,6 +14,7 @@ import { StarRating } from "../../hooks/StarRating";
 import Modal from "../modal/Modal";
 import { modal } from "../../utils/recoil/modal";
 import { ConvertTime } from "../../hooks/ConvertTime";
+import { useParams } from "react-router";
 
 export interface CommentProps {
   comment: Comment;
@@ -29,6 +30,8 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
   const [userState, setProfileState] = useRecoilState(profileState);
   const [isLike, setIsLike] = useState<Boolean>();
   const [{ modalName }, setModal] = useRecoilState(modal);
+  const params = useParams() as { profile: string; intraId: string };
+  const intraId = params.intraId;
 
   const clickLikeButton = (commentId?: Number, intraId?: String) => {
     fetch(`${baseUrl}/like.${commentId}/${intraId}`, {
@@ -57,7 +60,7 @@ const Comments = ({ comment, isLikeComment }: CommentProps) => {
           )}
           {isLikeComment && <span className={styles_star.divide}>|</span>}
           <span className={styles.commentTime}>{getTime(comment.update_time)}</span>
-          {comment.intra_id === userState.intra_id || isLikeComment === false ? (
+          {comment.intra_id === userState.intra_id || (isLikeComment === false && intraId === userState.intra_id) ? (
             <button
               style={{"all":"unset"}}
               className={styles.commentEditBtn}
