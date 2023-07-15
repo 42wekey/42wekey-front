@@ -7,8 +7,8 @@ import { useRecoilState } from 'recoil';
 import { profileState } from '../../utils/recoil/user';
 import { modal } from '../../utils/recoil/modal';
 import { StarRating } from '../../hooks/StarRating';
-import { ReactComponent as Like } from '../../like.svg';
-import { ReactComponent as Like2 } from '../../alreadyLike.svg';
+import { ReactComponent as Like } from '../../svg/like.svg';
+import { ReactComponent as Like2 } from '../../svg/alreadyLike.svg';
 import { instance } from '../../utils/axios';
 import { redirect, useNavigate } from 'react-router';
 

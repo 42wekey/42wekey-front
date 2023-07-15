@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./RecentComment.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
+import { ReactComponent as EmptyStar } from "../../svg/emptyStar.svg";
 import {ConvertTime} from "../../hooks/ConvertTime";
 import { Link } from "react-router-dom";
 
