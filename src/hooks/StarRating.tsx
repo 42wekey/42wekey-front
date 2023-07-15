@@ -1,5 +1,5 @@
 import styles_star from "./StarRating.module.css";
-import { ReactComponent as EmptyStar } from "../emptyStar.svg";
+import { ReactComponent as EmptyStar } from "../svg/emptyStar.svg";
 
 interface Star {
 	star_rating: number;

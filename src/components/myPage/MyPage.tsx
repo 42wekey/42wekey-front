@@ -8,6 +8,7 @@ import WriteableList from './WriteableList';
 import CommentList from './CommentList';
 import { instance } from '../../utils/axios';
 import { redirect, useNavigate } from "react-router";
+import { errorState } from '../../utils/recoil/error';
 
 interface Profile {
   user_level: number;
@@ -25,6 +26,7 @@ export default function MyComment() {
   const [unreviewedNumber, setUnreviewedNumber] = useState(0);
   const params = useParams() as { profile: string; intraId: string };
   const intraId = params.intraId;
+  const [error, setError] = useRecoilState(errorState);
   const navigate = useNavigate();
 
   const menuName = userState.intra_id === intraId ? '마이페이지' : '프로필';
@@ -33,6 +35,28 @@ export default function MyComment() {
 
   const getAll = async () => {
     try {
+      // await instance.get(`/users/${intraId}/info`)
+      // .then((res)=>{
+      //   setProfileUser(res.data)
+      //   instance.get(`/users/${intraId}/comments`)
+      //   .then((res)=>{
+      //     setMyComments(res.data);
+      //     instance.get(`/users/me/likes`)
+      //     .then((res) => {
+      //       setLikeComments(res.data);
+      //       instance.get(`/users/${intraId}/unreviewed`)
+      //       .then((res)=>{
+      //         setUnreviewed(res.data);
+      //       })
+      //     })
+      //   })
+      // })
+      // .catch((e)=>{
+      //   if (!(e.response && e.response.status === 401)) {
+      //     setError('SubjectRank');
+      //     navigate('/error');
+      //   }
+      // })
       let res = await instance.get(`/users/${intraId}/info`);
       setProfileUser(res.data);
       console.log(profileUser);
@@ -46,8 +70,8 @@ export default function MyComment() {
       setUnreviewed(res.data);
       console.log(unreviewed);
     } catch (e) {
-      //navigate("/error");
-      console.log('error');
+      setError('MyPage');
+      navigate("/error");
     }
   };
 

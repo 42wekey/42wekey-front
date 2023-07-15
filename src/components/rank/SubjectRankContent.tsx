@@ -1,7 +1,7 @@
 import styles from "./SubjectRankContent.module.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { Link } from "react-router-dom";
-import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
+import { ReactComponent as EmptyStar } from "../../svg/emptyStar.svg";
 import { useEffect } from "react";
 
 

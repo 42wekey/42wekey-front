@@ -24,6 +24,7 @@ interface wiki {
 
 interface description {
   subject_description: string;
+  is_success : boolean;
 }
 
 export default function SubjectDetail() {
@@ -68,7 +69,7 @@ export default function SubjectDetail() {
       const res = await instance.get(`/comments/${sbj}`);
       setComment(res.data);
     } catch (e) {
-      setError('123');
+      setError('서브젝트');
       navigate('/error');
     }
   };
@@ -175,13 +176,15 @@ export default function SubjectDetail() {
               <div className={styles.editBtnContainer}>
                 <button
                   onClick={() =>
-                    setModal({
+                    subjectDescription?.is_success ? setModal({
                       modalName: 'commentInput',
                       commentInput: {
                         subjectName: params.sbj_name,
                         circle: parseInt(params.circle),
                       },
                     })
+                    :
+                    alert("댓글을 작성할 수 없습니다.")
                   }
                   className={styles.editBtn}
                 >
