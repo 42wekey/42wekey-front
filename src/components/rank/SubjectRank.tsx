@@ -1,10 +1,10 @@
-import styles from "./SubjectRank.module.css";
-import { useEffect, useState } from "react";
-import SubjectRankContent from "./SubjectRankContent";
-import { instance } from "../../utils/axios";
-import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router";
-import { errorState } from "../../utils/recoil/error";
+import styles from './SubjectRank.module.css';
+import { useEffect, useState } from 'react';
+import SubjectRankContent from './SubjectRankContent';
+import { instance } from '../../utils/axios';
+import { useRecoilState } from 'recoil';
+import { useNavigate } from 'react-router';
+import { errorState } from '../../utils/recoil/error';
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -51,7 +51,7 @@ export default function SubjectRank() {
   useEffect(() => {
     fetch(`${baseUrl}/subjects/rank`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("42ence-token")}`,
+        Authorization: `Bearer ${localStorage.getItem('42ence-token')}`,
       },
     })
       .then((res) => res.json())
@@ -59,13 +59,17 @@ export default function SubjectRank() {
   }, []);
 
   const getSubjectRank = async () => {
-    try {
-      const res = await instance.get(`/subjects/rank`);
-      setSubjectRankList(res.data);
-    } catch (e) {
-      setError('SubjectRank');
-      navigate("/error");
-    }
+    await instance
+      .get(`/subjects/rank`)
+      .then((res) => {
+        setSubjectRankList(res.data);
+      })
+      .catch((error) => {
+        if (!(error.response && error.response.status === 401)) {
+          setError('SubjectRank');
+          navigate('/error');
+        }
+      });
   };
 
   useEffect(() => {
@@ -77,11 +81,19 @@ export default function SubjectRank() {
       <div className={styles.rankContainer}>
         <div className={styles.rankTitle}>카뎃들의 과제 랭킹 👀️</div>
         <div className={styles.keyword}>
-        {subjectRankList?.map((value, index) => (
-          <div key={index} className={`${rankIndex === index ? styles.selectKeyword : styles.keywordContent}`} onClick={()=>setRankIndex(index)}>
-          <a >{value.title}</a>
-          </div>
-        ))}
+          {subjectRankList?.map((value, index) => (
+            <div
+              key={index}
+              className={`${
+                rankIndex === index
+                  ? styles.selectKeyword
+                  : styles.keywordContent
+              }`}
+              onClick={() => setRankIndex(index)}
+            >
+              <a>{value.title}</a>
+            </div>
+          ))}
         </div>
         <SubjectRankContent
           title={subjectRankList[rankIndex]?.title}
@@ -165,4 +177,3 @@ export default function SubjectRank() {
 //         .then((data) => setSubjectCommentRank(data));
 // 	}
 //   }, [selectRank]);
-

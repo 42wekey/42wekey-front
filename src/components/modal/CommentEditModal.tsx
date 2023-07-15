@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import ClearIcon from "@mui/icons-material/Clear";
 import { modal, modalState } from "../../utils/recoil/modal";
-import { ReactComponent as EmptyStar } from "../../emptyStar.svg";
+import { ReactComponent as EmptyStar } from "../../svg/emptyStar.svg";
 import { instance } from "../../utils/axios";
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;

@@ -1,4 +1,4 @@
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill';
 import './SubjectWiki.module.css';
 import 'react-quill/dist/quill.snow.css';
 import styles from './SubjectWiki.module.css';
@@ -9,6 +9,8 @@ import { useNavigate, useParams } from 'react-router';
 import { instance } from '../../utils/axios';
 import { useRecoilState } from 'recoil';
 import { errorState } from '../../utils/recoil/error';
+import ImageResize from 'quill-image-resize';
+Quill.register('modules/ImageResize', ImageResize);
 
 const baseUrl = `${process.env.REACT_APP_END_POINT}`;
 
@@ -67,6 +69,9 @@ const modules = {
       ['clean'],
     ],
   },
+  ImageResize: {
+		parchment: Quill.import('parchment')
+	}
 };
 
 interface propType {
