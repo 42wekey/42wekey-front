@@ -3,4 +3,3 @@ node_modules/
 */.history/
 /.history/
 .env*
-build/
