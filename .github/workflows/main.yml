@@ -28,3 +28,4 @@ jobs:
             git fetch
             git pull
             npm i
+            pm2 restart npm
